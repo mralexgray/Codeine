@@ -2947,5 +2947,16 @@
 	<array>
 		<string>/System/Library/Frameworks/Foundation.framework</string>
 	</array>
+	<key>FileTypes</key>
+	<dict>
+		<key>c</key>
+		<integer>1</integer>
+		<key>cpp</key>
+		<integer>2</integer>
+		<key>m</key>
+		<integer>3</integer>
+		<key>mm</key>
+		<integer>4</integer>
+	</dict>
 </dict>
 </plist>
