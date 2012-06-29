@@ -53,6 +53,7 @@
 		05DD28F7159E1E3C008E228F /* CEEditorViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD28F6159E1E3C008E228F /* CEEditorViewController+Private.m */; };
 		05DD28FA159E1F07008E228F /* CESourceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD28F9159E1F07008E228F /* CESourceFile.m */; };
 		05DD28FD159E1F16008E228F /* CEDebugViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD28FC159E1F16008E228F /* CEDebugViewController+Private.m */; };
+		05DD2904159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD2903159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m */; };
 		05F5152A159A17AE0049A756 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F51528159A17AE0049A756 /* Localizable.strings */; };
 		05F5152E159A19820049A756 /* CEPreferencesWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */; };
 /* End PBXBuildFile section */
@@ -139,6 +140,8 @@
 		05DD28F9159E1F07008E228F /* CESourceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CESourceFile.m; sourceTree = "<group>"; };
 		05DD28FB159E1F16008E228F /* CEDebugViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDebugViewController+Private.h"; sourceTree = "<group>"; };
 		05DD28FC159E1F16008E228F /* CEDebugViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEDebugViewController+Private.m"; sourceTree = "<group>"; };
+		05DD2902159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h"; sourceTree = "<group>"; };
+		05DD2903159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m"; sourceTree = "<group>"; };
 		05F51529159A17AE0049A756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05F5152B159A17EB0049A756 /* macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
 		05F5152C159A19820049A756 /* CEPreferencesWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesWindowController+Private.h"; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				057F5847159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.m */,
 				057F5848159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.h */,
 				057F5849159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.m */,
+				05DD2902159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h */,
+				05DD2903159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m */,
 				057F584A159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController.h */,
 				057F584B159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController.m */,
 			);
@@ -549,6 +554,7 @@
 				05DD28F7159E1E3C008E228F /* CEEditorViewController+Private.m in Sources */,
 				05DD28FA159E1F07008E228F /* CESourceFile.m in Sources */,
 				05DD28FD159E1F16008E228F /* CEDebugViewController+Private.m in Sources */,
+				05DD2904159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
