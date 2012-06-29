@@ -67,7 +67,22 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
 
 - ( IBAction )removeFramework: ( id )sender
 {
+    NSMutableArray * frameworks;
+    
     ( void )sender;
+    
+    if( [ _objcFrameworksTableView selectedRow ] == -1 )
+    {
+        return;
+    }
+    
+    frameworks = [ [ [ CEPreferences sharedInstance ] objCFrameworks ] mutableCopy ];
+    
+    [ frameworks removeObjectAtIndex: ( NSUInteger )( [ _objcFrameworksTableView selectedRow ] ) ];
+    [ [ CEPreferences sharedInstance ] setObjCFrameworks: [ NSArray arrayWithArray: frameworks ] ];
+    
+    [ frameworks release ];
+    [ _objcFrameworksTableView reloadData ];
 }
 
 @end
