@@ -59,13 +59,17 @@
             frameworks = [ [ CEPreferences sharedInstance ] objCFrameworks ];
             framework  = [ frameworks objectAtIndex: ( NSUInteger )row ];
             
-            if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFrameworkIdentifier ]  )
+            if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnFrameworkIdentifier ]  )
             {
-                return [ framework stringByAppendingPathExtension: @"framework" ];
+                return [ [ framework lastPathComponent ] stringByDeletingPathExtension ];
             }
-            else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnIconIdentifier ]  )
+            else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnIconIdentifier ]  )
             {
                 return [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconDeveloperFolderIcon ];
+            }
+            else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnPathIdentifier ]  )
+            {
+                return [ framework stringByDeletingLastPathComponent ];
             }
         }
     }

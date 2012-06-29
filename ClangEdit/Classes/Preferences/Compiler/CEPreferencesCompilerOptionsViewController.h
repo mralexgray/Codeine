@@ -9,8 +9,9 @@
 
 FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnWarningIdentifier;
 FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier;
-FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnIconIdentifier;
-FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFrameworkIdentifier;
+FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnIconIdentifier;
+FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnFrameworkIdentifier;
+FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnPathIdentifier;
 
 @interface CEPreferencesCompilerOptionsViewController: CEViewController
 {
@@ -26,5 +27,8 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFla
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView * flagsTableView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView * objcFrameworksTableView;
+
+- ( IBAction )addFramework: ( id )sender;
+- ( IBAction )removeFramework: ( id )sender;
 
 @end
