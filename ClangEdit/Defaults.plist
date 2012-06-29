@@ -2945,7 +2945,7 @@
 	</array>
 	<key>ObjCFrameworks</key>
 	<array>
-		<string>Foundation</string>
+		<string>/System/Library/Frameworks/Foundation.framework</string>
 	</array>
 </dict>
 </plist>
