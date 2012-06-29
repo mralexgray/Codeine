@@ -32,6 +32,8 @@
     CGFloat        a;
     NSDictionary * colorValues;
     
+    color = [ color colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
+    
     r = ( CGFloat )0;
     g = ( CGFloat )0;
     b = ( CGFloat )0;
