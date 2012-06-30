@@ -8,7 +8,7 @@
 #ifndef __CE_MACROS_H__
 #define __CE_MACROS_H__
 
-#define L10N( __label__ )                       NSLocalizedString( @(__label__), nil )
+#define L10N( __label__ )                       NSLocalizedString( [ NSString stringWithCString: __label__ encoding: NSUTF8StringEncoding ], nil )
 
 #define RELEASE_IVAR( __ivar__ )                [ __ivar__ release ]; __ivar__ = nil
 
