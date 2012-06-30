@@ -6,8 +6,10 @@
 /* $Id$ */
 
 #import "CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.h"
+#import "CEPreferencesCompilerOptionsViewController+Private.h"
 #import "CEPreferences.h"
 #import "CESystemIconsHelper.h"
+#import "CEMutableOrderedDictionary.h"
 
 @implementation CEPreferencesCompilerOptionsViewController( NSTableViewDataSource )
 
@@ -29,24 +31,25 @@
 {
     if( tableView == _flagsTableView )
     {
+        if( _warningFlags == nil )
         {
-            NSArray        * flags;
-            NSDictionary   * flagDict;
+            [ self getWarningFlags ];
+        }
+        
+        {
             NSString       * flag;
             NSCellStateValue state;
             
-            flags    = [ [ CEPreferences sharedInstance ] warningFlags ];
-            flagDict = ( NSDictionary * )[ flags objectAtIndex: ( NSUInteger )row ];
-            flag     = [ flagDict objectForKey: @"flag" ];
-            state    = ( [ ( NSNumber * )[ flagDict objectForKey: @"state" ] boolValue ] == YES ) ? NSOnState : NSOffState;
+            flag  = [ _warningFlags keyAtIndex: ( NSUInteger )row ];
+            state = ( [ ( NSNumber * )[ _warningFlags objectAtIndex: ( NSUInteger )row ] boolValue ] == YES ) ? NSOnState : NSOffState;
             
-            if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnWarningIdentifier ]  )
+            if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier ]  )
             {
                 return [ NSNumber numberWithInteger: state ];
             }
-            else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier ] )
+            else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnDescriptionIdentifier ] )
             {
-                return flag;
+                return L10N( [ flag cStringUsingEncoding: NSUTF8StringEncoding ] );
             }
         }
     }

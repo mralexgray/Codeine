@@ -7,18 +7,22 @@
 
 #import "CEViewController.h"
 
-FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnWarningIdentifier;
 FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier;
+FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnDescriptionIdentifier;
 FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnIconIdentifier;
 FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnFrameworkIdentifier;
 FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnPathIdentifier;
+
+@class CEMutableOrderedDictionary;
 
 @interface CEPreferencesCompilerOptionsViewController: CEViewController
 {
 @protected
     
-    NSTableView * _flagsTableView;
-    NSTableView * _objcFrameworksTableView;
+    NSTableView                * _flagsTableView;
+    NSTableView                * _objcFrameworksTableView;
+    CEMutableOrderedDictionary * _warningFlags;
+    NSArray                    * _objCFrameworks;
     
 @private
     

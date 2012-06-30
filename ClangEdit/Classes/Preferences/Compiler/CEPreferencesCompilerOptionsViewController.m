@@ -11,8 +11,8 @@
 #import "CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h"
 #import "CEPreferences.h"
 
-NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnWarningIdentifier            = @"Warning";
 NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier               = @"Flag";
+NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnDescriptionIdentifier        = @"Description";
 NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnIconIdentifier      = @"Icon";
 NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnFrameworkIdentifier = @"Framework";
 NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnPathIdentifier      = @"Path";
@@ -29,6 +29,15 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
     
     _objcFrameworksTableView.delegate    = self;
     _objcFrameworksTableView.dataSource  = self;
+}
+
+- ( void )dealloc
+{
+    RELEASE_IVAR( _flagsTableView );
+    RELEASE_IVAR( _objcFrameworksTableView );
+    RELEASE_IVAR( _warningFlags );
+    
+    [ super dealloc ];
 }
 
 - ( IBAction )addFramework: ( id )sender

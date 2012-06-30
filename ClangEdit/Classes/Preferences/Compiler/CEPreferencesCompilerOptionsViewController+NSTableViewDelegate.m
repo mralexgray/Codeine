@@ -6,7 +6,9 @@
 /* $Id$ */
 
 #import "CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.h"
+#import "CEPreferencesCompilerOptionsViewController+Private.h"
 #import "CEPreferences.h"
+#import "CEMutableOrderedDictionary.h"
 
 @implementation CEPreferencesCompilerOptionsViewController( NSTableViewDelegate )
 
@@ -21,19 +23,11 @@
     
     if( tableView == _flagsTableView )
     {
-        if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnWarningIdentifier ] )
+        if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier ] )
         {
-            {
-                NSArray        * flags;
-                NSDictionary   * flagDict;
-                NSString       * flag;
-            
-                flags    = [ [ CEPreferences sharedInstance ] warningFlags ];
-                flagDict = ( NSDictionary * )[ flags objectAtIndex: ( NSUInteger )row ];
-                flag     = [ flagDict objectForKey: @"flag" ];
-                
-                [ ( NSCell * )cell setTitle: L10N( [ flag cStringUsingEncoding: NSASCIIStringEncoding ] ) ];
-            }
+            [ ( NSCell * )cell setTitle: [ _warningFlags keyAtIndex: ( NSUInteger )row ] ];
+            [ ( NSCell * )cell setTarget: self ];
+            [ ( NSCell * )cell setAction: @selector( setFlag: ) ];
         }
     }
 }
