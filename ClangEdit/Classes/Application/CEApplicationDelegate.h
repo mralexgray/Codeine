@@ -24,5 +24,6 @@
 + ( CEApplicationDelegate * )sharedInstance;
 - ( IBAction )showPreferencesWindow: ( id )sender;
 - ( IBAction )showAboutWindow: ( id )sender;
+- ( IBAction )newWindow: ( id )sender;
 
 @end

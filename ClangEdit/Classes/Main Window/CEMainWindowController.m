@@ -105,4 +105,11 @@
     }
 }
 
+- ( IBAction )newDocument: ( id )sender
+{
+    ( void )sender;
+    
+    NSLog( @"New document..." );
+}
+
 @end

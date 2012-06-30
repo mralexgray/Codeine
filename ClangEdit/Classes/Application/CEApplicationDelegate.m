@@ -46,7 +46,7 @@
     
     _mainWindowControllers = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
-    [ self newDocument: nil ];
+    [ self newWindow: nil ];
 }
 
 - ( IBAction )showPreferencesWindow: ( id )sender
@@ -75,7 +75,7 @@
     [ _aboutWindowController.window makeKeyAndOrderFront: sender ];
 }
 
-- ( IBAction )newDocument: ( id )sender
+- ( IBAction )newWindow: ( id )sender
 {
     CEMainWindowController * controller;
     
