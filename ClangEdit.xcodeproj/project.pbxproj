@@ -56,6 +56,7 @@
 		05DD2904159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD2903159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m */; };
 		05DD2908159F1E5D008E228F /* CEOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */; };
 		05DD290B159F24AB008E228F /* CEMutableOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */; };
+		05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */; };
 		05F5152A159A17AE0049A756 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F51528159A17AE0049A756 /* Localizable.strings */; };
 		05F5152E159A19820049A756 /* CEPreferencesWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */; };
 /* End PBXBuildFile section */
@@ -148,6 +149,8 @@
 		05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOrderedDictionary.m; sourceTree = "<group>"; };
 		05DD2909159F24AB008E228F /* CEMutableOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMutableOrderedDictionary.h; sourceTree = "<group>"; };
 		05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMutableOrderedDictionary.m; sourceTree = "<group>"; };
+		05EF1967159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+Private.h"; sourceTree = "<group>"; };
+		05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesCompilerOptionsViewController+Private.m"; sourceTree = "<group>"; };
 		05F51529159A17AE0049A756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05F5152B159A17EB0049A756 /* macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
 		05F5152C159A19820049A756 /* CEPreferencesWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesWindowController+Private.h"; sourceTree = "<group>"; };
@@ -362,6 +365,8 @@
 				057F5849159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.m */,
 				05DD2902159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h */,
 				05DD2903159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m */,
+				05EF1967159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.h */,
+				05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */,
 				057F584A159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController.h */,
 				057F584B159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController.m */,
 			);
@@ -567,6 +572,7 @@
 				05DD2904159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */,
 				05DD2908159F1E5D008E228F /* CEOrderedDictionary.m in Sources */,
 				05DD290B159F24AB008E228F /* CEMutableOrderedDictionary.m in Sources */,
+				05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
