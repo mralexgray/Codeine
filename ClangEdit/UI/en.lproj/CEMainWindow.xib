@@ -145,7 +145,7 @@
 						<reference ref="1042455176"/>
 						<reference ref="221569189"/>
 					</array>
-					<array class="NSMutableArray" key="NSToolbarIBDefaultItems">
+					<array key="NSToolbarIBDefaultItems">
 						<reference ref="221569189"/>
 						<reference ref="798807703"/>
 					</array>
@@ -178,7 +178,7 @@
 										<object class="NSCustomView" id="154086905">
 											<reference key="NSNextResponder" ref="43068519"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrameSize">{597, 459}</string>
+											<string key="NSFrameSize">{597, 453}</string>
 											<reference key="NSSuperview" ref="43068519"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="553544108"/>
@@ -188,7 +188,7 @@
 										<object class="NSCustomView" id="553544108">
 											<reference key="NSNextResponder" ref="43068519"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrame">{{0, 460}, {597, 154}}</string>
+											<string key="NSFrame">{{0, 462}, {597, 152}}</string>
 											<reference key="NSSuperview" ref="43068519"/>
 											<reference key="NSWindow"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
@@ -200,7 +200,6 @@
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="154086905"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
-									<int key="NSDividerStyle">2</int>
 								</object>
 							</array>
 							<string key="NSFrameSize">{800, 614}</string>
