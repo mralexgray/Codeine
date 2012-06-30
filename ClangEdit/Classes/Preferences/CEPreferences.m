@@ -27,7 +27,6 @@ NSString * const CEPreferencesKeySourcePredefinedColor      = @"ColorSourcePrede
 NSString * const CEPreferencesKeyWarningFlags               = @"WarningFlags";
 NSString * const CEPreferencesKeyWarningFlagsPresetStrict   = @"WarningFlagsPresetStrict";
 NSString * const CEPreferencesKeyWarningFlagsPresetNormal   = @"WarningFlagsPresetNormal";
-NSString * const CEPreferencesKeyWarningFlagsPresetNone     = @"WarningFlagsPresetNone";
 NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
 
 @implementation CEPreferences
@@ -97,6 +96,26 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
 - ( void )dealloc
 {
     [ super dealloc ];
+}
+
+- ( void )enableWarningFlag: ( NSString * )name
+{
+    ( void )name;
+}
+
+- ( void )disableWarningFlag: ( NSString * )name
+{
+    ( void )name;
+}
+
+- ( void )addObjCFramework: ( NSString * )name
+{
+    ( void )name;
+}
+
+- ( void )removeObjCFramework: ( NSString * )name
+{
+    ( void )name;
 }
 
 #pragma mark -
@@ -182,7 +201,7 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     }
 }
 
-- ( NSArray * )warningFlags
+- ( NSDictionary * )warningFlags
 {
     @synchronized( self )
     {
@@ -190,7 +209,7 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     }
 }
 
-- ( NSArray * )warningFlagsPresetStrict
+- ( NSDictionary * )warningFlagsPresetStrict
 {
     @synchronized( self )
     {
@@ -198,19 +217,11 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     }
 }
 
-- ( NSArray * )warningFlagsPresetNormal
+- ( NSDictionary * )warningFlagsPresetNormal
 {
     @synchronized( self )
     {
         return [ DEFAULTS objectForKey: CEPreferencesKeyWarningFlagsPresetNormal ];
-    }
-}
-
-- ( NSArray * )warningFlagsPresetNone
-{
-    @synchronized( self )
-    {
-        return [ DEFAULTS objectForKey: CEPreferencesKeyWarningFlagsPresetNone ];
     }
 }
 
@@ -335,7 +346,7 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     }
 }
 
-- ( void )setWarningFlags: ( NSArray * )value
+- ( void )setWarningFlags: ( NSDictionary * )value
 {
     @synchronized( self )
     {

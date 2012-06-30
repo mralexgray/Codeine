@@ -30,7 +30,7 @@
 
 - ( void )applicationDidFinishLaunching: ( NSNotification * )notification
 {
-    NSArray * warningFlags;
+    NSDictionary * warningFlags;
     
     ( void )notification;
     

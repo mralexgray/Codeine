@@ -20,7 +20,6 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeySourcePredefinedColor;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyWarningFlags;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyWarningFlagsPresetStrict;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyWarningFlagsPresetNormal;
-FOUNDATION_EXPORT NSString * const CEPreferencesKeyWarningFlagsPresetNone;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCFrameworks;
 
 @interface CEPreferences: NSObject
@@ -44,12 +43,16 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCFrameworks;
 @property( atomic, readwrite, assign ) NSColor      * sourceCommentColor;
 @property( atomic, readwrite, assign ) NSColor      * sourceStringColor;
 @property( atomic, readwrite, assign ) NSColor      * sourcePredefinedColor;
-@property( atomic, readwrite, assign ) NSArray      * warningFlags;
-@property( atomic, readonly          ) NSArray      * warningFlagsPresetStrict;
-@property( atomic, readonly          ) NSArray      * warningFlagsPresetNormal;
-@property( atomic, readonly          ) NSArray      * warningFlagsPresetNone;
+@property( atomic, readwrite, assign ) NSDictionary * warningFlags;
+@property( atomic, readonly          ) NSDictionary * warningFlagsPresetStrict;
+@property( atomic, readonly          ) NSDictionary * warningFlagsPresetNormal;
 @property( atomic, readwrite, assign ) NSArray      * objCFrameworks;
 
 + ( CEPreferences * )sharedInstance;
+
+- ( void )enableWarningFlag: ( NSString * )name;
+- ( void )disableWarningFlag: ( NSString * )name;
+- ( void )addObjCFramework: ( NSString * )name;
+- ( void )removeObjCFramework: ( NSString * )name;
 
 @end
