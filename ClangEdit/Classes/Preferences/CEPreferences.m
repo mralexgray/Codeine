@@ -122,12 +122,32 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
 
 - ( void )addObjCFramework: ( NSString * )name
 {
-    ( void )name;
+    NSMutableArray * frameworks;
+    
+    frameworks = [ [ self objCFrameworks ] mutableCopy ];
+    
+    if( [ frameworks containsObject: name ] == NO )
+    {
+        [ frameworks addObject: name ];
+        [ self setObjCFrameworks: [ NSArray arrayWithArray: frameworks ] ];
+    }
+    
+    [ frameworks release ];
 }
 
 - ( void )removeObjCFramework: ( NSString * )name
 {
-    ( void )name;
+    NSMutableArray * frameworks;
+    
+    frameworks = [ [ self objCFrameworks ] mutableCopy ];
+    
+    if( [ frameworks containsObject: name ] == YES )
+    {
+        [ frameworks removeObject: name ];
+        [ self setObjCFrameworks: [ NSArray arrayWithArray: frameworks ] ];
+    }
+    
+    [ frameworks release ];
 }
 
 #pragma mark -

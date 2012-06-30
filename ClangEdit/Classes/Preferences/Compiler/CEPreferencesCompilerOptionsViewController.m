@@ -56,19 +56,12 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
     
     [ panel beginSheetModalForWindow: self.view.window completionHandler: ^( NSInteger result )
         {
-            NSMutableArray * frameworks;
-            
             if( result != NSFileHandlingPanelOKButton )
             {
                 return;
             }
             
-            frameworks = [ [ [ CEPreferences sharedInstance ] objCFrameworks ] mutableCopy ];
-            
-            [ frameworks addObject: [ [ panel URL ] path ] ];
-            [ [ CEPreferences sharedInstance ] setObjCFrameworks: [ NSArray arrayWithArray: frameworks ] ];
-            
-            [ frameworks release ];
+            [ [ CEPreferences sharedInstance ] addObjCFramework: [ [ panel URL ] path ] ];
             [ _objcFrameworksTableView reloadData ];
         }
     ];
@@ -76,7 +69,8 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
 
 - ( IBAction )removeFramework: ( id )sender
 {
-    NSMutableArray * frameworks;
+    NSArray  * frameworks;
+    NSUInteger row;
     
     ( void )sender;
     
@@ -85,12 +79,15 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
         return;
     }
     
-    frameworks = [ [ [ CEPreferences sharedInstance ] objCFrameworks ] mutableCopy ];
+    row        = ( NSUInteger )_objcFrameworksTableView.selectedRow;
+    frameworks = [ [ CEPreferences sharedInstance ] objCFrameworks ];
     
-    [ frameworks removeObjectAtIndex: ( NSUInteger )( [ _objcFrameworksTableView selectedRow ] ) ];
-    [ [ CEPreferences sharedInstance ] setObjCFrameworks: [ NSArray arrayWithArray: frameworks ] ];
+    if( row >= frameworks.count )
+    {
+        return;
+    }
     
-    [ frameworks release ];
+    [ [ CEPreferences sharedInstance ] removeObjCFramework: [ frameworks objectAtIndex: row ] ];
     [ _objcFrameworksTableView reloadData ];
 }
 
