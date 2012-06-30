@@ -12,7 +12,8 @@
 
 - ( void )updateView
 {
-    NSFont * font;
+    NSFont       * font;
+    NSDictionary * selectionAttributes;
     
     font = [ NSFont fontWithName: [ [ CEPreferences sharedInstance ] fontName ] size: [ [ CEPreferences sharedInstance ] fontSize ] ];
     
@@ -20,6 +21,13 @@
     _textView.backgroundColor     = [ [ CEPreferences sharedInstance ] generalBackgroundColor ];
     _textView.textColor           = [ [ CEPreferences sharedInstance ] generalForegroundColor ];
     _textView.insertionPointColor = [ [ CEPreferences sharedInstance ] generalForegroundColor ];
+    
+    selectionAttributes =   [ NSDictionary dictionaryWithObjectsAndKeys:    [ [ CEPreferences sharedInstance ] generalSelectionColor ],  NSBackgroundColorAttributeName,
+                                                                            [ [ CEPreferences sharedInstance ] generalForegroundColor ], NSForegroundColorAttributeName,
+                                                                            nil
+                            ];
+    
+    [ _textView setSelectedTextAttributes: selectionAttributes ];
 }
 
 @end
