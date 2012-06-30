@@ -100,12 +100,24 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
 
 - ( void )enableWarningFlag: ( NSString * )name
 {
-    ( void )name;
+    NSMutableDictionary * flags;
+    
+    flags = [ [ self warningFlags ] mutableCopy ];
+    
+    [ flags setObject: [ NSNumber numberWithBool: YES ] forKey: name ];
+    [ self setWarningFlags: [ NSDictionary dictionaryWithDictionary: flags ] ];
+    [ flags release ];
 }
 
 - ( void )disableWarningFlag: ( NSString * )name
 {
-    ( void )name;
+    NSMutableDictionary * flags;
+    
+    flags = [ [ self warningFlags ] mutableCopy ];
+    
+    [ flags setObject: [ NSNumber numberWithBool: NO ] forKey: name ];
+    [ self setWarningFlags: [ NSDictionary dictionaryWithDictionary: flags ] ];
+    [ flags release ];
 }
 
 - ( void )addObjCFramework: ( NSString * )name

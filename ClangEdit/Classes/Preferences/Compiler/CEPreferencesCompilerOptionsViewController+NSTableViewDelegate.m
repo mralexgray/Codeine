@@ -26,8 +26,6 @@
         if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier ] )
         {
             [ ( NSCell * )cell setTitle: [ _warningFlags keyAtIndex: ( NSUInteger )row ] ];
-            [ ( NSCell * )cell setTarget: self ];
-            [ ( NSCell * )cell setAction: @selector( setFlag: ) ];
         }
     }
 }

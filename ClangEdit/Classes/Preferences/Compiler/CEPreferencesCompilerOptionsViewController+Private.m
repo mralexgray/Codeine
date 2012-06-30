@@ -40,9 +40,4 @@
     }
 }
 
-- ( IBAction )setFlag: ( id )sender
-{
-    ( void )sender;
-}
-
 @end

@@ -10,6 +10,5 @@
 @interface CEPreferencesCompilerOptionsViewController( Private )
 
 - ( void )getWarningFlags;
-- ( IBAction )setFlag: ( id )sender;
 
 @end

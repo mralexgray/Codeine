@@ -80,4 +80,30 @@
     return nil;
 }
 
+- ( void )tableView: ( NSTableView * )tableView setObjectValue: ( id )object forTableColumn: ( NSTableColumn * )column row: ( NSInteger )row
+{
+    NSString * flag;
+    
+    ( void )column;
+    
+    if( tableView != _flagsTableView )
+    {
+        return;
+    }
+    
+    flag = [ _warningFlags keyAtIndex: ( NSUInteger )row ];
+    
+    if( [ ( NSNumber * )object boolValue ] == YES )
+    {
+        [ [ CEPreferences sharedInstance ] enableWarningFlag: flag ];
+    }
+    else
+    {
+        [ [ CEPreferences sharedInstance ] disableWarningFlag: flag ];
+    }
+    
+    [ self getWarningFlags ];
+    [ _flagsTableView reloadData ];
+}
+
 @end
