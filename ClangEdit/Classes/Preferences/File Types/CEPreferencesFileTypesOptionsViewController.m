@@ -6,9 +6,40 @@
 /* $Id$ */
 
 #import "CEPreferencesFileTypesOptionsViewController.h"
+#import "CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.h"
+#import "CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.h"
+#import "CEPreferencesFileTypesOptionsViewController+Private.h"
+
+NSString * const CEPreferencesCompilerOptionsViewControllerColumnIconIdentifier         = @"Icon";
+NSString * const CEPreferencesCompilerOptionsViewControllerColumnExtensionIdentifier    = @"Extension";
+NSString * const CEPreferencesCompilerOptionsViewControllerColumnTypeIdentifier         = @"Type";
 
 @implementation CEPreferencesFileTypesOptionsViewController
 
+@synthesize tableView = _tableView;
 
+- ( void )dealloc
+{
+    RELEASE_IVAR( _tableView );
+    RELEASE_IVAR( _fileTypes );
+    
+    [ super dealloc ];
+}
+
+- ( void )awakeFromNib
+{
+    _tableView.delegate   = self;
+    _tableView.dataSource = self;
+}
+
+- ( IBAction )addFileType: ( id )sender
+{
+    ( void )sender;
+}
+
+- ( IBAction )removeFileType: ( id )sender
+{
+    ( void )sender;
+}
 
 @end
