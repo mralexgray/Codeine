@@ -169,6 +169,27 @@ NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
     [ frameworks release ];
 }
 
+- ( void )addFileType: ( CESourceFileLanguage )type forExtension: ( NSString * )extension
+{
+    NSMutableDictionary * types;
+    
+    types = [ [ self fileTypes ] mutableCopy ];
+    
+    [ types setObject: [ NSNumber numberWithUnsignedInteger: ( NSUInteger )type ] forKey: extension ];
+    
+    [ DEFAULTS setObject: [ NSDictionary dictionaryWithDictionary: types ] forKey: CEPreferencesKeyFileTypes ];
+    [ DEFAULTS synchronize ];
+        
+    __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFileTypes );
+    
+    [ types release ];
+}
+
+- ( void )removeFileTypeForExtension: ( NSString * )extension
+{
+    ( void )extension;
+}
+
 #pragma mark -
 #pragma mark Getters
 

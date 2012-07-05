@@ -57,4 +57,21 @@
     return nil;
 }
 
+- ( void )tableView: ( NSTableView * )tableView setObjectValue: ( id )object forTableColumn: ( NSTableColumn * )column row: ( NSInteger )row
+{
+    NSString           * extension;
+    CESourceFileLanguage type;
+    
+    ( void )tableView;
+    ( void )column;
+    
+    extension = [ _fileTypes keyAtIndex: ( NSUInteger )row ];
+    type      = ( CESourceFileLanguage )( [ ( NSNumber * )object unsignedIntegerValue ] + 1 );
+    
+    [ [ CEPreferences sharedInstance ] addFileType: type forExtension: extension ];
+    
+    [ self getFileTypes ];
+    [ _tableView reloadData ];
+}
+
 @end

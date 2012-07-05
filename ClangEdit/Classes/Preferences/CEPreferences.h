@@ -23,6 +23,8 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyWarningFlagsPresetNormal;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCFrameworks;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyFileTypes;
 
+#import "CESourceFile.h"
+
 @interface CEPreferences: NSObject
 {
 @protected
@@ -56,5 +58,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyFileTypes;
 - ( void )disableWarningFlag: ( NSString * )name;
 - ( void )addObjCFramework: ( NSString * )name;
 - ( void )removeObjCFramework: ( NSString * )name;
+- ( void )addFileType: ( CESourceFileLanguage )type forExtension: ( NSString * )extension;
+- ( void )removeFileTypeForExtension: ( NSString * )extension;
 
 @end
