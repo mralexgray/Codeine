@@ -51,7 +51,7 @@
     }
     else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerColumnTypeIdentifier ] )
     {
-        return nil;
+        return [ NSNumber numberWithInt: type - 1 ];
     }
     
     return nil;
