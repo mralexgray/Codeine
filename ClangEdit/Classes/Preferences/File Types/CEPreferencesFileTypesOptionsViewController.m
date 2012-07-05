@@ -10,6 +10,8 @@
 #import "CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.h"
 #import "CEPreferencesFileTypesOptionsViewController+Private.h"
 #import "CEPreferencesFileTypesAddNewViewController.h"
+#import "CEPreferences.h"
+#import "CEMutableOrderedDictionary.h"
 
 NSString * const CEPreferencesCompilerOptionsViewControllerColumnIconIdentifier         = @"Icon";
 NSString * const CEPreferencesCompilerOptionsViewControllerColumnExtensionIdentifier    = @"Extension";
@@ -47,7 +49,26 @@ NSString * const CEPreferencesCompilerOptionsViewControllerColumnTypeIdentifier 
 
 - ( IBAction )removeFileType: ( id )sender
 {
+    NSUInteger row;
+    
     ( void )sender;
+    
+    if( [ _tableView selectedRow ] == -1 )
+    {
+        return;
+    }
+    
+    row = ( NSUInteger )_tableView.selectedRow;
+    
+    if( row >= _fileTypes.count )
+    {
+        return;
+    }
+    
+    [ [ CEPreferences sharedInstance ] removeFileTypeForExtension: [ _fileTypes keyAtIndex: row ] ];
+    
+    [ self getFileTypes ];
+    [ _tableView reloadData ];
 }
 
 @end

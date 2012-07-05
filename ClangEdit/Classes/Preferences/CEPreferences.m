@@ -187,7 +187,21 @@ NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
 
 - ( void )removeFileTypeForExtension: ( NSString * )extension
 {
-    ( void )extension;
+    NSMutableDictionary * types;
+    
+    types = [ [ self fileTypes ] mutableCopy ];
+    
+    if( [ types objectForKey: extension ] != nil )
+    {
+        [ types removeObjectForKey: extension ];
+        
+        [ DEFAULTS setObject: [ NSDictionary dictionaryWithDictionary: types ] forKey: CEPreferencesKeyFileTypes ];
+        [ DEFAULTS synchronize ];
+            
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFileTypes );
+    }
+    
+    [ types release ];
 }
 
 #pragma mark -
