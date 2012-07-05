@@ -9,6 +9,7 @@
 #import "CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.h"
 #import "CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.h"
 #import "CEPreferencesFileTypesOptionsViewController+Private.h"
+#import "CEPreferencesFileTypesAddNewViewController.h"
 
 NSString * const CEPreferencesCompilerOptionsViewControllerColumnIconIdentifier         = @"Icon";
 NSString * const CEPreferencesCompilerOptionsViewControllerColumnExtensionIdentifier    = @"Extension";
@@ -35,6 +36,13 @@ NSString * const CEPreferencesCompilerOptionsViewControllerColumnTypeIdentifier 
 - ( IBAction )addFileType: ( id )sender
 {
     ( void )sender;
+    
+    if( _addNewController == nil )
+    {
+        _addNewController = [ CEPreferencesFileTypesAddNewViewController new ];
+    }
+    
+    [ APPLICATION beginSheet: _addNewController.window modalForWindow: self.view.window modalDelegate: self didEndSelector: NULL contextInfo: NULL ];
 }
 
 - ( IBAction )removeFileType: ( id )sender

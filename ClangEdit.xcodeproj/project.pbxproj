@@ -15,6 +15,8 @@
 		052B91CF15A61F1800F82759 /* CEPreferencesFileTypesOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B91CE15A61F1800F82759 /* CEPreferencesFileTypesOptionsViewController+Private.m */; };
 		052B91D315A61F2500F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B91D215A61F2400F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.m */; };
 		052B91D615A61F3100F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B91D515A61F3000F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m */; };
+		052B91D915A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052B91D715A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib */; };
+		052B91DC15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B91DB15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.m */; };
 		052FCFFF159DEBDA0045C9ED /* CEFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FCFFE159DEBDA0045C9ED /* CEFilesViewController.m */; };
 		052FD003159DECEF0045C9ED /* CEFilesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052FD001159DECEF0045C9ED /* CEFilesView.xib */; };
 		052FD009159DF53C0045C9ED /* CELanguageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052FD007159DF53C0045C9ED /* CELanguageWindow.xib */; };
@@ -80,6 +82,9 @@
 		052B91D215A61F2400F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.m"; sourceTree = "<group>"; };
 		052B91D415A61F3000F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.h"; sourceTree = "<group>"; };
 		052B91D515A61F3000F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m"; sourceTree = "<group>"; };
+		052B91D815A632DD00F82759 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesFileTypesAddNewView.xib; sourceTree = "<group>"; };
+		052B91DA15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesFileTypesAddNewViewController.h; sourceTree = "<group>"; };
+		052B91DB15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferencesFileTypesAddNewViewController.m; sourceTree = "<group>"; };
 		052FCFFD159DEBDA0045C9ED /* CEFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFilesViewController.h; sourceTree = "<group>"; };
 		052FCFFE159DEBDA0045C9ED /* CEFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFilesViewController.m; sourceTree = "<group>"; };
 		052FD002159DECEF0045C9ED /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEFilesView.xib; sourceTree = "<group>"; };
@@ -337,6 +342,7 @@
 				057F586E159D444A00C84780 /* CEDebugView.xib */,
 				052FD001159DECEF0045C9ED /* CEFilesView.xib */,
 				052FD007159DF53C0045C9ED /* CELanguageWindow.xib */,
+				052B91D715A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -406,6 +412,8 @@
 				052B91CE15A61F1800F82759 /* CEPreferencesFileTypesOptionsViewController+Private.m */,
 				057F5850159D3BE100C84780 /* CEPreferencesFileTypesOptionsViewController.h */,
 				057F5851159D3BE100C84780 /* CEPreferencesFileTypesOptionsViewController.m */,
+				052B91DA15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.h */,
+				052B91DB15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.m */,
 			);
 			path = "File Types";
 			sourceTree = "<group>";
@@ -557,6 +565,7 @@
 				052FD003159DECEF0045C9ED /* CEFilesView.xib in Resources */,
 				052FD009159DF53C0045C9ED /* CELanguageWindow.xib in Resources */,
 				052FD026159E098A0045C9ED /* Templates in Resources */,
+				052B91D915A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +614,7 @@
 				052B91CF15A61F1800F82759 /* CEPreferencesFileTypesOptionsViewController+Private.m in Sources */,
 				052B91D315A61F2500F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.m in Sources */,
 				052B91D615A61F3100F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m in Sources */,
+				052B91DC15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +635,14 @@
 				051F2E15159A13320027DD4F /* en */,
 			);
 			name = CEPreferencesWindow.xib;
+			sourceTree = "<group>";
+		};
+		052B91D715A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				052B91D815A632DD00F82759 /* en */,
+			);
+			name = CEPreferencesFileTypesAddNewView.xib;
 			sourceTree = "<group>";
 		};
 		052FD001159DECEF0045C9ED /* CEFilesView.xib */ = {

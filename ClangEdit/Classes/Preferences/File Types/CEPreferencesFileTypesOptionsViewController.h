@@ -12,13 +12,15 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerCol
 FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerColumnTypeIdentifier;
 
 @class CEMutableOrderedDictionary;
+@class CEPreferencesFileTypesAddNewViewController;
 
 @interface CEPreferencesFileTypesOptionsViewController: CEViewController
 {
 @protected
     
-    NSTableView                * _tableView;
-    CEMutableOrderedDictionary * _fileTypes;
+    NSTableView                                * _tableView;
+    CEMutableOrderedDictionary                 * _fileTypes;
+    CEPreferencesFileTypesAddNewViewController * _addNewController;
     
 @private
     
