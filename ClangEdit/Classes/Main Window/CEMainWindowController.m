@@ -112,4 +112,11 @@
     NSLog( @"New document..." );
 }
 
+- ( IBAction )saveDocument: ( id )sender
+{
+    ( void )sender;
+    
+    NSLog( @"Save document..." );
+}
+
 @end
