@@ -338,11 +338,11 @@
 				05DA346A159A243B006B688A /* CEPreferencesCompilerOptionsView.xib */,
 				0566D9A2159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib */,
 				05DA346C159A243B006B688A /* CEPreferencesFileTypesOptionsView.xib */,
+				052B91D715A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib */,
 				057F5868159D40DD00C84780 /* CEEditorView.xib */,
 				057F586E159D444A00C84780 /* CEDebugView.xib */,
 				052FD001159DECEF0045C9ED /* CEFilesView.xib */,
 				052FD007159DF53C0045C9ED /* CELanguageWindow.xib */,
-				052B91D715A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";

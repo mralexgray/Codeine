@@ -10,5 +10,6 @@
 @interface CEPreferencesFileTypesOptionsViewController( Private )
 
 - ( void )getFileTypes;
+- ( void )didChooseFileType: ( id )sender;
 
 @end

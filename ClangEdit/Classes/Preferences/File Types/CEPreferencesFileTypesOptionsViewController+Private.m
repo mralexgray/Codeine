@@ -8,6 +8,8 @@
 #import "CEPreferencesFileTypesOptionsViewController+Private.h"
 #import "CEMutableOrderedDictionary.h"
 #import "CEPreferences.h"
+#import "CEPreferencesFileTypesAddNewViewController.h"
+#import "CESourceFile.h"
 
 @implementation CEPreferencesFileTypesOptionsViewController( Private )
 
@@ -38,6 +40,28 @@
     {
         [ _fileTypes setObject: [ types objectForKey: key ] forKey: key ];
     }
+}
+
+- ( void )didChooseFileType: ( id )sender
+{
+    ( void )sender;
+    
+    if( _addNewController.fileExtension.length == 0 )
+    {
+        return;
+    }
+    
+    if( _addNewController.language == CESourceFileLanguageNone )
+    {
+        return;
+    }
+    
+    [ [ CEPreferences sharedInstance ] addFileType: _addNewController.language forExtension: _addNewController.fileExtension ];
+    
+    RELEASE_IVAR( _addNewController );
+    
+    [ self getFileTypes ];
+    [ _tableView reloadData ];
 }
 
 @end
