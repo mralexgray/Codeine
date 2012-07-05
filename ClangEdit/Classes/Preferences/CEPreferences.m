@@ -28,6 +28,7 @@ NSString * const CEPreferencesKeyWarningFlags               = @"WarningFlags";
 NSString * const CEPreferencesKeyWarningFlagsPresetStrict   = @"WarningFlagsPresetStrict";
 NSString * const CEPreferencesKeyWarningFlagsPresetNormal   = @"WarningFlagsPresetNormal";
 NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
+NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
 
 @implementation CEPreferences
 
@@ -105,7 +106,12 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     flags = [ [ self warningFlags ] mutableCopy ];
     
     [ flags setObject: [ NSNumber numberWithBool: YES ] forKey: name ];
-    [ self setWarningFlags: [ NSDictionary dictionaryWithDictionary: flags ] ];
+    
+    [ DEFAULTS setObject: [ NSDictionary dictionaryWithDictionary: flags ] forKey: CEPreferencesKeyWarningFlags ];
+    [ DEFAULTS synchronize ];
+    
+    __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
+    
     [ flags release ];
 }
 
@@ -116,7 +122,12 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     flags = [ [ self warningFlags ] mutableCopy ];
     
     [ flags setObject: [ NSNumber numberWithBool: NO ] forKey: name ];
-    [ self setWarningFlags: [ NSDictionary dictionaryWithDictionary: flags ] ];
+    
+    [ DEFAULTS setObject: [ NSDictionary dictionaryWithDictionary: flags ] forKey: CEPreferencesKeyWarningFlags ];
+    [ DEFAULTS synchronize ];
+    
+    __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
+    
     [ flags release ];
 }
 
@@ -129,7 +140,11 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     if( [ frameworks containsObject: name ] == NO )
     {
         [ frameworks addObject: name ];
-        [ self setObjCFrameworks: [ NSArray arrayWithArray: frameworks ] ];
+    
+        [ DEFAULTS setObject: [ NSArray arrayWithArray: frameworks ] forKey: CEPreferencesKeyObjCFrameworks ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
     }
     
     [ frameworks release ];
@@ -144,7 +159,11 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     if( [ frameworks containsObject: name ] == YES )
     {
         [ frameworks removeObject: name ];
-        [ self setObjCFrameworks: [ NSArray arrayWithArray: frameworks ] ];
+    
+        [ DEFAULTS setObject: [ NSArray arrayWithArray: frameworks ] forKey: CEPreferencesKeyObjCFrameworks ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
     }
     
     [ frameworks release ];
@@ -265,6 +284,14 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
     }
 }
 
+- ( NSDictionary * )fileTypes
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS objectForKey: CEPreferencesKeyFileTypes ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -375,28 +402,6 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySourcePredefinedColor );
-    }
-}
-
-- ( void )setWarningFlags: ( NSDictionary * )value
-{
-    @synchronized( self )
-    {
-        [ DEFAULTS setObject: value forKey: CEPreferencesKeyWarningFlags ];
-        [ DEFAULTS synchronize ];
-        
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
-    }
-}
-
-- ( void )setObjCFrameworks: ( NSArray * )value
-{
-    @synchronized( self )
-    {
-        [ DEFAULTS setObject: value forKey: CEPreferencesKeyObjCFrameworks ];
-        [ DEFAULTS synchronize ];
-        
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyObjCFrameworks );
     }
 }
 

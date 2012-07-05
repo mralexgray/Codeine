@@ -81,14 +81,14 @@
 							<bool key="NSToolbarIsUserRemovable">YES</bool>
 							<int key="NSToolbarItemVisibilityPriority">0</int>
 						</object>
-						<object class="NSToolbarItem" key="71B4629B-D819-4274-84F5-9BA9FEC27A57" id="88151869">
+						<object class="NSToolbarItem" key="71B4629B-D819-4274-84F5-9BA9FEC27A57" id="42148654">
 							<object class="NSMutableString" key="NSToolbarItemIdentifier">
 								<characters key="NS.bytes">71B4629B-D819-4274-84F5-9BA9FEC27A57</characters>
 							</object>
 							<string key="NSToolbarItemLabel">Actions</string>
 							<string key="NSToolbarItemPaletteLabel">Actions</string>
 							<nil key="NSToolbarItemToolTip"/>
-							<object class="NSSegmentedControl" key="NSToolbarItemView" id="350925439">
+							<object class="NSSegmentedControl" key="NSToolbarItemView" id="387283164">
 								<reference key="NSNextResponder"/>
 								<int key="NSvFlags">268</int>
 								<string key="NSFrame">{{0, 14}, {100, 25}}</string>
@@ -97,7 +97,7 @@
 								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="NSEnabled">YES</bool>
-								<object class="NSSegmentedCell" key="NSCell" id="559391532">
+								<object class="NSSegmentedCell" key="NSCell" id="400597415">
 									<int key="NSCellFlags">67239424</int>
 									<int key="NSCellFlags2">0</int>
 									<object class="NSFont" key="NSSupport">
@@ -106,7 +106,7 @@
 										<int key="NSfFlags">16</int>
 									</object>
 									<string key="NSCellIdentifier">_NS:9</string>
-									<reference key="NSControlView" ref="350925439"/>
+									<reference key="NSControlView" ref="387283164"/>
 									<array class="NSMutableArray" key="NSSegmentImages">
 										<object class="NSSegmentItem">
 											<double key="NSSegmentItemWidth">32</double>
@@ -114,6 +114,7 @@
 												<string key="NSClassName">NSImage</string>
 												<string key="NSResourceName">NSActionTemplate</string>
 											</object>
+											<string key="NSSegmentItemTooltip">Build</string>
 											<int key="NSSegmentItemImageScaling">0</int>
 										</object>
 										<object class="NSSegmentItem">
@@ -122,6 +123,7 @@
 												<string key="NSClassName">NSImage</string>
 												<string key="NSResourceName">NSGoRightTemplate</string>
 											</object>
+											<string key="NSSegmentItemTooltip">Build &amp; Run</string>
 											<int key="NSSegmentItemTag">1</int>
 											<int key="NSSegmentItemImageScaling">0</int>
 										</object>
@@ -131,6 +133,8 @@
 												<string key="NSClassName">NSImage</string>
 												<string key="NSResourceName">NSStopProgressTemplate</string>
 											</object>
+											<string key="NSSegmentItemTooltip">Stop</string>
+											<bool key="NSSegmentItemDisabled">YES</bool>
 											<int key="NSSegmentItemImageScaling">0</int>
 										</object>
 									</array>
@@ -212,13 +216,13 @@
 						</object>
 					</dictionary>
 					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
-						<reference ref="88151869"/>
+						<reference ref="42148654"/>
 						<reference ref="798807703"/>
 						<reference ref="1042455176"/>
 						<reference ref="221569189"/>
 					</array>
 					<array key="NSToolbarIBDefaultItems">
-						<reference ref="88151869"/>
+						<reference ref="42148654"/>
 						<reference ref="221569189"/>
 						<reference ref="798807703"/>
 					</array>
@@ -390,7 +394,7 @@
 							<reference ref="1042455176"/>
 							<reference ref="221569189"/>
 							<reference ref="798807703"/>
-							<reference ref="88151869"/>
+							<reference ref="42148654"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -444,24 +448,24 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">86</int>
-						<reference key="object" ref="88151869"/>
+						<reference key="object" ref="42148654"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="350925439"/>
+							<reference ref="387283164"/>
 						</array>
 						<reference key="parent" ref="1022493489"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">84</int>
-						<reference key="object" ref="350925439"/>
+						<reference key="object" ref="387283164"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="559391532"/>
+							<reference ref="400597415"/>
 						</array>
-						<reference key="parent" ref="88151869"/>
+						<reference key="parent" ref="42148654"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">85</int>
-						<reference key="object" ref="559391532"/>
-						<reference key="parent" ref="350925439"/>
+						<reference key="object" ref="400597415"/>
+						<reference key="parent" ref="387283164"/>
 					</object>
 				</array>
 			</object>
@@ -483,7 +487,7 @@
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="84.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<integer value="2" key="85.IBNSSegmentedControlInspectorSelectedSegmentMetadataKey"/>
+				<integer value="0" key="85.IBNSSegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="85.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="86.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>

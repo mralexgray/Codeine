@@ -89,7 +89,7 @@
 	<key>PageGuideWidth</key>
 	<integer>80</integer>
 	<key>WarningFlags</key>
-	<array/>
+	<dict/>
 	<key>WarningFlagsPresetStrict</key>
 	<dict>
 		<key>-Wabi</key>
@@ -742,6 +742,10 @@
 		<integer>3</integer>
 		<key>mm</key>
 		<integer>4</integer>
+		<key>h</key>
+		<integer>5</integer>
+		<key>hpp</key>
+		<integer>5</integer>
 	</dict>
 </dict>
 </plist>

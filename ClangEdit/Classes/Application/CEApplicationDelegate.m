@@ -31,6 +31,8 @@
 - ( void )applicationDidFinishLaunching: ( NSNotification * )notification
 {
     NSDictionary * warningFlags;
+    NSString     * warningFlag;
+    NSNumber     * warningFlagValue;
     
     ( void )notification;
     
@@ -41,7 +43,21 @@
     
     if( warningFlags == nil || warningFlags.count == 0 )
     {
-        [ [ CEPreferences sharedInstance ] setWarningFlags: [ [ CEPreferences sharedInstance ] warningFlagsPresetStrict ] ];
+        warningFlags = [ [ CEPreferences sharedInstance ] warningFlagsPresetStrict ];
+        
+        for( warningFlag in warningFlags )
+        {
+            warningFlagValue = ( NSNumber * )[ warningFlags objectForKey: warningFlag ];
+            
+            if( [ warningFlagValue boolValue ] == YES )
+            {
+                [ [ CEPreferences sharedInstance ] enableWarningFlag: warningFlag ];
+            }
+            else
+            {
+                [ [ CEPreferences sharedInstance ] disableWarningFlag: warningFlag ];
+            }
+        }
     }
     
     _mainWindowControllers = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];

@@ -11,7 +11,8 @@ typedef enum
     CESourceFileLanguageC       = 0x01,
     CESourceFileLanguageCPP     = 0x02,
     CESourceFileLanguageObjC    = 0x03,
-    CESourceFileLanguageObjCPP  = 0x04
+    CESourceFileLanguageObjCPP  = 0x04,
+    CESourceFileLanguageHeader  = 0x05
 }
 CESourceFileLanguage;
 

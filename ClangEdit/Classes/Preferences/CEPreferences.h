@@ -21,6 +21,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyWarningFlags;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyWarningFlagsPresetStrict;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyWarningFlagsPresetNormal;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCFrameworks;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyFileTypes;
 
 @interface CEPreferences: NSObject
 {
@@ -43,10 +44,11 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCFrameworks;
 @property( atomic, readwrite, assign ) NSColor      * sourceCommentColor;
 @property( atomic, readwrite, assign ) NSColor      * sourceStringColor;
 @property( atomic, readwrite, assign ) NSColor      * sourcePredefinedColor;
-@property( atomic, readwrite, assign ) NSDictionary * warningFlags;
+@property( atomic, readonly          ) NSDictionary * warningFlags;
 @property( atomic, readonly          ) NSDictionary * warningFlagsPresetStrict;
 @property( atomic, readonly          ) NSDictionary * warningFlagsPresetNormal;
-@property( atomic, readwrite, assign ) NSArray      * objCFrameworks;
+@property( atomic, readonly          ) NSArray      * objCFrameworks;
+@property( atomic, readonly          ) NSDictionary * fileTypes;
 
 + ( CEPreferences * )sharedInstance;
 
