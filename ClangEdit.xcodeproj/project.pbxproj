@@ -284,6 +284,7 @@
 		05480FC9159A0B98005CFBC5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				05972ECA159FE523009A204F /* Parser */,
 				052FD037159E0E440045C9ED /* Categories */,
 				0594109F159A26AB00257F9E /* Protocols */,
 				05941094159A264300257F9E /* Helpers */,
@@ -463,6 +464,13 @@
 			children = (
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		05972ECA159FE523009A204F /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
