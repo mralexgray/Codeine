@@ -43,7 +43,18 @@
     
     if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerColumnIconIdentifier ]  )
     {
-        return [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconGenericDocumentIcon ];
+        {
+            NSImage * icon;
+            
+            icon = [ [ NSWorkspace sharedWorkspace ] iconForFileType: extension ];
+            
+            if( icon != nil )
+            {
+                return icon;
+            }
+            
+            return [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconGenericDocumentIcon ];
+        }
     }
     else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerColumnExtensionIdentifier ] )
     {
