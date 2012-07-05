@@ -17,7 +17,12 @@
 {
     if( tableView == _flagsTableView )
     {
-        return ( NSInteger )[ [ [ CEPreferences sharedInstance ] warningFlags ] count ];
+        if( _warningFlags == nil )
+        {
+            [ self getWarningFlags ];
+        }
+        
+        return ( NSInteger )( _warningFlags.count );
     }
     else if( tableView == _objcFrameworksTableView )
     {
