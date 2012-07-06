@@ -16,6 +16,14 @@ typedef enum
 }
 CESourceFileLanguage;
 
+typedef enum
+{
+    CESourceFileLineEndingUnknown    = 0x00,
+    CESourceFileLineEndingUnix       = 0x01,
+    CESourceFileLineEndingWindows    = 0x02
+}
+CESourceFileLineEnding;
+
 @interface CESourceFile: NSObject
 {
 @protected
