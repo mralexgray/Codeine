@@ -11,13 +11,18 @@
 {
 @protected
     
-    
+    NSPopUpButton * _languagePopUp;
+    NSPopUpButton * _encodingPopUp;
     
 @private
     
     RESERVERD_IVARS( CEPreferencesGeneralOptionsViewController , 5 );
 }
 
+@property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * languagePopUp;
+@property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * encodingPopUp;
 
+- ( IBAction )setLanguage: ( id )sender;
+- ( IBAction )setEncoding: ( id )sender;
 
 @end
