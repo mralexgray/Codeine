@@ -9,17 +9,17 @@
 {
 @protected
     
-    NSUInteger _value;
-    NSString * _name;
+    NSStringEncoding _value;
+    NSString       * _name;
     
 @private
     
     RESERVERD_IVARS( CETextEncoding, 5 );
 }
 
-@property( atomic, readonly ) NSUInteger value;
-@property( atomic, readonly ) NSString * name;
-@property( atomic, readonly ) NSString * localizedName;
+@property( atomic, readonly ) NSStringEncoding value;
+@property( atomic, readonly ) NSString       * name;
+@property( atomic, readonly ) NSString       * localizedName;
 
 + ( NSArray * )availableEncodings;
 
