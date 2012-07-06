@@ -134,14 +134,14 @@
 										</object>
 									</object>
 								</array>
-								<string key="NSFrame">{{1, 1}, {304, 78}}</string>
+								<string key="NSFrame">{{1, 1}, {368, 78}}</string>
 								<reference key="NSSuperview" ref="1022842597"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="217532547"/>
 								<string key="NSReuseIdentifierKey">_NS:11</string>
 							</object>
 						</array>
-						<string key="NSFrame">{{17, 16}, {306, 94}}</string>
+						<string key="NSFrame">{{17, 16}, {370, 94}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="134610290"/>
@@ -237,14 +237,14 @@
 										</object>
 									</object>
 								</array>
-								<string key="NSFrame">{{1, 1}, {304, 58}}</string>
+								<string key="NSFrame">{{1, 1}, {368, 58}}</string>
 								<reference key="NSSuperview" ref="657092877"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="503386585"/>
 								<string key="NSReuseIdentifierKey">_NS:11</string>
 							</object>
 						</array>
-						<string key="NSFrame">{{17, 114}, {306, 74}}</string>
+						<string key="NSFrame">{{17, 114}, {370, 74}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="417971570"/>
@@ -268,7 +268,7 @@
 						<bool key="NSTransparent">NO</bool>
 					</object>
 				</array>
-				<string key="NSFrameSize">{340, 208}</string>
+				<string key="NSFrameSize">{404, 208}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="657092877"/>
