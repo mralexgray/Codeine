@@ -59,7 +59,7 @@
 									<object class="NSTableView" id="206856496">
 										<reference key="NSNextResponder" ref="904667000"/>
 										<int key="NSvFlags">4352</int>
-										<string key="NSFrameSize">{348, 152}</string>
+										<string key="NSFrameSize">{362, 152}</string>
 										<reference key="NSSuperview" ref="904667000"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="628922701"/>
@@ -68,7 +68,7 @@
 										<object class="NSTableHeaderView" key="NSHeaderView" id="497892364">
 											<reference key="NSNextResponder" ref="794948978"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrameSize">{348, 17}</string>
+											<string key="NSFrameSize">{362, 17}</string>
 											<reference key="NSSuperview" ref="794948978"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="904667000"/>
@@ -301,7 +301,7 @@
 										<int key="NSTableViewGroupRowStyle">1</int>
 									</object>
 								</array>
-								<string key="NSFrame">{{1, 17}, {348, 152}}</string>
+								<string key="NSFrame">{{1, 17}, {362, 152}}</string>
 								<reference key="NSSuperview" ref="382571441"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="206856496"/>
@@ -342,7 +342,7 @@
 								<array class="NSMutableArray" key="NSSubviews">
 									<reference ref="497892364"/>
 								</array>
-								<string key="NSFrame">{{1, 0}, {348, 17}}</string>
+								<string key="NSFrame">{{1, 0}, {362, 17}}</string>
 								<reference key="NSSuperview" ref="382571441"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="497892364"/>
@@ -352,7 +352,7 @@
 								<int key="NScvFlags">4</int>
 							</object>
 						</array>
-						<string key="NSFrame">{{20, 49}, {350, 170}}</string>
+						<string key="NSFrame">{{20, 49}, {364, 170}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="794948978"/>
@@ -438,7 +438,7 @@
 						</object>
 					</object>
 				</array>
-				<string key="NSFrameSize">{390, 264}</string>
+				<string key="NSFrameSize">{404, 264}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="107911502"/>
