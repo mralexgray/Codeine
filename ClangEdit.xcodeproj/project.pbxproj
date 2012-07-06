@@ -68,6 +68,7 @@
 		05F8034F15A72DBA00CD9F0D /* CETextEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */; };
 		05F8035A15A75CED00CD9F0D /* CETextEncodingPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */; };
 		05F8035D15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */; };
+		05F8036115A7794300CD9F0D /* Application.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F8036015A7794300CD9F0D /* Application.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,6 +182,7 @@
 		05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETextEncodingPopUpButton.m; sourceTree = "<group>"; };
 		05F8035B15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CETextEncodingPopUpButton+Private.h"; sourceTree = "<group>"; };
 		05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CETextEncodingPopUpButton+Private.m"; sourceTree = "<group>"; };
+		05F8036015A7794300CD9F0D /* Application.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Application.icns; path = ../../Application.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +340,7 @@
 		05480FCD159A0B98005CFBC5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				05F8036015A7794300CD9F0D /* Application.icns */,
 				05F51528159A17AE0049A756 /* Localizable.strings */,
 				05480FCE159A0B98005CFBC5 /* CEMainMenu.xib */,
 				05480FDA159A0CD5005CFBC5 /* CEMainWindow.xib */,
@@ -589,6 +592,7 @@
 				052FD009159DF53C0045C9ED /* CELanguageWindow.xib in Resources */,
 				052FD026159E098A0045C9ED /* Templates in Resources */,
 				052B91D915A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib in Resources */,
+				05F8036115A7794300CD9F0D /* Application.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
