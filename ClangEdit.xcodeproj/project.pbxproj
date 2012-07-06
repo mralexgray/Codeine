@@ -65,6 +65,7 @@
 		05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */; };
 		05F5152A159A17AE0049A756 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F51528159A17AE0049A756 /* Localizable.strings */; };
 		05F5152E159A19820049A756 /* CEPreferencesWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */; };
+		05F8034F15A72DBA00CD9F0D /* CETextEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +173,8 @@
 		05F5152B159A17EB0049A756 /* macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
 		05F5152C159A19820049A756 /* CEPreferencesWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesWindowController+Private.h"; sourceTree = "<group>"; };
 		05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesWindowController+Private.m"; sourceTree = "<group>"; };
+		05F8034D15A72DBA00CD9F0D /* CETextEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETextEncoding.h; sourceTree = "<group>"; };
+		05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETextEncoding.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,6 +475,8 @@
 		05941094159A264300257F9E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				05F8034D15A72DBA00CD9F0D /* CETextEncoding.h */,
+				05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */,
 				05DD28F8159E1F07008E228F /* CESourceFile.h */,
 				05DD28F9159E1F07008E228F /* CESourceFile.m */,
 				05941096159A266500257F9E /* CESystemIconsHelper.h */,
@@ -615,6 +620,7 @@
 				052B91D315A61F2500F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.m in Sources */,
 				052B91D615A61F3100F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m in Sources */,
 				052B91DC15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.m in Sources */,
+				05F8034F15A72DBA00CD9F0D /* CETextEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
