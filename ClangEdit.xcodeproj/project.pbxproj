@@ -66,6 +66,8 @@
 		05F5152A159A17AE0049A756 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F51528159A17AE0049A756 /* Localizable.strings */; };
 		05F5152E159A19820049A756 /* CEPreferencesWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */; };
 		05F8034F15A72DBA00CD9F0D /* CETextEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */; };
+		05F8035A15A75CED00CD9F0D /* CETextEncodingPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */; };
+		05F8035D15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +177,10 @@
 		05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesWindowController+Private.m"; sourceTree = "<group>"; };
 		05F8034D15A72DBA00CD9F0D /* CETextEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETextEncoding.h; sourceTree = "<group>"; };
 		05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETextEncoding.m; sourceTree = "<group>"; };
+		05F8035815A75CED00CD9F0D /* CETextEncodingPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETextEncodingPopUpButton.h; sourceTree = "<group>"; };
+		05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETextEncodingPopUpButton.m; sourceTree = "<group>"; };
+		05F8035B15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CETextEncodingPopUpButton+Private.h"; sourceTree = "<group>"; };
+		05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CETextEncodingPopUpButton+Private.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +307,7 @@
 		05480FC9159A0B98005CFBC5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				05F8035715A75CCC00CD9F0D /* UI Elements */,
 				05972ECA159FE523009A204F /* Parser */,
 				052FD037159E0E440045C9ED /* Categories */,
 				0594109F159A26AB00257F9E /* Protocols */,
@@ -501,6 +508,17 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		05F8035715A75CCC00CD9F0D /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				05F8035815A75CED00CD9F0D /* CETextEncodingPopUpButton.h */,
+				05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */,
+				05F8035B15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.h */,
+				05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */,
+			);
+			path = "UI Elements";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -621,6 +639,8 @@
 				052B91D615A61F3100F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m in Sources */,
 				052B91DC15A634C800F82759 /* CEPreferencesFileTypesAddNewViewController.m in Sources */,
 				05F8034F15A72DBA00CD9F0D /* CETextEncoding.m in Sources */,
+				05F8035A15A75CED00CD9F0D /* CETextEncodingPopUpButton.m in Sources */,
+				05F8035D15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
