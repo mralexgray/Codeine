@@ -29,6 +29,8 @@ NSString * const CEPreferencesKeyWarningFlagsPresetStrict   = @"WarningFlagsPres
 NSString * const CEPreferencesKeyWarningFlagsPresetNormal   = @"WarningFlagsPresetNormal";
 NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
 NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
+NSString * const CEPreferencesKeyFirstLaunch                = @"FirstLaunch";
+NSString * const CEPreferencesKeyTextEncoding               = @"TextEncoding";
 
 @implementation CEPreferences
 
@@ -327,6 +329,22 @@ NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
     }
 }
 
+- ( BOOL )firstLaunch
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyFirstLaunch ];
+    }
+}
+
+- ( NSStringEncoding )textEncoding
+{
+    @synchronized( self )
+    {
+        return [ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyTextEncoding ] unsignedIntegerValue ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -348,7 +366,7 @@ NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
         [ DEFAULTS setObject: [ NSNumber numberWithDouble: value ] forKey: CEPreferencesKeyFontSize ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyGeneralForegoundColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFontSize );
     }
 }
 
@@ -437,6 +455,28 @@ NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySourcePredefinedColor );
+    }
+}
+
+- ( void )setFirstLaunch: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyFirstLaunch ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFirstLaunch );
+    }
+}
+
+- ( void )setTextEncoding: ( NSStringEncoding )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyTextEncoding ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyTextEncoding );
     }
 }
 

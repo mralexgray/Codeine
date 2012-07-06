@@ -88,6 +88,10 @@
 	<true/>
 	<key>PageGuideWidth</key>
 	<integer>80</integer>
+	<key>FirstLaunch</key>
+	<true/>
+	<key>TextEncoding</key>
+	<integer>0</integer>
 	<key>WarningFlags</key>
 	<dict/>
 	<key>WarningFlagsPresetStrict</key>
