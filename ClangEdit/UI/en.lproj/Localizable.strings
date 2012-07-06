@@ -6,6 +6,29 @@
 /* $Id$ */
 
 "AppVersion"                                = "Version %@ (%@)";
+"NSUTF8StringEncoding"                      = "UTF-8";
+"NSUTF16StringEncoding"                     = "UTF-16";
+"NSUTF16BigEndianStringEncoding"            = "UTF-16 (Big Endian)";
+"NSUTF16LittleEndianStringEncoding"         = "UTF-16 (Little Endian)";
+"NSUTF32StringEncoding"                     = "UTF-32";                   
+"NSUTF32BigEndianStringEncoding"            = "UTF-32 (Big Endian)";
+"NSUTF32LittleEndianStringEncoding"         = "UTF-32 (Little Endian)";
+"NSISOLatin1StringEncoding"                 = "ISO Latin 1";
+"NSISOLatin2StringEncoding"                 = "ISO Latin 2";
+"NSASCIIStringEncoding"                     = "ASCII";
+"NSNonLossyASCIIStringEncoding"             = "Non Lossy ASCII";
+"NSMacOSRomanStringEncoding"                = "Mac OS Roman";
+"NSWindowsCP1251StringEncoding"             = "Windows CP 1251 (Cyrillic)";
+"NSWindowsCP1252StringEncoding"             = "Windows CP 1252 (Windows Latin 1)";
+"NSWindowsCP1253StringEncoding"             = "Windows CP 1253 (Greek)";
+"NSWindowsCP1254StringEncoding"             = "Windows CP 1254 (Turkish)";
+"NSWindowsCP1250StringEncoding"             = "Windows CP 1250 (Windows Latin 2)";
+"NSUnicodeStringEncoding"                   = "Unicode";
+"NSNEXTSTEPStringEncoding"                  = "NextStep";
+"NSJapaneseEUCStringEncoding"               = "Japanese EUC";
+"NSISO2022JPStringEncoding"                 = "ISO 2022 JP";
+"NSShiftJISStringEncoding"                  = "Shift JIS";
+"NSSymbolStringEncoding"                    = "Symbol";
 "-Wabi"                                     = "[L10N:-Wabi]";
 "-Waddress"                                 = "[L10N:-Waddress]";
 "-Waddress-of-temporary"                    = "[L10N:-Waddress-of-temporary]";
