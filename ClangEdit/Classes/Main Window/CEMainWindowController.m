@@ -11,13 +11,16 @@
 #import "CEDebugViewController.h"
 #import "CEFilesViewController.h"
 #import "CESourceFile.h"
+#import "CETextEncoding.h"
+#import "CEPreferences.h"
 
 @implementation CEMainWindowController
 
-@synthesize leftView    = _leftView;
-@synthesize mainView    = _mainView;
-@synthesize bottomView  = _bottomView;
-@synthesize sourceFile  = _sourceFile;
+@synthesize leftView      = _leftView;
+@synthesize mainView      = _mainView;
+@synthesize bottomView    = _bottomView;
+@synthesize sourceFile    = _sourceFile;
+@synthesize encodingPopUp = _encodingPopUp;
 
 - ( void )dealloc
 {
@@ -29,6 +32,7 @@
     RELEASE_IVAR( _bottomView );
     RELEASE_IVAR( _sourceFile );
     RELEASE_IVAR( _languageWindowController );
+    RELEASE_IVAR( _encodingPopUp );
     
     [ super dealloc ];
 }

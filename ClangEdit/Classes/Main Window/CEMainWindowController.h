@@ -25,15 +25,17 @@
     NSView                      * _bottomView;
     CESourceFile                * _sourceFile;
     CELanguageWindowController  * _languageWindowController;
+    NSPopUpButton               * _encodingPopUp;
     
 @private
     
     RESERVERD_IVARS( CEMainWindowController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSView       * leftView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSView       * mainView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSView       * bottomView;
-@property(    atomic, readwrite, retain )          CESourceFile * sourceFile;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * leftView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * mainView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * bottomView;
+@property(    atomic, readwrite, retain )          CESourceFile  * sourceFile;
+@property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * encodingPopUp;
 
 @end
