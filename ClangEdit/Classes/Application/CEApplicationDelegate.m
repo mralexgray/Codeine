@@ -30,32 +30,40 @@
 
 - ( void )applicationDidFinishLaunching: ( NSNotification * )notification
 {
-    NSDictionary * warningFlags;
-    NSString     * warningFlag;
-    NSNumber     * warningFlagValue;
-    
     ( void )notification;
     
     [ self installApplicationSupportFiles ];
     [ CEPreferences sharedInstance ];
     
-    warningFlags = [ [ CEPreferences sharedInstance ] warningFlags ];
-    
-    if( warningFlags == nil || warningFlags.count == 0 )
+    if( [ [ CEPreferences sharedInstance ] firstLaunch ] == YES )
     {
-        warningFlags = [ [ CEPreferences sharedInstance ] warningFlagsPresetStrict ];
+        [ [ CEPreferences sharedInstance ] setFirstLaunch: NO ];
+        [ [ CEPreferences sharedInstance ] setTextEncoding: NSUTF8StringEncoding ];
         
-        for( warningFlag in warningFlags )
         {
-            warningFlagValue = ( NSNumber * )[ warningFlags objectForKey: warningFlag ];
+            NSDictionary * warningFlags;
+            NSString     * warningFlag;
+            NSNumber     * warningFlagValue;
             
-            if( [ warningFlagValue boolValue ] == YES )
+            warningFlags = [ [ CEPreferences sharedInstance ] warningFlags ];
+            
+            if( warningFlags == nil || warningFlags.count == 0 )
             {
-                [ [ CEPreferences sharedInstance ] enableWarningFlag: warningFlag ];
-            }
-            else
-            {
-                [ [ CEPreferences sharedInstance ] disableWarningFlag: warningFlag ];
+                warningFlags = [ [ CEPreferences sharedInstance ] warningFlagsPresetStrict ];
+                
+                for( warningFlag in warningFlags )
+                {
+                    warningFlagValue = ( NSNumber * )[ warningFlags objectForKey: warningFlag ];
+                    
+                    if( [ warningFlagValue boolValue ] == YES )
+                    {
+                        [ [ CEPreferences sharedInstance ] enableWarningFlag: warningFlag ];
+                    }
+                    else
+                    {
+                        [ [ CEPreferences sharedInstance ] disableWarningFlag: warningFlag ];
+                    }
+                }
             }
         }
     }
@@ -103,6 +111,13 @@
     [ controller.window center ];
     [ controller showWindow: sender ];
     [ controller.window makeKeyAndOrderFront: sender ];
+}
+
+- ( IBAction )newDocument: ( id )sender
+{
+    ( void )sender;
+    
+    NSLog( @"New document - No main window..." );
 }
 
 @end
