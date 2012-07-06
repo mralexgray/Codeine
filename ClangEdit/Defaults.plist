@@ -78,6 +78,8 @@
 	<true/>
 	<key>AutoExpandTabs</key>
 	<true/>
+	<key>AutoIndent</key>
+	<string></string>
 	<key>FontName</key>
 	<string>Menlo</string>
 	<key>FontSize</key>
@@ -92,6 +94,10 @@
 	<true/>
 	<key>TextEncoding</key>
 	<integer>0</integer>
+	<key>LineEndings</key>
+	<integer>1</integer>
+	<key>DefaultLanguage</key>
+	<integer>1</integer>
 	<key>WarningFlags</key>
 	<dict/>
 	<key>WarningFlagsPresetStrict</key>

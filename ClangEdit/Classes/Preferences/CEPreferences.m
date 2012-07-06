@@ -31,6 +31,13 @@ NSString * const CEPreferencesKeyObjCFrameworks             = @"ObjCFrameworks";
 NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
 NSString * const CEPreferencesKeyFirstLaunch                = @"FirstLaunch";
 NSString * const CEPreferencesKeyTextEncoding               = @"TextEncoding";
+NSString * const CEPreferencesKeyDefaultLanguage            = @"DefaultLanguage";
+NSString * const CEPreferencesKeyLineEndings                = @"LineEndings";
+NSString * const CEPreferencesKeyShowInvisibles             = @"ShowInvisibles";
+NSString * const CEPreferencesKeyAutoExpandTabs             = @"AutoExpandTabs";
+NSString * const CEPreferencesKeyAutoIndent                 = @"AutoIndent";
+NSString * const CEPreferencesKeyShowLineNumbers            = @"ShowLineNumbers";
+NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
 
 @implementation CEPreferences
 
@@ -345,6 +352,62 @@ NSString * const CEPreferencesKeyTextEncoding               = @"TextEncoding";
     }
 }
 
+- ( CESourceFileLanguage )defaultLanguage
+{
+    @synchronized( self )
+    {
+        return ( CESourceFileLanguage )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyDefaultLanguage ] unsignedIntegerValue ];
+    }
+}
+
+- ( CESourceFileLineEndings )lineEndings
+{
+    @synchronized( self )
+    {
+        return ( CESourceFileLineEndings )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyLineEndings ] unsignedIntegerValue ];
+    }
+}
+
+- ( BOOL )showInvisibles
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyShowInvisibles ];
+    }
+}
+
+- ( BOOL )autoExpandTabs
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyAutoExpandTabs ];
+    }
+}
+
+- ( BOOL )autoIndent
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyAutoIndent ];
+    }
+}
+
+- ( BOOL )showLineNumbers
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyShowLineNumbers ];
+    }
+}
+
+- ( BOOL )showPageGuide
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyShowPageGuide ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -477,6 +540,83 @@ NSString * const CEPreferencesKeyTextEncoding               = @"TextEncoding";
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyTextEncoding );
+    }
+}
+
+- ( void )setDefaultLanguage: ( CESourceFileLanguage )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyDefaultLanguage ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDefaultLanguage );
+    }
+}
+
+- ( void )setLineEndings: ( CESourceFileLineEndings )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyLineEndings ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLineEndings );
+    }
+}
+
+- ( void )setShowInvisibles: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowInvisibles ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowInvisibles );
+    }
+}
+
+- ( void )setAutoExpandTabs: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyAutoExpandTabs ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyAutoExpandTabs );
+    }
+}
+
+- ( void )setAutoIndent: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyAutoIndent ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyAutoIndent );
+    }
+}
+
+- ( void )setShowLineNumbers: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowLineNumbers ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowLineNumbers );
+    }
+}
+
+- ( void )setShowPageGuide: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowPageGuide ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowPageGuide );
     }
 }
 

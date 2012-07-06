@@ -24,6 +24,13 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCFrameworks;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyFileTypes;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyFirstLaunch;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyTextEncoding;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyDefaultLanguage;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyLineEndings;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowInvisibles;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyAutoExpandTabs;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyAutoIndent;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowLineNumbers;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowPageGuide;
 
 #import "CESourceFile.h"
 
@@ -38,23 +45,30 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyTextEncoding;
     RESERVERD_IVARS( CEPreferences , 5 );
 }
 
-@property( atomic, readwrite, assign ) NSString       * fontName;
-@property( atomic, readwrite, assign ) CGFloat          fontSize;
-@property( atomic, readwrite, assign ) NSColor        * generalForegroundColor;
-@property( atomic, readwrite, assign ) NSColor        * generalBackgroundColor;
-@property( atomic, readwrite, assign ) NSColor        * generalSelectionColor;
-@property( atomic, readwrite, assign ) NSColor        * generalCurrentLineColor;
-@property( atomic, readwrite, assign ) NSColor        * sourceKeywordColor;
-@property( atomic, readwrite, assign ) NSColor        * sourceCommentColor;
-@property( atomic, readwrite, assign ) NSColor        * sourceStringColor;
-@property( atomic, readwrite, assign ) NSColor        * sourcePredefinedColor;
-@property( atomic, readonly          ) NSDictionary   * warningFlags;
-@property( atomic, readonly          ) NSDictionary   * warningFlagsPresetStrict;
-@property( atomic, readonly          ) NSDictionary   * warningFlagsPresetNormal;
-@property( atomic, readonly          ) NSArray        * objCFrameworks;
-@property( atomic, readonly          ) NSDictionary   * fileTypes;
-@property( atomic, readwrite, assign ) BOOL             firstLaunch;
-@property( atomic, readwrite, assign ) NSStringEncoding textEncoding;
+@property( atomic, readwrite, assign ) NSString               * fontName;
+@property( atomic, readwrite, assign ) CGFloat                  fontSize;
+@property( atomic, readwrite, assign ) NSColor                * generalForegroundColor;
+@property( atomic, readwrite, assign ) NSColor                * generalBackgroundColor;
+@property( atomic, readwrite, assign ) NSColor                * generalSelectionColor;
+@property( atomic, readwrite, assign ) NSColor                * generalCurrentLineColor;
+@property( atomic, readwrite, assign ) NSColor                * sourceKeywordColor;
+@property( atomic, readwrite, assign ) NSColor                * sourceCommentColor;
+@property( atomic, readwrite, assign ) NSColor                * sourceStringColor;
+@property( atomic, readwrite, assign ) NSColor                * sourcePredefinedColor;
+@property( atomic, readonly          ) NSDictionary           * warningFlags;
+@property( atomic, readonly          ) NSDictionary           * warningFlagsPresetStrict;
+@property( atomic, readonly          ) NSDictionary           * warningFlagsPresetNormal;
+@property( atomic, readonly          ) NSArray                * objCFrameworks;
+@property( atomic, readonly          ) NSDictionary           * fileTypes;
+@property( atomic, readwrite, assign ) BOOL                     firstLaunch;
+@property( atomic, readwrite, assign ) NSStringEncoding         textEncoding;
+@property( atomic, readwrite, assign ) CESourceFileLanguage     defaultLanguage;
+@property( atomic, readwrite, assign ) CESourceFileLineEndings  lineEndings;
+@property( atomic, readwrite, assign ) BOOL                     showInvisibles;
+@property( atomic, readwrite, assign ) BOOL                     autoExpandTabs;
+@property( atomic, readwrite, assign ) BOOL                     autoIndent;
+@property( atomic, readwrite, assign ) BOOL                     showLineNumbers;
+@property( atomic, readwrite, assign ) BOOL                     showPageGuide;
 
 + ( CEPreferences * )sharedInstance;
 
