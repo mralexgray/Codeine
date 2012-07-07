@@ -32,41 +32,9 @@
 {
     ( void )notification;
     
-    [ self installApplicationSupportFiles ];
     [ CEPreferences sharedInstance ];
-    
-    if( [ [ CEPreferences sharedInstance ] firstLaunch ] == YES )
-    {
-        [ [ CEPreferences sharedInstance ] setFirstLaunch: NO ];
-        [ [ CEPreferences sharedInstance ] setTextEncoding: NSUTF8StringEncoding ];
-        
-        {
-            NSDictionary * warningFlags;
-            NSString     * warningFlag;
-            NSNumber     * warningFlagValue;
-            
-            warningFlags = [ [ CEPreferences sharedInstance ] warningFlags ];
-            
-            if( warningFlags == nil || warningFlags.count == 0 )
-            {
-                warningFlags = [ [ CEPreferences sharedInstance ] warningFlagsPresetStrict ];
-                
-                for( warningFlag in warningFlags )
-                {
-                    warningFlagValue = ( NSNumber * )[ warningFlags objectForKey: warningFlag ];
-                    
-                    if( [ warningFlagValue boolValue ] == YES )
-                    {
-                        [ [ CEPreferences sharedInstance ] enableWarningFlag: warningFlag ];
-                    }
-                    else
-                    {
-                        [ [ CEPreferences sharedInstance ] disableWarningFlag: warningFlag ];
-                    }
-                }
-            }
-        }
-    }
+    [ self installApplicationSupportFiles ];
+    [ self firstLaunch ];
     
     _mainWindowControllers = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     

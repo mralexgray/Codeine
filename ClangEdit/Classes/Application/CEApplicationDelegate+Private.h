@@ -10,5 +10,6 @@
 @interface CEApplicationDelegate( Private )
 
 - ( void )installApplicationSupportFiles;
+- ( void )firstLaunch;
 
 @end
