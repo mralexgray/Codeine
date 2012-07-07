@@ -32,7 +32,7 @@
 
 - ( BOOL )expandable
 {
-    return _isDirectory;
+    return _isDirectory && self.children.count > 0;
 }
 
 - ( NSArray * )children
