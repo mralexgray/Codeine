@@ -6,6 +6,9 @@
 /* $Id$ */
 
 #import "CEFileViewItem.h"
+#import "CEFileViewItemSection.h"
+#import "CEFileViewItemDocument.h"
+#import "CEFileViewItemFS.h"
 
 @implementation CEFileViewItem
 
@@ -20,13 +23,44 @@
 
 - ( id )initWithType: ( CEFileViewItemType )type name: ( NSString * )name
 {
-    if( ( self = [ self init ] ) )
+    id item;
+    
+    if( [ self class ] != [ CEFileViewItem class ] )
     {
-        _type = type;
-        _name = [ name copy ];
+        if( ( self = [ super init ] ) )
+        {
+            _type = type;
+            _name = [ name copy ];
+        }
+        
+        return self;
     }
     
-    return self;
+    switch( type )
+    {
+        case CEFileViewItemTypeSection:
+            
+            item = [ [ CEFileViewItemSection alloc ] initWithType: type name: name ];
+            break;
+            
+        case CEFileViewItemTypeDocument:
+            
+            item = [ [ CEFileViewItemDocument alloc ] initWithType: type name: name ];
+            break;
+            
+        case CEFileViewItemTypeFS:
+            
+            item = [ [ CEFileViewItemFS alloc ] initWithType: type name: name ];
+            break;
+            
+        default:
+            
+            item = nil;
+    }
+    
+    [ self release ];
+    
+    return item;
 }
 
 - ( void )dealloc
