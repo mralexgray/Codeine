@@ -13,6 +13,7 @@
     
     NSPopUpButton * _languagePopUp;
     NSPopUpButton * _encodingPopUp;
+    NSMatrix      * _lineEndingsMatrix;
     
 @private
     
@@ -21,8 +22,10 @@
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * languagePopUp;
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * encodingPopUp;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMatrix      * lineEndingsMatrix;
 
 - ( IBAction )setLanguage: ( id )sender;
 - ( IBAction )setEncoding: ( id )sender;
+- ( IBAction )setLineEndings: ( id )sender;
 
 @end

@@ -91,6 +91,7 @@
 												<string key="NSContents">Windows (CRLF)</string>
 												<reference key="NSSupport" ref="126141661"/>
 												<reference key="NSControlView" ref="772932418"/>
+												<int key="NSTag">2</int>
 												<int key="NSButtonFlags">1211912703</int>
 												<int key="NSButtonFlags2">0</int>
 												<object class="NSImage" key="NSNormalImage">
@@ -538,19 +539,35 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">setLanguage:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="56486002"/>
-					</object>
-					<int key="connectionID">39</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">setEncoding:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="1016344507"/>
 					</object>
-					<int key="connectionID">40</int>
+					<int key="connectionID">46</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">setLanguage:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="56486002"/>
+					</object>
+					<int key="connectionID">47</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">setLineEndings:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="772932418"/>
+					</object>
+					<int key="connectionID">48</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">lineEndingsMatrix</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="772932418"/>
+					</object>
+					<int key="connectionID">49</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -769,7 +786,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">45</int>
+			<int key="maxID">49</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -779,6 +796,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="setEncoding:">id</string>
 						<string key="setLanguage:">id</string>
+						<string key="setLineEndings:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="setEncoding:">
@@ -789,10 +807,15 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<string key="name">setLanguage:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="setLineEndings:">
+							<string key="name">setLineEndings:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="encodingPopUp">NSPopUpButton</string>
 						<string key="languagePopUp">NSPopUpButton</string>
+						<string key="lineEndingsMatrix">NSMatrix</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="encodingPopUp">
@@ -802,6 +825,10 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<object class="IBToOneOutletInfo" key="languagePopUp">
 							<string key="name">languagePopUp</string>
 							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lineEndingsMatrix">
+							<string key="name">lineEndingsMatrix</string>
+							<string key="candidateClassName">NSMatrix</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

@@ -34,6 +34,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyAutoIndent;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowLineNumbers;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowPageGuide;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyColorThemes;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyTreatWarningsAsErrors;
 
 @class CEColorTheme;
 
@@ -74,6 +75,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyColorThemes;
 @property( atomic, readwrite, assign ) BOOL                     showPageGuide;
 @property( atomic, readonly          ) NSDictionary           * colorThemes;
 @property( atomic, readonly          ) CEColorTheme           * currentColorTheme;
+@property( atomic, readwrite, assign ) BOOL                     treatWarningsAsErrors;
 
 + ( CEPreferences * )sharedInstance;
 

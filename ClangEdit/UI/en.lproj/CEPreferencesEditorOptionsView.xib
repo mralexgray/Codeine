@@ -274,6 +274,9 @@
 				<reference key="NSNextKeyView" ref="657092877"/>
 				<string key="NSClassName">NSView</string>
 			</object>
+			<object class="NSCustomObject" id="314796096">
+				<string key="NSClassName">CEPreferences</string>
+			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -284,6 +287,86 @@
 						<reference key="destination" ref="1005"/>
 					</object>
 					<int key="connectionID">2</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: autoExpandTabs</string>
+						<reference key="source" ref="503386585"/>
+						<reference key="destination" ref="314796096"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="503386585"/>
+							<reference key="NSDestination" ref="314796096"/>
+							<string key="NSLabel">value: autoExpandTabs</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">autoExpandTabs</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: showInvisibles</string>
+						<reference key="source" ref="217532547"/>
+						<reference key="destination" ref="314796096"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="217532547"/>
+							<reference key="NSDestination" ref="314796096"/>
+							<string key="NSLabel">value: showInvisibles</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">showInvisibles</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">43</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: autoIndent</string>
+						<reference key="source" ref="757812411"/>
+						<reference key="destination" ref="314796096"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="757812411"/>
+							<reference key="NSDestination" ref="314796096"/>
+							<string key="NSLabel">value: autoIndent</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">autoIndent</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">41</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: showPageGuide</string>
+						<reference key="source" ref="374502591"/>
+						<reference key="destination" ref="314796096"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="374502591"/>
+							<reference key="NSDestination" ref="314796096"/>
+							<string key="NSLabel">value: showPageGuide</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">showPageGuide</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">47</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: showLineNumbers</string>
+						<reference key="source" ref="864792123"/>
+						<reference key="destination" ref="314796096"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="864792123"/>
+							<reference key="NSDestination" ref="314796096"/>
+							<string key="NSLabel">value: showLineNumbers</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">showLineNumbers</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">50</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -405,6 +488,11 @@
 						<reference key="object" ref="139544774"/>
 						<reference key="parent" ref="864792123"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">37</int>
+						<reference key="object" ref="314796096"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -420,6 +508,7 @@
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="37.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -429,10 +518,18 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">16</int>
+			<int key="maxID">50</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">CEPreferences</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CEPreferences.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">CEPreferencesEditorOptionsViewController</string>
 					<string key="superclassName">CEViewController</string>

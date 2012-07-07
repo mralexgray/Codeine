@@ -254,6 +254,8 @@
 	<integer>1</integer>
 	<key>DefaultLanguage</key>
 	<integer>1</integer>
+	<key>TreatWarningsAsErrors</key>
+	<true/>
 	<key>WarningFlags</key>
 	<dict/>
 	<key>WarningFlagsPresetStrict</key>

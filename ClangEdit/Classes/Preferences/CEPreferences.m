@@ -40,6 +40,7 @@ NSString * const CEPreferencesKeyAutoIndent                 = @"AutoIndent";
 NSString * const CEPreferencesKeyShowLineNumbers            = @"ShowLineNumbers";
 NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
 NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
+NSString * const CEPreferencesKeyTreatWarningsAsErrors      = @"TreatWarningsAsErrors";
 
 @implementation CEPreferences
 
@@ -471,6 +472,14 @@ NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
     return theme;
 }
 
+- ( BOOL )treatWarningsAsErrors
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyTreatWarningsAsErrors ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -680,6 +689,17 @@ NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowPageGuide );
+    }
+}
+
+- ( void )setTreatWarningsAsErrors: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyTreatWarningsAsErrors ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyTreatWarningsAsErrors );
     }
 }
 
