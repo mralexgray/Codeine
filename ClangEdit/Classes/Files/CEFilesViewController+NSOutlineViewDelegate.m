@@ -33,7 +33,6 @@
     
     ( void )outlineView;
     ( void )tableColumn;
-    ( void )item;
     
     if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
     {
@@ -48,6 +47,54 @@
     }
     
     return nil;
+}
+
+- ( BOOL )outlineView: ( NSOutlineView * )outlineView shouldSelectItem: ( id )item
+{
+    CEFileViewItem * fileViewItem;
+    
+    ( void )outlineView;
+    
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return NO;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    
+    if( fileViewItem.type == CEFileViewItemTypeDocument || fileViewItem.type == CEFileViewItemTypeFS )
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- ( void )outlineViewSelectionDidChange: ( NSNotification * )notification
+{
+    NSInteger        row;
+    CEFileViewItem * item;
+    
+    ( void )notification;
+    
+    row = _outlineView.selectedRow;
+    
+    if( row == -1 )
+    {
+        return;
+    }
+    
+    item = [ _outlineView itemAtRow: row ];
+    
+    if( item == nil || [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    if( item.type == CEFileViewItemTypeFS && item.expandable == YES )
+    {
+        [ _outlineView expandItem: item expandChildren: NO ];
+    }
 }
 
 @end
