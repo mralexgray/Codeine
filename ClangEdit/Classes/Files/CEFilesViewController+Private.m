@@ -19,22 +19,20 @@
     NSString       * desktopPath;
     NSString       * documentsPath;
     CEFileViewItem * openDocumentsItem;
-    CEFileViewItem * placesItems;
+    CEFileViewItem * placesItem;
     
     _outlineView.delegate   = nil;
     _outlineView.dataSource = nil;
-    
-    NSLog( @"reload" );
     
     RELEASE_IVAR( _rootItems );
     
     _rootItems = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
     openDocumentsItem   = [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeSection name: L10N( "Open documents" ) ];
-    placesItems         = [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeSection name: L10N( "Places" ) ];
+    placesItem          = [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeSection name: L10N( "Places" ) ];
     
     [ _rootItems addObject: openDocumentsItem ];
-    [ _rootItems addObject: placesItems ];
+    [ _rootItems addObject: placesItem ];
     
     desktopPath     = [ NSSearchPathForDirectoriesInDomains( NSDesktopDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
     documentsPath   = [ NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
@@ -43,26 +41,28 @@
     
     if( desktopPath != nil )
     {
-        [ placesItems addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: desktopPath ] ];
+        [ placesItem addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: desktopPath ] ];
     }
     
     if( desktopPath != nil )
     {
-        [ placesItems addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: documentsPath ] ];
+        [ placesItem addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: documentsPath ] ];
     }
     
     if( desktopPath != nil )
     {
-        [ placesItems addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: userPath ] ];
+        [ placesItem addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: userPath ] ];
     }
     
     if( desktopPath != nil )
     {
-        [ placesItems addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: rootPath ] ];
+        [ placesItem addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: rootPath ] ];
     }
     
     _outlineView.delegate   = self;
     _outlineView.dataSource = self;
+    
+    [ _outlineView expandItem: placesItem expandChildren: NO ];
 }
 
 @end
