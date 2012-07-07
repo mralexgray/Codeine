@@ -70,6 +70,7 @@
     return NO;
 }
 
+/*
 - ( void )outlineViewSelectionDidChange: ( NSNotification * )notification
 {
     NSInteger        row;
@@ -96,5 +97,6 @@
         [ _outlineView expandItem: item expandChildren: NO ];
     }
 }
+*/
 
 @end
