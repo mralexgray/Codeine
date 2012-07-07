@@ -9,7 +9,7 @@ typedef enum
 {
     CEFileViewItemTypeSection   = 0x00,
     CEFileViewItemTypeDocument  = 0x01,
-    CEFileViewItemTypeFSItem    = 0x02
+    CEFileViewItemTypeFS        = 0x02
 }
 CEFileViewItemType;
 
