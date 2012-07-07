@@ -6,6 +6,7 @@
 /* $Id$ */
 
 #import "CESourceFile.h"
+#import "CEPreferences.h"
 
 @implementation CESourceFile
 
@@ -46,7 +47,7 @@
             
             if( data != nil )
             {
-                _text = [ [ NSString alloc ] initWithData: data encoding: NSUTF8StringEncoding ];
+                _text = [ [ NSString alloc ] initWithData: data encoding: [ [ CEPreferences sharedInstance ] textEncoding ] ];
             }
         }
     }
