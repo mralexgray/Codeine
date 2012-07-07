@@ -5,6 +5,8 @@
  
 /* $Id$ */
 
+#import "CESourceFile.h"
+
 FOUNDATION_EXPORT NSString * const CEPreferencesNotificationValueChanged;
 
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyFontSize;
@@ -31,8 +33,9 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyAutoExpandTabs;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyAutoIndent;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowLineNumbers;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowPageGuide;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyColorThemes;
 
-#import "CESourceFile.h"
+@class CEColorTheme;
 
 @interface CEPreferences: NSObject
 {
@@ -69,6 +72,8 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowPageGuide;
 @property( atomic, readwrite, assign ) BOOL                     autoIndent;
 @property( atomic, readwrite, assign ) BOOL                     showLineNumbers;
 @property( atomic, readwrite, assign ) BOOL                     showPageGuide;
+@property( atomic, readonly          ) NSDictionary           * colorThemes;
+@property( atomic, readonly          ) CEColorTheme           * currentColorTheme;
 
 + ( CEPreferences * )sharedInstance;
 
@@ -78,5 +83,6 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowPageGuide;
 - ( void )removeObjCFramework: ( NSString * )name;
 - ( void )addFileType: ( CESourceFileLanguage )type forExtension: ( NSString * )extension;
 - ( void )removeFileTypeForExtension: ( NSString * )extension;
+- ( void )setColorsFromColorTheme: ( CEColorTheme * )theme;
 
 @end

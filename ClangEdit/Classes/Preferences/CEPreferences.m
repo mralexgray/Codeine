@@ -7,6 +7,7 @@
 
 #import "CEPreferences.h"
 #import "CEPreferences+Private.h"
+#import "CEColorTheme.h"
 
 #define __PREFERENCES_CHANGE_NOTIFY( __key__ )  [ ( NSNotificationCenter * )[ NSNotificationCenter defaultCenter ] postNotificationName: CEPreferencesNotificationValueChanged object: __key__ ]
 
@@ -38,6 +39,7 @@ NSString * const CEPreferencesKeyAutoExpandTabs             = @"AutoExpandTabs";
 NSString * const CEPreferencesKeyAutoIndent                 = @"AutoIndent";
 NSString * const CEPreferencesKeyShowLineNumbers            = @"ShowLineNumbers";
 NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
+NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
 
 @implementation CEPreferences
 
@@ -211,6 +213,18 @@ NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
     }
     
     [ types release ];
+}
+
+- ( void )setColorsFromColorTheme: ( CEColorTheme * )theme
+{
+    self.generalForegroundColor     = theme.generalForegroundColor;
+    self.generalBackgroundColor     = theme.generalBackgroundColor;
+    self.generalSelectionColor      = theme.generalSelectionColor;
+    self.generalCurrentLineColor    = theme.generalCurrentLineColor;
+    self.sourceKeywordColor         = theme.sourceKeywordColor;
+    self.sourceCommentColor         = theme.sourceCommentColor;
+    self.sourceStringColor          = theme.sourceStringColor;
+    self.sourcePredefinedColor      = theme.sourcePredefinedColor;
 }
 
 #pragma mark -
@@ -406,6 +420,55 @@ NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
     {
         return [ DEFAULTS boolForKey: CEPreferencesKeyShowPageGuide ];
     }
+}
+
+- ( NSDictionary * )colorThemes
+{
+    NSDictionary        * colorThemes;
+    NSDictionary        * colors;
+    NSMutableDictionary * themes;
+    CEColorTheme        * theme;
+    NSString            * name;
+    
+    colorThemes = [ DEFAULTS objectForKey: CEPreferencesKeyColorThemes ];
+    themes      = [ NSMutableDictionary dictionaryWithCapacity: colorThemes.count ];
+    
+    for( name in colorThemes )
+    {
+        theme  = [ CEColorTheme colorThemeWithName: name ];
+        colors = [ colorThemes objectForKey: name ];
+        
+        theme.generalForegroundColor    = [ self colorForKey: CEPreferencesKeyGeneralForegoundColor     inDictionary: colors ];
+        theme.generalBackgroundColor    = [ self colorForKey: CEPreferencesKeyGeneralBackgroundColor    inDictionary: colors ];
+        theme.generalSelectionColor     = [ self colorForKey: CEPreferencesKeyGeneralSelectionColor     inDictionary: colors ];
+        theme.generalCurrentLineColor   = [ self colorForKey: CEPreferencesKeyGeneralCurrentLineColor   inDictionary: colors ];
+        theme.sourceKeywordColor        = [ self colorForKey: CEPreferencesKeySourceKeywordColor        inDictionary: colors ];
+        theme.sourceCommentColor        = [ self colorForKey: CEPreferencesKeySourceCommentColor        inDictionary: colors ];
+        theme.sourceStringColor         = [ self colorForKey: CEPreferencesKeySourceStringColor         inDictionary: colors ];
+        theme.sourcePredefinedColor     = [ self colorForKey: CEPreferencesKeySourcePredefinedColor     inDictionary: colors ];
+        
+        [ themes setObject: themes forKey: theme.name ];
+    }
+    
+    return themes;
+}
+
+- ( CEColorTheme * )currentColorTheme
+{
+    CEColorTheme * theme;
+    
+    theme = [ CEColorTheme colorThemeWithName: nil ];
+    
+    theme.generalForegroundColor    = self.generalForegroundColor;
+    theme.generalBackgroundColor    = self.generalBackgroundColor;
+    theme.generalSelectionColor     = self.generalSelectionColor;
+    theme.generalCurrentLineColor   = self.generalCurrentLineColor;
+    theme.sourceKeywordColor        = self.sourceKeywordColor;
+    theme.sourceCommentColor        = self.sourceCommentColor;
+    theme.sourceStringColor         = self.sourceStringColor;
+    theme.sourcePredefinedColor     = self.sourcePredefinedColor;
+    
+    return theme;
 }
 
 #pragma mark -

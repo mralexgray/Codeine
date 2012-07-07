@@ -24,6 +24,21 @@
     return [ NSColor colorWithDeviceRed: r green: g blue: b alpha: ( CGFloat )1 ];
 }
 
+- ( NSColor * )colorForKey: ( NSString * )key inDictionary: ( NSDictionary * )dictionary
+{
+    CGFloat        r;
+    CGFloat        g;
+    CGFloat        b;
+    NSDictionary * colorValues;
+    
+    colorValues = [ dictionary objectForKey: key ];
+    r           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"R" ] doubleValue ] / ( CGFloat )256 );
+    g           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"G" ] doubleValue ] / ( CGFloat )256 );
+    b           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"B" ] doubleValue ] / ( CGFloat )256 );
+    
+    return [ NSColor colorWithDeviceRed: r green: g blue: b alpha: ( CGFloat )1 ];
+}
+
 - ( void )setColor: ( NSColor * )color forKey: ( NSString * )key
 {
     CGFloat        r;
