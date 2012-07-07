@@ -8,6 +8,7 @@
 #import "CEPreferencesFontsAndColorsOptionsViewController.h"
 #import "CEPreferencesFontsAndColorsOptionsViewController+Private.h"
 #import "CEPreferences.h"
+#import "CEColorTheme.h"
 
 @implementation CEPreferencesFontsAndColorsOptionsViewController
 
@@ -20,6 +21,7 @@
 @synthesize sourceCommentColorWell      = _sourceCommentColorWell;
 @synthesize sourceStringColorWell       = _sourceStringColorWell;
 @synthesize sourcePredefinedColorWell   = _sourcePredefinedColorWell;
+@synthesize colorThemesPopUp            = _colorThemesPopUp;
 
 - ( void )dealloc
 {
@@ -34,6 +36,7 @@
     RELEASE_IVAR( _sourceCommentColorWell );
     RELEASE_IVAR( _sourceStringColorWell );
     RELEASE_IVAR( _sourcePredefinedColorWell );
+    RELEASE_IVAR( _colorThemesPopUp );
     
     [ super dealloc ];
 }
@@ -61,6 +64,27 @@
     [ _sourcePredefinedColorWell    setAction: @selector( updateColor: ) ];
     
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateView ) name: CEPreferencesNotificationValueChanged object: nil ];
+    
+    {
+        NSDictionary * themes;
+        NSArray      * keys;
+        NSString     * name;
+        CEColorTheme * theme;
+        NSMenuItem   * item;
+        
+        themes = [ [ CEPreferences sharedInstance ] colorThemes ];
+        keys   = [ [ themes allKeys ] sortedArrayUsingSelector: @selector( localizedCaseInsensitiveCompare: ) ];
+        
+        for( name in keys )
+        {
+            theme = [ themes objectForKey: name ];
+            
+            [ _colorThemesPopUp addItemWithTitle: theme.name ];
+            
+            item                   = [ _colorThemesPopUp itemWithTitle: theme.name ];
+            item.representedObject = theme;
+        }
+    }
 }
 
 - ( IBAction )chooseFont: ( id )sender
@@ -94,6 +118,22 @@
     
     [ [ CEPreferences sharedInstance ] setFontName: [ font fontName ] ];
     [ [ CEPreferences sharedInstance ] setFontSize: [ font pointSize ] ];
+}
+
+- ( IBAction )chooseColorTheme: ( id )sender
+{
+    CEColorTheme * theme;
+    
+    ( void )sender;
+    
+    theme = [ [ _colorThemesPopUp selectedItem ] representedObject ];
+    
+    if( theme == nil )
+    {
+        return;
+    }
+    
+    [ [ CEPreferences sharedInstance ] setColorsFromColorTheme: theme ];
 }
 
 @end

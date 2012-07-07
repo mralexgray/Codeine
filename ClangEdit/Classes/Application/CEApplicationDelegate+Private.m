@@ -75,7 +75,7 @@
         CEColorTheme * theme;
         
         themes = [ [ CEPreferences sharedInstance ] colorThemes ];
-        theme  = [ themes objectForKey: @"Xcode (Default)" ];
+        theme  = [ themes objectForKey: @"Xcode" ];
         
         [ [ CEPreferences sharedInstance ] setGeneralForegroundColor:   theme.generalForegroundColor ];
         [ [ CEPreferences sharedInstance ] setGeneralBackgroundColor:   theme.generalBackgroundColor ];
