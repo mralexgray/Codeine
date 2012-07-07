@@ -49,7 +49,7 @@
 								<string key="NSFrameSize">{150, 400}</string>
 								<reference key="NSSuperview" ref="692447679"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="232670992"/>
 								<string key="NSReuseIdentifierKey">_NS:13</string>
 								<bool key="NSEnabled">YES</bool>
 								<object class="_NSCornerView" key="NSCornerView">
@@ -115,7 +115,6 @@
 										</object>
 										<int key="NSResizingMask">3</int>
 										<bool key="NSIsResizeable">YES</bool>
-										<bool key="NSIsEditable">YES</bool>
 										<reference key="NSTableView" ref="500172346"/>
 									</object>
 								</array>
@@ -145,7 +144,7 @@
 									</object>
 								</object>
 								<double key="NSRowHeight">20</double>
-								<int key="NSTvFlags">-767557632</int>
+								<int key="NSTvFlags">306184192</int>
 								<reference key="NSDelegate"/>
 								<reference key="NSDataSource"/>
 								<int key="NSColumnAutoresizingStyle">4</int>
@@ -186,6 +185,7 @@
 						<string key="NSFrame">{{1, 119}, {238, 15}}</string>
 						<reference key="NSSuperview" ref="271552573"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:60</string>
 						<int key="NSsFlags">1</int>
 						<reference key="NSTarget" ref="271552573"/>
