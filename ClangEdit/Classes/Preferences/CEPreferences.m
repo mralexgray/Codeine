@@ -447,7 +447,7 @@ NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
         theme.sourceStringColor         = [ self colorForKey: CEPreferencesKeySourceStringColor         inDictionary: colors ];
         theme.sourcePredefinedColor     = [ self colorForKey: CEPreferencesKeySourcePredefinedColor     inDictionary: colors ];
         
-        [ themes setObject: themes forKey: theme.name ];
+        [ themes setObject: theme forKey: theme.name ];
     }
     
     return themes;
