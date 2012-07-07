@@ -9,6 +9,7 @@
 #import "CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.h"
 #import "CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.h"
 #import "CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h"
+#import "CEPreferencesCompilerOptionsViewController+Private.h"
 #import "CEPreferences.h"
 
 NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier               = @"Flag";
@@ -21,6 +22,7 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
 
 @synthesize flagsTableView          = _flagsTableView;
 @synthesize objcFrameworksTableView = _objcFrameworksTableView;
+@synthesize warningsPresetPopUp     = _warningsPresetPopUp;
 
 - ( void )awakeFromNib
 {
@@ -36,6 +38,7 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
     RELEASE_IVAR( _flagsTableView );
     RELEASE_IVAR( _objcFrameworksTableView );
     RELEASE_IVAR( _warningFlags );
+    RELEASE_IVAR( _warningsPresetPopUp );
     
     [ super dealloc ];
 }
@@ -89,6 +92,64 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
     
     [ [ CEPreferences sharedInstance ] removeObjCFramework: [ frameworks objectAtIndex: row ] ];
     [ _objcFrameworksTableView reloadData ];
+}
+
+- ( IBAction )selectWarningsPreset: ( id )sender
+{
+    BOOL           disableAll;
+    NSInteger      tag;
+    NSDictionary * flags;
+    NSString     * flag;
+    NSNumber     * value;
+    
+    ( void )sender;
+    
+    tag = [ [ _warningsPresetPopUp selectedItem ] tag ];
+    
+    flags       = nil;
+    disableAll  = NO;
+    
+    switch( tag )
+    {
+        case 1:
+            
+            flags       = [ [ CEPreferences sharedInstance ] warningFlagsPresetStrict ];
+            disableAll  = NO;
+            break;
+            
+        case 2:
+            
+            flags       = [ [ CEPreferences sharedInstance ] warningFlagsPresetNormal ];
+            disableAll  = NO;
+            break;
+            
+        case 3:
+            
+            flags       = [ [ CEPreferences sharedInstance ] warningFlagsPresetStrict ];
+            disableAll  = YES;
+            break;
+            
+        default:
+            
+            return;
+    }
+    
+    for( flag in flags )
+    {
+        value = ( disableAll == YES ) ? [ NSNumber numberWithBool: NO ] : [ flags objectForKey: flag ];
+        
+        if( [ value boolValue ] == YES )
+        {
+            [ [ CEPreferences sharedInstance ] enableWarningFlag: flag ];
+        }
+        else
+        {
+            [ [ CEPreferences sharedInstance ] disableWarningFlag: flag ];
+        }
+    }
+    
+    [ self getWarningFlags ];
+    [ _flagsTableView reloadData ];
 }
 
 @end

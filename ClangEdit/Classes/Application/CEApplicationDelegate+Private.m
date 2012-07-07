@@ -52,7 +52,7 @@
         
         if( warningFlags == nil || warningFlags.count == 0 )
         {
-            warningFlags = [ [ CEPreferences sharedInstance ] warningFlagsPresetStrict ];
+            warningFlags = [ [ CEPreferences sharedInstance ] warningFlagsPresetNormal ];
             
             for( warningFlag in warningFlags )
             {

@@ -23,16 +23,19 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObj
     NSTableView                * _objcFrameworksTableView;
     CEMutableOrderedDictionary * _warningFlags;
     NSArray                    * _objCFrameworks;
+    NSPopUpButton              * _warningsPresetPopUp;
     
 @private
     
     RESERVERD_IVARS( CEPreferencesCompilerOptionsViewController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSTableView * flagsTableView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSTableView * objcFrameworksTableView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTableView   * flagsTableView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTableView   * objcFrameworksTableView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * warningsPresetPopUp;
 
 - ( IBAction )addFramework: ( id )sender;
 - ( IBAction )removeFramework: ( id )sender;
+- ( IBAction )selectWarningsPreset: ( id )sender;
 
 @end
