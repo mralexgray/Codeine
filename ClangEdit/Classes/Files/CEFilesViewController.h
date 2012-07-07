@@ -7,11 +7,14 @@
 
 #import "CEViewController.h"
 
+@class CEFileViewItem;
+
 @interface CEFilesViewController: CEViewController
 {
 @protected
     
-    NSOutlineView * _outlineView;
+    NSOutlineView  * _outlineView;
+    NSMutableArray * _rootItems;
     
 @private
     

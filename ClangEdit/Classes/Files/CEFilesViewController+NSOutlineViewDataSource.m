@@ -6,21 +6,43 @@
 /* $Id$ */
 
 #import "CEFilesViewController+NSOutlineViewDataSource.h"
+#import "CEFileViewItem.h"
 
 @implementation CEFilesViewController( NSOutlineViewDataSource )
 
 - ( NSInteger )outlineView: ( NSOutlineView * )outlineView numberOfChildrenOfItem: ( id )item
 {
     ( void )outlineView;
-    ( void )item;
+    
+    if( item == nil )
+    {
+        return ( NSInteger )( _rootItems.count );
+    }
     
     return 0;
 }
 
 - ( BOOL )outlineView: ( NSOutlineView * )outlineView isItemExpandable: ( id )item
 {
+    CEFileViewItem * fileViewItem;
+    
     ( void )outlineView;
-    ( void )item;
+    
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return NO;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    
+    if( fileViewItem.type == CEFileViewItemTypeSection )
+    {
+        return NO;
+    }
+    else if( fileViewItem.type == CEFileViewItemTypeDocument )
+    {
+        return NO;
+    }
     
     return NO;
 }
@@ -28,17 +50,42 @@
 - ( id )outlineView: ( NSOutlineView * )outlineView child: ( NSInteger )index ofItem: ( id )item
 {
     ( void )outlineView;
-    ( void )index;
-    ( void )item;
+    
+    if( item == nil )
+    {
+        @try
+        {
+            return [ _rootItems objectAtIndex: ( NSUInteger )index ];
+        }
+        @catch( NSException * e )
+        {
+            ( void )e;
+            
+            return nil;
+        }
+    }
     
     return nil;
 }
 
 - ( id )outlineView: ( NSOutlineView * )outlineView objectValueForTableColumn: ( NSTableColumn * )tableColumn byItem: ( id )item
 {
+    CEFileViewItem * fileViewItem;
+    
     ( void )outlineView;
     ( void )tableColumn;
-    ( void )item;
+    
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return nil;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    
+    if( fileViewItem.type == CEFileViewItemTypeSection )
+    {
+        return fileViewItem.name;
+    }
     
     return nil;
 }

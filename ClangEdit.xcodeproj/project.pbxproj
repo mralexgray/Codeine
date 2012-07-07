@@ -33,6 +33,10 @@
 		05480FD9159A0CC1005CFBC5 /* CEMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FD8159A0CC1005CFBC5 /* CEMainWindowController.m */; };
 		05480FDC159A0CD5005CFBC5 /* CEMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05480FDA159A0CD5005CFBC5 /* CEMainWindow.xib */; };
 		05480FE0159A0CFB005CFBC5 /* CEWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FDF159A0CFB005CFBC5 /* CEWindowController.m */; };
+		0563E04715A8A7B400BA5828 /* CEFilesViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */; };
+		0563E04A15A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04915A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m */; };
+		0563E04D15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */; };
+		0563E05015A8A98300BA5828 /* CEFileViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04F15A8A98300BA5828 /* CEFileViewItem.m */; };
 		0566D9A4159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A2159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib */; };
 		0566D9A6159A33C70060FF7D /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A5159A33C70060FF7D /* Defaults.plist */; };
 		0566D9A9159A40E70060FF7D /* CEPreferences+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566D9A8159A40E70060FF7D /* CEPreferences+Private.m */; };
@@ -121,6 +125,14 @@
 		05480FDB159A0CD5005CFBC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEMainWindow.xib; sourceTree = "<group>"; };
 		05480FDE159A0CFB005CFBC5 /* CEWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEWindowController.h; sourceTree = "<group>"; };
 		05480FDF159A0CFB005CFBC5 /* CEWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEWindowController.m; sourceTree = "<group>"; };
+		0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+Private.h"; sourceTree = "<group>"; };
+		0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+Private.m"; sourceTree = "<group>"; };
+		0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDataSource.h"; sourceTree = "<group>"; };
+		0563E04915A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+NSOutlineViewDataSource.m"; sourceTree = "<group>"; };
+		0563E04B15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDelegate.h"; sourceTree = "<group>"; };
+		0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+NSOutlineViewDelegate.m"; sourceTree = "<group>"; };
+		0563E04E15A8A98300BA5828 /* CEFileViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewItem.h; sourceTree = "<group>"; };
+		0563E04F15A8A98300BA5828 /* CEFileViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewItem.m; sourceTree = "<group>"; };
 		0566D9A3159A31060060FF7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesFontsAndColorsOptionsView.xib; sourceTree = "<group>"; };
 		0566D9A5159A33C70060FF7D /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		0566D9A7159A40E70060FF7D /* CEPreferences+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferences+Private.h"; sourceTree = "<group>"; };
@@ -480,8 +492,16 @@
 		057F5864159D40A300C84780 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */,
+				0563E04915A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m */,
+				0563E04B15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.h */,
+				0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */,
+				0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */,
+				0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */,
 				052FCFFD159DEBDA0045C9ED /* CEFilesViewController.h */,
 				052FCFFE159DEBDA0045C9ED /* CEFilesViewController.m */,
+				0563E04E15A8A98300BA5828 /* CEFileViewItem.h */,
+				0563E04F15A8A98300BA5828 /* CEFileViewItem.m */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -659,6 +679,10 @@
 				05F8035A15A75CED00CD9F0D /* CETextEncodingPopUpButton.m in Sources */,
 				05F8035D15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m in Sources */,
 				05F8036715A8804D00CD9F0D /* CEColorTheme.m in Sources */,
+				0563E04715A8A7B400BA5828 /* CEFilesViewController+Private.m in Sources */,
+				0563E04A15A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m in Sources */,
+				0563E04D15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m in Sources */,
+				0563E05015A8A98300BA5828 /* CEFileViewItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
