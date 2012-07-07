@@ -20,6 +20,7 @@ CEFileViewItemType;
     CEFileViewItemType _type;
     NSString         * _name;
     id                 _representedObject;
+    NSMutableArray   * _childrens;
     
 @private
     
@@ -28,6 +29,7 @@ CEFileViewItemType;
 
 @property( atomic, readonly          ) CEFileViewItemType type;
 @property( atomic, readonly          ) NSString *         name;
+@property( atomic, readonly          ) NSArray  *         childrens;
 @property( atomic, readwrite, retain ) id                 representedObject;
 
 + ( id )fileViewItemWithType: ( CEFileViewItemType )type name: ( NSString * )name;

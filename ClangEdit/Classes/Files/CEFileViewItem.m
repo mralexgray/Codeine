@@ -32,8 +32,17 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _name );
+    RELEASE_IVAR( _representedObject );
     
     [ super dealloc ];
+}
+
+- ( NSArray * )childrens
+{
+    @synchronized( self )
+    {
+        return [ NSArray arrayWithArray: _childrens ];
+    }
 }
 
 @end

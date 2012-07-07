@@ -12,6 +12,8 @@
 
 - ( NSInteger )outlineView: ( NSOutlineView * )outlineView numberOfChildrenOfItem: ( id )item
 {
+    CEFileViewItem * fileViewItem;
+    
     ( void )outlineView;
     
     if( item == nil )
@@ -19,7 +21,14 @@
         return ( NSInteger )( _rootItems.count );
     }
     
-    return 0;
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return 0;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    
+    return ( NSInteger )( fileViewItem.childrens.count );
 }
 
 - ( BOOL )outlineView: ( NSOutlineView * )outlineView isItemExpandable: ( id )item
@@ -44,7 +53,7 @@
         return NO;
     }
     
-    return NO;
+    return ( BOOL )( fileViewItem.childrens.count > 0 );
 }
 
 - ( id )outlineView: ( NSOutlineView * )outlineView child: ( NSInteger )index ofItem: ( id )item
