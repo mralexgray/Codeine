@@ -37,6 +37,9 @@
 		0563E04A15A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04915A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m */; };
 		0563E04D15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */; };
 		0563E05015A8A98300BA5828 /* CEFileViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04F15A8A98300BA5828 /* CEFileViewItem.m */; };
+		0563E08415A8BBA700BA5828 /* CEFileViewItemSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E08315A8BBA700BA5828 /* CEFileViewItemSection.m */; };
+		0563E08715A8BBBB00BA5828 /* CEFileViewItemDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E08615A8BBBA00BA5828 /* CEFileViewItemDocument.m */; };
+		0563E08A15A8BBC700BA5828 /* CEFileViewItemFS.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E08915A8BBC600BA5828 /* CEFileViewItemFS.m */; };
 		0566D9A4159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A2159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib */; };
 		0566D9A6159A33C70060FF7D /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A5159A33C70060FF7D /* Defaults.plist */; };
 		0566D9A9159A40E70060FF7D /* CEPreferences+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566D9A8159A40E70060FF7D /* CEPreferences+Private.m */; };
@@ -133,6 +136,12 @@
 		0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+NSOutlineViewDelegate.m"; sourceTree = "<group>"; };
 		0563E04E15A8A98300BA5828 /* CEFileViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewItem.h; sourceTree = "<group>"; };
 		0563E04F15A8A98300BA5828 /* CEFileViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewItem.m; sourceTree = "<group>"; };
+		0563E08215A8BBA600BA5828 /* CEFileViewItemSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewItemSection.h; sourceTree = "<group>"; };
+		0563E08315A8BBA700BA5828 /* CEFileViewItemSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewItemSection.m; sourceTree = "<group>"; };
+		0563E08515A8BBBA00BA5828 /* CEFileViewItemDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewItemDocument.h; sourceTree = "<group>"; };
+		0563E08615A8BBBA00BA5828 /* CEFileViewItemDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewItemDocument.m; sourceTree = "<group>"; };
+		0563E08815A8BBC600BA5828 /* CEFileViewItemFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewItemFS.h; sourceTree = "<group>"; };
+		0563E08915A8BBC600BA5828 /* CEFileViewItemFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewItemFS.m; sourceTree = "<group>"; };
 		0566D9A3159A31060060FF7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesFontsAndColorsOptionsView.xib; sourceTree = "<group>"; };
 		0566D9A5159A33C70060FF7D /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		0566D9A7159A40E70060FF7D /* CEPreferences+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferences+Private.h"; sourceTree = "<group>"; };
@@ -502,6 +511,12 @@
 				052FCFFE159DEBDA0045C9ED /* CEFilesViewController.m */,
 				0563E04E15A8A98300BA5828 /* CEFileViewItem.h */,
 				0563E04F15A8A98300BA5828 /* CEFileViewItem.m */,
+				0563E08215A8BBA600BA5828 /* CEFileViewItemSection.h */,
+				0563E08315A8BBA700BA5828 /* CEFileViewItemSection.m */,
+				0563E08515A8BBBA00BA5828 /* CEFileViewItemDocument.h */,
+				0563E08615A8BBBA00BA5828 /* CEFileViewItemDocument.m */,
+				0563E08815A8BBC600BA5828 /* CEFileViewItemFS.h */,
+				0563E08915A8BBC600BA5828 /* CEFileViewItemFS.m */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -683,6 +698,9 @@
 				0563E04A15A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m in Sources */,
 				0563E04D15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m in Sources */,
 				0563E05015A8A98300BA5828 /* CEFileViewItem.m in Sources */,
+				0563E08415A8BBA700BA5828 /* CEFileViewItemSection.m in Sources */,
+				0563E08715A8BBBB00BA5828 /* CEFileViewItemDocument.m in Sources */,
+				0563E08A15A8BBC700BA5828 /* CEFileViewItemFS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

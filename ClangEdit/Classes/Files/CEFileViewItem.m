@@ -29,8 +29,9 @@
     {
         if( ( self = [ super init ] ) )
         {
-            _type = type;
-            _name = [ name copy ];
+            _type       = type;
+            _name       = [ name copy ];
+            _children   = [ [ NSMutableArray alloc ] initWithCapacity: 100 ];
         }
         
         return self;
@@ -67,16 +68,32 @@
 {
     RELEASE_IVAR( _name );
     RELEASE_IVAR( _representedObject );
+    RELEASE_IVAR( _children );
     
     [ super dealloc ];
 }
 
-- ( NSArray * )childrens
+- ( NSArray * )children
 {
     @synchronized( self )
     {
-        return [ NSArray arrayWithArray: _childrens ];
+        return [ NSArray arrayWithArray: _children ];
     }
+}
+
+- ( void )addChild: ( CEFileViewItem * )child
+{
+    [ _children addObject: child ];
+}
+
+- ( void )removeChild: ( CEFileViewItem * )child
+{
+    [ _children removeObject: child ];
+}
+
+- ( BOOL )expandable
+{
+    return NO;
 }
 
 @end

@@ -35,6 +35,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowLineNumbers;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowPageGuide;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyColorThemes;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyTreatWarningsAsErrors;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowHiddenFiles;
 
 @class CEColorTheme;
 
@@ -76,6 +77,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyTreatWarningsAsErrors;
 @property( atomic, readonly          ) NSDictionary           * colorThemes;
 @property( atomic, readonly          ) CEColorTheme           * currentColorTheme;
 @property( atomic, readwrite, assign ) BOOL                     treatWarningsAsErrors;
+@property( atomic, readwrite, assign ) BOOL                     showHiddenFiles;
 
 + ( CEPreferences * )sharedInstance;
 

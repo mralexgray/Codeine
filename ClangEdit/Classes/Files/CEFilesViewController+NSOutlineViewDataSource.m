@@ -28,7 +28,7 @@
     
     fileViewItem = ( CEFileViewItem * )item;
     
-    return ( NSInteger )( fileViewItem.childrens.count );
+    return ( NSInteger )( fileViewItem.children.count );
 }
 
 - ( BOOL )outlineView: ( NSOutlineView * )outlineView isItemExpandable: ( id )item
@@ -44,20 +44,13 @@
     
     fileViewItem = ( CEFileViewItem * )item;
     
-    if( fileViewItem.type == CEFileViewItemTypeSection )
-    {
-        return NO;
-    }
-    else if( fileViewItem.type == CEFileViewItemTypeDocument )
-    {
-        return NO;
-    }
-    
-    return ( BOOL )( fileViewItem.childrens.count > 0 );
+    return fileViewItem.expandable;
 }
 
 - ( id )outlineView: ( NSOutlineView * )outlineView child: ( NSInteger )index ofItem: ( id )item
 {
+    CEFileViewItem * fileViewItem;
+    
     ( void )outlineView;
     
     if( item == nil )
@@ -72,6 +65,22 @@
             
             return nil;
         }
+    }
+    
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return nil;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    
+    @try
+    {
+        return [ fileViewItem.children objectAtIndex: ( NSUInteger )index ];
+    }
+    @catch (NSException * e)
+    {
+        ( void )e;
     }
     
     return nil;
@@ -91,12 +100,7 @@
     
     fileViewItem = ( CEFileViewItem * )item;
     
-    if( fileViewItem.type == CEFileViewItemTypeSection )
-    {
-        return fileViewItem.name;
-    }
-    
-    return nil;
+    return fileViewItem.name;
 }
 
 @end

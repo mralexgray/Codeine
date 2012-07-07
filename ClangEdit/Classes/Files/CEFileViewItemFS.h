@@ -11,7 +11,7 @@
 {
 @protected
     
-    
+    BOOL _isDirectory;
     
 @private
     

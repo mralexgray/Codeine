@@ -10,6 +10,7 @@
 #import "CEFilesViewController+NSOutlineViewDelegate.h"
 #import "CEFilesViewController+NSOutlineViewDataSource.h"
 #import "CEFileViewItem.h"
+#import "CEPreferences.h"
 
 @implementation CEFilesViewController
 
@@ -17,6 +18,8 @@
 
 - ( void )dealloc
 {
+    [ NOTIFICATION_CENTER removeObserver: self ];
+    
     RELEASE_IVAR( _outlineView );
     RELEASE_IVAR( _rootItems );
     
@@ -25,13 +28,8 @@
 
 - ( void )awakeFromNib
 {
-    _rootItems = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
-    
-    [ _rootItems addObject: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeSection name: L10N( "Open documents" ) ] ];
-    [ _rootItems addObject: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeSection name: L10N( "Places" ) ] ];
-    
-    _outlineView.delegate   = self;
-    _outlineView.dataSource = self;
+    [ NOTIFICATION_CENTER addObserver: self selector: @selector( reload ) name: CEPreferencesNotificationValueChanged object: CEPreferencesKeyShowHiddenFiles ];
+    [ self reload ];
 }
 
 @end

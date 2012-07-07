@@ -256,6 +256,8 @@
 	<integer>1</integer>
 	<key>TreatWarningsAsErrors</key>
 	<true/>
+	<key>ShowHiddenFiles</key>
+	<false/>
 	<key>WarningFlags</key>
 	<dict/>
 	<key>WarningFlagsPresetStrict</key>

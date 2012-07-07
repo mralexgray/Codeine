@@ -41,6 +41,7 @@ NSString * const CEPreferencesKeyShowLineNumbers            = @"ShowLineNumbers"
 NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
 NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
 NSString * const CEPreferencesKeyTreatWarningsAsErrors      = @"TreatWarningsAsErrors";
+NSString * const CEPreferencesKeyShowHiddenFiles            = @"ShowHiddenFiles";
 
 @implementation CEPreferences
 
@@ -480,6 +481,14 @@ NSString * const CEPreferencesKeyTreatWarningsAsErrors      = @"TreatWarningsAsE
     }
 }
 
+- ( BOOL )showHiddenFiles
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyShowHiddenFiles ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -700,6 +709,17 @@ NSString * const CEPreferencesKeyTreatWarningsAsErrors      = @"TreatWarningsAsE
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyTreatWarningsAsErrors );
+    }
+}
+
+- ( void )setShowHiddenFiles: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowHiddenFiles ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowHiddenFiles );
     }
 }
 

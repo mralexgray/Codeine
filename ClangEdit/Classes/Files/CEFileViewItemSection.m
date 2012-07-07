@@ -9,6 +9,9 @@
 
 @implementation CEFileViewItemSection
 
-
+- ( BOOL )expandable
+{
+    return ( BOOL )( _children.count > 0 );
+}
 
 @end
