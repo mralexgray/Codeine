@@ -9,149 +9,149 @@
 			<key>ColorGeneralForeground</key>
 			<dict>
 				<key>R</key>
-				<integer>191</integer>
+				<integer>0</integer>
 				<key>G</key>
-				<integer>191</integer>
+				<integer>0</integer>
 				<key>B</key>
-				<integer>191</integer>
+				<integer>0</integer>
 			</dict>
 			<key>ColorGeneralBackground</key>
 			<dict>
 				<key>R</key>
-				<integer>29</integer>
+				<integer>255</integer>
 				<key>G</key>
-				<integer>35</integer>
+				<integer>255</integer>
 				<key>B</key>
-				<integer>39</integer>
+				<integer>255</integer>
 			</dict>
 			<key>ColorGeneralSelection</key>
 			<dict>
 				<key>R</key>
-				<integer>38</integer>
+				<integer>198</integer>
 				<key>G</key>
-				<integer>45</integer>
+				<integer>208</integer>
 				<key>B</key>
-				<integer>49</integer>
+				<integer>220</integer>
 			</dict>
 			<key>ColorGeneralCurrentLine</key>
 			<dict>
 				<key>R</key>
-				<integer>38</integer>
+				<integer>255</integer>
 				<key>G</key>
-				<integer>45</integer>
+				<integer>255</integer>
 				<key>B</key>
-				<integer>49</integer>
+				<integer>240</integer>
 			</dict>
 			<key>ColorSourceKeyword</key>
 			<dict>
 				<key>R</key>
-				<integer>103</integer>
+				<integer>170</integer>
 				<key>G</key>
-				<integer>140</integer>
+				<integer>13</integer>
 				<key>B</key>
-				<integer>177</integer>
+				<integer>145</integer>
 			</dict>
 			<key>ColorSourceComment</key>
 			<dict>
 				<key>R</key>
-				<integer>59</integer>
+				<integer>0</integer>
 				<key>G</key>
-				<integer>57</integer>
+				<integer>116</integer>
 				<key>B</key>
-				<integer>71</integer>
-			</dict>
-			<key>ColorSourcePredefined</key>
-			<dict>
-				<key>R</key>
-				<integer>111</integer>
-				<key>G</key>
-				<integer>175</integer>
-				<key>B</key>
-				<integer>175</integer>
+				<integer>0</integer>
 			</dict>
 			<key>ColorSourceString</key>
 			<dict>
 				<key>R</key>
-				<integer>179</integer>
+				<integer>196</integer>
 				<key>G</key>
-				<integer>125</integer>
+				<integer>26</integer>
 				<key>B</key>
-				<integer>73</integer>
+				<integer>22</integer>
 			</dict>
-		</dict>
-		<key>BBEdit</key>
-		<dict>
-			<key>ColorGeneralBackground</key>
+			<key>ColorSourcePredefined</key>
 			<dict>
 				<key>R</key>
-				<integer>29</integer>
+				<integer>63</integer>
 				<key>G</key>
-				<integer>35</integer>
+				<integer>106</integer>
 				<key>B</key>
-				<integer>39</integer>
+				<integer>116</integer>
 			</dict>
+		</dict>
+		<key>BareBones</key>
+		<dict>
 			<key>ColorGeneralForeground</key>
 			<dict>
 				<key>R</key>
-				<integer>191</integer>
+				<integer>0</integer>
 				<key>G</key>
-				<integer>191</integer>
+				<integer>0</integer>
 				<key>B</key>
-				<integer>191</integer>
+				<integer>0</integer>
+			</dict>
+			<key>ColorGeneralBackground</key>
+			<dict>
+				<key>R</key>
+				<integer>255</integer>
+				<key>G</key>
+				<integer>255</integer>
+				<key>B</key>
+				<integer>255</integer>
 			</dict>
 			<key>ColorGeneralSelection</key>
 			<dict>
 				<key>R</key>
-				<integer>38</integer>
+				<integer>198</integer>
 				<key>G</key>
-				<integer>45</integer>
+				<integer>208</integer>
 				<key>B</key>
-				<integer>49</integer>
+				<integer>220</integer>
 			</dict>
 			<key>ColorGeneralCurrentLine</key>
 			<dict>
 				<key>R</key>
-				<integer>38</integer>
+				<integer>255</integer>
 				<key>G</key>
-				<integer>45</integer>
+				<integer>255</integer>
 				<key>B</key>
-				<integer>49</integer>
+				<integer>240</integer>
 			</dict>
 			<key>ColorSourceKeyword</key>
 			<dict>
 				<key>R</key>
-				<integer>103</integer>
+				<integer>0</integer>
 				<key>G</key>
-				<integer>140</integer>
+				<integer>127</integer>
 				<key>B</key>
-				<integer>177</integer>
+				<integer>255</integer>
 			</dict>
 			<key>ColorSourceComment</key>
 			<dict>
 				<key>R</key>
-				<integer>59</integer>
+				<integer>127</integer>
 				<key>G</key>
-				<integer>57</integer>
+				<integer>127</integer>
 				<key>B</key>
-				<integer>71</integer>
-			</dict>
-			<key>ColorSourcePredefined</key>
-			<dict>
-				<key>R</key>
-				<integer>111</integer>
-				<key>G</key>
-				<integer>175</integer>
-				<key>B</key>
-				<integer>175</integer>
+				<integer>127</integer>
 			</dict>
 			<key>ColorSourceString</key>
 			<dict>
 				<key>R</key>
-				<integer>179</integer>
+				<integer>255</integer>
 				<key>G</key>
-				<integer>125</integer>
+				<integer>127</integer>
 				<key>B</key>
-				<integer>73</integer>
+				<integer>127</integer>
+			</dict>
+			<key>ColorSourcePredefined</key>
+			<dict>
+				<key>R</key>
+				<integer>127</integer>
+				<key>G</key>
+				<integer>0</integer>
+				<key>B</key>
+				<integer>127</integer>
 			</dict>
 		</dict>
 		<key>Dark</key>
@@ -210,15 +210,6 @@
 				<key>B</key>
 				<integer>71</integer>
 			</dict>
-			<key>ColorSourcePredefined</key>
-			<dict>
-				<key>R</key>
-				<integer>111</integer>
-				<key>G</key>
-				<integer>175</integer>
-				<key>B</key>
-				<integer>175</integer>
-			</dict>
 			<key>ColorSourceString</key>
 			<dict>
 				<key>R</key>
@@ -228,63 +219,6 @@
 				<key>B</key>
 				<integer>73</integer>
 			</dict>
-		</dict>
-		<key>Sunset</key>
-		<dict>
-			<key>ColorGeneralForeground</key>
-			<dict>
-				<key>R</key>
-				<integer>191</integer>
-				<key>G</key>
-				<integer>191</integer>
-				<key>B</key>
-				<integer>191</integer>
-			</dict>
-			<key>ColorGeneralBackground</key>
-			<dict>
-				<key>R</key>
-				<integer>29</integer>
-				<key>G</key>
-				<integer>35</integer>
-				<key>B</key>
-				<integer>39</integer>
-			</dict>
-			<key>ColorGeneralSelection</key>
-			<dict>
-				<key>R</key>
-				<integer>38</integer>
-				<key>G</key>
-				<integer>45</integer>
-				<key>B</key>
-				<integer>49</integer>
-			</dict>
-			<key>ColorGeneralCurrentLine</key>
-			<dict>
-				<key>R</key>
-				<integer>38</integer>
-				<key>G</key>
-				<integer>45</integer>
-				<key>B</key>
-				<integer>49</integer>
-			</dict>
-			<key>ColorSourceKeyword</key>
-			<dict>
-				<key>R</key>
-				<integer>103</integer>
-				<key>G</key>
-				<integer>140</integer>
-				<key>B</key>
-				<integer>177</integer>
-			</dict>
-			<key>ColorSourceComment</key>
-			<dict>
-				<key>R</key>
-				<integer>59</integer>
-				<key>G</key>
-				<integer>57</integer>
-				<key>B</key>
-				<integer>71</integer>
-			</dict>
 			<key>ColorSourcePredefined</key>
 			<dict>
 				<key>R</key>
@@ -293,15 +227,6 @@
 				<integer>175</integer>
 				<key>B</key>
 				<integer>175</integer>
-			</dict>
-			<key>ColorSourceString</key>
-			<dict>
-				<key>R</key>
-				<integer>179</integer>
-				<key>G</key>
-				<integer>125</integer>
-				<key>B</key>
-				<integer>73</integer>
 			</dict>
 		</dict>
 	</dict>
