@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05087FC715A8E66900582A01 /* CEFileViewCell.m */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
 		051F2E10159A12DB0027DD4F /* CEAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */; };
@@ -80,6 +81,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05087FC615A8E66900582A01 /* CEFileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewCell.h; sourceTree = "<group>"; };
+		05087FC715A8E66900582A01 /* CEFileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewCell.m; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
 		051F2E09159A12B10027DD4F /* CEPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferences.m; sourceTree = "<group>"; };
 		051F2E0B159A12D20027DD4F /* CEPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -517,6 +520,8 @@
 				0563E08615A8BBBA00BA5828 /* CEFileViewItemDocument.m */,
 				0563E08815A8BBC600BA5828 /* CEFileViewItemFS.h */,
 				0563E08915A8BBC600BA5828 /* CEFileViewItemFS.m */,
+				05087FC615A8E66900582A01 /* CEFileViewCell.h */,
+				05087FC715A8E66900582A01 /* CEFileViewCell.m */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -701,6 +706,7 @@
 				0563E08415A8BBA700BA5828 /* CEFileViewItemSection.m in Sources */,
 				0563E08715A8BBBB00BA5828 /* CEFileViewItemDocument.m in Sources */,
 				0563E08A15A8BBC700BA5828 /* CEFileViewItemFS.m in Sources */,
+				05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

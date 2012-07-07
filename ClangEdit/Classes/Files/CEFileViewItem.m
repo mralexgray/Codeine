@@ -15,6 +15,7 @@
 @synthesize type                = _type;
 @synthesize representedObject   = _representedObject;
 @synthesize name                = _name;
+@synthesize icon                = _icon;
 
 + ( id )fileViewItemWithType: ( CEFileViewItemType )type name: ( NSString * )name
 {
@@ -71,6 +72,15 @@
     RELEASE_IVAR( _children );
     
     [ super dealloc ];
+}
+
+- ( id )copyWithZone: ( NSZone * )zone
+{
+    id item;
+    
+    item = [ [ [ self class ] allocWithZone: zone ] initWithType: _type name: _name ];
+    
+    return item;
 }
 
 - ( NSArray * )children

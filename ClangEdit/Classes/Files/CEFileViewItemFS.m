@@ -30,6 +30,11 @@
     return [ FILE_MANAGER displayNameAtPath: _name ];
 }
 
+- ( NSImage * )icon
+{
+    return [ [ NSWorkspace sharedWorkspace ] iconForFile: _name ];
+}
+
 - ( BOOL )expandable
 {
     return _isDirectory && self.children.count > 0;

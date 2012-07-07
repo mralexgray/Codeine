@@ -100,7 +100,7 @@
     
     fileViewItem = ( CEFileViewItem * )item;
     
-    return fileViewItem.name;
+    return ( fileViewItem.type == CEFileViewItemTypeSection ) ? fileViewItem.name : fileViewItem;
 }
 
 @end
