@@ -69,6 +69,7 @@
 		05F8035A15A75CED00CD9F0D /* CETextEncodingPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */; };
 		05F8035D15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */; };
 		05F8036115A7794300CD9F0D /* Application.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F8036015A7794300CD9F0D /* Application.icns */; };
+		05F8036715A8804D00CD9F0D /* CEColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8036615A8804D00CD9F0D /* CEColorTheme.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +184,8 @@
 		05F8035B15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CETextEncodingPopUpButton+Private.h"; sourceTree = "<group>"; };
 		05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CETextEncodingPopUpButton+Private.m"; sourceTree = "<group>"; };
 		05F8036015A7794300CD9F0D /* Application.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Application.icns; path = ../../Application.icns; sourceTree = "<group>"; };
+		05F8036515A8804D00CD9F0D /* CEColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorTheme.h; sourceTree = "<group>"; };
+		05F8036615A8804D00CD9F0D /* CEColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorTheme.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +343,7 @@
 		05480FCD159A0B98005CFBC5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				05F8036215A87C5000CD9F0D /* Images */,
 				05F8036015A7794300CD9F0D /* Application.icns */,
 				05F51528159A17AE0049A756 /* Localizable.strings */,
 				05480FCE159A0B98005CFBC5 /* CEMainMenu.xib */,
@@ -493,6 +497,8 @@
 				05941097159A266500257F9E /* CESystemIconsHelper.m */,
 				05972EC0159F5FFA009A204F /* CEBuilder.h */,
 				05972EC1159F5FFA009A204F /* CEBuilder.m */,
+				05F8036515A8804D00CD9F0D /* CEColorTheme.h */,
+				05F8036615A8804D00CD9F0D /* CEColorTheme.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -520,6 +526,13 @@
 				05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */,
 			);
 			path = "UI Elements";
+			sourceTree = "<group>";
+		};
+		05F8036215A87C5000CD9F0D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -645,6 +658,7 @@
 				05F8034F15A72DBA00CD9F0D /* CETextEncoding.m in Sources */,
 				05F8035A15A75CED00CD9F0D /* CETextEncodingPopUpButton.m in Sources */,
 				05F8035D15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m in Sources */,
+				05F8036715A8804D00CD9F0D /* CEColorTheme.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
