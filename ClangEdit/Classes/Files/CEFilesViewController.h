@@ -11,11 +11,13 @@
 {
 @protected
     
-    
+    NSOutlineView * _outlineView;
     
 @private
     
     RESERVERD_IVARS( CEFilesViewController , 5 );
 }
+
+@property( nonatomic, readwrite, retain ) IBOutlet NSOutlineView * outlineView;
 
 @end
