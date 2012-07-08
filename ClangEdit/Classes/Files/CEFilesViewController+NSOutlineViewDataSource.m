@@ -100,7 +100,7 @@
     
     fileViewItem = ( CEFileViewItem * )item;
     
-    return ( fileViewItem.type == CEFileViewItemTypeSection ) ? fileViewItem.name : fileViewItem;
+    return ( fileViewItem.type == CEFileViewItemTypeSection ) ? fileViewItem.displayName : fileViewItem;
 }
 
 - ( id )outlineView: ( NSOutlineView * )outlineView persistentObjectForItem: ( id )item
