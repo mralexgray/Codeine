@@ -70,33 +70,4 @@
     return NO;
 }
 
-/*
-- ( void )outlineViewSelectionDidChange: ( NSNotification * )notification
-{
-    NSInteger        row;
-    CEFileViewItem * item;
-    
-    ( void )notification;
-    
-    row = _outlineView.selectedRow;
-    
-    if( row == -1 )
-    {
-        return;
-    }
-    
-    item = [ _outlineView itemAtRow: row ];
-    
-    if( item == nil || [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
-    {
-        return;
-    }
-    
-    if( item.type == CEFileViewItemTypeFS && item.expandable == YES )
-    {
-        [ _outlineView expandItem: item expandChildren: NO ];
-    }
-}
-*/
-
 @end

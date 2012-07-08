@@ -49,12 +49,14 @@
     CFURLRef                url;
     LSItemInfoRecord        info;
     BOOL                    invisible;
+    BOOL                    showHidden;
     
     if( _children.count > 0 )
     {
         return [ super children ];
     }
     
+    showHidden = [ [ CEPreferences sharedInstance ] showHiddenFiles ];
     enumerator = [ FILE_MANAGER enumeratorAtPath: _name ];
     
     while( ( file = [ enumerator nextObject ] ) )
@@ -62,6 +64,14 @@
         [ enumerator skipDescendants ];
         
         path = [ _name stringByAppendingPathComponent: file ];
+        
+        if( showHidden == NO )
+        {
+            if( [ path isEqualToString: @"/dev"  ] ) { continue; }
+            if( [ path isEqualToString: @"/home" ] ) { continue; }
+            if( [ path isEqualToString: @"/net"  ] ) { continue; }
+        }
+        
         item = [ CEFileViewItem fileViewItemWithType: _type name: path ];
         url  = CFURLCreateWithFileSystemPath( kCFAllocatorDefault, ( CFStringRef )path, kCFURLPOSIXPathStyle, YES );
         
@@ -69,7 +79,7 @@
         
         invisible = info.flags & kLSItemInfoIsInvisible;
         
-        if( item != nil && ( invisible == NO || [ [ CEPreferences sharedInstance ] showHiddenFiles ] == YES ) )
+        if( item != nil && ( invisible == NO || showHidden == YES ) )
         {
             [ _children addObject: item ];
         }
