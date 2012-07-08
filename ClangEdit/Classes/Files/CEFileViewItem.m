@@ -173,6 +173,11 @@ static void __exit( void )
     [ _children removeObject: child ];
 }
 
+- ( void )removeAllChildren
+{
+    [ _children removeAllObjects ];
+}
+
 - ( BOOL )expandable
 {
     return NO;

@@ -43,5 +43,6 @@ CEFileViewItemType;
 - ( id )initWithType: ( CEFileViewItemType )type name: ( NSString * )name;
 - ( void )addChild: ( CEFileViewItem * )child;
 - ( void )removeChild: ( CEFileViewItem * )child;
+- ( void )removeAllChildren;
 
 @end
