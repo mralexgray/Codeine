@@ -13,6 +13,10 @@ typedef enum
 }
 CEFileViewItemType;
 
+FOUNDATION_EXPORT NSString * const CEFileViewOpenDocumentsItemName;
+FOUNDATION_EXPORT NSString * const CEFileViewPlacesItemName;
+FOUNDATION_EXPORT NSString * const CEFileViewBookmarksItemName;
+
 @interface CEFileViewItem: NSObject < NSCopying >
 {
 @protected
@@ -37,8 +41,9 @@ CEFileViewItemType;
 @property( atomic, readonly          ) BOOL               expandable;
 @property( atomic, readwrite, retain ) id                 representedObject;
 
-+ ( id )placesItem;
 + ( id )openDocumentsItem;
++ ( id )placesItem;
++ ( id )bookmarksItems;
 + ( id )fileViewItemWithType: ( CEFileViewItemType )type name: ( NSString * )name;
 - ( id )initWithType: ( CEFileViewItemType )type name: ( NSString * )name;
 - ( void )addChild: ( CEFileViewItem * )child;

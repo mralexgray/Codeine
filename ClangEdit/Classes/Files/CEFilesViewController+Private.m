@@ -31,6 +31,7 @@
     
     [ _rootItems addObject: [ CEFileViewItem openDocumentsItem ] ];
     [ _rootItems addObject: [ CEFileViewItem placesItem ] ];
+    [ _rootItems addObject: [ CEFileViewItem bookmarksItems ] ];
     
     _outlineView.delegate              = self;
     _outlineView.dataSource            = self;
@@ -38,10 +39,12 @@
     _outlineView.autosaveName          = NSStringFromClass( [ self class ] );
     
     [ _outlineView reloadData ];
+    [ _outlineView expandItem: [ CEFileViewItem openDocumentsItem ] expandChildren: NO ];
     
     if( [ [ CEPreferences sharedInstance ] firstLaunch ] == YES )
     {
         [ _outlineView expandItem: [ CEFileViewItem placesItem ] expandChildren: NO ];
+        [ _outlineView expandItem: [ CEFileViewItem bookmarksItems ] expandChildren: NO ];
     }
 }
 

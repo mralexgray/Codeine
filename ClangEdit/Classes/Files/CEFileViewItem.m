@@ -10,14 +10,20 @@
 #import "CEFileViewItemDocument.h"
 #import "CEFileViewItemFS.h"
 
+NSString * const CEFileViewOpenDocumentsItemName    = @"OpenDocuments";
+NSString * const CEFileViewPlacesItemName           = @"Places";
+NSString * const CEFileViewBookmarksItemName        = @"Bookmarks";
+
 static CEFileViewItem * __placesItem        = nil;
 static CEFileViewItem * __openDocumentsItem = nil;
+static CEFileViewItem * __bookmarksItem     = nil;
 
 static void __exit( void ) __attribute__( ( destructor ) );
 static void __exit( void )
 {
     [ __placesItem          release ];
     [ __openDocumentsItem   release ];
+    [ __bookmarksItem       release ];
 }
 
 @implementation CEFileViewItem
@@ -28,6 +34,16 @@ static void __exit( void )
 @synthesize displayName         = _displayName;
 @synthesize icon                = _icon;
 
++ ( id )openDocumentsItem
+{
+    if( __openDocumentsItem == nil )
+    {
+        __openDocumentsItem = [ [ self fileViewItemWithType: CEFileViewItemTypeSection name: CEFileViewOpenDocumentsItemName ] retain ];
+    }
+    
+    return __openDocumentsItem;
+}
+
 + ( id )placesItem
 {
     NSString       * rootPath;
@@ -37,7 +53,7 @@ static void __exit( void )
     
     if( __placesItem == nil )
     {
-        __placesItem    = [ [ self fileViewItemWithType: CEFileViewItemTypeSection name: @"Places" ] retain ];
+        __placesItem    = [ [ self fileViewItemWithType: CEFileViewItemTypeSection name: CEFileViewPlacesItemName ] retain ];
         desktopPath     = [ NSSearchPathForDirectoriesInDomains( NSDesktopDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
         documentsPath   = [ NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
         userPath        = NSHomeDirectory();
@@ -67,14 +83,14 @@ static void __exit( void )
     return __placesItem;
 }
 
-+ ( id )openDocumentsItem
++ ( id )bookmarksItems
 {
-    if( __openDocumentsItem == nil )
+    if( __bookmarksItem == nil )
     {
-        __openDocumentsItem = [ [ self fileViewItemWithType: CEFileViewItemTypeSection name: @"OpenDocuments" ] retain ];
+        __bookmarksItem = [ [ self fileViewItemWithType: CEFileViewItemTypeSection name: CEFileViewBookmarksItemName ] retain ];
     }
     
-    return __openDocumentsItem;
+    return __bookmarksItem;
 }
 
 + ( id )fileViewItemWithType: ( CEFileViewItemType )type name: ( NSString * )name

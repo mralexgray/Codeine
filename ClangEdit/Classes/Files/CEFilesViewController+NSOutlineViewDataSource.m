@@ -137,13 +137,17 @@
         type = ( CEFileViewItemType )[ ( NSNumber * )[ ( NSDictionary * )object objectForKey: @"Type" ] integerValue ];
         name = [ ( NSDictionary * )object objectForKey: @"Name" ];
         
-        if( type == CEFileViewItemTypeSection && [ name isEqualToString: @"Places" ] )
+        if( type == CEFileViewItemTypeSection && [ name isEqualToString: CEFileViewOpenDocumentsItemName ] )
+        {
+            item = [ CEFileViewItem openDocumentsItem ];
+        }
+        else if( type == CEFileViewItemTypeSection && [ name isEqualToString: CEFileViewPlacesItemName ] )
         {
             item = [ CEFileViewItem placesItem ];
         }
-        else if( type == CEFileViewItemTypeSection && [ name isEqualToString: @"OpenDocuments" ] )
+        else if( type == CEFileViewItemTypeSection && [ name isEqualToString: CEFileViewBookmarksItemName ] )
         {
-            item = [ CEFileViewItem placesItem ];
+            item = [ CEFileViewItem bookmarksItems ];
         }
         else if( type == CEFileViewItemTypeFS )
         {
