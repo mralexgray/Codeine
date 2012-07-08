@@ -40,7 +40,6 @@
         return;
     }
     
-    [ [ CEPreferences sharedInstance ] setFirstLaunch: NO ];
     [ [ CEPreferences sharedInstance ] setTextEncoding: NSUTF8StringEncoding ];
     
     {

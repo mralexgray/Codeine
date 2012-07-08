@@ -9,6 +9,7 @@
 #import "CEFilesViewController+NSOutlineViewDelegate.h"
 #import "CEFilesViewController+NSOutlineViewDataSource.h"
 #import "CEFileViewItem.h"
+#import "CEPreferences.h"
 
 @implementation CEFilesViewController( Private )
 
@@ -27,7 +28,11 @@
     _outlineView.autosaveName          = NSStringFromClass( [ self class ] );
     
     [ _outlineView reloadData ];
-    [ _outlineView expandItem: [ CEFileViewItem placesItem ] expandChildren: NO ];
+    
+    if( [ [ CEPreferences sharedInstance ] firstLaunch ] == YES )
+    {
+        [ _outlineView expandItem: [ CEFileViewItem placesItem ] expandChildren: NO ];
+    }
 }
 
 @end

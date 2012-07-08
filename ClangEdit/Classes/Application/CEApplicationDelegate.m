@@ -41,6 +41,13 @@
     [ self newWindow: nil ];
 }
 
+- ( void )applicationWillTerminate: ( NSNotification * )notification
+{
+    ( void )notification;
+    
+    [ [ CEPreferences sharedInstance ] setFirstLaunch: NO ];
+}
+
 - ( IBAction )showPreferencesWindow: ( id )sender
 {
     ( void )sender;
