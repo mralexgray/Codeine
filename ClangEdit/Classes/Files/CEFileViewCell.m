@@ -58,7 +58,7 @@ static void __exit( void )
         return;
     }
     
-    text            = item.name;
+    text            = item.displayName;
     icon            = item.icon;
     color           = ( self.isHighlighted == YES ) ? [ NSColor alternateSelectedControlTextColor ] : [ NSColor textColor ];
     font            = [ NSFont systemFontOfSize: [ NSFont smallSystemFontSize ] ];

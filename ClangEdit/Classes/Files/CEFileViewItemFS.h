@@ -11,7 +11,9 @@
 {
 @protected
     
-    BOOL _isDirectory;
+    NSString * _path;
+    NSString * _prefix;
+    BOOL       _isDirectory;
     
 @private
     

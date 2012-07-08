@@ -147,6 +147,7 @@
 								<int key="NSTvFlags">306184192</int>
 								<reference key="NSDelegate"/>
 								<reference key="NSDataSource"/>
+								<string key="NSAutosaveName">CEFilesView</string>
 								<int key="NSColumnAutoresizingStyle">4</int>
 								<int key="NSDraggingSourceMaskForLocal">15</int>
 								<int key="NSDraggingSourceMaskForNonLocal">0</int>
@@ -309,7 +310,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">34</int>
+			<int key="maxID">38</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

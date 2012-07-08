@@ -78,7 +78,7 @@
     {
         return [ fileViewItem.children objectAtIndex: ( NSUInteger )index ];
     }
-    @catch (NSException * e)
+    @catch( NSException * e )
     {
         ( void )e;
     }
@@ -101,6 +101,63 @@
     fileViewItem = ( CEFileViewItem * )item;
     
     return ( fileViewItem.type == CEFileViewItemTypeSection ) ? fileViewItem.name : fileViewItem;
+}
+
+- ( id )outlineView: ( NSOutlineView * )outlineView persistentObjectForItem: ( id )item
+{
+    CEFileViewItem * fileViewItem;
+    NSDictionary   * dictionary;
+    
+    ( void )outlineView;
+    
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return nil;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    dictionary   = [ NSDictionary dictionaryWithObjectsAndKeys: [ NSNumber numberWithInteger: fileViewItem.type ],  @"Type",
+                                                                fileViewItem.name,                                  @"Name",
+                                                                nil
+                   ];
+    
+    return dictionary;
+}
+
+- ( id )outlineView: ( NSOutlineView * )outlineView itemForPersistentObject: ( id )object
+{
+    CEFileViewItemType  type;
+    NSString          * name;
+    CEFileViewItem    * item;
+    
+    ( void )outlineView;
+    
+    if( [ object isKindOfClass: [ NSDictionary class ] ] )
+    {
+        type = ( CEFileViewItemType )[ ( NSNumber * )[ ( NSDictionary * )object objectForKey: @"Type" ] integerValue ];
+        name = [ ( NSDictionary * )object objectForKey: @"Name" ];
+        
+        if( type == CEFileViewItemTypeSection && [ name isEqualToString: @"Places" ] )
+        {
+            item = [ CEFileViewItem placesItem ];
+        }
+        else if( type == CEFileViewItemTypeSection && [ name isEqualToString: @"OpenDocuments" ] )
+        {
+            item = [ CEFileViewItem placesItem ];
+        }
+        else if( type == CEFileViewItemTypeFS )
+        {
+            item = [ [ CEFileViewItem placesItem ] valueForKeyPath: name ];
+        }
+        else
+        {
+            item = nil;
+        }
+        
+        return item;
+    }
+    
+    return nil;
 }
 
 @end

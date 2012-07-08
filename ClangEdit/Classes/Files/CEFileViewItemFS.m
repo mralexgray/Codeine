@@ -12,9 +12,24 @@
 
 - ( id )initWithType: ( CEFileViewItemType )type name: ( NSString * )name
 {
+    NSRange range;
+    
     if( ( self = [ super initWithType: type name: name ] ) )
     {
-        if( [ FILE_MANAGER fileExistsAtPath: name isDirectory: &_isDirectory ] == NO )
+        range = [ _name rangeOfString: @":" ];
+        
+        if( range.location == NSNotFound )
+        {
+            _path   = [ _name copy ];
+            _prefix = nil;
+        }
+        else
+        {
+            _path   = [ [ _name substringFromIndex: range.location + 1 ] copy ];
+            _prefix = [ [ _name substringToIndex: range.location ] copy ];
+        }
+        
+        if( [ FILE_MANAGER fileExistsAtPath: _path isDirectory: &_isDirectory ] == NO )
         {
             [ self release ];
             
@@ -25,14 +40,37 @@
     return self;
 }
 
-- ( NSString * )name
+- ( void )dealloc
 {
-    return [ FILE_MANAGER displayNameAtPath: _name ];
+    RELEASE_IVAR( _path );
+    
+    [ super dealloc ];
+}
+
+- ( id )copyWithZone: ( NSZone * )zone
+{
+    CEFileViewItemFS * item;
+    
+    item = [ super copyWithZone: zone ];
+    
+    [ item->_path   release ];
+    [ item->_prefix release ];
+    
+    item->_path        = [ _path   copy ];
+    item->_prefix      = [ _prefix copy ];
+    item->_isDirectory = _isDirectory;
+    
+    return item;
+}
+
+- ( NSString * )displayName
+{
+    return [ FILE_MANAGER displayNameAtPath: _path ];
 }
 
 - ( NSImage * )icon
 {
-    return [ [ NSWorkspace sharedWorkspace ] iconForFile: _name ];
+    return [ [ NSWorkspace sharedWorkspace ] iconForFile: _path ];
 }
 
 - ( BOOL )expandable
@@ -45,6 +83,7 @@
     NSDirectoryEnumerator * enumerator;
     NSString              * file;
     NSString              * path;
+    NSString              * name;
     CEFileViewItem        * item;
     CFURLRef                url;
     LSItemInfoRecord        info;
@@ -57,13 +96,13 @@
     }
     
     showHidden = [ [ CEPreferences sharedInstance ] showHiddenFiles ];
-    enumerator = [ FILE_MANAGER enumeratorAtPath: _name ];
+    enumerator = [ FILE_MANAGER enumeratorAtPath: _path ];
     
     while( ( file = [ enumerator nextObject ] ) )
     {
         [ enumerator skipDescendants ];
         
-        path = [ _name stringByAppendingPathComponent: file ];
+        path = [ _path stringByAppendingPathComponent: file ];
         
         if( showHidden == NO )
         {
@@ -72,7 +111,16 @@
             if( [ path isEqualToString: @"/net"  ] ) { continue; }
         }
         
-        item = [ CEFileViewItem fileViewItemWithType: _type name: path ];
+        if( _prefix == nil )
+        {
+            name = [ _path stringByAppendingFormat: @":%@", path ];
+        }
+        else
+        {
+            name = [ _prefix stringByAppendingFormat: @":%@", path ];
+        }
+        
+        item = [ CEFileViewItem fileViewItemWithType: _type name: name ];
         url  = CFURLCreateWithFileSystemPath( kCFAllocatorDefault, ( CFStringRef )path, kCFURLPOSIXPathStyle, YES );
         
         LSCopyItemInfoForURL( url, kLSRequestAllFlags, &info );
@@ -86,6 +134,27 @@
     }
     
     return _children;
+}
+
+- ( id )valueForKeyPath: ( NSString * )keyPath
+{
+    CEFileViewItem * item;
+    
+    [ self children ];
+    
+    for( item in _children )
+    {
+        if( [ item.name isEqualToString: keyPath ] )
+        {
+            return item;
+        }
+        else if( [ keyPath hasPrefix: item.name ] )
+        {
+            return [ item valueForKeyPath: keyPath ];
+        }
+    }
+    
+    return nil;
 }
 
 @end

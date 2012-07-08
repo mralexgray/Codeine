@@ -19,6 +19,7 @@ CEFileViewItemType;
     
     CEFileViewItemType _type;
     NSString         * _name;
+    NSString         * _displayName;
     NSImage          * _icon;
     id                 _representedObject;
     NSMutableArray   * _children;
@@ -30,11 +31,14 @@ CEFileViewItemType;
 
 @property( atomic, readonly          ) CEFileViewItemType type;
 @property( atomic, readonly          ) NSString *         name;
+@property( atomic, readonly          ) NSString *         displayName;
 @property( atomic, readonly          ) NSImage  *         icon;
 @property( atomic, readonly          ) NSArray  *         children;
 @property( atomic, readonly          ) BOOL               expandable;
 @property( atomic, readwrite, retain ) id                 representedObject;
 
++ ( id )placesItem;
++ ( id )openDocumentsItem;
 + ( id )fileViewItemWithType: ( CEFileViewItemType )type name: ( NSString * )name;
 - ( id )initWithType: ( CEFileViewItemType )type name: ( NSString * )name;
 - ( void )addChild: ( CEFileViewItem * )child;

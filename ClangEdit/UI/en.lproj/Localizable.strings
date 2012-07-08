@@ -6,6 +6,8 @@
 /* $Id$ */
 
 "AppVersion"                                = "Version %@ (%@)";
+"Places"                                    = "Places";
+"OpenDocuments"                             = "Open Documents";
 "NSUTF8StringEncoding"                      = "UTF-8";
 "NSUTF16StringEncoding"                     = "UTF-16";
 "NSUTF16BigEndianStringEncoding"            = "UTF-16 (Big Endian)";
