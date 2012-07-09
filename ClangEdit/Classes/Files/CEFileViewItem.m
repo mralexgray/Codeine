@@ -197,7 +197,7 @@ static void __exit( void )
 
 - ( NSString * )description
 {
-    return [ [ super description ] stringByAppendingFormat: @" - %@", self.name ];
+    return self.displayName;
 }
 
 - ( id )valueForKeyPath: ( NSString * )keyPath
