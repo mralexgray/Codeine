@@ -36,6 +36,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowPageGuide;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyColorThemes;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyTreatWarningsAsErrors;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowHiddenFiles;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyBookmarks;
 
 @class CEColorTheme;
 
@@ -78,6 +79,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowHiddenFiles;
 @property( atomic, readonly          ) CEColorTheme           * currentColorTheme;
 @property( atomic, readwrite, assign ) BOOL                     treatWarningsAsErrors;
 @property( atomic, readwrite, assign ) BOOL                     showHiddenFiles;
+@property( atomic, readonly          ) NSArray                * bookmarks;
 
 + ( CEPreferences * )sharedInstance;
 
@@ -88,5 +90,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowHiddenFiles;
 - ( void )addFileType: ( CESourceFileLanguage )type forExtension: ( NSString * )extension;
 - ( void )removeFileTypeForExtension: ( NSString * )extension;
 - ( void )setColorsFromColorTheme: ( CEColorTheme * )theme;
+- ( void )addBookmark: ( NSString * )path;
+- ( void )removeBookmark: ( NSString * )path;
 
 @end

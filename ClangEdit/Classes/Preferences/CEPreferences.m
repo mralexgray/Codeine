@@ -42,6 +42,7 @@ NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
 NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
 NSString * const CEPreferencesKeyTreatWarningsAsErrors      = @"TreatWarningsAsErrors";
 NSString * const CEPreferencesKeyShowHiddenFiles            = @"ShowHiddenFiles";
+NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
 
 @implementation CEPreferences
 
@@ -227,6 +228,40 @@ NSString * const CEPreferencesKeyShowHiddenFiles            = @"ShowHiddenFiles"
     self.sourceCommentColor         = theme.sourceCommentColor;
     self.sourceStringColor          = theme.sourceStringColor;
     self.sourcePredefinedColor      = theme.sourcePredefinedColor;
+}
+
+- ( void )addBookmark: ( NSString * )path
+{
+    NSMutableArray * bookmarks;
+    
+    bookmarks = [ self.bookmarks mutableCopy ];
+    
+    if( [ bookmarks containsObject: path ] == NO )
+    {
+        [ bookmarks addObject: path ];
+        [ DEFAULTS setObject: [ NSArray arrayWithArray: bookmarks ] forKey: CEPreferencesKeyBookmarks ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyBookmarks );
+    }
+    
+    [ bookmarks release ];
+}
+
+- ( void )removeBookmark: ( NSString * )path
+{
+    NSMutableArray * bookmarks;
+    
+    bookmarks = [ self.bookmarks mutableCopy ];
+    
+    if( [ bookmarks containsObject: path ] == YES )
+    {
+        [ bookmarks removeObject: path ];
+        [ DEFAULTS setObject: [ NSArray arrayWithArray: bookmarks ] forKey: CEPreferencesKeyBookmarks ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyBookmarks );
+    }
+    
+    [ bookmarks release ];
 }
 
 #pragma mark -
@@ -486,6 +521,14 @@ NSString * const CEPreferencesKeyShowHiddenFiles            = @"ShowHiddenFiles"
     @synchronized( self )
     {
         return [ DEFAULTS boolForKey: CEPreferencesKeyShowHiddenFiles ];
+    }
+}
+
+- ( NSArray * )bookmarks
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS objectForKey: CEPreferencesKeyBookmarks ];
     }
 }
 
