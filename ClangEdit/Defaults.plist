@@ -7,7 +7,7 @@
 	<key>AutoExpandTabs</key>
 	<true/>
 	<key>AutoIndent</key>
-	<string></string>
+	<true/>
 	<key>FontName</key>
 	<string>Menlo</string>
 	<key>FontSize</key>
