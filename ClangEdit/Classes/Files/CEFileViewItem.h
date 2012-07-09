@@ -9,7 +9,8 @@ typedef enum
 {
     CEFileViewItemTypeSection   = 0x00,
     CEFileViewItemTypeDocument  = 0x01,
-    CEFileViewItemTypeFS        = 0x02
+    CEFileViewItemTypeFS        = 0x02,
+    CEFileViewItemTypeBookmark  = 0x03
 }
 CEFileViewItemType;
 
@@ -49,5 +50,6 @@ FOUNDATION_EXPORT NSString * const CEFileViewBookmarksItemName;
 - ( void )addChild: ( CEFileViewItem * )child;
 - ( void )removeChild: ( CEFileViewItem * )child;
 - ( void )removeAllChildren;
+- ( void )reload;
 
 @end

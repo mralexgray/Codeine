@@ -15,16 +15,13 @@
 
 - ( void )reload
 {
-    CEFileViewItem * item;
-    
     if( _rootItems != nil )
     {
         RELEASE_IVAR( _rootItems );
         
-        for( item in [ [ CEFileViewItem placesItem ] children ] )
-        {
-            [ item removeAllChildren ];
-        }
+        [ [ CEFileViewItem openDocumentsItem ] reload ];
+        [ [ CEFileViewItem placesItem        ] reload ];
+        [ [ CEFileViewItem bookmarksItems    ] reload ];
     }
     
     _rootItems = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];

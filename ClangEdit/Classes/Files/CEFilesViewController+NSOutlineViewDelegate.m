@@ -62,7 +62,12 @@
     
     fileViewItem = ( CEFileViewItem * )item;
     
-    if( fileViewItem.type == CEFileViewItemTypeDocument || fileViewItem.type == CEFileViewItemTypeFS )
+    if
+    (
+           fileViewItem.type == CEFileViewItemTypeDocument
+        || fileViewItem.type == CEFileViewItemTypeFS
+        || fileViewItem.type == CEFileViewItemTypeBookmark
+    )
     {
         return YES;
     }

@@ -32,4 +32,58 @@
     [ self reload ];
 }
 
+- ( IBAction )addBookmark: ( id )sender
+{
+    NSOpenPanel * panel;
+    
+    ( void )sender;
+    
+    panel                           = [ NSOpenPanel openPanel ];
+    panel.allowsMultipleSelection   = NO;
+    panel.canChooseDirectories      = YES;
+    panel.canChooseFiles            = NO;
+    panel.canCreateDirectories      = YES;
+    
+    [ panel beginSheetModalForWindow: self.view.window completionHandler: ^( NSInteger result )
+        {
+            NSString * path;
+            
+            if( result != NSFileHandlingPanelOKButton )
+            {
+                return;
+            }
+            
+            path = [ panel.URL path ];
+            
+            [ [ CEPreferences sharedInstance ] addBookmark: path ];
+            [ self reload ];
+        }
+    ];
+}
+
+- ( IBAction )removeBookmark: ( id )sender
+{
+    NSInteger        row;
+    CEFileViewItem * item;
+    
+    ( void )sender;
+    
+    row = _outlineView.selectedRow;
+    
+    if( row == -1 )
+    {
+        return;
+    }
+    
+    item = [ _outlineView itemAtRow: row ];
+    
+    if( item == nil || item.type != CEFileViewItemTypeBookmark )
+    {
+        return;
+    }
+    
+    [ [ CEPreferences sharedInstance ] removeBookmark: item.name ];
+    [ self reload ];
+}
+
 @end

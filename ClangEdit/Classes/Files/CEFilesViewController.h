@@ -23,4 +23,7 @@
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSOutlineView * outlineView;
 
+- ( IBAction )addBookmark: ( id )sender;
+- ( IBAction )removeBookmark: ( id )sender;
+
 @end

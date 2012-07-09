@@ -6,6 +6,7 @@
 /* $Id$ */
 
 #import "CEFileViewItemSection.h"
+#import "CEPreferences.h"
 
 @implementation CEFileViewItemSection
 
@@ -59,6 +60,60 @@
     }
     
     return nil;
+}
+
+- ( void )reload
+{
+    [ super reload ];
+    
+    if( [ self.name isEqualToString: CEFileViewPlacesItemName ] )
+    {
+        {
+            NSString       * rootPath;
+            NSString       * userPath;
+            NSString       * desktopPath;
+            NSString       * documentsPath;
+            
+            desktopPath     = [ NSSearchPathForDirectoriesInDomains( NSDesktopDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
+            documentsPath   = [ NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
+            userPath        = NSHomeDirectory();
+            rootPath        = @"/";
+            
+            if( desktopPath != nil )
+            {
+                [ self addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: desktopPath ] ];
+            }
+            
+            if( desktopPath != nil )
+            {
+                [ self addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: documentsPath ] ];
+            }
+            
+            if( desktopPath != nil )
+            {
+                [ self addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: userPath ] ];
+            }
+            
+            if( desktopPath != nil )
+            {
+                [ self addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: rootPath ] ];
+            }
+        }
+    }
+    else if( [ self.name isEqualToString: CEFileViewBookmarksItemName ] )
+    {
+        {
+            NSArray  * bookmarks;
+            NSString * path;
+            
+            bookmarks = [ [ CEPreferences sharedInstance ] bookmarks ];
+            
+            for( path in bookmarks )
+            {
+                [ self addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeBookmark name: path ] ];
+            }
+        }
+    }
 }
 
 @end

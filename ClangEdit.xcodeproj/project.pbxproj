@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050629E815AB62E300DA6EE6 /* CEFileViewItemBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629E715AB62E300DA6EE6 /* CEFileViewItemBookmark.m */; };
 		05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05087FC715A8E66900582A01 /* CEFileViewCell.m */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
@@ -82,6 +83,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050629E615AB62E300DA6EE6 /* CEFileViewItemBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewItemBookmark.h; sourceTree = "<group>"; };
+		050629E715AB62E300DA6EE6 /* CEFileViewItemBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewItemBookmark.m; sourceTree = "<group>"; };
 		05087FC615A8E66900582A01 /* CEFileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewCell.h; sourceTree = "<group>"; };
 		05087FC715A8E66900582A01 /* CEFileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewCell.m; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
@@ -523,6 +526,8 @@
 				0563E08615A8BBBA00BA5828 /* CEFileViewItemDocument.m */,
 				0563E08815A8BBC600BA5828 /* CEFileViewItemFS.h */,
 				0563E08915A8BBC600BA5828 /* CEFileViewItemFS.m */,
+				050629E615AB62E300DA6EE6 /* CEFileViewItemBookmark.h */,
+				050629E715AB62E300DA6EE6 /* CEFileViewItemBookmark.m */,
 				05087FC615A8E66900582A01 /* CEFileViewCell.h */,
 				05087FC715A8E66900582A01 /* CEFileViewCell.m */,
 				059C9B3115A9044F00AEF506 /* CEFileOutlineView.h */,
@@ -713,6 +718,7 @@
 				0563E08A15A8BBC700BA5828 /* CEFileViewItemFS.m in Sources */,
 				05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */,
 				059C9B3315A9044F00AEF506 /* CEFileOutlineView.m in Sources */,
+				050629E815AB62E300DA6EE6 /* CEFileViewItemBookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

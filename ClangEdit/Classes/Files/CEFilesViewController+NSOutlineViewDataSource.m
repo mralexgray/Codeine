@@ -153,6 +153,10 @@
         {
             item = [ [ CEFileViewItem placesItem ] valueForKeyPath: name ];
         }
+        else if( type == CEFileViewItemTypeBookmark )
+        {
+            item = [ [ CEFileViewItem bookmarksItems ] valueForKeyPath: name ];
+        }
         else
         {
             item = nil;

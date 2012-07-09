@@ -9,6 +9,8 @@
 #import "CEFileViewItemSection.h"
 #import "CEFileViewItemDocument.h"
 #import "CEFileViewItemFS.h"
+#import "CEFileViewItemBookmark.h"
+#import "CEPreferences.h"
 
 NSString * const CEFileViewOpenDocumentsItemName    = @"OpenDocuments";
 NSString * const CEFileViewPlacesItemName           = @"Places";
@@ -46,38 +48,11 @@ static void __exit( void )
 
 + ( id )placesItem
 {
-    NSString       * rootPath;
-    NSString       * userPath;
-    NSString       * desktopPath;
-    NSString       * documentsPath;
-    
     if( __placesItem == nil )
     {
-        __placesItem    = [ [ self fileViewItemWithType: CEFileViewItemTypeSection name: CEFileViewPlacesItemName ] retain ];
-        desktopPath     = [ NSSearchPathForDirectoriesInDomains( NSDesktopDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
-        documentsPath   = [ NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
-        userPath        = NSHomeDirectory();
-        rootPath        = @"/";
+        __placesItem = [ [ self fileViewItemWithType: CEFileViewItemTypeSection name: CEFileViewPlacesItemName ] retain ];
         
-        if( desktopPath != nil )
-        {
-            [ __placesItem addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: desktopPath ] ];
-        }
-        
-        if( desktopPath != nil )
-        {
-            [ __placesItem addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: documentsPath ] ];
-        }
-        
-        if( desktopPath != nil )
-        {
-            [ __placesItem addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: userPath ] ];
-        }
-        
-        if( desktopPath != nil )
-        {
-            [ __placesItem addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeFS name: rootPath ] ];
-        }
+        [ __placesItem reload ];
     }
     
     return __placesItem;
@@ -88,6 +63,8 @@ static void __exit( void )
     if( __bookmarksItem == nil )
     {
         __bookmarksItem = [ [ self fileViewItemWithType: CEFileViewItemTypeSection name: CEFileViewBookmarksItemName ] retain ];
+        
+        [ __bookmarksItem reload ];
     }
     
     return __bookmarksItem;
@@ -130,6 +107,11 @@ static void __exit( void )
         case CEFileViewItemTypeFS:
             
             item = [ [ CEFileViewItemFS alloc ] initWithType: type name: name ];
+            break;
+            
+        case CEFileViewItemTypeBookmark:
+            
+            item = [ [ CEFileViewItemBookmark alloc ] initWithType: type name: name ];
             break;
             
         default:
@@ -223,6 +205,13 @@ static void __exit( void )
     ( void )keyPath;
     
     return nil;
+}
+
+- ( void )reload
+{
+    RELEASE_IVAR( _children );
+    
+    _children = [ [ NSMutableArray alloc ] initWithCapacity: 100 ];
 }
 
 @end
