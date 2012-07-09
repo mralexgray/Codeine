@@ -10,6 +10,8 @@
 		050629E815AB62E300DA6EE6 /* CEFileViewItemBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629E715AB62E300DA6EE6 /* CEFileViewItemBookmark.m */; };
 		050629EB15AB73CA00DA6EE6 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 050629EA15AB73CA00DA6EE6 /* Themes */; };
 		050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */; };
+		050629F415AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629F315AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m */; };
+		050629F715AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050629F515AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib */; };
 		05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05087FC715A8E66900582A01 /* CEFileViewCell.m */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
@@ -90,6 +92,9 @@
 		050629EA15AB73CA00DA6EE6 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		050629EC15AB780B00DA6EE6 /* CEColorTheme+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEColorTheme+Private.h"; sourceTree = "<group>"; };
 		050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEColorTheme+Private.m"; sourceTree = "<group>"; };
+		050629F215AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesLinkerOptionsViewController.h; sourceTree = "<group>"; };
+		050629F315AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferencesLinkerOptionsViewController.m; sourceTree = "<group>"; };
+		050629F615AB882F00DA6EE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesLinkerOptionsView.xib; sourceTree = "<group>"; };
 		05087FC615A8E66900582A01 /* CEFileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewCell.h; sourceTree = "<group>"; };
 		05087FC715A8E66900582A01 /* CEFileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewCell.m; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
@@ -235,6 +240,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050629F115AB880300DA6EE6 /* Linker */ = {
+			isa = PBXGroup;
+			children = (
+				050629F215AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.h */,
+				050629F315AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m */,
+			);
+			path = Linker;
+			sourceTree = "<group>";
+		};
 		051F2E06159A12A10027DD4F /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +261,7 @@
 		051F2E07159A12A10027DD4F /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				050629F115AB880300DA6EE6 /* Linker */,
 				057F5845159D3BE000C84780 /* Compiler */,
 				057F584C159D3BE100C84780 /* Editor */,
 				057F584F159D3BE100C84780 /* File Types */,
@@ -396,6 +411,7 @@
 				057F586E159D444A00C84780 /* CEDebugView.xib */,
 				052FD001159DECEF0045C9ED /* CEFilesView.xib */,
 				052FD007159DF53C0045C9ED /* CELanguageWindow.xib */,
+				050629F515AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -665,6 +681,7 @@
 				052B91D915A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib in Resources */,
 				05F8036115A7794300CD9F0D /* Application.icns in Resources */,
 				050629EB15AB73CA00DA6EE6 /* Themes in Resources */,
+				050629F715AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,12 +746,21 @@
 				059C9B3315A9044F00AEF506 /* CEFileOutlineView.m in Sources */,
 				050629E815AB62E300DA6EE6 /* CEFileViewItemBookmark.m in Sources */,
 				050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */,
+				050629F415AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		050629F515AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				050629F615AB882F00DA6EE6 /* en */,
+			);
+			name = CEPreferencesLinkerOptionsView.xib;
+			sourceTree = "<group>";
+		};
 		051F2E11159A13270027DD4F /* CEAboutWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

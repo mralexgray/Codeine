@@ -10,6 +10,7 @@
 @class CEPreferencesGeneralOptionsViewController;
 @class CEPreferencesEditorOptionsViewController;
 @class CEPreferencesCompilerOptionsViewController;
+@class CEPreferencesLinkerOptionsViewController;
 @class CEPreferencesFontsAndColorsOptionsViewController;
 @class CEPreferencesFileTypesOptionsViewController;
 
@@ -20,6 +21,7 @@
     CEPreferencesGeneralOptionsViewController           * _generalOptionsViewController;
     CEPreferencesEditorOptionsViewController            * _editorOptionsViewController;
     CEPreferencesCompilerOptionsViewController          * _compilerOptionsViewController;
+    CEPreferencesLinkerOptionsViewController            * _linkerOptionsViewController;
     CEPreferencesFontsAndColorsOptionsViewController    * _fontsAndColorsOptionsViewController;
     CEPreferencesFileTypesOptionsViewController         * _fileTypesOptionsViewController;
     NSToolbar                                           * _toolbar;
@@ -34,6 +36,7 @@
 - ( IBAction )showGeneralOptions: ( id )sender;
 - ( IBAction )showEditorOptions: ( id )sender;
 - ( IBAction )showCompilerOptions: ( id )sender;
+- ( IBAction )showLinkerOptions: ( id )sender;
 - ( IBAction )showFontsAndColorsOptions: ( id )sender;
 - ( IBAction )showFileTypesOptions: ( id )sender;
 
