@@ -16,9 +16,9 @@
 		<key>R</key>
 		<integer>255</integer>
 		<key>G</key>
-		<integer>255</integer>
+		<integer>252</integer>
 		<key>B</key>
-		<integer>255</integer>
+		<integer>229</integer>
 	</dict>
 	<key>Selection</key>
 	<dict>
@@ -34,45 +34,45 @@
 		<key>R</key>
 		<integer>255</integer>
 		<key>G</key>
-		<integer>255</integer>
+		<integer>246</integer>
 		<key>B</key>
-		<integer>240</integer>
+		<integer>155</integer>
 	</dict>
 	<key>Keyword</key>
 	<dict>
 		<key>R</key>
-		<integer>0</integer>
+		<integer>41</integer>
 		<key>G</key>
-		<integer>0</integer>
+		<integer>66</integer>
 		<key>B</key>
-		<integer>204</integer>
+		<integer>119</integer>
 	</dict>
 	<key>Comment</key>
 	<dict>
 		<key>R</key>
-		<integer>85</integer>
+		<integer>195</integer>
 		<key>G</key>
-		<integer>85</integer>
+		<integer>116</integer>
 		<key>B</key>
-		<integer>85</integer>
+		<integer>28</integer>
 	</dict>
 	<key>String</key>
 	<dict>
 		<key>R</key>
-		<integer>255</integer>
+		<integer>223</integer>
 		<key>G</key>
-		<integer>51</integer>
+		<integer>7</integer>
 		<key>B</key>
-		<integer>153</integer>
+		<integer>0</integer>
 	</dict>
 	<key>Predefined</key>
 	<dict>
 		<key>R</key>
-		<integer>17</integer>
+		<integer>71</integer>
 		<key>G</key>
-		<integer>129</integer>
+		<integer>106</integer>
 		<key>B</key>
-		<integer>183</integer>
+		<integer>151</integer>
 	</dict>
 </dict>
 </plist>
