@@ -22,8 +22,10 @@
     
     [ _generalForegroundColorWell   setColor: [ prefs foregroundColor ] ];
     [ _generalBackgroundColorWell   setColor: [ prefs backgroundColor ] ];
-    [ _generalSelectionColorWell    setColor: [ prefs currentLineColor ] ];
-    [ _sourceKeywordColorWell       setColor: [ prefs commentColor ] ];
+    [ _generalSelectionColorWell    setColor: [ prefs selectionColor ] ];
+    [ _generalCurrentLineColorWell  setColor: [ prefs currentLineColor ] ];
+    [ _sourceKeywordColorWell       setColor: [ prefs keywordColor ] ];
+    [ _sourceCommentColorWell       setColor: [ prefs commentColor ] ];
     [ _sourceStringColorWell        setColor: [ prefs stringColor ] ];
     [ _sourcePredefinedColorWell    setColor: [ prefs predefinedColor ] ];
 }
