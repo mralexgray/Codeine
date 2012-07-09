@@ -313,7 +313,7 @@
 										<object class="NSCustomView" id="154086905">
 											<reference key="NSNextResponder" ref="43068519"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrameSize">{597, 482}</string>
+											<string key="NSFrameSize">{597, 488}</string>
 											<reference key="NSSuperview" ref="43068519"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="553544108"/>
@@ -323,10 +323,10 @@
 										<object class="NSCustomView" id="553544108">
 											<reference key="NSNextResponder" ref="43068519"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrame">{{0, 491}, {597, 162}}</string>
+											<string key="NSFrame">{{0, 489}, {597, 164}}</string>
 											<reference key="NSSuperview" ref="43068519"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="1046307155"/>
+											<reference key="NSNextKeyView" ref="396864174"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<string key="NSClassName">NSView</string>
 										</object>
@@ -336,6 +336,7 @@
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="154086905"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
+									<int key="NSDividerStyle">2</int>
 								</object>
 							</array>
 							<string key="NSFrame">{{0, 29}, {800, 653}}</string>
@@ -346,16 +347,16 @@
 							<bool key="NSIsVertical">YES</bool>
 							<int key="NSDividerStyle">2</int>
 						</object>
-						<object class="NSButton" id="1046307155">
+						<object class="NSButton" id="396864174">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{5, 4}, {19, 19}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="119302029"/>
+							<reference key="NSNextKeyView" ref="946710806"/>
 							<string key="NSReuseIdentifierKey">_NS:22</string>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="39960814">
+							<object class="NSButtonCell" key="NSCell" id="1020377542">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">134348800</int>
 								<string key="NSContents"/>
@@ -365,7 +366,7 @@
 									<int key="NSfFlags">3100</int>
 								</object>
 								<string key="NSCellIdentifier">_NS:22</string>
-								<reference key="NSControlView" ref="1046307155"/>
+								<reference key="NSControlView" ref="396864174"/>
 								<int key="NSButtonFlags">-2033958657</int>
 								<int key="NSButtonFlags2">163</int>
 								<object class="NSCustomResource" key="NSNormalImage">
@@ -378,7 +379,7 @@
 								<int key="NSPeriodicInterval">75</int>
 							</object>
 						</object>
-						<object class="NSButton" id="119302029">
+						<object class="NSButton" id="946710806">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{28, 4}, {19, 19}}</string>
@@ -387,13 +388,13 @@
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:22</string>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="623516366">
+							<object class="NSButtonCell" key="NSCell" id="782805523">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">134348800</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="26"/>
 								<string key="NSCellIdentifier">_NS:22</string>
-								<reference key="NSControlView" ref="119302029"/>
+								<reference key="NSControlView" ref="946710806"/>
 								<int key="NSButtonFlags">-2033958657</int>
 								<int key="NSButtonFlags2">163</int>
 								<object class="NSCustomResource" key="NSNormalImage">
@@ -465,7 +466,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">addBookmark:</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="39960814"/>
+						<reference key="destination" ref="1020377542"/>
 					</object>
 					<int key="connectionID">108</int>
 				</object>
@@ -473,7 +474,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">removeBookmark:</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="119302029"/>
+						<reference key="destination" ref="946710806"/>
 					</object>
 					<int key="connectionID">109</int>
 				</object>
@@ -526,8 +527,8 @@
 						<reference key="object" ref="1006"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="737133839"/>
-							<reference ref="1046307155"/>
-							<reference ref="119302029"/>
+							<reference ref="396864174"/>
+							<reference ref="946710806"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -644,29 +645,29 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">98</int>
-						<reference key="object" ref="1046307155"/>
+						<reference key="object" ref="396864174"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="39960814"/>
+							<reference ref="1020377542"/>
 						</array>
 						<reference key="parent" ref="1006"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">99</int>
-						<reference key="object" ref="39960814"/>
-						<reference key="parent" ref="1046307155"/>
+						<reference key="object" ref="1020377542"/>
+						<reference key="parent" ref="396864174"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">106</int>
-						<reference key="object" ref="119302029"/>
+						<reference key="object" ref="946710806"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="623516366"/>
+							<reference ref="782805523"/>
 						</array>
 						<reference key="parent" ref="1006"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">107</int>
-						<reference key="object" ref="623516366"/>
-						<reference key="parent" ref="119302029"/>
+						<reference key="object" ref="782805523"/>
+						<reference key="parent" ref="946710806"/>
 					</object>
 				</array>
 			</object>
@@ -681,7 +682,7 @@
 					<string key="NS.key.0">ToolTip</string>
 					<object class="IBToolTipAttribute" key="NS.object.0">
 						<string key="name">ToolTip</string>
-						<reference key="object" ref="119302029"/>
+						<reference key="object" ref="946710806"/>
 						<string key="toolTip">Remove bookmark</string>
 					</object>
 				</object>
@@ -710,7 +711,7 @@
 					<string key="NS.key.0">ToolTip</string>
 					<object class="IBToolTipAttribute" key="NS.object.0">
 						<string key="name">ToolTip</string>
-						<reference key="object" ref="1046307155"/>
+						<reference key="object" ref="396864174"/>
 						<string key="toolTip">Add bookmark</string>
 					</object>
 				</object>
