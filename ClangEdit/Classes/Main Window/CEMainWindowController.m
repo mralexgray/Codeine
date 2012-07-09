@@ -63,6 +63,8 @@
     [ _mainView   addSubview: _editorViewController.view ];
     [ _bottomView addSubview: _debugViewController.view ];
     [ _leftView   addSubview: _fileViewController.view ];
+    
+    [ self.window setContentBorderThickness: ( CGFloat )29 forEdge: NSMinYEdge ];
 }
 
 - ( void )showWindow: ( id )sender
@@ -121,6 +123,16 @@
     ( void )sender;
     
     NSLog( @"Save document..." );
+}
+
+- ( IBAction )addBookmark: ( id )sender
+{
+    [ _fileViewController addBookmark: sender ];
+}
+
+- ( IBAction )removeBookmark: ( id )sender
+{
+    [ _fileViewController removeBookmark: sender ];
 }
 
 @end

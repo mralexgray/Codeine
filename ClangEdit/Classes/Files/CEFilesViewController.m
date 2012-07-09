@@ -43,6 +43,7 @@
     panel.canChooseDirectories      = YES;
     panel.canChooseFiles            = NO;
     panel.canCreateDirectories      = YES;
+    panel.prompt                    = L10N( "AddBookmark" );
     
     [ panel beginSheetModalForWindow: self.view.window completionHandler: ^( NSInteger result )
         {
