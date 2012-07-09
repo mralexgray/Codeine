@@ -57,6 +57,7 @@
             
             [ [ CEPreferences sharedInstance ] addBookmark: path ];
             [ self reload ];
+            [ _outlineView expandItem: [ CEFileViewItem bookmarksItems ] ];
         }
     ];
 }
