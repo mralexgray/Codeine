@@ -18,12 +18,12 @@
     font = [ NSFont fontWithName: [ [ CEPreferences sharedInstance ] fontName ] size: [ [ CEPreferences sharedInstance ] fontSize ] ];
     
     _textView.font                = font;
-    _textView.backgroundColor     = [ [ CEPreferences sharedInstance ] generalBackgroundColor ];
-    _textView.textColor           = [ [ CEPreferences sharedInstance ] generalForegroundColor ];
-    _textView.insertionPointColor = [ [ CEPreferences sharedInstance ] generalForegroundColor ];
+    _textView.backgroundColor     = [ [ CEPreferences sharedInstance ] backgroundColor ];
+    _textView.textColor           = [ [ CEPreferences sharedInstance ] foregroundColor ];
+    _textView.insertionPointColor = [ [ CEPreferences sharedInstance ] foregroundColor ];
     
-    selectionAttributes =   [ NSDictionary dictionaryWithObjectsAndKeys:    [ [ CEPreferences sharedInstance ] generalSelectionColor ],  NSBackgroundColorAttributeName,
-                                                                            [ [ CEPreferences sharedInstance ] generalForegroundColor ], NSForegroundColorAttributeName,
+    selectionAttributes =   [ NSDictionary dictionaryWithObjectsAndKeys:    [ [ CEPreferences sharedInstance ] selectionColor ],  NSBackgroundColorAttributeName,
+                                                                            [ [ CEPreferences sharedInstance ] foregroundColor ], NSForegroundColorAttributeName,
                                                                             nil
                             ];
     

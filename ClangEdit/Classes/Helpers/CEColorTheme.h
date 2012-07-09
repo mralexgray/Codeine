@@ -10,14 +10,14 @@
 @protected
     
     NSString * _name;
-    NSColor  * _generalForegroundColor;
-    NSColor  * _generalBackgroundColor;
-    NSColor  * _generalSelectionColor;
-    NSColor  * _generalCurrentLineColor;
-    NSColor  * _sourceKeywordColor;
-    NSColor  * _sourceCommentColor;
-    NSColor  * _sourceStringColor;
-    NSColor  * _sourcePredefinedColor;
+    NSColor  * _foregroundColor;
+    NSColor  * _backgroundColor;
+    NSColor  * _selectionColor;
+    NSColor  * _currentLineColor;
+    NSColor  * _keywordColor;
+    NSColor  * _commentColor;
+    NSColor  * _stringColor;
+    NSColor  * _predefinedColor;
     
 @private
     
@@ -25,15 +25,17 @@
 }
 
 @property( atomic, readwrite, copy ) NSString * name;
-@property( atomic, readwrite, copy ) NSColor  * generalForegroundColor;
-@property( atomic, readwrite, copy ) NSColor  * generalBackgroundColor;
-@property( atomic, readwrite, copy ) NSColor  * generalSelectionColor;
-@property( atomic, readwrite, copy ) NSColor  * generalCurrentLineColor;
-@property( atomic, readwrite, copy ) NSColor  * sourceKeywordColor;
-@property( atomic, readwrite, copy ) NSColor  * sourceCommentColor;
-@property( atomic, readwrite, copy ) NSColor  * sourceStringColor;
-@property( atomic, readwrite, copy ) NSColor  * sourcePredefinedColor;
+@property( atomic, readwrite, copy ) NSColor  * foregroundColor;
+@property( atomic, readwrite, copy ) NSColor  * backgroundColor;
+@property( atomic, readwrite, copy ) NSColor  * selectionColor;
+@property( atomic, readwrite, copy ) NSColor  * currentLineColor;
+@property( atomic, readwrite, copy ) NSColor  * keywordColor;
+@property( atomic, readwrite, copy ) NSColor  * commentColor;
+@property( atomic, readwrite, copy ) NSColor  * stringColor;
+@property( atomic, readwrite, copy ) NSColor  * predefinedColor;
 
++ ( NSArray * )defaultColorThemes;
++ ( id )defaultColorThemeWithName: ( NSString * )name;
 + ( id )colorThemeWithName: ( NSString * )name;
 - ( id )initWithName: ( NSString * )name;
 

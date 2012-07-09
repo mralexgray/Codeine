@@ -17,14 +17,14 @@ NSString * const CEPreferencesNotificationValueChanged      = @"CEPreferencesNot
 
 NSString * const CEPreferencesKeyFontName                   = @"FontName";
 NSString * const CEPreferencesKeyFontSize                   = @"FontSize";
-NSString * const CEPreferencesKeyGeneralForegoundColor      = @"ColorGeneralForeground";
-NSString * const CEPreferencesKeyGeneralBackgroundColor     = @"ColorGeneralBackground";
-NSString * const CEPreferencesKeyGeneralSelectionColor      = @"ColorGeneralSelection";
-NSString * const CEPreferencesKeyGeneralCurrentLineColor    = @"ColorGeneralCurrentLine";
-NSString * const CEPreferencesKeySourceKeywordColor         = @"ColorSourceKeyword";
-NSString * const CEPreferencesKeySourceCommentColor         = @"ColorSourceComment";
-NSString * const CEPreferencesKeySourceStringColor          = @"ColorSourceString";
-NSString * const CEPreferencesKeySourcePredefinedColor      = @"ColorSourcePredefined";
+NSString * const CEPreferencesKeyForegoundColor             = @"ForegroundColor";
+NSString * const CEPreferencesKeyBackgroundColor            = @"BackgroundColor";
+NSString * const CEPreferencesKeySelectionColor             = @"SelectionColor";
+NSString * const CEPreferencesKeyCurrentLineColor           = @"CurrentLineColor";
+NSString * const CEPreferencesKeyKeywordColor               = @"KeywordColor";
+NSString * const CEPreferencesKeyCommentColor               = @"CommentColor";
+NSString * const CEPreferencesKeyStringColor                = @"StringColor";
+NSString * const CEPreferencesKeyPredefinedColor            = @"PredefinedColor";
 NSString * const CEPreferencesKeyWarningFlags               = @"WarningFlags";
 NSString * const CEPreferencesKeyWarningFlagsPresetStrict   = @"WarningFlagsPresetStrict";
 NSString * const CEPreferencesKeyWarningFlagsPresetNormal   = @"WarningFlagsPresetNormal";
@@ -220,14 +220,14 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
 
 - ( void )setColorsFromColorTheme: ( CEColorTheme * )theme
 {
-    self.generalForegroundColor     = theme.generalForegroundColor;
-    self.generalBackgroundColor     = theme.generalBackgroundColor;
-    self.generalSelectionColor      = theme.generalSelectionColor;
-    self.generalCurrentLineColor    = theme.generalCurrentLineColor;
-    self.sourceKeywordColor         = theme.sourceKeywordColor;
-    self.sourceCommentColor         = theme.sourceCommentColor;
-    self.sourceStringColor          = theme.sourceStringColor;
-    self.sourcePredefinedColor      = theme.sourcePredefinedColor;
+    self.foregroundColor     = theme.foregroundColor;
+    self.backgroundColor     = theme.backgroundColor;
+    self.selectionColor      = theme.selectionColor;
+    self.currentLineColor    = theme.currentLineColor;
+    self.keywordColor        = theme.keywordColor;
+    self.commentColor        = theme.commentColor;
+    self.stringColor         = theme.stringColor;
+    self.predefinedColor     = theme.predefinedColor;
 }
 
 - ( void )addBookmark: ( NSString * )path
@@ -283,67 +283,67 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
     }
 }
 
-- ( NSColor * )generalForegroundColor
+- ( NSColor * )foregroundColor
 {
     @synchronized( self )
     {
-        return [ self colorForKey: CEPreferencesKeyGeneralForegoundColor ];
+        return [ self colorForKey: CEPreferencesKeyForegoundColor ];
     }
 }
 
-- ( NSColor * )generalBackgroundColor
+- ( NSColor * )backgroundColor
 {
     @synchronized( self )
     {
-        return [ self colorForKey: CEPreferencesKeyGeneralBackgroundColor ];
+        return [ self colorForKey: CEPreferencesKeyBackgroundColor ];
     }
 }
 
-- ( NSColor * )generalSelectionColor
+- ( NSColor * )selectionColor
 {
     @synchronized( self )
     {
-        return [ self colorForKey: CEPreferencesKeyGeneralSelectionColor ];
+        return [ self colorForKey: CEPreferencesKeySelectionColor ];
     }
 }
 
-- ( NSColor * )generalCurrentLineColor
+- ( NSColor * )currentLineColor
 {
     @synchronized( self )
     {
-        return [ self colorForKey: CEPreferencesKeyGeneralCurrentLineColor ];
+        return [ self colorForKey: CEPreferencesKeyCurrentLineColor ];
     }
 }
 
-- ( NSColor * )sourceKeywordColor
+- ( NSColor * )keywordColor
 {
     @synchronized( self )
     {
-        return [ self colorForKey: CEPreferencesKeySourceKeywordColor ];
+        return [ self colorForKey: CEPreferencesKeyKeywordColor ];
     }
 }
 
-- ( NSColor * )sourceCommentColor
+- ( NSColor * )commentColor
 {
     @synchronized( self )
     {
-        return [ self colorForKey: CEPreferencesKeySourceCommentColor ];
+        return [ self colorForKey: CEPreferencesKeyCommentColor ];
     }
 }
 
-- ( NSColor * )sourceStringColor
+- ( NSColor * )stringColor
 {
     @synchronized( self )
     {
-        return [ self colorForKey: CEPreferencesKeySourceStringColor ];
+        return [ self colorForKey: CEPreferencesKeyStringColor ];
     }
 }
 
-- ( NSColor * )sourcePredefinedColor
+- ( NSColor * )predefinedColor
 {
     @synchronized( self )
     {
-        return [ self colorForKey: CEPreferencesKeySourcePredefinedColor ];
+        return [ self colorForKey: CEPreferencesKeyPredefinedColor ];
     }
 }
 
@@ -459,51 +459,20 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
     }
 }
 
-- ( NSDictionary * )colorThemes
-{
-    NSDictionary        * colorThemes;
-    NSDictionary        * colors;
-    NSMutableDictionary * themes;
-    CEColorTheme        * theme;
-    NSString            * name;
-    
-    colorThemes = [ DEFAULTS objectForKey: CEPreferencesKeyColorThemes ];
-    themes      = [ NSMutableDictionary dictionaryWithCapacity: colorThemes.count ];
-    
-    for( name in colorThemes )
-    {
-        theme  = [ CEColorTheme colorThemeWithName: name ];
-        colors = [ colorThemes objectForKey: name ];
-        
-        theme.generalForegroundColor    = [ self colorForKey: CEPreferencesKeyGeneralForegoundColor     inDictionary: colors ];
-        theme.generalBackgroundColor    = [ self colorForKey: CEPreferencesKeyGeneralBackgroundColor    inDictionary: colors ];
-        theme.generalSelectionColor     = [ self colorForKey: CEPreferencesKeyGeneralSelectionColor     inDictionary: colors ];
-        theme.generalCurrentLineColor   = [ self colorForKey: CEPreferencesKeyGeneralCurrentLineColor   inDictionary: colors ];
-        theme.sourceKeywordColor        = [ self colorForKey: CEPreferencesKeySourceKeywordColor        inDictionary: colors ];
-        theme.sourceCommentColor        = [ self colorForKey: CEPreferencesKeySourceCommentColor        inDictionary: colors ];
-        theme.sourceStringColor         = [ self colorForKey: CEPreferencesKeySourceStringColor         inDictionary: colors ];
-        theme.sourcePredefinedColor     = [ self colorForKey: CEPreferencesKeySourcePredefinedColor     inDictionary: colors ];
-        
-        [ themes setObject: theme forKey: theme.name ];
-    }
-    
-    return themes;
-}
-
 - ( CEColorTheme * )currentColorTheme
 {
     CEColorTheme * theme;
     
     theme = [ CEColorTheme colorThemeWithName: nil ];
     
-    theme.generalForegroundColor    = self.generalForegroundColor;
-    theme.generalBackgroundColor    = self.generalBackgroundColor;
-    theme.generalSelectionColor     = self.generalSelectionColor;
-    theme.generalCurrentLineColor   = self.generalCurrentLineColor;
-    theme.sourceKeywordColor        = self.sourceKeywordColor;
-    theme.sourceCommentColor        = self.sourceCommentColor;
-    theme.sourceStringColor         = self.sourceStringColor;
-    theme.sourcePredefinedColor     = self.sourcePredefinedColor;
+    theme.foregroundColor    = self.foregroundColor;
+    theme.backgroundColor    = self.backgroundColor;
+    theme.selectionColor     = self.selectionColor;
+    theme.currentLineColor   = self.currentLineColor;
+    theme.keywordColor       = self.keywordColor;
+    theme.commentColor       = self.commentColor;
+    theme.stringColor        = self.stringColor;
+    theme.predefinedColor    = self.predefinedColor;
     
     return theme;
 }
@@ -542,7 +511,7 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
         [ DEFAULTS setObject: value forKey: CEPreferencesKeyFontName ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyGeneralForegoundColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFontName );
     }
 }
 
@@ -557,91 +526,91 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
     }
 }
 
-- ( void )setGeneralForegroundColor: ( NSColor * )value
+- ( void )setForegroundColor: ( NSColor * )value
 {
     @synchronized( self )
     {
-        [ self setColor: value forKey: CEPreferencesKeyGeneralForegoundColor ];
+        [ self setColor: value forKey: CEPreferencesKeyForegoundColor ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyGeneralForegoundColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyForegoundColor );
     }
 }
 
-- ( void )setGeneralBackgroundColor: ( NSColor * )value
+- ( void )setBackgroundColor: ( NSColor * )value
 {
     @synchronized( self )
     {
-        [ self setColor: value forKey: CEPreferencesKeyGeneralBackgroundColor ];
+        [ self setColor: value forKey: CEPreferencesKeyBackgroundColor ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyGeneralBackgroundColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyBackgroundColor );
     }
 }
 
-- ( void )setGeneralSelectionColor: ( NSColor * )value
+- ( void )setSelectionColor: ( NSColor * )value
 {
     @synchronized( self )
     {
-        [ self setColor: value forKey: CEPreferencesKeyGeneralSelectionColor ];
+        [ self setColor: value forKey: CEPreferencesKeySelectionColor ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyGeneralSelectionColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySelectionColor );
     }
 }
 
-- ( void )setGeneralCurrentLineColor: ( NSColor * )value
+- ( void )setCurrentLineColor: ( NSColor * )value
 {
     @synchronized( self )
     {
-        [ self setColor: value forKey: CEPreferencesKeyGeneralCurrentLineColor ];
+        [ self setColor: value forKey: CEPreferencesKeyCurrentLineColor ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyGeneralCurrentLineColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyCurrentLineColor );
     }
 }
 
-- ( void )setSourceKeywordColor: ( NSColor * )value
+- ( void )setKeywordColor: ( NSColor * )value
 {
     @synchronized( self )
     {
-        [ self setColor: value forKey: CEPreferencesKeySourceKeywordColor ];
+        [ self setColor: value forKey: CEPreferencesKeyKeywordColor ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySourceKeywordColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyKeywordColor );
     }
 }
 
-- ( void )setSourceCommentColor: ( NSColor * )value
+- ( void )setCommentColor: ( NSColor * )value
 {
     @synchronized( self )
     {
-        [ self setColor: value forKey: CEPreferencesKeySourceCommentColor ];
+        [ self setColor: value forKey: CEPreferencesKeyCommentColor ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySourceCommentColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyCommentColor );
     }
 }
 
-- ( void )setSourceStringColor: ( NSColor * )value
+- ( void )setStringColor: ( NSColor * )value
 {
     @synchronized( self )
     {
-        [ self setColor: value forKey: CEPreferencesKeySourceStringColor ];
+        [ self setColor: value forKey: CEPreferencesKeyStringColor ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySourceStringColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyStringColor );
     }
 }
 
-- ( void )setSourcePredefinedColor: ( NSColor * )value
+- ( void )setPredefinedColor: ( NSColor * )value
 {
     @synchronized( self )
     {
-        [ self setColor: value forKey: CEPreferencesKeySourcePredefinedColor ];
+        [ self setColor: value forKey: CEPreferencesKeyPredefinedColor ];
         [ DEFAULTS synchronize ];
         
-        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySourcePredefinedColor );
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyPredefinedColor );
     }
 }
 

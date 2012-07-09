@@ -20,26 +20,24 @@
     
     [ _fontTextField setStringValue: font ];
     
-    [ _generalForegroundColorWell   setColor: [ prefs generalForegroundColor ] ];
-    [ _generalBackgroundColorWell   setColor: [ prefs generalBackgroundColor ] ];
-    [ _generalSelectionColorWell    setColor: [ prefs generalSelectionColor ] ];
-    [ _generalCurrentLineColorWell  setColor: [ prefs generalCurrentLineColor ] ];
-    [ _sourceKeywordColorWell       setColor: [ prefs sourceKeywordColor ] ];
-    [ _sourceCommentColorWell       setColor: [ prefs sourceCommentColor ] ];
-    [ _sourceStringColorWell        setColor: [ prefs sourceStringColor ] ];
-    [ _sourcePredefinedColorWell    setColor: [ prefs sourcePredefinedColor ] ];
+    [ _generalForegroundColorWell   setColor: [ prefs foregroundColor ] ];
+    [ _generalBackgroundColorWell   setColor: [ prefs backgroundColor ] ];
+    [ _generalSelectionColorWell    setColor: [ prefs currentLineColor ] ];
+    [ _sourceKeywordColorWell       setColor: [ prefs commentColor ] ];
+    [ _sourceStringColorWell        setColor: [ prefs stringColor ] ];
+    [ _sourcePredefinedColorWell    setColor: [ prefs predefinedColor ] ];
 }
 
 - ( void )updateColor: ( NSColorWell * )colorWell
 {
-         if( colorWell == _generalForegroundColorWell )  { [ [ CEPreferences sharedInstance ] setGeneralForegroundColor:  colorWell.color ]; }
-    else if( colorWell == _generalBackgroundColorWell )  { [ [ CEPreferences sharedInstance ] setGeneralBackgroundColor:  colorWell.color ]; }
-    else if( colorWell == _generalSelectionColorWell )   { [ [ CEPreferences sharedInstance ] setGeneralSelectionColor:   colorWell.color ]; }
-    else if( colorWell == _generalCurrentLineColorWell ) { [ [ CEPreferences sharedInstance ] setGeneralCurrentLineColor: colorWell.color ]; }
-    else if( colorWell == _sourceKeywordColorWell )      { [ [ CEPreferences sharedInstance ] setSourceKeywordColor:      colorWell.color ]; }
-    else if( colorWell == _sourceCommentColorWell )      { [ [ CEPreferences sharedInstance ] setSourceCommentColor:      colorWell.color ]; }
-    else if( colorWell == _sourceStringColorWell )       { [ [ CEPreferences sharedInstance ] setSourceStringColor:       colorWell.color ]; }
-    else if( colorWell == _sourcePredefinedColorWell )   { [ [ CEPreferences sharedInstance ] setSourcePredefinedColor:   colorWell.color ]; }
+         if( colorWell == _generalForegroundColorWell )  { [ [ CEPreferences sharedInstance ] setForegroundColor:  colorWell.color ]; }
+    else if( colorWell == _generalBackgroundColorWell )  { [ [ CEPreferences sharedInstance ] setBackgroundColor:  colorWell.color ]; }
+    else if( colorWell == _generalSelectionColorWell )   { [ [ CEPreferences sharedInstance ] setSelectionColor:   colorWell.color ]; }
+    else if( colorWell == _generalCurrentLineColorWell ) { [ [ CEPreferences sharedInstance ] setCurrentLineColor: colorWell.color ]; }
+    else if( colorWell == _sourceKeywordColorWell )      { [ [ CEPreferences sharedInstance ] setKeywordColor:     colorWell.color ]; }
+    else if( colorWell == _sourceCommentColorWell )      { [ [ CEPreferences sharedInstance ] setCommentColor:     colorWell.color ]; }
+    else if( colorWell == _sourceStringColorWell )       { [ [ CEPreferences sharedInstance ] setStringColor:      colorWell.color ]; }
+    else if( colorWell == _sourcePredefinedColorWell )   { [ [ CEPreferences sharedInstance ] setPredefinedColor:  colorWell.color ]; }
 }
 
 @end

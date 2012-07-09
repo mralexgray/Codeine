@@ -66,19 +66,14 @@
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateView ) name: CEPreferencesNotificationValueChanged object: nil ];
     
     {
-        NSDictionary * themes;
-        NSArray      * keys;
-        NSString     * name;
+        NSArray      * themes;
         CEColorTheme * theme;
         NSMenuItem   * item;
         
-        themes = [ [ CEPreferences sharedInstance ] colorThemes ];
-        keys   = [ [ themes allKeys ] sortedArrayUsingSelector: @selector( localizedCaseInsensitiveCompare: ) ];
+        themes = [ CEColorTheme defaultColorThemes ];
         
-        for( name in keys )
+        for( theme in themes )
         {
-            theme = [ themes objectForKey: name ];
-            
             [ _colorThemesPopUp addItemWithTitle: theme.name ];
             
             item                   = [ _colorThemesPopUp itemWithTitle: theme.name ];

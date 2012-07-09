@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		050629E815AB62E300DA6EE6 /* CEFileViewItemBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629E715AB62E300DA6EE6 /* CEFileViewItemBookmark.m */; };
+		050629EB15AB73CA00DA6EE6 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 050629EA15AB73CA00DA6EE6 /* Themes */; };
+		050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */; };
 		05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05087FC715A8E66900582A01 /* CEFileViewCell.m */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
@@ -85,6 +87,9 @@
 /* Begin PBXFileReference section */
 		050629E615AB62E300DA6EE6 /* CEFileViewItemBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewItemBookmark.h; sourceTree = "<group>"; };
 		050629E715AB62E300DA6EE6 /* CEFileViewItemBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewItemBookmark.m; sourceTree = "<group>"; };
+		050629EA15AB73CA00DA6EE6 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
+		050629EC15AB780B00DA6EE6 /* CEColorTheme+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEColorTheme+Private.h"; sourceTree = "<group>"; };
+		050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEColorTheme+Private.m"; sourceTree = "<group>"; };
 		05087FC615A8E66900582A01 /* CEFileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewCell.h; sourceTree = "<group>"; };
 		05087FC715A8E66900582A01 /* CEFileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewCell.m; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
@@ -262,6 +267,7 @@
 		052FD01B159E019C0045C9ED /* Application Support */ = {
 			isa = PBXGroup;
 			children = (
+				050629EA15AB73CA00DA6EE6 /* Themes */,
 				052FD025159E098A0045C9ED /* Templates */,
 			);
 			path = "Application Support";
@@ -547,6 +553,8 @@
 				05941097159A266500257F9E /* CESystemIconsHelper.m */,
 				05972EC0159F5FFA009A204F /* CEBuilder.h */,
 				05972EC1159F5FFA009A204F /* CEBuilder.m */,
+				050629EC15AB780B00DA6EE6 /* CEColorTheme+Private.h */,
+				050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */,
 				05F8036515A8804D00CD9F0D /* CEColorTheme.h */,
 				05F8036615A8804D00CD9F0D /* CEColorTheme.m */,
 			);
@@ -656,6 +664,7 @@
 				052FD026159E098A0045C9ED /* Templates in Resources */,
 				052B91D915A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib in Resources */,
 				05F8036115A7794300CD9F0D /* Application.icns in Resources */,
+				050629EB15AB73CA00DA6EE6 /* Themes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +728,7 @@
 				05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */,
 				059C9B3315A9044F00AEF506 /* CEFileOutlineView.m in Sources */,
 				050629E815AB62E300DA6EE6 /* CEFileViewItemBookmark.m in Sources */,
+				050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

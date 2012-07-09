@@ -6,18 +6,96 @@
 /* $Id$ */
 
 #import "CEColorTheme.h"
+#import "CEColorTheme+Private.h"
 
 @implementation CEColorTheme
 
-@synthesize name = _name;
-@synthesize generalForegroundColor  = _generalForegroundColor;
-@synthesize generalBackgroundColor  = _generalBackgroundColor;
-@synthesize generalSelectionColor   = _generalSelectionColor;
-@synthesize generalCurrentLineColor = _generalCurrentLineColor;
-@synthesize sourceKeywordColor      = _sourceKeywordColor;
-@synthesize sourceCommentColor      = _sourceCommentColor;
-@synthesize sourceStringColor       = _sourceStringColor;
-@synthesize sourcePredefinedColor   = _sourcePredefinedColor;
+@synthesize name                = _name;
+@synthesize foregroundColor     = _foregroundColor;
+@synthesize backgroundColor     = _backgroundColor;
+@synthesize selectionColor      = _selectionColor;
+@synthesize currentLineColor    = _currentLineColor;
+@synthesize keywordColor        = _keywordColor;
+@synthesize commentColor        = _commentColor;
+@synthesize stringColor         = _stringColor;
+@synthesize predefinedColor     = _predefinedColor;
+
++ ( NSArray * )defaultColorThemes
+{
+    NSMutableArray        * themes;
+    NSString              * applicationSupportPath;
+    NSString              * themesDirectory;
+    NSDirectoryEnumerator * enumerator;
+    NSString              * path;
+    NSString              * name;
+    NSDictionary          * themeDict;
+    CEColorTheme          * theme;
+    BOOL                    isDir;
+    
+    themes                  = [ NSMutableArray arrayWithCapacity: 25 ];
+    applicationSupportPath  = [ FILE_MANAGER applicationSupportDirectory ];
+    
+    if( applicationSupportPath == nil )
+    {
+        return [ NSArray arrayWithArray: themes ];
+    }
+    
+    themesDirectory = [ applicationSupportPath stringByAppendingPathComponent: @"Themes" ];
+    isDir           = NO;
+    
+    if( [ FILE_MANAGER fileExistsAtPath: themesDirectory isDirectory: &isDir ] == NO || isDir == NO )
+    {
+        return [ NSArray arrayWithArray: themes ];
+    }
+    
+    enumerator = [ FILE_MANAGER enumeratorAtPath: themesDirectory ];
+    
+    while( ( path = [ enumerator nextObject ] ) )
+    {
+        [ enumerator skipDescendants ];
+        
+        if( [ [ path pathExtension ] isEqualToString: @"plist" ] == NO )
+        {
+            continue;
+        }
+        
+        path        = [ themesDirectory stringByAppendingPathComponent: path ];
+        themeDict   = [ NSDictionary dictionaryWithContentsOfFile: path ];
+        name        = [ [ path lastPathComponent ] stringByDeletingPathExtension ];
+        theme       = [ self colorThemeWithName: name ];
+        
+        [ theme setColorFromDictionary: themeDict name: @"Foreground"  selector: @selector( setForegroundColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Background"  selector: @selector( setBackgroundColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Selection"   selector: @selector( setSelectionColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"CurrentLine" selector: @selector( setCurrentLineColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Keyword"     selector: @selector( setKeywordColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Comment"     selector: @selector( setCommentColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"String"      selector: @selector( setStringColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Predefined"  selector: @selector( setPredefinedColor: ) ];
+        
+        [ themes addObject: theme ];
+    }
+    
+    return [ NSArray arrayWithArray: themes ];
+}
+
++ ( id )defaultColorThemeWithName: ( NSString * )name
+{
+    NSArray      * themes;
+    CEColorTheme * theme;
+    
+    themes = [ self defaultColorThemes ];
+    
+    for( theme in themes )
+    {
+        if( [ theme.name isEqualToString: name ] )
+        {
+            return theme;
+        }
+    }
+    
+    return nil;
+}
 
 + ( id )colorThemeWithName: ( NSString * )name
 {
@@ -37,14 +115,14 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _name );
-    RELEASE_IVAR( _generalForegroundColor );
-    RELEASE_IVAR( _generalBackgroundColor );
-    RELEASE_IVAR( _generalSelectionColor );
-    RELEASE_IVAR( _generalCurrentLineColor );
-    RELEASE_IVAR( _sourceKeywordColor );
-    RELEASE_IVAR( _sourceCommentColor );
-    RELEASE_IVAR( _sourceStringColor );
-    RELEASE_IVAR( _sourcePredefinedColor );
+    RELEASE_IVAR( _foregroundColor );
+    RELEASE_IVAR( _backgroundColor );
+    RELEASE_IVAR( _selectionColor );
+    RELEASE_IVAR( _currentLineColor );
+    RELEASE_IVAR( _keywordColor );
+    RELEASE_IVAR( _commentColor );
+    RELEASE_IVAR( _stringColor );
+    RELEASE_IVAR( _predefinedColor );
     
     [ super dealloc ];
 }
