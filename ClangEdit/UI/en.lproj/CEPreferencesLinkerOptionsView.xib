@@ -146,7 +146,7 @@
 									<object class="NSTextField" id="779934288">
 										<reference key="NSNextResponder" ref="990112617"/>
 										<int key="NSvFlags">268</int>
-										<string key="NSFrame">{{15, 514}, {129, 17}}</string>
+										<string key="NSFrame">{{15, 514}, {85, 17}}</string>
 										<reference key="NSSuperview" ref="990112617"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="813199771"/>
@@ -155,7 +155,7 @@
 										<object class="NSTextFieldCell" key="NSCell" id="49754521">
 											<int key="NSCellFlags">68157504</int>
 											<int key="NSCellFlags2">272630784</int>
-											<string key="NSContents">Linked frameworks:</string>
+											<string key="NSContents">Frameworks:</string>
 											<reference key="NSSupport" ref="224727099"/>
 											<string key="NSCellIdentifier">_NS:1549</string>
 											<reference key="NSControlView" ref="779934288"/>
@@ -1324,7 +1324,7 @@
 				<reference key="NSNextKeyView" ref="533842635"/>
 				<string key="NSClassName">NSView</string>
 			</object>
-			<object class="NSCustomObject" id="430354374">
+			<object class="NSCustomObject" id="229498924">
 				<string key="NSClassName">CEPreferences</string>
 			</object>
 		</array>
@@ -1414,10 +1414,10 @@
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: objCLoadAll</string>
 						<reference key="source" ref="903744850"/>
-						<reference key="destination" ref="430354374"/>
+						<reference key="destination" ref="229498924"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="903744850"/>
-							<reference key="NSDestination" ref="430354374"/>
+							<reference key="NSDestination" ref="229498924"/>
 							<string key="NSLabel">value: objCLoadAll</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">objCLoadAll</string>
@@ -2008,7 +2008,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">241</int>
-						<reference key="object" ref="430354374"/>
+						<reference key="object" ref="229498924"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</array>
