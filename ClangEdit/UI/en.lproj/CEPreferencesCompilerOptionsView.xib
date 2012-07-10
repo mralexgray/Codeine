@@ -94,7 +94,6 @@
 						<string key="NSFrame">{{75, 16}, {580, 26}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSPopUpButtonCell" key="NSCell" id="292635391">
@@ -254,7 +253,7 @@
 										<string key="NSFrameSize">{630, 228}</string>
 										<reference key="NSSuperview" ref="431958678"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="64543698"/>
+										<reference key="NSNextKeyView" ref="1010822871"/>
 										<string key="NSReuseIdentifierKey">_NS:13</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTableHeaderView" key="NSHeaderView" id="649411738">
@@ -437,7 +436,7 @@
 						<string key="NSFrame">{{20, 70}, {632, 246}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1010822871"/>
+						<reference key="NSNextKeyView" ref="431958678"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="NSsFlags">133682</int>
 						<reference key="NSVScroller" ref="64543698"/>
@@ -477,19 +476,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">flagsTableView</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="661107460"/>
-					</object>
-					<int key="connectionID">285</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">warningsPresetPopUp</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="460002959"/>
 					</object>
 					<int key="connectionID">286</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">tableView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="661107460"/>
+					</object>
+					<int key="connectionID">287</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -740,7 +739,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">286</int>
+			<int key="maxID">287</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -755,37 +754,24 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">CEPreferencesCompilerOptionsViewController</string>
 					<string key="superclassName">CEViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="addFramework:">id</string>
-						<string key="removeFramework:">id</string>
-						<string key="selectWarningsPreset:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="addFramework:">
-							<string key="name">addFramework:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="removeFramework:">
-							<string key="name">removeFramework:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectWarningsPreset:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">selectWarningsPreset:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">selectWarningsPreset:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">selectWarningsPreset:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="flagsTableView">NSTableView</string>
-						<string key="objcFrameworksTableView">NSTableView</string>
+						<string key="tableView">NSTableView</string>
 						<string key="warningsPresetPopUp">NSPopUpButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="flagsTableView">
-							<string key="name">flagsTableView</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="objcFrameworksTableView">
-							<string key="name">objcFrameworksTableView</string>
+						<object class="IBToOneOutletInfo" key="tableView">
+							<string key="name">tableView</string>
 							<string key="candidateClassName">NSTableView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="warningsPresetPopUp">

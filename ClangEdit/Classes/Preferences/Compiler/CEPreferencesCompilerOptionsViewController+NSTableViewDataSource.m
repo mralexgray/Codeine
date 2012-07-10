@@ -15,71 +15,38 @@
 
 - ( NSInteger )numberOfRowsInTableView: ( NSTableView * )tableView
 {
-    if( tableView == _flagsTableView )
+    ( void )tableView;
+    
+    if( _flags == nil )
     {
-        if( _warningFlags == nil )
-        {
-            [ self getWarningFlags ];
-        }
-        
-        return ( NSInteger )( _warningFlags.count );
-    }
-    else if( tableView == _objcFrameworksTableView )
-    {
-        return ( NSInteger )[ [ [ CEPreferences sharedInstance ] objCFrameworks ] count ];
+        [ self getWarningFlags ];
     }
     
-    return 0;
+    return ( NSInteger )( _flags.count );
 }
 
 - ( id )tableView: ( NSTableView * )tableView objectValueForTableColumn: ( NSTableColumn * )tableColumn row: ( NSInteger )row
 {
-    if( tableView == _flagsTableView )
+    NSString       * flag;
+    NSCellStateValue state;
+    
+    ( void )tableView;
+    
+    if( _flags == nil )
     {
-        if( _warningFlags == nil )
-        {
-            [ self getWarningFlags ];
-        }
-        
-        {
-            NSString       * flag;
-            NSCellStateValue state;
-            
-            flag  = [ _warningFlags keyAtIndex: ( NSUInteger )row ];
-            state = ( [ ( NSNumber * )[ _warningFlags objectAtIndex: ( NSUInteger )row ] boolValue ] == YES ) ? NSOnState : NSOffState;
-            
-            if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier ]  )
-            {
-                return [ NSNumber numberWithInteger: state ];
-            }
-            else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnDescriptionIdentifier ] )
-            {
-                return L10N( [ flag cStringUsingEncoding: NSUTF8StringEncoding ] );
-            }
-        }
+        [ self getWarningFlags ];
     }
-    else if( tableView == _objcFrameworksTableView )
+    
+    flag  = [ _flags keyAtIndex: ( NSUInteger )row ];
+    state = ( [ ( NSNumber * )[ _flags objectAtIndex: ( NSUInteger )row ] boolValue ] == YES ) ? NSOnState : NSOffState;
+    
+    if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerTableViewColumnFlagIdentifier ]  )
     {
-        {
-            NSArray  * frameworks;
-            NSString * framework;
-            
-            frameworks = [ [ CEPreferences sharedInstance ] objCFrameworks ];
-            framework  = [ frameworks objectAtIndex: ( NSUInteger )row ];
-            
-            if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnFrameworkIdentifier ]  )
-            {
-                return [ [ framework lastPathComponent ] stringByDeletingPathExtension ];
-            }
-            else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnIconIdentifier ]  )
-            {
-                return [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconDeveloperFolderIcon ];
-            }
-            else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnPathIdentifier ]  )
-            {
-                return [ framework stringByDeletingLastPathComponent ];
-            }
-        }
+        return [ NSNumber numberWithInteger: state ];
+    }
+    else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerTableViewColumnDescriptionIdentifier ] )
+    {
+        return L10N( [ flag cStringUsingEncoding: NSUTF8StringEncoding ] );
     }
     
     return nil;
@@ -89,14 +56,10 @@
 {
     NSString * flag;
     
+    ( void )tableView;
     ( void )column;
     
-    if( tableView != _flagsTableView )
-    {
-        return;
-    }
-    
-    flag = [ _warningFlags keyAtIndex: ( NSUInteger )row ];
+    flag = [ _flags keyAtIndex: ( NSUInteger )row ];
     
     if( [ ( NSNumber * )object boolValue ] == YES )
     {
@@ -108,7 +71,7 @@
     }
     
     [ self getWarningFlags ];
-    [ _flagsTableView reloadData ];
+    [ _tableView reloadData ];
 }
 
 @end

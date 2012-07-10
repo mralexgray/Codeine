@@ -34,6 +34,8 @@ CELinkerObjectType;
 @property( atomic, readonly ) NSString            * name;
 @property( atomic, readonly ) NSImage             * icon;
 
++ ( NSArray * )linkerObjects;
++ ( NSArray * )linkerObjectsWithType: ( CELinkerObjectType )type;
 + ( id )linkerObjectWithPath: ( NSString * )path type: ( CELinkerObjectType )type;
 + ( id )linkerObjectWithPath: ( NSString * )path type: ( CELinkerObjectType )type language: ( CESourceFileLanguage )language;
 - ( id )initWithPath: ( NSString * )path type: ( CELinkerObjectType )type;

@@ -8,6 +8,7 @@
 #import "CEPreferences.h"
 #import "CEPreferences+Private.h"
 #import "CEColorTheme.h"
+#import "CELinkerObject.h"
 
 #define __PREFERENCES_CHANGE_NOTIFY( __key__ )  [ ( NSNotificationCenter * )[ NSNotificationCenter defaultCenter ] postNotificationName: CEPreferencesNotificationValueChanged object: __key__ ]
 
@@ -43,6 +44,8 @@ NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
 NSString * const CEPreferencesKeyTreatWarningsAsErrors      = @"TreatWarningsAsErrors";
 NSString * const CEPreferencesKeyShowHiddenFiles            = @"ShowHiddenFiles";
 NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
+NSString * const CEPreferencesKeyLinkerObjects              = @"LinkerObjects";
+NSString * const CEPreferencesKeyObjCLoadAll                = @"ObjCLoadAll";
 
 @implementation CEPreferences
 
@@ -262,6 +265,105 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
     }
     
     [ bookmarks release ];
+}
+
+- ( void )addLinkerObject: ( CELinkerObject * )object
+{
+    NSArray            * allObjects;
+    NSMutableArray     * objects;
+    NSDictionary       * objectDict;
+    NSDictionary       * dict;
+    NSString           * path;
+    CELinkerObjectType   type;
+    CESourceFileLanguage language;
+    BOOL                 found;
+    
+    allObjects  = self.linkerObjects;
+    objects     = [ self.linkerObjects mutableCopy ];
+    found       = NO;
+    
+    for( objectDict in allObjects )
+    {
+        type     = ( CELinkerObjectType )[ ( NSNumber * )[ objectDict valueForKey: @"Type" ] integerValue ];
+        language = ( CESourceFileLanguage )[ ( NSNumber * )[ objectDict valueForKey: @"Language" ] integerValue ];
+        path     = [ objectDict valueForKey: @"Path" ];
+        
+        if
+        (
+               type     == object.type
+            && language == object.language
+            && [ path isEqualToString: object.path ]
+        )
+        {
+            found = YES;
+            
+            break;
+        }
+    }
+    
+    if( found == NO )
+    {
+        dict = [ NSDictionary dictionaryWithObjectsAndKeys: object.path,                                        @"Path",
+                                                            [ NSNumber numberWithInteger: object.type ],        @"Type",
+                                                            [ NSNumber numberWithInteger: object.language ],    @"Language",
+                                                            nil
+               ];
+        
+        [ objects addObject: dict ];
+        [ DEFAULTS setObject: [ NSArray arrayWithArray: objects ] forKey: CEPreferencesKeyLinkerObjects ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLinkerObjects );
+    }
+    
+    [ objects release ];
+}
+
+- ( void )removeLinkerObject: ( CELinkerObject * )object
+{
+    NSArray            * allObjects;
+    NSMutableArray     * objects;
+    NSDictionary       * objectDict;
+    NSString           * path;
+    CELinkerObjectType   type;
+    CESourceFileLanguage language;
+    NSUInteger           i;
+    BOOL                 found;
+    
+    allObjects  = self.linkerObjects;
+    objects     = [ self.linkerObjects mutableCopy ];
+    i           = 0;
+    found       = NO;
+    
+    for( objectDict in allObjects )
+    {
+        type     = ( CELinkerObjectType )[ ( NSNumber * )[ objectDict valueForKey: @"Type" ] integerValue ];
+        language = ( CESourceFileLanguage )[ ( NSNumber * )[ objectDict valueForKey: @"Language" ] integerValue ];
+        path     = [ objectDict valueForKey: @"Path" ];
+        
+        if
+        (
+               type     == object.type
+            && language == object.language
+            && [ path isEqualToString: object.path ]
+        )
+        {
+            found = YES;
+            
+            break;
+        }
+        
+        i++;
+    }
+    
+    if( found == YES )
+    {
+        [ objects removeObjectAtIndex: i ];
+        [ DEFAULTS setObject: [ NSArray arrayWithArray: objects ] forKey: CEPreferencesKeyLinkerObjects ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLinkerObjects );
+    }
+    
+    [ objects release ];
 }
 
 #pragma mark -
@@ -501,6 +603,22 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
     }
 }
 
+- ( NSArray * )linkerObjects
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS objectForKey: CEPreferencesKeyLinkerObjects ];
+    }
+}
+
+- ( BOOL )objCLoadAll
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyObjCLoadAll ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -732,6 +850,17 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowHiddenFiles );
+    }
+}
+
+- ( void )setObjCLoadAll: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyObjCLoadAll ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyObjCLoadAll );
     }
 }
 

@@ -14,6 +14,7 @@
 
 - ( void )tableView: ( NSTableView * )tableView willDisplayCell: ( id )cell forTableColumn: ( NSTableColumn * )tableColumn row: ( NSInteger )row
 {
+    ( void )tableView;
     ( void )row;
     
     if( [ cell isKindOfClass: [ NSCell class ] ] == NO )
@@ -21,12 +22,9 @@
         return;
     }
     
-    if( tableView == _flagsTableView )
+    if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerTableViewColumnFlagIdentifier ] )
     {
-        if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier ] )
-        {
-            [ ( NSCell * )cell setTitle: [ _warningFlags keyAtIndex: ( NSUInteger )row ] ];
-        }
+        [ ( NSCell * )cell setTitle: [ _flags keyAtIndex: ( NSUInteger )row ] ];
     }
 }
 

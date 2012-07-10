@@ -691,5 +691,34 @@
 	</dict>
 	<key>Bookmarks</key>
 	<array/>
+	<key>LinkerObjects</key>
+	<array>
+		<dict>
+			<key>Path</key>
+			<string>/System/Library/Frameworks/Foundation.framework</string>
+			<key>Type</key>
+			<integer>0</integer>
+			<key>Language</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>Path</key>
+			<string>/System/Library/Frameworks/Foundation.framework</string>
+			<key>Type</key>
+			<integer>0</integer>
+			<key>Language</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>Path</key>
+			<string>/System/Library/Frameworks/CoreFoundation.framework</string>
+			<key>Type</key>
+			<integer>0</integer>
+			<key>Language</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>ObjCLoadAll</key>
+	<true/>
 </dict>
 </plist>

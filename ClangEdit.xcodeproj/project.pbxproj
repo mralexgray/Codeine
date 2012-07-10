@@ -62,6 +62,9 @@
 		057F586A159D40DD00C84780 /* CEEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057F5868159D40DD00C84780 /* CEEditorView.xib */; };
 		057F586D159D440800C84780 /* CEDebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F586C159D440800C84780 /* CEDebugViewController.m */; };
 		057F5870159D444A00C84780 /* CEDebugView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057F586E159D444A00C84780 /* CEDebugView.xib */; };
+		05841FF415ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05841FF315ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.m */; };
+		05841FF715ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 05841FF615ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m */; };
+		05841FFA15ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05841FF915ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m */; };
 		05941098159A266500257F9E /* CESystemIconsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 05941097159A266500257F9E /* CESystemIconsHelper.m */; };
 		05972EC2159F5FFA009A204F /* CEBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972EC1159F5FFA009A204F /* CEBuilder.m */; };
 		059C9B3315A9044F00AEF506 /* CEFileOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C9B3215A9044F00AEF506 /* CEFileOutlineView.m */; };
@@ -74,7 +77,6 @@
 		05DD28F7159E1E3C008E228F /* CEEditorViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD28F6159E1E3C008E228F /* CEEditorViewController+Private.m */; };
 		05DD28FA159E1F07008E228F /* CESourceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD28F9159E1F07008E228F /* CESourceFile.m */; };
 		05DD28FD159E1F16008E228F /* CEDebugViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD28FC159E1F16008E228F /* CEDebugViewController+Private.m */; };
-		05DD2904159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD2903159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m */; };
 		05DD2908159F1E5D008E228F /* CEOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */; };
 		05DD290B159F24AB008E228F /* CEMutableOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */; };
 		05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */; };
@@ -188,6 +190,12 @@
 		057F586B159D440800C84780 /* CEDebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDebugViewController.h; sourceTree = "<group>"; };
 		057F586C159D440800C84780 /* CEDebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDebugViewController.m; sourceTree = "<group>"; };
 		057F586F159D444A00C84780 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEDebugView.xib; sourceTree = "<group>"; };
+		05841FF215ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesLinkerOptionsViewController+Private.h"; sourceTree = "<group>"; };
+		05841FF315ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesLinkerOptionsViewController+Private.m"; sourceTree = "<group>"; };
+		05841FF515ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.h"; sourceTree = "<group>"; };
+		05841FF615ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m"; sourceTree = "<group>"; };
+		05841FF815ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.h"; sourceTree = "<group>"; };
+		05841FF915ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m"; sourceTree = "<group>"; };
 		05941096159A266500257F9E /* CESystemIconsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CESystemIconsHelper.h; sourceTree = "<group>"; };
 		05941097159A266500257F9E /* CESystemIconsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CESystemIconsHelper.m; sourceTree = "<group>"; };
 		05972EC0159F5FFA009A204F /* CEBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEBuilder.h; sourceTree = "<group>"; };
@@ -208,8 +216,6 @@
 		05DD28F9159E1F07008E228F /* CESourceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CESourceFile.m; sourceTree = "<group>"; };
 		05DD28FB159E1F16008E228F /* CEDebugViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDebugViewController+Private.h"; sourceTree = "<group>"; };
 		05DD28FC159E1F16008E228F /* CEDebugViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEDebugViewController+Private.m"; sourceTree = "<group>"; };
-		05DD2902159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h"; sourceTree = "<group>"; };
-		05DD2903159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m"; sourceTree = "<group>"; };
 		05DD2906159F1E5D008E228F /* CEOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOrderedDictionary.h; sourceTree = "<group>"; };
 		05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOrderedDictionary.m; sourceTree = "<group>"; };
 		05DD2909159F24AB008E228F /* CEMutableOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMutableOrderedDictionary.h; sourceTree = "<group>"; };
@@ -246,6 +252,12 @@
 		050629F115AB880300DA6EE6 /* Linker */ = {
 			isa = PBXGroup;
 			children = (
+				05841FF515ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.h */,
+				05841FF615ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m */,
+				05841FF815ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.h */,
+				05841FF915ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m */,
+				05841FF215ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.h */,
+				05841FF315ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.m */,
 				050629F215AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.h */,
 				050629F315AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m */,
 			);
@@ -454,8 +466,6 @@
 				057F5847159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.m */,
 				057F5848159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.h */,
 				057F5849159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.m */,
-				05DD2902159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h */,
-				05DD2903159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m */,
 				05EF1967159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.h */,
 				05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */,
 				057F584A159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController.h */,
@@ -727,7 +737,6 @@
 				05DD28F7159E1E3C008E228F /* CEEditorViewController+Private.m in Sources */,
 				05DD28FA159E1F07008E228F /* CESourceFile.m in Sources */,
 				05DD28FD159E1F16008E228F /* CEDebugViewController+Private.m in Sources */,
-				05DD2904159E2A45008E228F /* CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */,
 				05DD2908159F1E5D008E228F /* CEOrderedDictionary.m in Sources */,
 				05DD290B159F24AB008E228F /* CEMutableOrderedDictionary.m in Sources */,
 				05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */,
@@ -753,6 +762,9 @@
 				050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */,
 				050629F415AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m in Sources */,
 				050629FA15AB8B5C00DA6EE6 /* CELinkerObject.m in Sources */,
+				05841FF415ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.m in Sources */,
+				05841FF715ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m in Sources */,
+				05841FFA15ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

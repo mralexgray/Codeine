@@ -298,14 +298,14 @@
 																<reference key="NSTableView" ref="17823752"/>
 															</object>
 															<object class="NSTableColumn" id="368830742">
-																<string key="NSIdentifier">Framework</string>
+																<string key="NSIdentifier">Name</string>
 																<double key="NSWidth">150</double>
 																<double key="NSMinWidth">150</double>
 																<double key="NSMaxWidth">150</double>
 																<object class="NSTableHeaderCell" key="NSHeaderCell">
 																	<int key="NSCellFlags">75497536</int>
 																	<int key="NSCellFlags2">2048</int>
-																	<string key="NSContents">Framework</string>
+																	<string key="NSContents">Name</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSBackgroundColor" ref="923576999"/>
 																	<reference key="NSTextColor" ref="843728766"/>
@@ -620,14 +620,14 @@
 																<reference key="NSTableView" ref="978531426"/>
 															</object>
 															<object class="NSTableColumn" id="942651313">
-																<string key="NSIdentifier">Framework</string>
+																<string key="NSIdentifier">Name</string>
 																<double key="NSWidth">150</double>
 																<double key="NSMinWidth">150</double>
 																<double key="NSMaxWidth">150</double>
 																<object class="NSTableHeaderCell" key="NSHeaderCell">
 																	<int key="NSCellFlags">75497536</int>
 																	<int key="NSCellFlags2">2048</int>
-																	<string key="NSContents">Framework</string>
+																	<string key="NSContents">Name</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSBackgroundColor" ref="429347822"/>
 																	<reference key="NSTextColor" ref="843728766"/>
@@ -918,14 +918,14 @@
 																<reference key="NSTableView" ref="33166867"/>
 															</object>
 															<object class="NSTableColumn" id="957475608">
-																<string key="NSIdentifier">Framework</string>
+																<string key="NSIdentifier">Name</string>
 																<double key="NSWidth">150</double>
 																<double key="NSMinWidth">150</double>
 																<double key="NSMaxWidth">150</double>
 																<object class="NSTableHeaderCell" key="NSHeaderCell">
 																	<int key="NSCellFlags">75497536</int>
 																	<int key="NSCellFlags2">2048</int>
-																	<string key="NSContents">Framework</string>
+																	<string key="NSContents">Name</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSBackgroundColor" ref="241579056"/>
 																	<reference key="NSTextColor" ref="843728766"/>
@@ -1324,6 +1324,9 @@
 				<reference key="NSNextKeyView" ref="533842635"/>
 				<string key="NSClassName">NSView</string>
 			</object>
+			<object class="NSCustomObject" id="430354374">
+				<string key="NSClassName">CEPreferences</string>
+			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -1334,6 +1337,94 @@
 						<reference key="destination" ref="1005"/>
 					</object>
 					<int key="connectionID">2</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">frameworksTableView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="17823752"/>
+					</object>
+					<int key="connectionID">232</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">sharedLibsTableView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="978531426"/>
+					</object>
+					<int key="connectionID">233</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">staticLibsTableView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="33166867"/>
+					</object>
+					<int key="connectionID">234</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addFramework:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="939848601"/>
+					</object>
+					<int key="connectionID">235</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">removeFramework:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="116665956"/>
+					</object>
+					<int key="connectionID">236</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addSharedLib:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="245357173"/>
+					</object>
+					<int key="connectionID">237</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">removeSharedLib:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="248617631"/>
+					</object>
+					<int key="connectionID">238</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addStaticLib:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="254538254"/>
+					</object>
+					<int key="connectionID">239</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">removeStaticLib:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="482865034"/>
+					</object>
+					<int key="connectionID">240</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: objCLoadAll</string>
+						<reference key="source" ref="903744850"/>
+						<reference key="destination" ref="430354374"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="903744850"/>
+							<reference key="NSDestination" ref="430354374"/>
+							<string key="NSLabel">value: objCLoadAll</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">objCLoadAll</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">243</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1377,8 +1468,6 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="779934288"/>
 							<reference ref="939848601"/>
-							<reference ref="116665956"/>
-							<reference ref="813199771"/>
 							<reference ref="351239546"/>
 							<reference ref="221997119"/>
 							<reference ref="507525795"/>
@@ -1387,6 +1476,8 @@
 							<reference ref="772256800"/>
 							<reference ref="254538254"/>
 							<reference ref="482865034"/>
+							<reference ref="116665956"/>
+							<reference ref="813199771"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -1915,6 +2006,11 @@
 						<reference key="object" ref="812520819"/>
 						<reference key="parent" ref="903744850"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">241</int>
+						<reference key="object" ref="430354374"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2001,18 +2097,80 @@
 				<string key="227.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="228.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="229.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="241.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">231</int>
+			<int key="maxID">243</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
+					<string key="className">CEPreferences</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CEPreferences.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">CEPreferencesLinkerOptionsViewController</string>
 					<string key="superclassName">CEViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="addFramework:">id</string>
+						<string key="addSharedLib:">id</string>
+						<string key="addStaticLib:">id</string>
+						<string key="removeFramework:">id</string>
+						<string key="removeSharedLib:">id</string>
+						<string key="removeStaticLib:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="addFramework:">
+							<string key="name">addFramework:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="addSharedLib:">
+							<string key="name">addSharedLib:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="addStaticLib:">
+							<string key="name">addStaticLib:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="removeFramework:">
+							<string key="name">removeFramework:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="removeSharedLib:">
+							<string key="name">removeSharedLib:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="removeStaticLib:">
+							<string key="name">removeStaticLib:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="frameworksTableView">NSTableView</string>
+						<string key="sharedLibsTableView">NSTableView</string>
+						<string key="staticLibsTableView">NSTableView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="frameworksTableView">
+							<string key="name">frameworksTableView</string>
+							<string key="candidateClassName">NSTableView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="sharedLibsTableView">
+							<string key="name">sharedLibsTableView</string>
+							<string key="candidateClassName">NSTableView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="staticLibsTableView">
+							<string key="name">staticLibsTableView</string>
+							<string key="candidateClassName">NSTableView</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CEPreferencesLinkerOptionsViewController.h</string>

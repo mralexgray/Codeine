@@ -7,11 +7,8 @@
 
 #import "CEViewController.h"
 
-FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier;
-FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnDescriptionIdentifier;
-FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnIconIdentifier;
-FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnFrameworkIdentifier;
-FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnPathIdentifier;
+FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnFlagIdentifier;
+FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescriptionIdentifier;
 
 @class CEMutableOrderedDictionary;
 
@@ -19,10 +16,8 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObj
 {
 @protected
     
-    NSTableView                * _flagsTableView;
-    NSTableView                * _objcFrameworksTableView;
-    CEMutableOrderedDictionary * _warningFlags;
-    NSArray                    * _objCFrameworks;
+    NSTableView                * _tableView;
+    CEMutableOrderedDictionary * _flags;
     NSPopUpButton              * _warningsPresetPopUp;
     
 @private
@@ -30,12 +25,9 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerObj
     RESERVERD_IVARS( CEPreferencesCompilerOptionsViewController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSTableView   * flagsTableView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSTableView   * objcFrameworksTableView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTableView   * tableView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * warningsPresetPopUp;
 
-- ( IBAction )addFramework: ( id )sender;
-- ( IBAction )removeFramework: ( id )sender;
 - ( IBAction )selectWarningsPreset: ( id )sender;
 
 @end

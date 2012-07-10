@@ -131,6 +131,8 @@
         {
             [ _children addObject: item ];
         }
+        
+        CFRelease( url );
     }
     
     return _children;

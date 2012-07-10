@@ -37,8 +37,11 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyColorThemes;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyTreatWarningsAsErrors;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowHiddenFiles;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyBookmarks;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyLinkerObjects;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCLoadAll;
 
 @class CEColorTheme;
+@class CELinkerObject;
 
 @interface CEPreferences: NSObject
 {
@@ -48,7 +51,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyBookmarks;
     
 @private
     
-    RESERVERD_IVARS( CEPreferences , 5 );
+    RESERVERD_IVARS( CEPreferences, 5 );
 }
 
 @property( atomic, readwrite, assign ) NSString               * fontName;
@@ -79,6 +82,8 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyBookmarks;
 @property( atomic, readwrite, assign ) BOOL                     treatWarningsAsErrors;
 @property( atomic, readwrite, assign ) BOOL                     showHiddenFiles;
 @property( atomic, readonly          ) NSArray                * bookmarks;
+@property( atomic, readonly          ) NSArray                * linkerObjects;
+@property( atomic, readwrite, assign ) BOOL                     objCLoadAll;
 
 + ( CEPreferences * )sharedInstance;
 
@@ -91,5 +96,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyBookmarks;
 - ( void )setColorsFromColorTheme: ( CEColorTheme * )theme;
 - ( void )addBookmark: ( NSString * )path;
 - ( void )removeBookmark: ( NSString * )path;
+- ( void )addLinkerObject: ( CELinkerObject * )object;
+- ( void )removeLinkerObject: ( CELinkerObject * )object;
 
 @end

@@ -8,90 +8,30 @@
 #import "CEPreferencesCompilerOptionsViewController.h"
 #import "CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.h"
 #import "CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.h"
-#import "CEPreferencesCompilerOptionsViewController+NSOpenSavePanelDelegate.h"
 #import "CEPreferencesCompilerOptionsViewController+Private.h"
 #import "CEPreferences.h"
 
-NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnFlagIdentifier               = @"Flag";
-NSString * const CEPreferencesCompilerOptionsViewControllerFlagsTableViewColumnDescriptionIdentifier        = @"Description";
-NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnIconIdentifier      = @"Icon";
-NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnFrameworkIdentifier = @"Framework";
-NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableViewColumnPathIdentifier      = @"Path";
+NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnFlagIdentifier               = @"Flag";
+NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescriptionIdentifier        = @"Description";
 
 @implementation CEPreferencesCompilerOptionsViewController
 
-@synthesize flagsTableView          = _flagsTableView;
-@synthesize objcFrameworksTableView = _objcFrameworksTableView;
-@synthesize warningsPresetPopUp     = _warningsPresetPopUp;
+@synthesize tableView           = _tableView;
+@synthesize warningsPresetPopUp = _warningsPresetPopUp;
 
 - ( void )awakeFromNib
 {
-    _flagsTableView.delegate    = self;
-    _flagsTableView.dataSource  = self;
-    
-    _objcFrameworksTableView.delegate    = self;
-    _objcFrameworksTableView.dataSource  = self;
+    _tableView.delegate    = self;
+    _tableView.dataSource  = self;
 }
 
 - ( void )dealloc
 {
-    RELEASE_IVAR( _flagsTableView );
-    RELEASE_IVAR( _objcFrameworksTableView );
-    RELEASE_IVAR( _warningFlags );
+    RELEASE_IVAR( _tableView );
+    RELEASE_IVAR( _flags );
     RELEASE_IVAR( _warningsPresetPopUp );
     
     [ super dealloc ];
-}
-
-- ( IBAction )addFramework: ( id )sender
-{
-    NSOpenPanel * panel;
-    
-    ( void )sender;
-    
-    panel           = [ NSOpenPanel openPanel ];
-    panel.delegate  = self;
-    
-    panel.allowsMultipleSelection   = NO;
-    panel.canChooseDirectories      = YES;
-    panel.canChooseFiles            = NO;
-    panel.canCreateDirectories      = NO;
-    
-    [ panel beginSheetModalForWindow: self.view.window completionHandler: ^( NSInteger result )
-        {
-            if( result != NSFileHandlingPanelOKButton )
-            {
-                return;
-            }
-            
-            [ [ CEPreferences sharedInstance ] addObjCFramework: [ [ panel URL ] path ] ];
-            [ _objcFrameworksTableView reloadData ];
-        }
-    ];
-}
-
-- ( IBAction )removeFramework: ( id )sender
-{
-    NSArray  * frameworks;
-    NSUInteger row;
-    
-    ( void )sender;
-    
-    if( [ _objcFrameworksTableView selectedRow ] == -1 )
-    {
-        return;
-    }
-    
-    row        = ( NSUInteger )_objcFrameworksTableView.selectedRow;
-    frameworks = [ [ CEPreferences sharedInstance ] objCFrameworks ];
-    
-    if( row >= frameworks.count )
-    {
-        return;
-    }
-    
-    [ [ CEPreferences sharedInstance ] removeObjCFramework: [ frameworks objectAtIndex: row ] ];
-    [ _objcFrameworksTableView reloadData ];
 }
 
 - ( IBAction )selectWarningsPreset: ( id )sender
@@ -105,9 +45,6 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
     ( void )sender;
     
     tag = [ [ _warningsPresetPopUp selectedItem ] tag ];
-    
-    flags       = nil;
-    disableAll  = NO;
     
     switch( tag )
     {
@@ -149,7 +86,7 @@ NSString * const CEPreferencesCompilerOptionsViewControllerObjCFrameworksTableVi
     }
     
     [ self getWarningFlags ];
-    [ _flagsTableView reloadData ];
+    [ _tableView reloadData ];
 }
 
 @end

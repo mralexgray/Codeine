@@ -17,7 +17,7 @@
     NSArray      * keys;
     NSString     * key;
     
-    RELEASE_IVAR( _warningFlags );
+    RELEASE_IVAR( _flags );
     
     flags = [ [ CEPreferences sharedInstance ] warningFlags ];
     keys  = [ [ flags allKeys ] sortedArrayUsingComparator: ^ NSComparisonResult( id obj1, id obj2 )
@@ -32,11 +32,11 @@
                 }
             ];
     
-    _warningFlags = [ [ CEMutableOrderedDictionary alloc ] initWithCapacity: keys.count ];
+    _flags = [ [ CEMutableOrderedDictionary alloc ] initWithCapacity: keys.count ];
     
     for( key in keys )
     {
-        [ _warningFlags setObject: [ flags objectForKey: key ] forKey: key ];
+        [ _flags setObject: [ flags objectForKey: key ] forKey: key ];
     }
 }
 
