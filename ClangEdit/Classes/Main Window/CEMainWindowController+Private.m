@@ -50,6 +50,7 @@
             break;
             
         case CESourceFileLanguageC:
+        case CESourceFileLanguageHeader:
         case CESourceFileLanguageNone:
         default:
             
