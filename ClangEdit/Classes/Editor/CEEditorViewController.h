@@ -8,13 +8,15 @@
 #import "CEViewController.h"
 
 @class CESourceFile;
+@class CEEditorLayoutManager;
 
 @interface CEEditorViewController: CEViewController
 {
 @protected
     
-    NSTextView   * _textView;
-    CESourceFile * _sourceFile;
+    NSTextView              * _textView;
+    CESourceFile            * _sourceFile;
+    CEEditorLayoutManager   * _layoutManager;
     
 @private
     

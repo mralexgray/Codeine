@@ -41,6 +41,7 @@
 		05480FD9159A0CC1005CFBC5 /* CEMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FD8159A0CC1005CFBC5 /* CEMainWindowController.m */; };
 		05480FDC159A0CD5005CFBC5 /* CEMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05480FDA159A0CD5005CFBC5 /* CEMainWindow.xib */; };
 		05480FE0159A0CFB005CFBC5 /* CEWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FDF159A0CFB005CFBC5 /* CEWindowController.m */; };
+		054BEB7315AF815D002D7730 /* CEEditorLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */; };
 		0563E04715A8A7B400BA5828 /* CEFilesViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */; };
 		0563E04A15A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04915A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m */; };
 		0563E04D15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */; };
@@ -153,6 +154,8 @@
 		05480FDB159A0CD5005CFBC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEMainWindow.xib; sourceTree = "<group>"; };
 		05480FDE159A0CFB005CFBC5 /* CEWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEWindowController.h; sourceTree = "<group>"; };
 		05480FDF159A0CFB005CFBC5 /* CEWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEWindowController.m; sourceTree = "<group>"; };
+		054BEB7115AF815D002D7730 /* CEEditorLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorLayoutManager.h; sourceTree = "<group>"; };
+		054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorLayoutManager.m; sourceTree = "<group>"; };
 		0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+Private.h"; sourceTree = "<group>"; };
 		0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+Private.m"; sourceTree = "<group>"; };
 		0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDataSource.h"; sourceTree = "<group>"; };
@@ -543,6 +546,8 @@
 				057F5866159D40BE00C84780 /* CEEditorViewController.m */,
 				05DD28F5159E1E3C008E228F /* CEEditorViewController+Private.h */,
 				05DD28F6159E1E3C008E228F /* CEEditorViewController+Private.m */,
+				054BEB7115AF815D002D7730 /* CEEditorLayoutManager.h */,
+				054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -771,6 +776,7 @@
 				05841FF715ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m in Sources */,
 				05841FFA15ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m in Sources */,
 				0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */,
+				054BEB7315AF815D002D7730 /* CEEditorLayoutManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 
 #import "CEEditorViewController+Private.h"
 #import "CEPreferences.h"
+#import "CEEditorLayoutManager.h"
 
 @implementation CEEditorViewController( Private )
 
@@ -14,6 +15,8 @@
 {
     NSFont       * font;
     NSDictionary * selectionAttributes;
+    
+    _layoutManager.showInvisibles = [ [ CEPreferences sharedInstance ] showInvisibles ];
     
     font = [ NSFont fontWithName: [ [ CEPreferences sharedInstance ] fontName ] size: [ [ CEPreferences sharedInstance ] fontSize ] ];
     

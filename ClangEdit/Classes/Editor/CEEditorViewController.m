@@ -10,6 +10,7 @@
 #import "CEPreferences.h"
 #import "CEMainWindowController.h"
 #import "CESourceFile.h"
+#import "CEEditorLayoutManager.h"
 
 @implementation CEEditorViewController
 
@@ -21,6 +22,7 @@
     
     RELEASE_IVAR( _textView );
     RELEASE_IVAR( _sourceFile );
+    RELEASE_IVAR( _layoutManager );
     
     [ super dealloc ];
 }
@@ -28,6 +30,13 @@
 - ( void )awakeFromNib
 {
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateView ) name: CEPreferencesNotificationValueChanged object: nil ];
+    
+    _layoutManager = [ CEEditorLayoutManager new ];
+    
+    [ _layoutManager setTextStorage: _textView.textStorage ];
+    [ _textView.textContainer replaceLayoutManager: _layoutManager ];
+    [ _layoutManager addTextContainer: _textView.textContainer ];
+    [ _textView.textContainer setLayoutManager: _layoutManager ];
     
     [ self updateView ];
 }

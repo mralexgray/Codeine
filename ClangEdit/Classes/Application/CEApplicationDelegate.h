@@ -25,5 +25,6 @@
 - ( IBAction )showPreferencesWindow: ( id )sender;
 - ( IBAction )showAboutWindow: ( id )sender;
 - ( IBAction )newWindow: ( id )sender;
+- ( IBAction )toggleInvisibleCharacters: ( id )sender;
 
 @end

@@ -95,4 +95,15 @@
     NSLog( @"New document - No main window..." );
 }
 
+- ( IBAction )toggleInvisibleCharacters: ( id )sender
+{
+    BOOL showInvisibles;
+    
+    ( void )sender;
+    
+    showInvisibles = [ [ CEPreferences sharedInstance ] showInvisibles ];
+    
+    [ [ CEPreferences sharedInstance ] setShowInvisibles: ( showInvisibles == YES ) ? NO : YES ];
+}
+
 @end
