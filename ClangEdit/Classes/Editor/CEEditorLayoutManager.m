@@ -24,12 +24,11 @@
     
     if( _showInvisibles == YES )
     {
-        textView = [ self firstTextView ];
-        font     = [ [ textView typingAttributes ] objectForKey:NSFontAttributeName ];
-        
-        space     = [ font glyphWithName: @"lozenge" ];
-        tab       = [ font glyphWithName: @"Delta" ];
-        lineBreak = [ font glyphWithName: @"logicalnot" ];
+        textView    = [ self firstTextView ];
+        font        = [ [ textView typingAttributes ] objectForKey:NSFontAttributeName ];
+        space       = [ font glyphWithName: @"lozenge" ];
+        tab         = [ font glyphWithName: @"Delta" ];
+        lineBreak   = [ font glyphWithName: @"logicalnot" ];
         
         for( i = range.location; i != range.location + range.length; i++ )
         {
