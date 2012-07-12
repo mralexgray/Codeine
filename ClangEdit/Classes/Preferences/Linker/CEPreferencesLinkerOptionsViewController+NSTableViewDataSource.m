@@ -7,6 +7,7 @@
 
 #import "CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.h"
 #import "CELinkerObject.h"
+#import "CEPreferences.h"
 
 @implementation CEPreferencesLinkerOptionsViewController( NSTableViewDataSource )
 
@@ -77,6 +78,42 @@
     }
     
     return nil;
+}
+
+- ( void )tableView: ( NSTableView * )tableView setObjectValue: ( id )object forTableColumn: ( NSTableColumn * )tableColumn row: ( NSInteger )row
+{
+    NSArray            * objects;
+    CELinkerObject     * linkerObject;
+    CESourceFileLanguage language;
+    
+    ( void )tableColumn;
+    
+    if( tableView == _frameworksTableView )
+    {
+        objects = [ CELinkerObject linkerObjectsWithType: CELinkerObjectTypeFramework ];
+    }
+    else if( tableView == _sharedLibsTableView )
+    {
+        objects = [ CELinkerObject linkerObjectsWithType: CELinkerObjectTypeSharedLibrary ];
+    }
+    else if( tableView == _staticLibsTableView )
+    {
+        objects = [ CELinkerObject linkerObjectsWithType: CELinkerObjectTypeStaticLibrary ];
+    }
+    
+    @try
+    {
+        linkerObject = [ objects objectAtIndex: ( NSUInteger )row ];
+    }
+    @catch( NSException * e )
+    {
+        ( void )e;
+    }
+    
+    language = ( CESourceFileLanguage )[ ( NSNumber * )object integerValue ];
+    
+    [ [ CEPreferences sharedInstance ] setLanguage: language ofLinkerObject: linkerObject ];
+    [ tableView reloadData ];
 }
 
 @end

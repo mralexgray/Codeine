@@ -1324,7 +1324,7 @@
 				<reference key="NSNextKeyView" ref="533842635"/>
 				<string key="NSClassName">NSView</string>
 			</object>
-			<object class="NSCustomObject" id="229498924">
+			<object class="NSCustomObject" id="69138984">
 				<string key="NSClassName">CEPreferences</string>
 			</object>
 		</array>
@@ -1414,10 +1414,10 @@
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: objCLoadAll</string>
 						<reference key="source" ref="903744850"/>
-						<reference key="destination" ref="229498924"/>
+						<reference key="destination" ref="69138984"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="903744850"/>
-							<reference key="NSDestination" ref="229498924"/>
+							<reference key="NSDestination" ref="69138984"/>
 							<string key="NSLabel">value: objCLoadAll</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">objCLoadAll</string>
@@ -2008,7 +2008,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">241</int>
-						<reference key="object" ref="229498924"/>
+						<reference key="object" ref="69138984"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</array>

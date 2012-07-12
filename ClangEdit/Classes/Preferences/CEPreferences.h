@@ -98,5 +98,6 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCLoadAll;
 - ( void )removeBookmark: ( NSString * )path;
 - ( void )addLinkerObject: ( CELinkerObject * )object;
 - ( void )removeLinkerObject: ( CELinkerObject * )object;
+- ( void )setLanguage: ( CESourceFileLanguage )language ofLinkerObject: ( CELinkerObject * )object;
 
 @end

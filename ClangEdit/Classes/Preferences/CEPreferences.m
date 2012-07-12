@@ -366,6 +366,57 @@ NSString * const CEPreferencesKeyObjCLoadAll                = @"ObjCLoadAll";
     [ objects release ];
 }
 
+- ( void )setLanguage: ( CESourceFileLanguage )language ofLinkerObject: ( CELinkerObject * )object
+{
+    NSArray            * allObjects;
+    NSMutableArray     * objects;
+    NSDictionary       * objectDict;
+    NSDictionary       * newObjectDict;
+    NSString           * path;
+    CELinkerObjectType   type;
+    CESourceFileLanguage currentLanguage;
+    NSUInteger           i;
+    
+    allObjects      = self.linkerObjects;
+    objects         = [ allObjects mutableCopy ];
+    i               = 0;
+    newObjectDict   = nil;
+    
+    for( objectDict in objects )
+    {
+        type            = ( CELinkerObjectType )[ ( NSNumber * )[ objectDict valueForKey: @"Type" ] integerValue ];
+        currentLanguage = ( CESourceFileLanguage )[ ( NSNumber * )[ objectDict valueForKey: @"Language" ] integerValue ];
+        path            = [ objectDict valueForKey: @"Path" ];
+        
+        if
+        (
+               type            == object.type
+            && currentLanguage == object.language
+            && [ path isEqualToString: object.path ]
+        )
+        {
+            newObjectDict = [ NSDictionary dictionaryWithObjectsAndKeys:    path,                                       @"Path",
+                                                                            [ NSNumber numberWithInteger: type ],       @"Type",
+                                                                            [ NSNumber numberWithInteger: language ],   @"Language",
+                                                                            nil
+                            ];
+            break;
+        }
+        
+        i++;
+    }
+    
+    if( newObjectDict != nil )
+    {
+        [ objects replaceObjectAtIndex: i withObject: newObjectDict ];
+        [ DEFAULTS setObject: objects forKey: CEPreferencesKeyLinkerObjects ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLinkerObjects );
+    }
+    
+    [ objects release ];
+}
+
 #pragma mark -
 #pragma mark Getters
 
