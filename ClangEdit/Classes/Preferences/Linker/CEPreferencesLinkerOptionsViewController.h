@@ -6,6 +6,7 @@
 /* $Id$ */
 
 #import "CEViewController.h"
+#import "CELinkerObject.h"
 
 FOUNDATION_EXPORT NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnIconIdentifier;
 FOUNDATION_EXPORT NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnNameIdentifier;
@@ -16,9 +17,10 @@ FOUNDATION_EXPORT NSString * const CEPreferencesLinkerOptionsViewControllerTable
 {
 @protected
     
-    NSTableView * _frameworksTableView;
-    NSTableView * _sharedLibsTableView;
-    NSTableView * _staticLibsTableView;
+    NSTableView      * _frameworksTableView;
+    NSTableView      * _sharedLibsTableView;
+    NSTableView      * _staticLibsTableView;
+    CELinkerObjectType _openPanelAllowedType;
     
 @private
     

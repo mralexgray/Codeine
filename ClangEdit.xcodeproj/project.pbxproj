@@ -14,6 +14,7 @@
 		050629F715AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050629F515AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib */; };
 		050629FA15AB8B5C00DA6EE6 /* CELinkerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629F915AB8B5C00DA6EE6 /* CELinkerObject.m */; };
 		05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05087FC715A8E66900582A01 /* CEFileViewCell.m */; };
+		0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0515B9A515AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
 		051F2E10159A12DB0027DD4F /* CEAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */; };
@@ -102,6 +103,8 @@
 		050629F915AB8B5C00DA6EE6 /* CELinkerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELinkerObject.m; sourceTree = "<group>"; };
 		05087FC615A8E66900582A01 /* CEFileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileViewCell.h; sourceTree = "<group>"; };
 		05087FC715A8E66900582A01 /* CEFileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewCell.m; sourceTree = "<group>"; };
+		0515B9A415AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.h"; sourceTree = "<group>"; };
+		0515B9A515AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m"; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
 		051F2E09159A12B10027DD4F /* CEPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferences.m; sourceTree = "<group>"; };
 		051F2E0B159A12D20027DD4F /* CEPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 				05841FF615ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m */,
 				05841FF815ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.h */,
 				05841FF915ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m */,
+				0515B9A415AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.h */,
+				0515B9A515AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m */,
 				05841FF215ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.h */,
 				05841FF315ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.m */,
 				050629F215AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.h */,
@@ -765,6 +770,7 @@
 				05841FF415ACDE4B001B1806 /* CEPreferencesLinkerOptionsViewController+Private.m in Sources */,
 				05841FF715ACDE5A001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.m in Sources */,
 				05841FFA15ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m in Sources */,
+				0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

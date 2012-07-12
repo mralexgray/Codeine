@@ -9,6 +9,8 @@
 #import "CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.h"
 #import "CEPreferencesLinkerOptionsViewController+NSTableViewDataSource.h"
 #import "CEPreferencesLinkerOptionsViewController+Private.h"
+#import "CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.h"
+#import "CEPreferences.h"
 
 NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnIconIdentifier      = @"Icon";
 NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnNameIdentifier      = @"Name";
@@ -42,7 +44,37 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
 
 - ( IBAction )addFramework: ( id )sender
 {
+    NSOpenPanel * panel;
+    
     ( void )sender;
+    
+    panel                           = [ NSOpenPanel openPanel ];
+    panel.canChooseDirectories      = YES;
+    panel.canChooseFiles            = NO;
+    panel.canCreateDirectories      = NO;
+    panel.prompt                    = L10N( "AddFramework" );
+    panel.allowsMultipleSelection   = NO;
+    panel.delegate                  = self;
+    
+    _openPanelAllowedType = CELinkerObjectTypeFramework;
+    
+    [ panel beginSheetModalForWindow: self.view.window completionHandler: ^( NSInteger result )
+        {
+            NSString        * path;
+            CELinkerObject  * object;
+            
+            if( result != NSFileHandlingPanelOKButton )
+            {
+                return;
+            }
+            
+            path    = [ panel.URL path ];
+            object  = [ CELinkerObject linkerObjectWithPath: path type: CELinkerObjectTypeFramework ];
+            
+            [ [ CEPreferences sharedInstance ] addLinkerObject: object ];
+            [ _frameworksTableView reloadData ];
+        }
+    ];
 }
 
 - ( IBAction )removeFramework: ( id )sender
@@ -52,7 +84,38 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
 
 - ( IBAction )addSharedLib: ( id )sender
 {
+    NSOpenPanel * panel;
+    
     ( void )sender;
+    
+    panel                           = [ NSOpenPanel openPanel ];
+    panel.canChooseDirectories      = NO;
+    panel.canChooseFiles            = YES;
+    panel.canCreateDirectories      = NO;
+    panel.prompt                    = L10N( "AddSharedLibrary" );
+    panel.allowsMultipleSelection   = NO;
+    panel.delegate                  = self;
+    panel.allowedFileTypes          = [ NSArray arrayWithObject: @"dylib" ];
+    
+    _openPanelAllowedType = CELinkerObjectTypeSharedLibrary;
+    
+    [ panel beginSheetModalForWindow: self.view.window completionHandler: ^( NSInteger result )
+        {
+            NSString        * path;
+            CELinkerObject  * object;
+            
+            if( result != NSFileHandlingPanelOKButton )
+            {
+                return;
+            }
+            
+            path    = [ panel.URL path ];
+            object  = [ CELinkerObject linkerObjectWithPath: path type: CELinkerObjectTypeSharedLibrary ];
+            
+            [ [ CEPreferences sharedInstance ] addLinkerObject: object ];
+            [ _sharedLibsTableView reloadData ];
+        }
+    ];
 }
 
 - ( IBAction )removeSharedLib: ( id )sender
@@ -62,7 +125,38 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
 
 - ( IBAction )addStaticLib: ( id )sender
 {
+    NSOpenPanel * panel;
+    
     ( void )sender;
+    
+    panel                           = [ NSOpenPanel openPanel ];
+    panel.canChooseDirectories      = NO;
+    panel.canChooseFiles            = YES;
+    panel.canCreateDirectories      = NO;
+    panel.prompt                    = L10N( "AddStaticLibrary" );
+    panel.allowsMultipleSelection   = NO;
+    panel.delegate                  = self;
+    panel.allowedFileTypes          = [ NSArray arrayWithObject: @"a" ];
+    
+    _openPanelAllowedType = CELinkerObjectTypeStaticLibrary;
+    
+    [ panel beginSheetModalForWindow: self.view.window completionHandler: ^( NSInteger result )
+        {
+            NSString        * path;
+            CELinkerObject  * object;
+            
+            if( result != NSFileHandlingPanelOKButton )
+            {
+                return;
+            }
+            
+            path    = [ panel.URL path ];
+            object  = [ CELinkerObject linkerObjectWithPath: path type: CELinkerObjectTypeStaticLibrary ];
+            
+            [ [ CEPreferences sharedInstance ] addLinkerObject: object ];
+            [ _staticLibsTableView reloadData ];
+        }
+    ];
 }
 
 - ( IBAction )removeStaticLib: ( id )sender

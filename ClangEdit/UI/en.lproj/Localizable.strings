@@ -10,6 +10,9 @@
 "OpenDocuments"                             = "Open Documents";
 "Bookmarks"                                 = "Bookmarks";
 "AddBookmark"                               = "Add bookmark";
+"AddFramework"                              = "Add Framework";
+"AddSharedLibrary"                          = "Add Shared Library";
+"AddStaticLibrary"                          = "Add Static Library";
 "NSUTF8StringEncoding"                      = "UTF-8";
 "NSUTF16StringEncoding"                     = "UTF-16";
 "NSUTF16BigEndianStringEncoding"            = "UTF-16 (Big Endian)";
