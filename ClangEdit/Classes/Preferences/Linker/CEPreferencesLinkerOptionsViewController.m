@@ -79,7 +79,21 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
 
 - ( IBAction )removeFramework: ( id )sender
 {
+    NSInteger row;
+    NSArray * objects;
+    
     ( void )sender;
+    
+    objects = [ CELinkerObject linkerObjectsWithType: CELinkerObjectTypeFramework ];
+    row     = [ _frameworksTableView selectedRow ];
+    
+    if( row < 0 || ( NSUInteger )row >= objects.count )
+    {
+        return;
+    }
+    
+    [ [ CEPreferences sharedInstance ] removeLinkerObject: [ objects objectAtIndex: ( NSUInteger )row ] ];
+    [ _frameworksTableView reloadData ];
 }
 
 - ( IBAction )addSharedLib: ( id )sender
@@ -120,7 +134,21 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
 
 - ( IBAction )removeSharedLib: ( id )sender
 {
+    NSInteger row;
+    NSArray * objects;
+    
     ( void )sender;
+    
+    objects = [ CELinkerObject linkerObjectsWithType: CELinkerObjectTypeSharedLibrary ];
+    row     = [ _sharedLibsTableView selectedRow ];
+    
+    if( row < 0 || ( NSUInteger )row >= objects.count )
+    {
+        return;
+    }
+    
+    [ [ CEPreferences sharedInstance ] removeLinkerObject: [ objects objectAtIndex: ( NSUInteger )row ] ];
+    [ _sharedLibsTableView reloadData ];
 }
 
 - ( IBAction )addStaticLib: ( id )sender
@@ -161,8 +189,21 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
 
 - ( IBAction )removeStaticLib: ( id )sender
 {
+    NSInteger row;
+    NSArray * objects;
+    
     ( void )sender;
+    
+    objects = [ CELinkerObject linkerObjectsWithType: CELinkerObjectTypeStaticLibrary ];
+    row     = [ _staticLibsTableView selectedRow ];
+    
+    if( row < 0 || ( NSUInteger )row >= objects.count )
+    {
+        return;
+    }
+    
+    [ [ CEPreferences sharedInstance ] removeLinkerObject: [ objects objectAtIndex: ( NSUInteger )row ] ];
+    [ _staticLibsTableView reloadData ];
 }
-
 
 @end
