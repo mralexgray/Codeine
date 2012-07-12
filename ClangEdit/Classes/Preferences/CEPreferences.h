@@ -39,6 +39,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyShowHiddenFiles;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyBookmarks;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyLinkerObjects;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCLoadAll;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyOptimizationLevel;
 
 @class CEColorTheme;
 @class CELinkerObject;
@@ -84,6 +85,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCLoadAll;
 @property( atomic, readonly          ) NSArray                * bookmarks;
 @property( atomic, readonly          ) NSArray                * linkerObjects;
 @property( atomic, readwrite, assign ) BOOL                     objCLoadAll;
+@property( atomic, readwrite, assign ) CEOptimizationLevel      optimizationLevel;
 
 + ( CEPreferences * )sharedInstance;
 

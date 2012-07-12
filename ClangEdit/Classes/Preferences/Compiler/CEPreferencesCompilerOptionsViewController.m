@@ -16,13 +16,16 @@ NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescri
 
 @implementation CEPreferencesCompilerOptionsViewController
 
-@synthesize tableView           = _tableView;
-@synthesize warningsPresetPopUp = _warningsPresetPopUp;
+@synthesize tableView               = _tableView;
+@synthesize warningsPresetPopUp     = _warningsPresetPopUp;
+@synthesize optimizationLevelPopUp  = _optimizationLevelPopUp;
 
 - ( void )awakeFromNib
 {
     _tableView.delegate    = self;
     _tableView.dataSource  = self;
+    
+    [ _optimizationLevelPopUp selectItemWithTag: [ [ CEPreferences sharedInstance ] optimizationLevel ] ];
 }
 
 - ( void )dealloc
@@ -30,6 +33,7 @@ NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescri
     RELEASE_IVAR( _tableView );
     RELEASE_IVAR( _flags );
     RELEASE_IVAR( _warningsPresetPopUp );
+    RELEASE_IVAR( _optimizationLevelPopUp );
     
     [ super dealloc ];
 }
@@ -87,6 +91,17 @@ NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescri
     
     [ self getWarningFlags ];
     [ _tableView reloadData ];
+}
+
+- ( IBAction )selectOptimizationLevel: ( id )sender
+{
+    CEOptimizationLevel level;
+    
+    ( void )sender;
+    
+    level = ( CEOptimizationLevel )[ _optimizationLevelPopUp selectedTag ];
+    
+    [ [ CEPreferences sharedInstance ] setOptimizationLevel: level ];
 }
 
 @end

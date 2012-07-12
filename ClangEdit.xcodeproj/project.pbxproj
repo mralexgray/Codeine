@@ -156,6 +156,7 @@
 		05480FDF159A0CFB005CFBC5 /* CEWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEWindowController.m; sourceTree = "<group>"; };
 		054BEB7115AF815D002D7730 /* CEEditorLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorLayoutManager.h; sourceTree = "<group>"; };
 		054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorLayoutManager.m; sourceTree = "<group>"; };
+		054BEB7E15AF9484002D7730 /* CETypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETypes.h; sourceTree = "<group>"; };
 		0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+Private.h"; sourceTree = "<group>"; };
 		0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+Private.m"; sourceTree = "<group>"; };
 		0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDataSource.h"; sourceTree = "<group>"; };
@@ -379,6 +380,7 @@
 				05480FBA159A0B32005CFBC5 /* ClangEdit-Prefix.pch */,
 				05480FD2159A0BF9005CFBC5 /* warnings.h */,
 				05F5152B159A17EB0049A756 /* macros.h */,
+				054BEB7E15AF9484002D7730 /* CETypes.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

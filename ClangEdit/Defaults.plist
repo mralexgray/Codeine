@@ -720,5 +720,7 @@
 	</array>
 	<key>ObjCLoadAll</key>
 	<true/>
+	<key>OptimizationLevel</key>
+	<integer>4</integer>
 </dict>
 </plist>

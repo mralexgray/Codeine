@@ -46,6 +46,7 @@ NSString * const CEPreferencesKeyShowHiddenFiles            = @"ShowHiddenFiles"
 NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
 NSString * const CEPreferencesKeyLinkerObjects              = @"LinkerObjects";
 NSString * const CEPreferencesKeyObjCLoadAll                = @"ObjCLoadAll";
+NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLevel";
 
 @implementation CEPreferences
 
@@ -670,6 +671,14 @@ NSString * const CEPreferencesKeyObjCLoadAll                = @"ObjCLoadAll";
     }
 }
 
+- ( CEOptimizationLevel )optimizationLevel
+{
+    @synchronized( self )
+    {
+        return ( CEOptimizationLevel )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyOptimizationLevel ] unsignedIntegerValue ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -912,6 +921,17 @@ NSString * const CEPreferencesKeyObjCLoadAll                = @"ObjCLoadAll";
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyObjCLoadAll );
+    }
+}
+
+- ( void )setOptimizationLevel: ( CEOptimizationLevel )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyOptimizationLevel ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyOptimizationLevel );
     }
 }
 

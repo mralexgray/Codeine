@@ -19,6 +19,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerTab
     NSTableView                * _tableView;
     CEMutableOrderedDictionary * _flags;
     NSPopUpButton              * _warningsPresetPopUp;
+    NSPopUpButton              * _optimizationLevelPopUp;
     
 @private
     
@@ -27,7 +28,9 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerTab
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView   * tableView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * warningsPresetPopUp;
+@property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * optimizationLevelPopUp;
 
 - ( IBAction )selectWarningsPreset: ( id )sender;
+- ( IBAction )selectOptimizationLevel: ( id )sender;
 
 @end
