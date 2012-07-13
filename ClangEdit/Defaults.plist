@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>ShowInvisibles</key>
-	<true/>
+	<false/>
 	<key>AutoExpandTabs</key>
 	<true/>
 	<key>AutoIndent</key>
