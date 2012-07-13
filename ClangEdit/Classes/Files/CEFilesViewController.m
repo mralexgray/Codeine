@@ -15,6 +15,7 @@
 @implementation CEFilesViewController
 
 @synthesize outlineView = _outlineView;
+@synthesize menu        = _menu;
 
 - ( void )dealloc
 {
@@ -22,6 +23,7 @@
     
     RELEASE_IVAR( _outlineView );
     RELEASE_IVAR( _rootItems );
+    RELEASE_IVAR( _menu );
     
     [ super dealloc ];
 }
