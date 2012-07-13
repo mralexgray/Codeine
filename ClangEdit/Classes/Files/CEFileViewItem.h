@@ -24,13 +24,14 @@ FOUNDATION_EXPORT NSString * const CEFileViewBookmarksItemName;
     
     CEFileViewItemType _type;
     NSString         * _name;
-    NSString         * _displayName;
-    NSImage          * _icon;
-    id                 _representedObject;
-    NSMutableArray   * _children;
-    CEFileViewItem   * _parent;
     
 @private
+
+    NSMutableArray   * _children;
+    CEFileViewItem   * _parent;
+    id                 _representedObject;
+    NSImage          * _icon;
+    NSString         * _displayName;
     
     RESERVERD_IVARS( CEFileViewItem, 5 );
 }

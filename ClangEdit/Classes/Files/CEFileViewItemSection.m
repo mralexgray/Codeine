@@ -38,7 +38,7 @@
     
     if( range.location == NSNotFound )
     {
-        for( item in _children )
+        for( item in self.children )
         {
             if( [ item.name isEqualToString: keyPath ] )
             {
@@ -50,7 +50,7 @@
     {
         prefix = [ keyPath substringToIndex: range.location ];
         
-        for( item in _children )
+        for( item in self.children )
         {
             if( [ item.name isEqualToString: prefix ] )
             {
