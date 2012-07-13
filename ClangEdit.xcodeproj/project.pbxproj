@@ -42,6 +42,13 @@
 		05480FDC159A0CD5005CFBC5 /* CEMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05480FDA159A0CD5005CFBC5 /* CEMainWindow.xib */; };
 		05480FE0159A0CFB005CFBC5 /* CEWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FDF159A0CFB005CFBC5 /* CEWindowController.m */; };
 		054BEB7315AF815D002D7730 /* CEEditorLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */; };
+		054BEB8315AF9974002D7730 /* CEParserToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8215AF9974002D7730 /* CEParserToken.m */; };
+		054BEB8615AF9B41002D7730 /* CEParserTokenUnknown.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8515AF9B41002D7730 /* CEParserTokenUnknown.m */; };
+		054BEB8915AF9B54002D7730 /* CEParserTokenWhitespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8815AF9B54002D7730 /* CEParserTokenWhitespace.m */; };
+		054BEB8C15AF9B60002D7730 /* CEParserTokenKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8B15AF9B60002D7730 /* CEParserTokenKeyword.m */; };
+		054BEB8F15AF9B6C002D7730 /* CEParserTokenComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8E15AF9B6C002D7730 /* CEParserTokenComment.m */; };
+		054BEB9215AF9B76002D7730 /* CEParserTokenString.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB9115AF9B75002D7730 /* CEParserTokenString.m */; };
+		054BEB9515AF9B80002D7730 /* CEParserTokenPredefined.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */; };
 		0563E04715A8A7B400BA5828 /* CEFilesViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */; };
 		0563E04A15A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04915A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m */; };
 		0563E04D15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */; };
@@ -157,6 +164,20 @@
 		054BEB7115AF815D002D7730 /* CEEditorLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorLayoutManager.h; sourceTree = "<group>"; };
 		054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorLayoutManager.m; sourceTree = "<group>"; };
 		054BEB7E15AF9484002D7730 /* CETypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETypes.h; sourceTree = "<group>"; };
+		054BEB8115AF9974002D7730 /* CEParserToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserToken.h; sourceTree = "<group>"; };
+		054BEB8215AF9974002D7730 /* CEParserToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserToken.m; sourceTree = "<group>"; };
+		054BEB8415AF9B41002D7730 /* CEParserTokenUnknown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenUnknown.h; sourceTree = "<group>"; };
+		054BEB8515AF9B41002D7730 /* CEParserTokenUnknown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenUnknown.m; sourceTree = "<group>"; };
+		054BEB8715AF9B54002D7730 /* CEParserTokenWhitespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenWhitespace.h; sourceTree = "<group>"; };
+		054BEB8815AF9B54002D7730 /* CEParserTokenWhitespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenWhitespace.m; sourceTree = "<group>"; };
+		054BEB8A15AF9B60002D7730 /* CEParserTokenKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenKeyword.h; sourceTree = "<group>"; };
+		054BEB8B15AF9B60002D7730 /* CEParserTokenKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenKeyword.m; sourceTree = "<group>"; };
+		054BEB8D15AF9B6C002D7730 /* CEParserTokenComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenComment.h; sourceTree = "<group>"; };
+		054BEB8E15AF9B6C002D7730 /* CEParserTokenComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenComment.m; sourceTree = "<group>"; };
+		054BEB9015AF9B75002D7730 /* CEParserTokenString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenString.h; sourceTree = "<group>"; };
+		054BEB9115AF9B75002D7730 /* CEParserTokenString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenString.m; sourceTree = "<group>"; };
+		054BEB9315AF9B80002D7730 /* CEParserTokenPredefined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenPredefined.h; sourceTree = "<group>"; };
+		054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenPredefined.m; sourceTree = "<group>"; };
 		0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+Private.h"; sourceTree = "<group>"; };
 		0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+Private.m"; sourceTree = "<group>"; };
 		0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDataSource.h"; sourceTree = "<group>"; };
@@ -388,8 +409,8 @@
 		05480FC9159A0B98005CFBC5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				054BEB8015AF9967002D7730 /* Parser */,
 				05F8035715A75CCC00CD9F0D /* UI Elements */,
-				05972ECA159FE523009A204F /* Parser */,
 				052FD037159E0E440045C9ED /* Categories */,
 				0594109F159A26AB00257F9E /* Protocols */,
 				05941094159A264300257F9E /* Helpers */,
@@ -467,6 +488,27 @@
 				05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		054BEB8015AF9967002D7730 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				054BEB8115AF9974002D7730 /* CEParserToken.h */,
+				054BEB8215AF9974002D7730 /* CEParserToken.m */,
+				054BEB8415AF9B41002D7730 /* CEParserTokenUnknown.h */,
+				054BEB8515AF9B41002D7730 /* CEParserTokenUnknown.m */,
+				054BEB8715AF9B54002D7730 /* CEParserTokenWhitespace.h */,
+				054BEB8815AF9B54002D7730 /* CEParserTokenWhitespace.m */,
+				054BEB8A15AF9B60002D7730 /* CEParserTokenKeyword.h */,
+				054BEB8B15AF9B60002D7730 /* CEParserTokenKeyword.m */,
+				054BEB8D15AF9B6C002D7730 /* CEParserTokenComment.h */,
+				054BEB8E15AF9B6C002D7730 /* CEParserTokenComment.m */,
+				054BEB9015AF9B75002D7730 /* CEParserTokenString.h */,
+				054BEB9115AF9B75002D7730 /* CEParserTokenString.m */,
+				054BEB9315AF9B80002D7730 /* CEParserTokenPredefined.h */,
+				054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		057F5845159D3BE000C84780 /* Compiler */ = {
@@ -609,13 +651,6 @@
 			children = (
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		05972ECA159FE523009A204F /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Parser;
 			sourceTree = "<group>";
 		};
 		05F8035715A75CCC00CD9F0D /* UI Elements */ = {
@@ -779,6 +814,13 @@
 				05841FFA15ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m in Sources */,
 				0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */,
 				054BEB7315AF815D002D7730 /* CEEditorLayoutManager.m in Sources */,
+				054BEB8315AF9974002D7730 /* CEParserToken.m in Sources */,
+				054BEB8615AF9B41002D7730 /* CEParserTokenUnknown.m in Sources */,
+				054BEB8915AF9B54002D7730 /* CEParserTokenWhitespace.m in Sources */,
+				054BEB8C15AF9B60002D7730 /* CEParserTokenKeyword.m in Sources */,
+				054BEB8F15AF9B6C002D7730 /* CEParserTokenComment.m in Sources */,
+				054BEB9215AF9B76002D7730 /* CEParserTokenString.m in Sources */,
+				054BEB9515AF9B80002D7730 /* CEParserTokenPredefined.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
