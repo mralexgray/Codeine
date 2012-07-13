@@ -90,7 +90,7 @@
     BOOL                    invisible;
     BOOL                    showHidden;
     
-    if( self.children.count > 0 )
+    if( super.children.count > 0 )
     {
         return [ super children ];
     }
@@ -135,7 +135,7 @@
         CFRelease( url );
     }
     
-    return self.children;
+    return super.children;
 }
 
 - ( id )valueForKeyPath: ( NSString * )keyPath
