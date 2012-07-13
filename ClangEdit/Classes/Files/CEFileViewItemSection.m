@@ -116,4 +116,9 @@
     }
 }
 
+- ( BOOL )isLeaf
+{
+    return NO;
+}
+
 @end

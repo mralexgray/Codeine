@@ -81,4 +81,29 @@
     }
 }
 
+- ( NSMenu * )menuForEvent: ( NSEvent * )e
+{
+    NSPoint                           point;
+    NSInteger                         row;
+    NSMenu                          * menu;
+    id < CEFilesOutlineViewDelegate > delegate;
+    
+    point    = [ self convertPoint: [ e locationInWindow ] fromView: nil ];
+    row      = [ self rowAtPoint: point ];
+    menu     = nil;
+    delegate = nil;
+    
+    if( [ self.delegate conformsToProtocol: @protocol( CEFilesOutlineViewDelegate ) ] )
+    {
+        delegate = ( id < CEFilesOutlineViewDelegate > )( self.delegate );
+    }
+    
+    if( [ delegate respondsToSelector: @selector( outlineView:menuForRow: ) ] )
+    {
+        menu = [ delegate outlineView: self menuForRow: row ];
+    }
+    
+    return menu;
+}
+
 @end

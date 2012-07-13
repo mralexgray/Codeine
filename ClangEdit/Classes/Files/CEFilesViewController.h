@@ -15,7 +15,10 @@
     
     NSOutlineView  * _outlineView;
     NSMutableArray * _rootItems;
-    NSMenu         * _menu;
+    NSMenu         * _openDocumentMenu;
+    NSMenu         * _bookmarkMenu;
+    NSMenu         * _fsDirectoryMenu;
+    NSMenu         * _fsFileMenu;
     
 @private
     
@@ -23,7 +26,10 @@
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSOutlineView * outlineView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * menu;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * openDocumentMenu;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * bookmarkMenu;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * fsDirectoryMenu;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * fsFileMenu;
 
 - ( IBAction )addBookmark: ( id )sender;
 - ( IBAction )removeBookmark: ( id )sender;

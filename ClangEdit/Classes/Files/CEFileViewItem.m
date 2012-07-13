@@ -35,6 +35,7 @@ static void __exit( void )
 @synthesize name                = _name;
 @synthesize displayName         = _displayName;
 @synthesize icon                = _icon;
+@synthesize parent              = _parent;
 
 + ( id )openDocumentsItem
 {
@@ -149,6 +150,7 @@ static void __exit( void )
     item->_icon                 = [ _icon copyWithZone: zone ];
     item->_representedObject    = [ _representedObject retain ];
     item->_children             = [ _children copyWithZone: zone ];
+    item->_parent               = _parent;
     
     return item;
 }
@@ -163,16 +165,27 @@ static void __exit( void )
 
 - ( void )addChild: ( CEFileViewItem * )child
 {
+    child->_parent = self;
+    
     [ _children addObject: child ];
 }
 
 - ( void )removeChild: ( CEFileViewItem * )child
 {
+    child->_parent = nil;
+    
     [ _children removeObject: child ];
 }
 
 - ( void )removeAllChildren
 {
+    CEFileViewItem * child;
+    
+    for( child in _children )
+    {
+        child->_parent = nil;
+    }
+    
     [ _children removeAllObjects ];
 }
 
@@ -212,6 +225,11 @@ static void __exit( void )
     RELEASE_IVAR( _children );
     
     _children = [ [ NSMutableArray alloc ] initWithCapacity: 100 ];
+}
+
+- ( BOOL )isLeaf
+{
+    return NO;
 }
 
 @end

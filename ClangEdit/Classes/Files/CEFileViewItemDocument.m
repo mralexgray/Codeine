@@ -9,6 +9,9 @@
 
 @implementation CEFileViewItemDocument
 
-
+- ( BOOL )isLeaf
+{
+    return YES;
+}
 
 @end

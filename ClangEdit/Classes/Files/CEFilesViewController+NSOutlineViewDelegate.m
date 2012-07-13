@@ -75,6 +75,59 @@
     return NO;
 }
 
+- ( NSMenu * )outlineView: ( CEFilesOutlineView * )view menuForRow: ( NSInteger )row
+{
+    CEFileViewItem * item;
+    NSMenuItem     * menuItem;
+    NSMenu         * menu;
+    
+    ( void )view;
+    
+    menu = nil;
+    item = [ _outlineView itemAtRow: row ];
+    
+    if( item.type == CEFileViewItemTypeDocument )
+    {
+        menu = _openDocumentMenu;
+    }
+    
+    if( item.type == CEFileViewItemTypeFS )
+    {
+        if( item.isLeaf == YES )
+        {
+            menu = _fsFileMenu;
+        }
+        else
+        {
+            menu = _fsDirectoryMenu;
+        }
+    }
+    
+    if( item.type == CEFileViewItemTypeBookmark )
+    {
+        if( item.parent.type == CEFileViewItemTypeBookmark )
+        {
+            if( item.isLeaf == YES )
+            {
+                menu = _fsFileMenu;
+            }
+            else
+            {
+                menu = _fsDirectoryMenu;
+            }
+        }
+        
+        menu = _bookmarkMenu;
+    }
+    
+    for( menuItem in menu.itemArray )
+    {
+        menuItem.representedObject = item;
+    }
+    
+    return menu;
+}
+
 /*
 - ( BOOL )outlineView: ( CEFilesOutlineView * )view shouldClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point
 {

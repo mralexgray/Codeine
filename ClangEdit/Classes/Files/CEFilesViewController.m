@@ -14,8 +14,11 @@
 
 @implementation CEFilesViewController
 
-@synthesize outlineView = _outlineView;
-@synthesize menu        = _menu;
+@synthesize outlineView         = _outlineView;
+@synthesize openDocumentMenu    = _openDocumentMenu;
+@synthesize bookmarkMenu        = _bookmarkMenu;
+@synthesize fsDirectoryMenu     = _fsDirectoryMenu;
+@synthesize fsFileMenu          = _fsFileMenu;
 
 - ( void )dealloc
 {
@@ -23,7 +26,10 @@
     
     RELEASE_IVAR( _outlineView );
     RELEASE_IVAR( _rootItems );
-    RELEASE_IVAR( _menu );
+    RELEASE_IVAR( _openDocumentMenu );
+    RELEASE_IVAR( _bookmarkMenu );
+    RELEASE_IVAR( _fsDirectoryMenu );
+    RELEASE_IVAR( _fsFileMenu );
     
     [ super dealloc ];
 }

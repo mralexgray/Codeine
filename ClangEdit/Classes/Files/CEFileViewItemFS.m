@@ -129,7 +129,7 @@
         
         if( item != nil && ( invisible == NO || showHidden == YES ) )
         {
-            [ _children addObject: item ];
+            [ self addChild: item ];
         }
         
         CFRelease( url );
@@ -157,6 +157,11 @@
     }
     
     return nil;
+}
+
+- ( BOOL )isLeaf
+{
+    return ( _isDirectory == YES ) ? NO : YES;
 }
 
 @end
