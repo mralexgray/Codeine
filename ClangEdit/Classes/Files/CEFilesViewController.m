@@ -96,4 +96,40 @@
     [ self reload ];
 }
 
+- ( IBAction )menuActionOpen: ( id )sender
+{
+    ( void )sender;
+}
+
+- ( IBAction )menuActionClose: ( id )sender
+{
+    ( void )sender;
+}
+
+- ( IBAction )menuActionShowInFinder: ( id )sender
+{
+    ( void )sender;
+}
+
+- ( IBAction )menuActionOpenInDefaultEditor: ( id )sender
+{
+    ( void )sender;
+}
+
+- ( IBAction )menuActionDelete: ( id )sender
+{
+    ( void )sender;
+}
+
+- ( IBAction )menuActionRemoveBookmark: ( id )sender
+{
+    ( void )sender;
+}
+
+- ( IBAction )menuActionGetInfo: ( id )sender
+{
+    ( void )sender;
+}
+
+
 @end

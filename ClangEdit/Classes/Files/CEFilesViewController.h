@@ -33,5 +33,12 @@
 
 - ( IBAction )addBookmark: ( id )sender;
 - ( IBAction )removeBookmark: ( id )sender;
+- ( IBAction )menuActionOpen: ( id )sender;
+- ( IBAction )menuActionClose: ( id )sender;
+- ( IBAction )menuActionShowInFinder: ( id )sender;
+- ( IBAction )menuActionOpenInDefaultEditor: ( id )sender;
+- ( IBAction )menuActionDelete: ( id )sender;
+- ( IBAction )menuActionRemoveBookmark: ( id )sender;
+- ( IBAction )menuActionGetInfo: ( id )sender;
 
 @end
