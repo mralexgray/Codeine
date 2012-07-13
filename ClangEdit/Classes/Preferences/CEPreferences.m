@@ -675,7 +675,7 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
 {
     @synchronized( self )
     {
-        return ( CEOptimizationLevel )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyOptimizationLevel ] unsignedIntegerValue ];
+        return ( CEOptimizationLevel )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyOptimizationLevel ] integerValue ];
     }
 }
 
@@ -928,7 +928,7 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyOptimizationLevel ];
+        [ DEFAULTS setObject: [ NSNumber numberWithInteger: value ] forKey: CEPreferencesKeyOptimizationLevel ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyOptimizationLevel );
