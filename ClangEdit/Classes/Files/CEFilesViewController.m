@@ -98,38 +98,145 @@
 
 - ( IBAction )menuActionOpen: ( id )sender
 {
-    ( void )sender;
+    NSMenuItem      * menuItem;
+    CEFileViewItem  * item;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = menuItem.representedObject;
 }
 
 - ( IBAction )menuActionClose: ( id )sender
 {
-    ( void )sender;
+    NSMenuItem      * menuItem;
+    CEFileViewItem  * item;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = menuItem.representedObject;
 }
 
 - ( IBAction )menuActionShowInFinder: ( id )sender
 {
-    ( void )sender;
+    NSMenuItem      * menuItem;
+    CEFileViewItem  * item;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = menuItem.representedObject;
 }
 
 - ( IBAction )menuActionOpenInDefaultEditor: ( id )sender
 {
-    ( void )sender;
+    NSMenuItem      * menuItem;
+    CEFileViewItem  * item;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = menuItem.representedObject;
 }
 
 - ( IBAction )menuActionDelete: ( id )sender
 {
-    ( void )sender;
+    NSMenuItem      * menuItem;
+    CEFileViewItem  * item;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = menuItem.representedObject;
 }
 
 - ( IBAction )menuActionRemoveBookmark: ( id )sender
 {
-    ( void )sender;
+    NSMenuItem      * menuItem;
+    CEFileViewItem  * item;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = menuItem.representedObject;
+    
+    [ [ CEPreferences sharedInstance ] removeBookmark: item.name ];
+    [ self reload ];
 }
 
 - ( IBAction )menuActionGetInfo: ( id )sender
 {
-    ( void )sender;
+    NSMenuItem      * menuItem;
+    CEFileViewItem  * item;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = menuItem.representedObject;
 }
-
 
 @end
