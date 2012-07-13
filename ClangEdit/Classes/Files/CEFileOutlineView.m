@@ -40,4 +40,40 @@
     [ super keyDown: e ];
 }
 
+- ( void )mouseDown: ( NSEvent * )e
+{
+    NSPoint                             point;
+    NSInteger                           row;
+    id < CEFileOutlineViewDelegate >    delegate;
+    
+    point       = [ self convertPoint: [ e locationInWindow ] fromView: nil ];
+    row         = [ self rowAtPoint: point ];
+    delegate    = nil;
+    
+    if( [ self.delegate conformsToProtocol: @protocol( CEFileOutlineViewDelegate ) ] )
+    {
+        delegate = ( id < CEFileOutlineViewDelegate > )( self.delegate );
+    }
+    
+    if( [ delegate respondsToSelector: @selector( outlineView:shouldClickOnRow:atPoint: ) ] )
+    {
+        if( [ delegate outlineView: self shouldClickOnRow: row atPoint: point ] == NO )
+        {
+            return;
+        }
+    }
+    
+    if( [ delegate respondsToSelector: @selector( outlineView:willClickOnRow:atPoint: ) ] )
+    {
+        [ delegate outlineView: self willClickOnRow: row atPoint: point ];
+    }
+    
+    [ super mouseDown: e ];
+    
+    if( [ delegate respondsToSelector: @selector( outlineView:didClickOnRow:atPoint: ) ] )
+    {
+        [ delegate outlineView: self didClickOnRow: row atPoint: point ];
+    }
+}
+
 @end

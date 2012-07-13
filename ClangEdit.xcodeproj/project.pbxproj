@@ -178,6 +178,7 @@
 		054BEB9115AF9B75002D7730 /* CEParserTokenString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenString.m; sourceTree = "<group>"; };
 		054BEB9315AF9B80002D7730 /* CEParserTokenPredefined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenPredefined.h; sourceTree = "<group>"; };
 		054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenPredefined.m; sourceTree = "<group>"; };
+		054BEB9615AFA139002D7730 /* CEFileOutlineViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEFileOutlineViewDelegate.h; sourceTree = "<group>"; };
 		0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+Private.h"; sourceTree = "<group>"; };
 		0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+Private.m"; sourceTree = "<group>"; };
 		0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDataSource.h"; sourceTree = "<group>"; };
@@ -621,6 +622,7 @@
 				05087FC715A8E66900582A01 /* CEFileViewCell.m */,
 				059C9B3115A9044F00AEF506 /* CEFileOutlineView.h */,
 				059C9B3215A9044F00AEF506 /* CEFileOutlineView.m */,
+				054BEB9615AFA139002D7730 /* CEFileOutlineViewDelegate.h */,
 			);
 			path = Files;
 			sourceTree = "<group>";

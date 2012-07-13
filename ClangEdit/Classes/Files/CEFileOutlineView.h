@@ -5,6 +5,8 @@
  
 /* $Id$ */
 
+#import "CEFileOutlineViewDelegate.h"
+
 @interface CEFileOutlineView: NSOutlineView
 {
 @protected
