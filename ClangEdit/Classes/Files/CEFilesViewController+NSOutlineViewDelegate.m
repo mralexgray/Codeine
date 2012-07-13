@@ -116,8 +116,10 @@
                 menu = _fsDirectoryMenu;
             }
         }
-        
-        menu = _bookmarkMenu;
+        else
+        {
+            menu = _bookmarkMenu;
+        }
     }
     
     for( menuItem in menu.itemArray )
