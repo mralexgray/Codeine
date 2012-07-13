@@ -5,10 +5,18 @@
  
 /* $Id$ */
 
-#import "CEFilesViewController.h"
 #import "CEFilesOutlineViewDelegate.h"
 
-@interface CEFilesViewController( NSOutlineViewDelegate ) < CEFilesOutlineViewDelegate >
+@interface CEFilesOutlineView: NSOutlineView
+{
+@protected
+    
+    
+    
+@private
+    
+    RESERVERD_IVARS( CEFilesOutlineView, 5 );
+}
 
 
 

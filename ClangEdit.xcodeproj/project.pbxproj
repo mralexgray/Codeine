@@ -76,7 +76,7 @@
 		05841FFA15ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05841FF915ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m */; };
 		05941098159A266500257F9E /* CESystemIconsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 05941097159A266500257F9E /* CESystemIconsHelper.m */; };
 		05972EC2159F5FFA009A204F /* CEBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 05972EC1159F5FFA009A204F /* CEBuilder.m */; };
-		059C9B3315A9044F00AEF506 /* CEFileOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C9B3215A9044F00AEF506 /* CEFileOutlineView.m */; };
+		059C9B3315A9044F00AEF506 /* CEFilesOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C9B3215A9044F00AEF506 /* CEFilesOutlineView.m */; };
 		05DA3452159A2296006B688A /* CEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DA3451159A2296006B688A /* CEViewController.m */; };
 		05DA3462159A2404006B688A /* CEPreferencesGeneralOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DA3460159A2404006B688A /* CEPreferencesGeneralOptionsView.xib */; };
 		05DA3465159A2417006B688A /* CEPreferencesEditorOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DA3463159A2417006B688A /* CEPreferencesEditorOptionsView.xib */; };
@@ -178,7 +178,7 @@
 		054BEB9115AF9B75002D7730 /* CEParserTokenString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenString.m; sourceTree = "<group>"; };
 		054BEB9315AF9B80002D7730 /* CEParserTokenPredefined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenPredefined.h; sourceTree = "<group>"; };
 		054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenPredefined.m; sourceTree = "<group>"; };
-		054BEB9615AFA139002D7730 /* CEFileOutlineViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEFileOutlineViewDelegate.h; sourceTree = "<group>"; };
+		054BEB9615AFA139002D7730 /* CEFilesOutlineViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEFilesOutlineViewDelegate.h; sourceTree = "<group>"; };
 		0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+Private.h"; sourceTree = "<group>"; };
 		0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+Private.m"; sourceTree = "<group>"; };
 		0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDataSource.h"; sourceTree = "<group>"; };
@@ -229,8 +229,8 @@
 		05941097159A266500257F9E /* CESystemIconsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CESystemIconsHelper.m; sourceTree = "<group>"; };
 		05972EC0159F5FFA009A204F /* CEBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEBuilder.h; sourceTree = "<group>"; };
 		05972EC1159F5FFA009A204F /* CEBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEBuilder.m; sourceTree = "<group>"; };
-		059C9B3115A9044F00AEF506 /* CEFileOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileOutlineView.h; sourceTree = "<group>"; };
-		059C9B3215A9044F00AEF506 /* CEFileOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileOutlineView.m; sourceTree = "<group>"; };
+		059C9B3115A9044F00AEF506 /* CEFilesOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFilesOutlineView.h; sourceTree = "<group>"; };
+		059C9B3215A9044F00AEF506 /* CEFilesOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFilesOutlineView.m; sourceTree = "<group>"; };
 		05DA3450159A2296006B688A /* CEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEViewController.h; sourceTree = "<group>"; };
 		05DA3451159A2296006B688A /* CEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEViewController.m; sourceTree = "<group>"; };
 		05DA3461159A2404006B688A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesGeneralOptionsView.xib; sourceTree = "<group>"; };
@@ -620,9 +620,9 @@
 				050629E715AB62E300DA6EE6 /* CEFileViewItemBookmark.m */,
 				05087FC615A8E66900582A01 /* CEFileViewCell.h */,
 				05087FC715A8E66900582A01 /* CEFileViewCell.m */,
-				059C9B3115A9044F00AEF506 /* CEFileOutlineView.h */,
-				059C9B3215A9044F00AEF506 /* CEFileOutlineView.m */,
-				054BEB9615AFA139002D7730 /* CEFileOutlineViewDelegate.h */,
+				059C9B3115A9044F00AEF506 /* CEFilesOutlineView.h */,
+				059C9B3215A9044F00AEF506 /* CEFilesOutlineView.m */,
+				054BEB9615AFA139002D7730 /* CEFilesOutlineViewDelegate.h */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -806,7 +806,7 @@
 				0563E08715A8BBBB00BA5828 /* CEFileViewItemDocument.m in Sources */,
 				0563E08A15A8BBC700BA5828 /* CEFileViewItemFS.m in Sources */,
 				05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */,
-				059C9B3315A9044F00AEF506 /* CEFileOutlineView.m in Sources */,
+				059C9B3315A9044F00AEF506 /* CEFilesOutlineView.m in Sources */,
 				050629E815AB62E300DA6EE6 /* CEFileViewItemBookmark.m in Sources */,
 				050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */,
 				050629F415AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m in Sources */,

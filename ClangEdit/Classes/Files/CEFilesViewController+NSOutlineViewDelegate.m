@@ -75,4 +75,30 @@
     return NO;
 }
 
+/*
+- ( BOOL )outlineView: ( CEFilesOutlineView * )view shouldClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point
+{
+    id item;
+    
+    ( void )view;
+    ( void )row;
+    ( void )point;
+    
+    item = [ _outlineView itemAtRow: row ];
+    
+    [ _outlineView selectRowIndexes: [ NSIndexSet indexSetWithIndex: ( NSUInteger )row ] byExtendingSelection: NO ];
+    
+    if( [ _outlineView isItemExpanded: item ] == YES )
+    {
+        [ _outlineView collapseItem: item ];
+    }
+    else
+    {
+        [ _outlineView expandItem: item ];
+    }
+    
+    return NO;
+}
+*/
+
 @end
