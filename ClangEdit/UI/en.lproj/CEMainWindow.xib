@@ -48,7 +48,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {1000, 800}}</string>
+				<string key="NSWindowRect">{{196, 240}, {1200, 800}}</string>
 				<int key="NSWTFlags">1618477056</int>
 				<string key="NSWindowTitle">ClangEdit - New Document</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -289,7 +289,7 @@
 					<array key="NSToolbarIBSelectableItems" id="0"/>
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
-				<string key="NSWindowContentMinSize">{1000, 800}</string>
+				<string key="NSWindowContentMinSize">{1200, 800}</string>
 				<object class="NSView" key="NSWindowView" id="1006">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -301,7 +301,7 @@
 								<object class="NSCustomView" id="737843007">
 									<reference key="NSNextResponder" ref="737133839"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrameSize">{252, 771}</string>
+									<string key="NSFrameSize">{250, 771}</string>
 									<reference key="NSSuperview" ref="737133839"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="43068519"/>
@@ -315,7 +315,7 @@
 										<object class="NSCustomView" id="154086905">
 											<reference key="NSNextResponder" ref="43068519"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrameSize">{747, 577}</string>
+											<string key="NSFrameSize">{949, 600}</string>
 											<reference key="NSSuperview" ref="43068519"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="553544108"/>
@@ -325,7 +325,7 @@
 										<object class="NSCustomView" id="553544108">
 											<reference key="NSNextResponder" ref="43068519"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrame">{{0, 578}, {747, 193}}</string>
+											<string key="NSFrame">{{0, 601}, {949, 170}}</string>
 											<reference key="NSSuperview" ref="43068519"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="843195932"/>
@@ -333,7 +333,7 @@
 											<string key="NSClassName">NSView</string>
 										</object>
 									</array>
-									<string key="NSFrame">{{253, 0}, {747, 771}}</string>
+									<string key="NSFrame">{{251, 0}, {949, 771}}</string>
 									<reference key="NSSuperview" ref="737133839"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="154086905"/>
@@ -341,7 +341,7 @@
 									<int key="NSDividerStyle">2</int>
 								</object>
 							</array>
-							<string key="NSFrame">{{0, 29}, {1000, 771}}</string>
+							<string key="NSFrame">{{0, 29}, {1200, 771}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="737843007"/>
@@ -412,13 +412,13 @@
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
 					</array>
-					<string key="NSFrameSize">{1000, 800}</string>
+					<string key="NSFrameSize">{1200, 800}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="737133839"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
-				<string key="NSMinSize">{1000, 862}</string>
+				<string key="NSMinSize">{1200, 862}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowCollectionBehavior">128</int>
 				<bool key="NSWindowIsRestorable">YES</bool>
