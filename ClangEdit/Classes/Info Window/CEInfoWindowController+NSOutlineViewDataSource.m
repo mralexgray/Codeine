@@ -84,4 +84,31 @@
     return nil;
 }
 
+- ( id )outlineView: ( NSOutlineView * )outlineView itemForPersistentObject: ( id )object
+{
+    ( void )outlineView;
+    
+    if( [ object isKindOfClass: [ NSNumber class ] ] == NO )
+    {
+        return nil;
+    }
+    
+    if( [ ( NSNumber * )object integerValue ] == 0 ) { return _generalLabelView; }
+    if( [ ( NSNumber * )object integerValue ] == 1 ) { return _iconLabelView; }
+    if( [ ( NSNumber * )object integerValue ] == 2 ) { return _permissionsLabelView; }
+    
+    return nil;
+}
+
+- ( id )outlineView: ( NSOutlineView * )outlineView persistentObjectForItem: ( id )item
+{
+    ( void )outlineView;
+    
+    if( item == _generalLabelView     ) { return [ NSNumber numberWithInteger: 0 ]; }
+    if( item == _iconLabelView        ) { return [ NSNumber numberWithInteger: 1 ]; }
+    if( item == _permissionsLabelView ) { return [ NSNumber numberWithInteger: 2 ]; }
+    
+    return nil;
+}
+
 @end

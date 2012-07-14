@@ -9,6 +9,7 @@
 #import "CEInfoWindowController+Private.h"
 #import "CEInfoWindowController+NSOutlineViewDataSource.h"
 #import "CEInfoWindowController+NSOutlineViewDelegate.h"
+#import "CEPreferences.h"
 
 @implementation CEInfoWindowController
 
@@ -118,9 +119,11 @@
     
     self.window.title = _path.lastPathComponent;
     
-    _outlineView.delegate         = self;
-    _outlineView.dataSource       = self;
-    _outlineView.intercellSpacing = CGSizeMake( ( CGFloat )0, ( CGFloat )0 );
+    _outlineView.delegate               = self;
+    _outlineView.dataSource             = self;
+    _outlineView.intercellSpacing       = CGSizeMake( ( CGFloat )0, ( CGFloat )0 );
+    _outlineView.autosaveExpandedItems  = YES;
+    _outlineView.autosaveName           = NSStringFromClass( [ self class ] );
     
     [ self resizeWindow: NO ];
     
@@ -192,6 +195,17 @@
     
     [ _permissionsReadableTextField  setStringValue: ( [ FILE_MANAGER isReadableFileAtPath: _path ] ) ? L10N( "Yes" ) : L10N( "No" ) ];
     [ _permissionsWriteableTextField setStringValue: ( [ FILE_MANAGER isWritableFileAtPath: _path ] ) ? L10N( "Yes" ) : L10N( "No" ) ];
+}
+
+- ( void )showWindow: ( id )sender
+{
+    [ super showWindow: sender ];
+    
+    if( [ [ CEPreferences sharedInstance ] firstLaunch ] == YES )
+    {
+        [ _outlineView expandItem: _generalLabelView ];
+        [ _outlineView expandItem: _permissionsLabelView ];
+    }
 }
 
 @end
