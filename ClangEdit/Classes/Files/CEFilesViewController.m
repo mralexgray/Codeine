@@ -141,6 +141,8 @@
 {
     NSMenuItem      * menuItem;
     CEFileViewItem  * item;
+    NSString        * path;
+    NSRange           range;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -154,7 +156,19 @@
         return;
     }
     
-    item = menuItem.representedObject;
+    item  = menuItem.representedObject;
+    range = [ item.name rangeOfString: @":" ];
+    
+    if( range.location == NSNotFound )
+    {
+        path = item.name;
+    }
+    else
+    {
+        path = [ item.name substringFromIndex: range.location + 1 ];
+    }
+    
+    [ [ NSWorkspace sharedWorkspace ] selectFile: path inFileViewerRootedAtPath: nil ];
 }
 
 - ( IBAction )menuActionOpenInDefaultEditor: ( id )sender
@@ -181,6 +195,9 @@
 {
     NSMenuItem      * menuItem;
     CEFileViewItem  * item;
+    NSString        * path;
+    NSRange           range;
+    NSError         * error;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -194,7 +211,37 @@
         return;
     }
     
-    item = menuItem.representedObject;
+    item  = menuItem.representedObject;
+    range = [ item.name rangeOfString: @":" ];
+    
+    if( range.location == NSNotFound )
+    {
+        path = item.name;
+    }
+    else
+    {
+        path = [ item.name substringFromIndex: range.location + 1 ];
+    }
+    
+    error = nil;
+    
+    if( [ FILE_MANAGER removeItemAtPath: path error: &error ] == NO || error != nil || 1 )
+    {
+        {
+            NSAlert * alert;
+            
+            alert            = [ NSAlert alertWithMessageText: L10N( "DeleteErrorTitle" ) defaultButton: L10N( "OK" ) alternateButton: nil otherButton: nil informativeTextWithFormat: L10N( "DeleteErrorText" ) ];
+            alert.alertStyle = NSWarningAlertStyle;
+            
+            NSBeep();
+            
+            [ alert runModal ];
+        }
+    }
+    else
+    {
+        [ self reload ];
+    }
 }
 
 - ( IBAction )menuActionRemoveBookmark: ( id )sender
