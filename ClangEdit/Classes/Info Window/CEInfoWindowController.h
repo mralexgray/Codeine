@@ -14,23 +14,29 @@
 @protected
     
     NSString        * _path;
-    CEInspectorView * _generalView;
-    CEInspectorView * _iconView;
-    CEInspectorView * _permissionsView;
-    NSImageView     * _smallIconView;
-    NSImageView     * _largeIconView;
+    NSOutlineView   * _outlineView;
+    NSView          * _infoView;
+    NSView          * _generalLabelView;
+    NSView          * _iconLabelView;
+    NSView          * _permissionsLabelView;
+    NSView          * _generalView;
+    NSView          * _iconView;
+    NSView          * _permissionsView;
     
 @private
     
     RESERVERD_IVARS( CEInfoWindowController, 5 );
 }
 
-@property( atomic, readonly             )          NSString         * path;
-@property( nonatomic, readwrite, retain ) IBOutlet CEInspectorView  * generalView;
-@property( nonatomic, readwrite, retain ) IBOutlet CEInspectorView  * iconView;
-@property( nonatomic, readwrite, retain ) IBOutlet CEInspectorView  * permissionsView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSImageView      * smallIconView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSImageView      * largeIconView;
+@property( atomic, readonly             )          NSString      * path;
+@property( nonatomic, readwrite, retain ) IBOutlet NSOutlineView * outlineView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * infoView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * generalLabelView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * iconLabelView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * permissionsLabelView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * generalView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * iconView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView        * permissionsView;
 
 - ( id )initWithPath: ( NSString * )path;
 

@@ -5,10 +5,15 @@
  
 /* $Id$ */
 
-#import "CEPreferencesCompilerOptionsViewController.h"
+#import "CEInfoWindowView.h"
 
-@interface CEPreferencesCompilerOptionsViewController( NSOpenSavePanelDelegate ) < NSOpenSavePanelDelegate >
+@implementation CEInfoWindowView
 
-
+- ( void )drawRect: ( NSRect )rect
+{
+    [ self.window.backgroundColor setFill ];
+    
+    NSRectFill( rect );
+}
 
 @end

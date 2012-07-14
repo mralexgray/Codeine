@@ -5,18 +5,9 @@
  
 /* $Id$ */
 
-#import "CEFileOutlineViewDelegate.h"
+#import "CEInfoWindowController.h"
 
-@interface CEFileOutlineView: NSOutlineView
-{
-@protected
-    
-    
-    
-@private
-    
-    RESERVERD_IVARS( CEFileOutlineView, 5 );
-}
+@interface CEInfoWindowController( NSOutlineViewDataSource ) < NSOutlineViewDataSource >
 
 
 
