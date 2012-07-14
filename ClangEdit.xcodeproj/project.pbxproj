@@ -97,6 +97,7 @@
 		05DD2908159F1E5D008E228F /* CEOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */; };
 		05DD290B159F24AB008E228F /* CEMutableOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */; };
 		05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */; };
+		05F4793A15B2188800B1D80E /* NSString+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4793915B2188800B1D80E /* NSString+CE.m */; };
 		05F5152A159A17AE0049A756 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F51528159A17AE0049A756 /* Localizable.strings */; };
 		05F5152E159A19820049A756 /* CEPreferencesWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */; };
 		05F8034F15A72DBA00CD9F0D /* CETextEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */; };
@@ -274,6 +275,8 @@
 		05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMutableOrderedDictionary.m; sourceTree = "<group>"; };
 		05EF1967159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+Private.h"; sourceTree = "<group>"; };
 		05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesCompilerOptionsViewController+Private.m"; sourceTree = "<group>"; };
+		05F4793815B2188800B1D80E /* NSString+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CE.h"; sourceTree = "<group>"; };
+		05F4793915B2188800B1D80E /* NSString+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CE.m"; sourceTree = "<group>"; };
 		05F51529159A17AE0049A756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		05F5152B159A17EB0049A756 /* CEMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEMacros.h; sourceTree = "<group>"; };
 		05F5152C159A19820049A756 /* CEPreferencesWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesWindowController+Private.h"; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				052FD039159E0E460045C9ED /* NSFileManager+CE.m */,
 				05DD28F1159E12D4008E228F /* NSBundle+CE.h */,
 				05DD28F2159E12D4008E228F /* NSBundle+CE.m */,
+				05F4793815B2188800B1D80E /* NSString+CE.h */,
+				05F4793915B2188800B1D80E /* NSString+CE.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -877,6 +882,7 @@
 				052CEA4A15B1E23700E0BC0F /* CEInfoWindowController+NSOutlineViewDelegate.m in Sources */,
 				052CEA5315B1F39A00E0BC0F /* CEInfoWindowOutlineView.m in Sources */,
 				052CEA5615B1F3AA00E0BC0F /* CEInfoWindowView.m in Sources */,
+				05F4793A15B2188800B1D80E /* NSString+CE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

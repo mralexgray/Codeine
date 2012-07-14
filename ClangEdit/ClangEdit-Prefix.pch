@@ -15,5 +15,6 @@
     
     #import "NSFileManager+CE.h"
     #import "NSBundle+CE.h"
+    #import "NSString+CE.h"
     
 #endif

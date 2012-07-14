@@ -14,6 +14,7 @@
 @protected
     
     NSString        * _path;
+    NSDictionary    * _attributes;
     NSOutlineView   * _outlineView;
     NSView          * _infoView;
     NSView          * _generalLabelView;
@@ -22,6 +23,20 @@
     NSView          * _generalView;
     NSView          * _iconView;
     NSView          * _permissionsView;
+    NSImageView     * _smallIconView;
+    NSImageView     * _largeIconView;
+    NSTextField     * _infoNameTextField;
+    NSTextField     * _infoSizeTextField;
+    NSTextField     * _infoDateTextField;
+    NSTextField     * _generalKindTextField;
+    NSTextField     * _generalSizeTextField;
+    NSTextField     * _generalPathTextField;
+    NSTextField     * _generalCTimeTextField;
+    NSTextField     * _generalMTimeTextField;
+    NSTextField     * _permissionsReadableTextField;
+    NSTextField     * _permissionsWriteableTextField;
+    NSTextField     * _permissionsOctalTextField;
+    NSTextField     * _permissionsHumanTextField;
     
 @private
     
@@ -37,6 +52,21 @@
 @property( nonatomic, readwrite, retain ) IBOutlet NSView        * generalView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSView        * iconView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSView        * permissionsView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSImageView   * smallIconView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSImageView   * largeIconView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * infoNameTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * infoSizeTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * infoDateTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * generalKindTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * generalSizeTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * generalPathTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * generalCTimeTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * generalMTimeTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsReadableTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsWriteableTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsOctalTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsHumanTextField;
+
 
 - ( id )initWithPath: ( NSString * )path;
 

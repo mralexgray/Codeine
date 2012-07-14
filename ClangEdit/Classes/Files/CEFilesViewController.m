@@ -335,6 +335,10 @@
         [ controller.window makeKeyAndOrderFront: sender ];
         [ controller autorelease ];
     }
+    else
+    {
+        NSBeep();
+    }
 }
 
 @end
