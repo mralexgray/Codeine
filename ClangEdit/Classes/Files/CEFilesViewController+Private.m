@@ -28,7 +28,11 @@
     
     [ _rootItems addObject: [ CEFileViewItem openDocumentsItem ] ];
     
-    #ifndef APPSTORE
+    #ifdef APPSTORE
+        
+        /* iCloud files (maybe...) */
+        
+    #else
         
         [ _rootItems addObject: [ CEFileViewItem placesItem ] ];
         
