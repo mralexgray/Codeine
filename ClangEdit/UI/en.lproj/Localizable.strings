@@ -14,6 +14,9 @@
 "AddSharedLibrary"                          = "Add Shared Library";
 "AddStaticLibrary"                          = "Add Static Library";
 "OK"                                        = "OK";
+"Cancel"                                    = "Cancel";
+"DeleteAlertTitle"                          = "Delete %@";
+"DeleteAlertText"                           = "Are you sure you want to delete the selected file? This action is not undoable.";
 "DeleteErrorTitle"                          = "Cannot delete file";
 "DeleteErrorText"                           = "The selected file can't be deleted. Please check you have permission to do so.";
 "General"                                   = "General:";

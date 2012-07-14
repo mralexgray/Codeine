@@ -239,6 +239,17 @@
     
     error = nil;
     
+    {
+        NSAlert * alert;
+        
+        alert = [ NSAlert alertWithMessageText: [ NSString stringWithFormat: L10N( "DeleteAlertTitle" ), [ FILE_MANAGER displayNameAtPath: path ] ] defaultButton: L10N( "OK" ) alternateButton: L10N( "Cancel" ) otherButton: nil informativeTextWithFormat: L10N( "DeleteAlertText" ) ];
+        
+        if( [ alert runModal ] != NSAlertDefaultReturn )
+        {
+            return;
+        }
+    }
+    
     if( [ FILE_MANAGER removeItemAtPath: path error: &error ] == NO || error != nil || 1 )
     {
         {
