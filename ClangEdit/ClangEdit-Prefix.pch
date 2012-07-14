@@ -9,12 +9,11 @@
     
     #import <Cocoa/Cocoa.h>
     
-    #import "warnings.h"
-    #import "macros.h"
+    #import "CEWarnings.h"
+    #import "CEMacros.h"
+    #import "CETypes.h"
     
     #import "NSFileManager+CE.h"
     #import "NSBundle+CE.h"
-    
-    #import "CETypes.h"
     
 #endif
