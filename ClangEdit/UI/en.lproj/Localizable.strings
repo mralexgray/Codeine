@@ -16,6 +16,9 @@
 "OK"                                        = "OK";
 "DeleteErrorTitle"                          = "Cannot delete file";
 "DeleteErrorText"                           = "The selected file can't be deleted. Please check you have permission to do so.";
+"General"                                   = "General:";
+"Preview"                                   = "Preview:";
+"Permissions"                               = "Permissions:";
 "NSUTF8StringEncoding"                      = "UTF-8";
 "NSUTF16StringEncoding"                     = "UTF-16";
 "NSUTF16BigEndianStringEncoding"            = "UTF-16 (Big Endian)";

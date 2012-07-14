@@ -18,6 +18,8 @@
 		0517226515B1A5A7004D5AF5 /* CEInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */; };
 		0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226815B1A792004D5AF5 /* CEInfoWindowController.m */; };
 		0517226C15B1ABD3004D5AF5 /* CEWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */; };
+		0517227715B1B75C004D5AF5 /* CEInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517227615B1B75C004D5AF5 /* CEInspectorView.m */; };
+		0517227A15B1BA4A004D5AF5 /* CEInspectorView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517227915B1BA4A004D5AF5 /* CEInspectorView+Private.m */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
 		051F2E10159A12DB0027DD4F /* CEAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */; };
@@ -121,6 +123,10 @@
 		0517226815B1A792004D5AF5 /* CEInfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInfoWindowController.m; sourceTree = "<group>"; };
 		0517226A15B1ABD3004D5AF5 /* CEWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEWindowController+Private.h"; sourceTree = "<group>"; };
 		0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEWindowController+Private.m"; sourceTree = "<group>"; };
+		0517227515B1B75C004D5AF5 /* CEInspectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEInspectorView.h; sourceTree = "<group>"; };
+		0517227615B1B75C004D5AF5 /* CEInspectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInspectorView.m; sourceTree = "<group>"; };
+		0517227815B1BA4A004D5AF5 /* CEInspectorView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEInspectorView+Private.h"; sourceTree = "<group>"; };
+		0517227915B1BA4A004D5AF5 /* CEInspectorView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEInspectorView+Private.m"; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
 		051F2E09159A12B10027DD4F /* CEPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferences.m; sourceTree = "<group>"; };
 		051F2E0B159A12D20027DD4F /* CEPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -683,6 +689,10 @@
 				05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */,
 				05F8035B15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.h */,
 				05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */,
+				0517227815B1BA4A004D5AF5 /* CEInspectorView+Private.h */,
+				0517227915B1BA4A004D5AF5 /* CEInspectorView+Private.m */,
+				0517227515B1B75C004D5AF5 /* CEInspectorView.h */,
+				0517227615B1B75C004D5AF5 /* CEInspectorView.m */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -847,6 +857,8 @@
 				054BEB9515AF9B80002D7730 /* CEParserTokenPredefined.m in Sources */,
 				0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */,
 				0517226C15B1ABD3004D5AF5 /* CEWindowController+Private.m in Sources */,
+				0517227715B1B75C004D5AF5 /* CEInspectorView.m in Sources */,
+				0517227A15B1BA4A004D5AF5 /* CEInspectorView+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
