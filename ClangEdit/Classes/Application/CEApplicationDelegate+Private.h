@@ -11,5 +11,6 @@
 
 - ( void )installApplicationSupportFiles;
 - ( void )firstLaunch;
+- ( void )mainWindowDidClose: ( NSNotification * )notification;
 
 @end

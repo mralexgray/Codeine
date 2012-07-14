@@ -36,6 +36,8 @@
     [ self installApplicationSupportFiles ];
     [ self firstLaunch ];
     
+    [ NOTIFICATION_CENTER addObserver: self selector: @selector( mainWindowDidClose: ) name: NSWindowWillCloseNotification object: nil ];
+    
     _mainWindowControllers = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
     [ self newWindow: nil ];
@@ -92,7 +94,14 @@
 {
     ( void )sender;
     
-    NSLog( @"New document - No main window..." );
+    if(_mainWindowControllers.count > 0 )
+    {
+        [ ( CEMainWindowController * )[ _mainWindowControllers objectAtIndex: 0 ] newDocument: sender ];
+    }
+    else
+    {
+        [ self newWindow: sender ];
+    }
 }
 
 - ( IBAction )toggleInvisibleCharacters: ( id )sender

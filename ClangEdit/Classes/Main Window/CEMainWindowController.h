@@ -38,6 +38,7 @@
 @property(    atomic, readwrite, retain )          CESourceFile  * sourceFile;
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * encodingPopUp;
 
+- ( IBAction )newDocument: ( id )sender;
 - ( IBAction )addBookmark: ( id )sender;
 - ( IBAction )removeBookmark: ( id )sender;
 

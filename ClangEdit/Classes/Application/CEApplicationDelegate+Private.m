@@ -108,4 +108,15 @@
     }
 }
 
+- ( void )mainWindowDidClose: ( NSNotification * )notification
+{
+    NSWindow           * window;
+    NSWindowController * controller;
+    
+    window      = [ notification object ];
+    controller  = window.windowController;
+    
+    [ _mainWindowControllers removeObject: controller ];
+}
+
 @end
