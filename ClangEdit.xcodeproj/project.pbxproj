@@ -155,7 +155,7 @@
 		05480FCB159A0B98005CFBC5 /* CEApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEApplicationDelegate.h; sourceTree = "<group>"; };
 		05480FCC159A0B98005CFBC5 /* CEApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEApplicationDelegate.m; sourceTree = "<group>"; };
 		05480FCF159A0B98005CFBC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEMainMenu.xib; sourceTree = "<group>"; };
-		05480FD2159A0BF9005CFBC5 /* warnings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = warnings.h; sourceTree = "<group>"; };
+		05480FD2159A0BF9005CFBC5 /* CEWarnings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEWarnings.h; sourceTree = "<group>"; };
 		05480FD7159A0CC1005CFBC5 /* CEMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMainWindowController.h; sourceTree = "<group>"; };
 		05480FD8159A0CC1005CFBC5 /* CEMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMainWindowController.m; sourceTree = "<group>"; };
 		05480FDB159A0CD5005CFBC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEMainWindow.xib; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 		05EF1967159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+Private.h"; sourceTree = "<group>"; };
 		05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesCompilerOptionsViewController+Private.m"; sourceTree = "<group>"; };
 		05F51529159A17AE0049A756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		05F5152B159A17EB0049A756 /* macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
+		05F5152B159A17EB0049A756 /* CEMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEMacros.h; sourceTree = "<group>"; };
 		05F5152C159A19820049A756 /* CEPreferencesWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesWindowController+Private.h"; sourceTree = "<group>"; };
 		05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesWindowController+Private.m"; sourceTree = "<group>"; };
 		05F8034D15A72DBA00CD9F0D /* CETextEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETextEncoding.h; sourceTree = "<group>"; };
@@ -400,8 +400,8 @@
 				05480FB5159A0B32005CFBC5 /* InfoPlist.strings */,
 				05480FB8159A0B32005CFBC5 /* main.m */,
 				05480FBA159A0B32005CFBC5 /* ClangEdit-Prefix.pch */,
-				05480FD2159A0BF9005CFBC5 /* warnings.h */,
-				05F5152B159A17EB0049A756 /* macros.h */,
+				05480FD2159A0BF9005CFBC5 /* CEWarnings.h */,
+				05F5152B159A17EB0049A756 /* CEMacros.h */,
 				054BEB7E15AF9484002D7730 /* CETypes.h */,
 			);
 			name = "Supporting Files";
