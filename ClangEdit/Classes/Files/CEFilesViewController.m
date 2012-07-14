@@ -11,6 +11,7 @@
 #import "CEFilesViewController+NSOutlineViewDataSource.h"
 #import "CEFileViewItem.h"
 #import "CEPreferences.h"
+#import "CEInfoWindowController.h"
 
 @implementation CEFilesViewController
 
@@ -221,8 +222,11 @@
 
 - ( IBAction )menuActionGetInfo: ( id )sender
 {
-    NSMenuItem      * menuItem;
-    CEFileViewItem  * item;
+    NSMenuItem              * menuItem;
+    CEFileViewItem          * item;
+    CEInfoWindowController  * controller;
+    NSString                * path;
+    NSRange                   range;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -236,7 +240,26 @@
         return;
     }
     
-    item = menuItem.representedObject;
+    item  = menuItem.representedObject;
+    range = [ item.name rangeOfString: @":" ];
+    
+    if( range.location == NSNotFound )
+    {
+        path = item.name;
+    }
+    else
+    {
+        path = [ item.name substringFromIndex: range.location + 1 ];
+    }
+    
+    controller = [ [ CEInfoWindowController alloc ] initWithPath: path ];
+    
+    if( controller != nil )
+    {
+        [ controller.window center ];
+        [ controller showWindow: sender ];
+        [ controller.window makeKeyAndOrderFront: sender ];
+    }
 }
 
 @end

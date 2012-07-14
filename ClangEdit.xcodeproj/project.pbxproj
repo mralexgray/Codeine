@@ -15,6 +15,8 @@
 		050629FA15AB8B5C00DA6EE6 /* CELinkerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629F915AB8B5C00DA6EE6 /* CELinkerObject.m */; };
 		05087FC815A8E66900582A01 /* CEFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05087FC715A8E66900582A01 /* CEFileViewCell.m */; };
 		0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0515B9A515AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m */; };
+		0517226515B1A5A7004D5AF5 /* CEInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */; };
+		0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226815B1A792004D5AF5 /* CEInfoWindowController.m */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
 		051F2E10159A12DB0027DD4F /* CEAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */; };
@@ -113,6 +115,9 @@
 		05087FC715A8E66900582A01 /* CEFileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileViewCell.m; sourceTree = "<group>"; };
 		0515B9A415AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.h"; sourceTree = "<group>"; };
 		0515B9A515AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m"; sourceTree = "<group>"; };
+		0517226415B1A5A7004D5AF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEInfoWindow.xib; sourceTree = "<group>"; };
+		0517226715B1A792004D5AF5 /* CEInfoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEInfoWindowController.h; sourceTree = "<group>"; };
+		0517226815B1A792004D5AF5 /* CEInfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInfoWindowController.m; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
 		051F2E09159A12B10027DD4F /* CEPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferences.m; sourceTree = "<group>"; };
 		051F2E0B159A12D20027DD4F /* CEPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -295,6 +300,15 @@
 			path = Linker;
 			sourceTree = "<group>";
 		};
+		0517226615B1A765004D5AF5 /* Info Window */ = {
+			isa = PBXGroup;
+			children = (
+				0517226715B1A792004D5AF5 /* CEInfoWindowController.h */,
+				0517226815B1A792004D5AF5 /* CEInfoWindowController.m */,
+			);
+			path = "Info Window";
+			sourceTree = "<group>";
+		};
 		051F2E06159A12A10027DD4F /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +437,7 @@
 				057F5862159D40A200C84780 /* Debug */,
 				057F5863159D40A200C84780 /* Editor */,
 				057F5864159D40A300C84780 /* Files */,
+				0517226615B1A765004D5AF5 /* Info Window */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -459,6 +474,7 @@
 				057F586E159D444A00C84780 /* CEDebugView.xib */,
 				052FD001159DECEF0045C9ED /* CEFilesView.xib */,
 				052FD007159DF53C0045C9ED /* CELanguageWindow.xib */,
+				0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -746,6 +762,7 @@
 				05F8036115A7794300CD9F0D /* Application.icns in Resources */,
 				050629EB15AB73CA00DA6EE6 /* Themes in Resources */,
 				050629F715AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib in Resources */,
+				0517226515B1A5A7004D5AF5 /* CEInfoWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +840,7 @@
 				054BEB8F15AF9B6C002D7730 /* CEParserTokenComment.m in Sources */,
 				054BEB9215AF9B76002D7730 /* CEParserTokenString.m in Sources */,
 				054BEB9515AF9B80002D7730 /* CEParserTokenPredefined.m in Sources */,
+				0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +853,14 @@
 				050629F615AB882F00DA6EE6 /* en */,
 			);
 			name = CEPreferencesLinkerOptionsView.xib;
+			sourceTree = "<group>";
+		};
+		0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0517226415B1A5A7004D5AF5 /* en */,
+			);
+			name = CEInfoWindow.xib;
 			sourceTree = "<group>";
 		};
 		051F2E11159A13270027DD4F /* CEAboutWindow.xib */ = {
