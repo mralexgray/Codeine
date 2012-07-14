@@ -27,7 +27,13 @@
     _rootItems = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
     [ _rootItems addObject: [ CEFileViewItem openDocumentsItem ] ];
-    [ _rootItems addObject: [ CEFileViewItem placesItem ] ];
+    
+    #ifndef APPSTORE
+        
+        [ _rootItems addObject: [ CEFileViewItem placesItem ] ];
+        
+    #endif
+    
     [ _rootItems addObject: [ CEFileViewItem bookmarksItems ] ];
     
     _outlineView.delegate              = self;
