@@ -37,14 +37,6 @@
     [ _titleTextField setDrawsBackground:   NO ];
     [ _titleTextField setEditable:          NO ];
     [ _titleTextField setSelectable:        NO ];
-           
-    _detailView.frame = CGRectMake
-    (
-        ( CGFloat )0,
-        ( CGFloat )0,
-        self.frame.size.width,
-        _detailView.frame.size.height
-    );
     
     _separator              = [ [ NSBox alloc ] initWithFrame: NSMakeRect( ( CGFloat )0, ( CGFloat )self.bounds.size.height - ( CGFloat )1, self.bounds.size.width, ( CGFloat )1 ) ];
     _separator.boxType      = NSBoxSeparator;
@@ -53,15 +45,20 @@
     _disclosureButton.autoresizingMask  = NSViewMinYMargin | NSViewMinXMargin;
     _separator.autoresizingMask         = NSViewMinYMargin | NSViewMinXMargin | NSViewMaxXMargin | NSViewWidthSizable;
     _titleTextField.autoresizingMask    = NSViewMinYMargin | NSViewMinXMargin | NSViewMaxXMargin | NSViewWidthSizable;
+    _detailView.autoresizingMask        = NSViewMaxYMargin | NSViewMinXMargin | NSViewMaxXMargin | NSViewWidthSizable;
     
     [ self addSubview: _separator ];
     [ self addSubview: _disclosureButton ];
     [ self addSubview: _titleTextField ];
-    [ self addSubview: _detailView ];
 }
 
 - ( void )toggleDetailView: ( id )sender
 {
+    if( [ self.subviews containsObject: _detailView ] == NO )
+    {
+        [ self addSubview: _detailView ];
+    }
+    
     dispatch_after
     (
         dispatch_time( DISPATCH_TIME_NOW, 1 * NSEC_PER_MSEC ),
@@ -102,8 +99,17 @@
                     nextView = nextView.nextView;
                 }
                 
-                [ self addSubview: _detailView  ];
                 [ self.window setFrame: frame display: YES animate: YES ];
+                
+                _detailView.frame = CGRectMake
+                (
+                    ( CGFloat )0,
+                    ( CGFloat )0,
+                    self.frame.size.width,
+                    _detailView.frame.size.height
+                );
+                
+                [ _detailView setAlphaValue: ( CGFloat )1 ];
             }
             else
             {
@@ -135,6 +141,7 @@
                 }
                 
                 [ self.window setFrame: frame display: YES animate: YES ];
+                [ _detailView setAlphaValue: ( CGFloat )0 ];
             }
         }
     );
