@@ -175,6 +175,8 @@
 {
     NSMenuItem      * menuItem;
     CEFileViewItem  * item;
+    NSString        * path;
+    NSRange           range;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -188,7 +190,19 @@
         return;
     }
     
-    item = menuItem.representedObject;
+    item  = menuItem.representedObject;
+    range = [ item.name rangeOfString: @":" ];
+    
+    if( range.location == NSNotFound )
+    {
+        path = item.name;
+    }
+    else
+    {
+        path = [ item.name substringFromIndex: range.location + 1 ];
+    }
+    
+    [ [ NSWorkspace sharedWorkspace ] openFile: path ];
 }
 
 - ( IBAction )menuActionDelete: ( id )sender
