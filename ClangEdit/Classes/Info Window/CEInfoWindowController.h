@@ -15,6 +15,7 @@
     
     NSString        * _path;
     NSDictionary    * _attributes;
+    BOOL              _isDirectory;
     NSOutlineView   * _outlineView;
     NSView          * _infoView;
     NSView          * _generalLabelView;
@@ -35,6 +36,8 @@
     NSTextField     * _generalMTimeTextField;
     NSTextField     * _permissionsReadableTextField;
     NSTextField     * _permissionsWriteableTextField;
+    NSTextField     * _permissionsOwnerTextField;
+    NSTextField     * _permissionsGroupTextField;
     NSTextField     * _permissionsOctalTextField;
     NSTextField     * _permissionsHumanTextField;
     
@@ -64,6 +67,8 @@
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * generalMTimeTextField;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsReadableTextField;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsWriteableTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsOwnerTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsGroupTextField;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsOctalTextField;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * permissionsHumanTextField;
 

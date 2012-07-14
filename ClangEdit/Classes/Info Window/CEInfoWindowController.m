@@ -33,6 +33,8 @@
 @synthesize generalMTimeTextField           = _generalMTimeTextField;
 @synthesize permissionsReadableTextField    = _permissionsReadableTextField;
 @synthesize permissionsWriteableTextField   = _permissionsWriteableTextField;
+@synthesize permissionsOwnerTextField       = _permissionsOwnerTextField;
+@synthesize permissionsGroupTextField       = _permissionsGroupTextField;
 @synthesize permissionsOctalTextField       = _permissionsOctalTextField;
 @synthesize permissionsHumanTextField       = _permissionsHumanTextField;
 
@@ -42,7 +44,7 @@
     
     if( ( self = [ self init ] ) )
     {
-        if( [ FILE_MANAGER fileExistsAtPath: path ] == NO )
+        if( [ FILE_MANAGER fileExistsAtPath: path isDirectory: &_isDirectory ] == NO )
         {
             [ self release ];
             
@@ -91,6 +93,8 @@
     RELEASE_IVAR( _generalMTimeTextField );
     RELEASE_IVAR( _permissionsReadableTextField );
     RELEASE_IVAR( _permissionsWriteableTextField );
+    RELEASE_IVAR( _permissionsOwnerTextField );
+    RELEASE_IVAR( _permissionsGroupTextField );
     RELEASE_IVAR( _permissionsOctalTextField );
     RELEASE_IVAR( _permissionsHumanTextField );
     
@@ -105,6 +109,12 @@
     NSDateFormatter * dateFormatter;
     NSString        * kind;
     uint64_t          bytes;
+    NSUInteger        permissions;
+    NSUInteger        u;
+    NSUInteger        g;
+    NSUInteger        o;
+    NSUInteger        i;
+    NSString        * humanPermissions;
     
     self.window.title = _path.lastPathComponent;
     
@@ -129,7 +139,45 @@
     [ _generalKindTextField setStringValue: [ kind capitalizedString ] ];
     [ _generalPathTextField setStringValue: [ _path stringByDeletingLastPathComponent ] ];
     
-    [ _infoSizeTextField setStringValue: [ NSString stringForDataSizeWithBytes: bytes ] ];
+    if( _isDirectory == YES )
+    {
+        [ _infoSizeTextField    setStringValue: @"--" ];
+        [ _generalSizeTextField setStringValue: @"--" ];
+    }
+    else
+    {
+        [ _infoSizeTextField    setStringValue: [ NSString stringForDataSizeWithBytes: bytes ] ];
+        
+        if( bytes > 1000 )
+        {
+            [ _generalSizeTextField setStringValue: [ NSString stringWithFormat: @"%@ (%@)",
+                                                        [ NSString stringForDataSizeWithBytes: bytes unit: CEStringDataSizeTypeBytes ],
+                                                        [ NSString stringForDataSizeWithBytes: bytes ]
+                                                    ]
+            ];
+        }
+        else
+        {
+            [ _generalSizeTextField setStringValue: [ NSString stringForDataSizeWithBytes: bytes unit: CEStringDataSizeTypeBytes ] ];
+        }
+    }
+    
+    permissions         = [ ( NSNumber * )[ _attributes objectForKey: NSFilePosixPermissions ] unsignedIntegerValue ];
+    u                   = permissions / 64;
+    g                   = ( permissions - ( 64 * u ) ) / 8;
+    o                   = ( permissions - ( 64 * u ) ) - ( 8 * g );
+    humanPermissions    = @"";
+    
+    for( i = 0; i < 3; i++ )
+    {
+        humanPermissions    = [ [ NSString stringWithFormat: @"%@%@%@ ", ( permissions & 4 ) ? @"r" : @"-", ( permissions & 2 ) ? @"w" : @"-", ( permissions & 1 ) ? @"x" : @"-" ] stringByAppendingString: humanPermissions ];
+        permissions         = permissions >> 3;
+    }
+    
+    [ _permissionsHumanTextField setStringValue: humanPermissions ];
+    [ _permissionsOctalTextField setStringValue: [ NSString stringWithFormat: @"%03lu", ( u * 100 ) + ( g * 10 ) + o ] ];
+    [ _permissionsOwnerTextField setStringValue: [ _attributes objectForKey: NSFileOwnerAccountName ] ];
+    [ _permissionsGroupTextField setStringValue: [ _attributes objectForKey: NSFileGroupOwnerAccountName ] ];
     
     dateFormatter                               = [ NSDateFormatter new ];
     dateFormatter.doesRelativeDateFormatting    = YES;

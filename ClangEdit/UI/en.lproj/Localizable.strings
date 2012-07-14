@@ -25,7 +25,7 @@
 "General"                                   = "General:";
 "Preview"                                   = "Preview:";
 "Permissions"                               = "Permissions:";
-"CEStringDataSizeTypeBytes"                 = "B";
+"CEStringDataSizeTypeBytes"                 = "bytes";
 "CEStringDataSizeTypeKiloBytes"             = "KB";
 "CEStringDataSizeTypeMegaBytes"             = "MB";
 "CEStringDataSizeTypeGigaBytes"             = "GB";
