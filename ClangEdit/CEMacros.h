@@ -65,6 +65,7 @@
         @"    Height: %f",                      \
         size.width,                             \
         size.height                             \
+    )
  
 #define LogRect( rect )                         \
     NSLog                                       \
