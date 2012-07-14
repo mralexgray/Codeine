@@ -25,6 +25,9 @@
 {
     [ NOTIFICATION_CENTER removeObserver: self ];
     
+    _outlineView.delegate   = nil;
+    _outlineView.dataSource = nil;
+    
     RELEASE_IVAR( _outlineView );
     RELEASE_IVAR( _rootItems );
     RELEASE_IVAR( _openDocumentMenu );

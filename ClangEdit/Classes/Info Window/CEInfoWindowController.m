@@ -71,6 +71,9 @@
 
 - ( void )dealloc
 {
+    _outlineView.delegate   = nil;
+    _outlineView.dataSource = nil;
+    
     RELEASE_IVAR( _path );
     RELEASE_IVAR( _attributes );
     RELEASE_IVAR( _outlineView );

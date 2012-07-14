@@ -37,6 +37,33 @@ static void __exit( void )
     return cell;
 }
 
+- ( void )selectWithFrame: ( NSRect )rect inView: ( NSView * )controlView editor: ( NSText * )editor delegate: ( id )delegate start: ( NSInteger )selStart length: ( NSInteger )selLength
+{
+    rect = NSMakeRect
+    (
+        rect.origin.x + rect.size.height + 10,
+        rect.origin.y + 3,
+        rect.size.width - ( rect.size.height + 4 ),
+        rect.size.height - 6
+    );
+    
+    [ super selectWithFrame: rect inView: controlView editor: editor delegate: delegate start: selStart length: selLength ];
+    
+    if( [ editor isKindOfClass: [ NSTextView class ] ] )
+    {
+        [ ( NSTextView * )editor setTextContainerInset: NSMakeSize( -2, 1 ) ];
+    }
+    
+    [ editor setFont: [ NSFont systemFontOfSize: [ NSFont smallSystemFontSize ] ] ];
+}
+
+- ( NSText * )setUpFieldEditorAttributes: ( NSText * )editor
+{   
+    [ editor setDrawsBackground: NO ];
+    
+    return editor;
+}
+
 - ( void )drawWithFrame: ( NSRect )frame inView: ( NSView * )view
 {
     NSString                * text;

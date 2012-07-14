@@ -27,6 +27,15 @@
     return ( BOOL )( filesViewItem.type == CEFileViewItemTypeSection );
 }
 
+- ( void )outlineView: ( NSOutlineView * )outlineView willDisplayCell: ( id )cell forTableColumn: ( NSTableColumn * )tableColumn item: ( id )item
+{
+    ( void )outlineView;
+    ( void )tableColumn;
+    ( void )item;
+    
+    [ ( NSCell * )cell setEditable: YES ];
+}
+
 - ( NSCell * )outlineView: ( NSOutlineView * )outlineView dataCellForTableColumn: ( NSTableColumn * )tableColumn item: ( id )item
 {
     CEFileViewItem * fileViewItem;
