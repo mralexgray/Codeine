@@ -256,9 +256,12 @@
     
     if( controller != nil )
     {
+        controller.releaseOnWindowClose = YES;
+        
         [ controller.window center ];
         [ controller showWindow: sender ];
         [ controller.window makeKeyAndOrderFront: sender ];
+        [ controller autorelease ];
     }
 }
 

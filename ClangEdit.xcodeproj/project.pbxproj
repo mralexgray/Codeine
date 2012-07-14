@@ -17,6 +17,7 @@
 		0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0515B9A515AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m */; };
 		0517226515B1A5A7004D5AF5 /* CEInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */; };
 		0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226815B1A792004D5AF5 /* CEInfoWindowController.m */; };
+		0517226C15B1ABD3004D5AF5 /* CEWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
 		051F2E10159A12DB0027DD4F /* CEAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */; };
@@ -118,6 +119,8 @@
 		0517226415B1A5A7004D5AF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEInfoWindow.xib; sourceTree = "<group>"; };
 		0517226715B1A792004D5AF5 /* CEInfoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEInfoWindowController.h; sourceTree = "<group>"; };
 		0517226815B1A792004D5AF5 /* CEInfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInfoWindowController.m; sourceTree = "<group>"; };
+		0517226A15B1ABD3004D5AF5 /* CEWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEWindowController+Private.h"; sourceTree = "<group>"; };
+		0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEWindowController+Private.m"; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
 		051F2E09159A12B10027DD4F /* CEPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferences.m; sourceTree = "<group>"; };
 		051F2E0B159A12D20027DD4F /* CEPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -445,10 +448,10 @@
 		05480FCA159A0B98005CFBC5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				05480FCB159A0B98005CFBC5 /* CEApplicationDelegate.h */,
-				05480FCC159A0B98005CFBC5 /* CEApplicationDelegate.m */,
 				052FD027159E09AF0045C9ED /* CEApplicationDelegate+Private.h */,
 				052FD028159E09AF0045C9ED /* CEApplicationDelegate+Private.m */,
+				05480FCB159A0B98005CFBC5 /* CEApplicationDelegate.h */,
+				05480FCC159A0B98005CFBC5 /* CEApplicationDelegate.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -495,6 +498,8 @@
 		05480FDD159A0CE5005CFBC5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0517226A15B1ABD3004D5AF5 /* CEWindowController+Private.h */,
+				0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */,
 				05480FDE159A0CFB005CFBC5 /* CEWindowController.h */,
 				05480FDF159A0CFB005CFBC5 /* CEWindowController.m */,
 				05DA3450159A2296006B688A /* CEViewController.h */,
@@ -841,6 +846,7 @@
 				054BEB9215AF9B76002D7730 /* CEParserTokenString.m in Sources */,
 				054BEB9515AF9B80002D7730 /* CEParserTokenPredefined.m in Sources */,
 				0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */,
+				0517226C15B1ABD3004D5AF5 /* CEWindowController+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
