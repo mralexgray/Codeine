@@ -32,7 +32,7 @@
 			<object class="NSCustomObject" id="1004">
 				<string key="NSClassName">NSApplication</string>
 			</object>
-			<object class="NSWindowTemplate" id="850972940">
+			<object class="NSWindowTemplate" id="747657184">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 132}, {330, 500}}</string>
@@ -41,7 +41,7 @@
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
-				<object class="NSView" key="NSWindowView" id="253156270">
+				<object class="NSView" key="NSWindowView" id="629498159">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews"/>
@@ -62,7 +62,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">window</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="850972940"/>
+						<reference key="destination" ref="747657184"/>
 					</object>
 					<int key="connectionID">52</int>
 				</object>
@@ -95,17 +95,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">3</int>
-						<reference key="object" ref="850972940"/>
+						<reference key="object" ref="747657184"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="253156270"/>
+							<reference ref="629498159"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
-						<reference key="object" ref="253156270"/>
+						<reference key="object" ref="629498159"/>
 						<array class="NSMutableArray" key="children"/>
-						<reference key="parent" ref="850972940"/>
+						<reference key="parent" ref="747657184"/>
 					</object>
 				</array>
 			</object>
@@ -121,7 +121,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">52</int>
+			<int key="maxID">54</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
