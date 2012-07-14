@@ -489,7 +489,7 @@
 		05480FCD159A0B98005CFBC5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				05F8036215A87C5000CD9F0D /* Images */,
+				05F3172815B22B010000C4CA /* Images */,
 				05F8036015A7794300CD9F0D /* Application.icns */,
 				05F51528159A17AE0049A756 /* Localizable.strings */,
 				05480FCE159A0B98005CFBC5 /* CEMainMenu.xib */,
@@ -706,6 +706,13 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		05F3172815B22B010000C4CA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		05F8035715A75CCC00CD9F0D /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,13 +722,6 @@
 				05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */,
 			);
 			path = "UI Elements";
-			sourceTree = "<group>";
-		};
-		05F8036215A87C5000CD9F0D /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

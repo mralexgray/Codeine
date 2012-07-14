@@ -7,8 +7,6 @@
 
 #import "CEWindowController.h"
 
-@class CEInspectorView;
-
 @interface CEInfoWindowController: CEWindowController
 {
 @protected
