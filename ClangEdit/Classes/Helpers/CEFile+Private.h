@@ -9,6 +9,6 @@
 
 @interface CEFile( Private )
 
-- ( void )getPropertiesFromAttributes: ( NSDictionary * )attributes;
+- ( void )getPermissions;
 
 @end

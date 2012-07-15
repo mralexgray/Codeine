@@ -9,29 +9,31 @@
 {
 @protected
     
-    NSString * _path;
-    NSURL    * _url;
-    NSString * _name;
-    BOOL       _isDirectory;
-    BOOL       _isPackage;
-    NSString * _kind;
-    NSImage  * _icon;
-    NSColor  * _labelColor;
-    NSUInteger _bytes;
-    NSString * _size;
-    NSDate   * _creationDate;
-    NSDate   * _modificationDate;
-    NSString * _creationTime;
-    NSString * _modificationTime;
-    NSString * _owner;
-    NSString * _group;
-    NSUInteger _ownerID;
-    NSUInteger _groupID;
-    NSUInteger _permissions;
-    NSUInteger _octalPermissions;
-    NSString * _humanPermissions;
-    BOOL       _readable;
-    BOOL       _writable;
+    NSString     * _path;
+    NSURL        * _url;
+    NSDictionary * _attributes;
+    NSString     * _name;
+    BOOL           _isDirectory;
+    BOOL           _isPackage;
+    NSString     * _kind;
+    NSImage      * _icon;
+    NSColor      * _labelColor;
+    NSUInteger     _bytes;
+    NSString     * _size;
+    NSDate       * _creationDate;
+    NSDate       * _modificationDate;
+    NSString     * _creationTime;
+    NSString     * _modificationTime;
+    NSString     * _owner;
+    NSString     * _group;
+    NSUInteger     _ownerID;
+    NSUInteger     _groupID;
+    NSUInteger     _permissions;
+    NSUInteger     _octalPermissions;
+    NSString     * _humanPermissions;
+    BOOL           _readable;
+    BOOL           _writable;
+    BOOL           _hasPermissions;
     
 @private
     

@@ -148,12 +148,14 @@ static void __exit( void )
         [ item->_icon               release ];
         [ item->_representedObject  release ];
         [ item->_children           release ];
+        [ item->_file               release ];
         
         item->_displayName          = [ _displayName copyWithZone: zone ];
         item->_icon                 = [ _icon copyWithZone: zone ];
         item->_representedObject    = [ _representedObject retain ];
         item->_children             = [ _children copyWithZone: zone ];
         item->_parent               = _parent;
+        item->_file                 = [ _file retain ];
     }
     
     return item;

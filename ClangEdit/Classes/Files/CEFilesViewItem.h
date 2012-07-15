@@ -31,7 +31,7 @@ FOUNDATION_EXPORT NSString * const CEFilesViewBookmarksItemName;
 @private
 
     NSMutableArray   * _children;
-    CEFilesViewItem   * _parent;
+    CEFilesViewItem  * _parent;
     id                 _representedObject;
     NSImage          * _icon;
     NSString         * _displayName;
