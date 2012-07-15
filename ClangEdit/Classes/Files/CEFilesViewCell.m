@@ -136,6 +136,20 @@ static void __exit( void )
                     
                     [ gradient drawInBezierPath: path angle: 90 ];
                     [ gradient release ];
+                    
+                    gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
+                                                      endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
+                               ];
+                    
+                    rect.origin.x    += 0.25;
+                    rect.origin.y    += 0.25;
+                    rect.size.width  -= 0.5;
+                    rect.size.height -= 0.5;
+                    
+                    [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rect xRadius: 8 yRadius: 8 ] ];
+                    [ path setWindingRule: NSEvenOddWindingRule ];
+                    [ gradient drawInBezierPath: path angle: 90 ];
+                    [ gradient release ];
                 }
             }
         }
