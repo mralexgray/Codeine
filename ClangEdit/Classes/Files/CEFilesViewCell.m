@@ -126,7 +126,7 @@ static void __exit( void )
                     
                     [ labelColor getRed: &r green: &g blue: &b alpha: NULL ];
                     
-                    labelColor  = [ NSColor colorWithDeviceRed: r green: g blue: b alpha: ( CGFloat )0.5 ];
+                    labelColor  = [ NSColor colorWithDeviceRed: r green: g blue: b alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
                     gradient    = [ [ NSGradient alloc ] initWithColorsAndLocations:    [ NSColor whiteColor ], ( CGFloat )0.0,
                                                                                         labelColor,             ( CGFloat )1.0,
                                                                                         nil

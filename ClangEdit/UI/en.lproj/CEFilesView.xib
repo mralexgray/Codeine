@@ -191,7 +191,6 @@
 						<string key="NSFrame">{{1, 119}, {238, 15}}</string>
 						<reference key="NSSuperview" ref="695435621"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:60</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<int key="NSsFlags">1</int>
@@ -744,38 +743,17 @@
 						<reference key="parent" ref="1008424350"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">109</int>
-						<reference key="object" ref="1065147813"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="615704372"/>
-							<reference ref="382334703"/>
-							<reference ref="287001312"/>
-							<reference ref="144509538"/>
-							<reference ref="60978882"/>
-							<reference ref="958497334"/>
-							<reference ref="74279463"/>
-							<reference ref="325037042"/>
-						</array>
-						<reference key="parent" ref="0"/>
-						<string key="objectName">FS File Menu</string>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">116</int>
 						<reference key="object" ref="161839676"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="627391250"/>
 							<reference ref="294991337"/>
 							<reference ref="1067364921"/>
 							<reference ref="221620582"/>
 							<reference ref="282874270"/>
+							<reference ref="627391250"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">FS Folder Menu</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">117</int>
-						<reference key="object" ref="627391250"/>
-						<reference key="parent" ref="161839676"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">118</int>
@@ -796,19 +774,14 @@
 						<int key="objectID">122</int>
 						<reference key="object" ref="1031735553"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="941951926"/>
 							<reference ref="62207800"/>
 							<reference ref="892305978"/>
 							<reference ref="468818236"/>
 							<reference ref="579157086"/>
+							<reference ref="941951926"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Bookmarks Menu</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">123</int>
-						<reference key="object" ref="941951926"/>
-						<reference key="parent" ref="1031735553"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">124</int>
@@ -857,44 +830,9 @@
 						<reference key="parent" ref="779538480"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">113</int>
-						<reference key="object" ref="144509538"/>
-						<reference key="parent" ref="1065147813"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">114</int>
-						<reference key="object" ref="60978882"/>
-						<reference key="parent" ref="1065147813"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">112</int>
-						<reference key="object" ref="287001312"/>
-						<reference key="parent" ref="1065147813"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">111</int>
-						<reference key="object" ref="382334703"/>
-						<reference key="parent" ref="1065147813"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">110</int>
-						<reference key="object" ref="615704372"/>
-						<reference key="parent" ref="1065147813"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">138</int>
 						<reference key="object" ref="468818236"/>
 						<reference key="parent" ref="1031735553"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">139</int>
-						<reference key="object" ref="958497334"/>
-						<reference key="parent" ref="1065147813"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">140</int>
-						<reference key="object" ref="74279463"/>
-						<reference key="parent" ref="1065147813"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">141</int>
@@ -917,11 +855,6 @@
 						<reference key="parent" ref="779538480"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">161</int>
-						<reference key="object" ref="325037042"/>
-						<reference key="parent" ref="1065147813"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">163</int>
 						<reference key="object" ref="282874270"/>
 						<reference key="parent" ref="161839676"/>
@@ -930,6 +863,72 @@
 						<int key="objectID">165</int>
 						<reference key="object" ref="579157086"/>
 						<reference key="parent" ref="1031735553"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">175</int>
+						<reference key="object" ref="941951926"/>
+						<reference key="parent" ref="1031735553"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">177</int>
+						<reference key="object" ref="627391250"/>
+						<reference key="parent" ref="161839676"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">109</int>
+						<reference key="object" ref="1065147813"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="615704372"/>
+							<reference ref="382334703"/>
+							<reference ref="287001312"/>
+							<reference ref="144509538"/>
+							<reference ref="958497334"/>
+							<reference ref="74279463"/>
+							<reference ref="325037042"/>
+							<reference ref="60978882"/>
+						</array>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">FS File Menu</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">180</int>
+						<reference key="object" ref="60978882"/>
+						<reference key="parent" ref="1065147813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">161</int>
+						<reference key="object" ref="325037042"/>
+						<reference key="parent" ref="1065147813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">140</int>
+						<reference key="object" ref="74279463"/>
+						<reference key="parent" ref="1065147813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">139</int>
+						<reference key="object" ref="958497334"/>
+						<reference key="parent" ref="1065147813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">113</int>
+						<reference key="object" ref="144509538"/>
+						<reference key="parent" ref="1065147813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">112</int>
+						<reference key="object" ref="287001312"/>
+						<reference key="parent" ref="1065147813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">111</int>
+						<reference key="object" ref="382334703"/>
+						<reference key="parent" ref="1065147813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">110</int>
+						<reference key="object" ref="615704372"/>
+						<reference key="parent" ref="1065147813"/>
 					</object>
 				</array>
 			</object>
@@ -949,14 +948,11 @@
 				<string key="111.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="112.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="113.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="114.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="116.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="117.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="118.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="119.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="121.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="122.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="123.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="124.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="125.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="128.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -974,12 +970,15 @@
 				<string key="161.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="163.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="165.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="175.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="177.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="180.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">173</int>
+			<int key="maxID">195</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -999,9 +998,9 @@
 						<string key="menuActionClose:">id</string>
 						<string key="menuActionDelete:">id</string>
 						<string key="menuActionGetInfo:">id</string>
-						<string key="menuActionGetQuickLook:">id</string>
 						<string key="menuActionOpen:">id</string>
 						<string key="menuActionOpenInDefaultEditor:">id</string>
+						<string key="menuActionQuickLook:">id</string>
 						<string key="menuActionRemoveBookmark:">id</string>
 						<string key="menuActionShowInFinder:">id</string>
 						<string key="removeBookmark:">id</string>
@@ -1023,16 +1022,16 @@
 							<string key="name">menuActionGetInfo:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="menuActionGetQuickLook:">
-							<string key="name">menuActionGetQuickLook:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="menuActionOpen:">
 							<string key="name">menuActionOpen:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="menuActionOpenInDefaultEditor:">
 							<string key="name">menuActionOpenInDefaultEditor:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="menuActionQuickLook:">
+							<string key="name">menuActionQuickLook:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="menuActionRemoveBookmark:">
