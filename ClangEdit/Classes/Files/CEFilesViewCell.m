@@ -130,7 +130,7 @@ static void __exit( void )
                     gradient    = [ [ NSGradient alloc ] initWithColorsAndLocations:    [ NSColor whiteColor ], ( CGFloat )0.0,
                                                                                         labelColor,             ( CGFloat )1.0,
                                                                                         nil
-                                          ];
+                                  ];
                     
                     [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )8 yRadius: ( CGFloat )8 ];
                     
