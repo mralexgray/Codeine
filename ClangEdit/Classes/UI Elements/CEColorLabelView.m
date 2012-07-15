@@ -100,7 +100,7 @@
                                                                             nil
                        ];
             
-            [ gradient drawInBezierPath: path angle: -90 ];
+            [ gradient drawInBezierPath: path angle: ( CGFloat )-90 ];
             [ gradient release ];
         }
         
@@ -111,7 +111,7 @@
                    
 		[ path appendBezierPath: [ NSBezierPath bezierPathWithOvalInRect: NSInsetRect( dotRect, ( CGFloat )1, ( CGFloat )1 ) ] ];
 		[ path setWindingRule: NSEvenOddWindingRule ];
-        [ gradient drawInBezierPath: path angle: -90 ];
+        [ gradient drawInBezierPath: path angle: ( CGFloat )-90 ];
         [ gradient release ];
         
         i++;

@@ -108,10 +108,10 @@ static void __exit( void )
                 if( labelColor != nil )
                 {
                     rect              = frame;
-                    rect.origin.x    += frame.size.height + 5;
-                    rect.origin.y    += 1;
-                    rect.size.width  -= frame.size.height + 5;
-                    rect.size.height -= 2;
+                    rect.origin.x    += frame.size.height + ( CGFloat )5;
+                    rect.origin.y    += ( CGFloat )1;
+                    rect.size.width  -= frame.size.height + ( CGFloat )5;
+                    rect.size.height -= ( CGFloat )2;
                     path              = [ NSBezierPath bezierPath ];
                     
                     if( self.backgroundStyle == NSBackgroundStyleDark )
@@ -132,23 +132,23 @@ static void __exit( void )
                                                                                         nil
                                   ];
                     
-                    [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )8 yRadius: ( CGFloat )8 ];
+                    [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
                     
-                    [ gradient drawInBezierPath: path angle: 90 ];
+                    [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
                     [ gradient release ];
                     
                     gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
                                                       endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
                                ];
                     
-                    rect.origin.x    += 0.25;
-                    rect.origin.y    += 0.25;
-                    rect.size.width  -= 0.5;
-                    rect.size.height -= 0.5;
+                    rect.origin.x    += ( CGFloat )0.25;
+                    rect.origin.y    += ( CGFloat )0.25;
+                    rect.size.width  -= ( CGFloat )0.5;
+                    rect.size.height -= ( CGFloat )0.5;
                     
-                    [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rect xRadius: 8 yRadius: 8 ] ];
+                    [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ] ];
                     [ path setWindingRule: NSEvenOddWindingRule ];
-                    [ gradient drawInBezierPath: path angle: 90 ];
+                    [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
                     [ gradient release ];
                 }
             }
