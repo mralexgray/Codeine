@@ -114,6 +114,14 @@ static void __exit( void )
                     rect.size.height -= 2;
                     path              = [ NSBezierPath bezierPath ];
                     
+                    if( self.backgroundStyle == NSBackgroundStyleDark )
+                    {
+                        rect.origin.x    += ( rect.size.width - rect.size.height );
+                        rect.size.height -= 6;
+                        rect.origin.y    += 3;
+                        rect.size.width   = rect.size.height;
+                    }
+                    
                     labelColor = [ labelColor colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
                     
                     [ labelColor getRed: &r green: &g blue: &b alpha: NULL ];
