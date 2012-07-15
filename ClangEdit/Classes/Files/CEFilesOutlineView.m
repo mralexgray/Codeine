@@ -21,7 +21,7 @@
         
         if( [ item isKindOfClass: [ CEFileViewItem class ] ] == YES )
         {
-            if( item.type == CEFileViewItemTypeFS && item.expandable == YES )
+            if( ( item.type == CEFileViewItemTypeFS || item.type == CEFileViewItemTypeBookmark ) && item.expandable == YES )
             {
                 if( [ self isItemExpanded: item ] == YES )
                 {
@@ -31,9 +31,13 @@
                 {
                     [ self expandItem: item ];
                 }
-                
-                return;
             }
+            else
+            {
+                [ self editColumn: self.selectedColumn row: self.selectedRow withEvent: e select: YES ];
+            }
+            
+            return;
         }
     }
     

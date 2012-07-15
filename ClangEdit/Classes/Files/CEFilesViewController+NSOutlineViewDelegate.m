@@ -29,11 +29,47 @@
 
 - ( void )outlineView: ( NSOutlineView * )outlineView willDisplayCell: ( id )cell forTableColumn: ( NSTableColumn * )tableColumn item: ( id )item
 {
+    CEFileViewItem * fileViewItem;
+    NSString       * path;
+    NSRange          range;
+    
     ( void )outlineView;
     ( void )tableColumn;
     ( void )item;
     
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    
     [ ( NSCell * )cell setEditable: YES ];
+    
+    if( fileViewItem.parent.type == CEFileViewItemTypeSection )
+    {
+        [ ( NSCell * )cell setEditable: NO ];
+    }
+    else if( fileViewItem.type == CEFileViewItemTypeSection )
+    {
+        [ ( NSCell * )cell setEditable: NO ];
+    }
+    
+    range = [ fileViewItem.name rangeOfString: @":" ];
+    
+    if( range.location == NSNotFound )
+    {
+        path = fileViewItem.name;
+    }
+    else
+    {
+        path = [ fileViewItem.name substringFromIndex: range.location + 1 ];
+    }
+    
+    if( [ FILE_MANAGER isWritableFileAtPath: path ] == NO )
+    {
+        [ ( NSCell * )cell setEditable: NO ];
+    }
 }
 
 - ( NSCell * )outlineView: ( NSOutlineView * )outlineView dataCellForTableColumn: ( NSTableColumn * )tableColumn item: ( id )item
