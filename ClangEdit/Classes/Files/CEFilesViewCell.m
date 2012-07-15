@@ -103,7 +103,7 @@ static void __exit( void )
                 error       = nil;
                 labelColor  = nil;
                 
-                [ [ NSURL fileURLWithPath: item.file.path ] getResourceValue: &labelColor forKey: NSURLLabelColorKey error: &error ];
+                [ item.file.url getResourceValue: &labelColor forKey: NSURLLabelColorKey error: &error ];
                 
                 if( labelColor != nil )
                 {
