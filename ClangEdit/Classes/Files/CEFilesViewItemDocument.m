@@ -5,14 +5,13 @@
  
 /* $Id$ */
 
-#import "CEFilesViewController+Private.h"
-#import "CEFilesViewController+NSOutlineViewDelegate.h"
-#import "CEFilesViewController+NSOutlineViewDataSource.h"
-#import "CEFilesViewItem.h"
-#import "CEPreferences.h"
+#import "CEFilesViewItemDocument.h"
 
-@implementation CEFilesViewController( Private )
+@implementation CEFilesViewItemDocument
 
-
+- ( BOOL )isLeaf
+{
+    return YES;
+}
 
 @end

@@ -9,7 +9,7 @@
 #import "CEFilesViewController+Private.h"
 #import "CEFilesViewController+NSOutlineViewDelegate.h"
 #import "CEFilesViewController+NSOutlineViewDataSource.h"
-#import "CEFileViewItem.h"
+#import "CEFilesViewItem.h"
 #import "CEPreferences.h"
 #import "CEInfoWindowController.h"
 #import "CEApplicationDelegate.h"
@@ -46,7 +46,7 @@
 {
     _rootItems = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
-    [ _rootItems addObject: [ CEFileViewItem openDocumentsItem ] ];
+    [ _rootItems addObject: [ CEFilesViewItem openDocumentsItem ] ];
     
     #ifdef APPSTORE
         
@@ -54,11 +54,11 @@
         
     #else
         
-        [ _rootItems addObject: [ CEFileViewItem placesItem ] ];
+        [ _rootItems addObject: [ CEFilesViewItem placesItem ] ];
         
     #endif
     
-    [ _rootItems addObject: [ CEFileViewItem bookmarksItems ] ];
+    [ _rootItems addObject: [ CEFilesViewItem bookmarksItems ] ];
     
     [ self setNextResponder: _outlineView.nextResponder ];
     [ _outlineView setNextResponder: self ];
@@ -68,16 +68,16 @@
     _outlineView.autosaveExpandedItems  = YES;
     _outlineView.autosaveName           = NSStringFromClass( [ self class ] );
     
-    [ _outlineView reloadItem: [ CEFileViewItem openDocumentsItem ] reloadChildren: YES ];
-    [ _outlineView reloadItem: [ CEFileViewItem placesItem ]        reloadChildren: YES ];
-    [ _outlineView reloadItem: [ CEFileViewItem bookmarksItems ]    reloadChildren: YES ];
+    [ _outlineView reloadItem: [ CEFilesViewItem openDocumentsItem ] reloadChildren: YES ];
+    [ _outlineView reloadItem: [ CEFilesViewItem placesItem ]        reloadChildren: YES ];
+    [ _outlineView reloadItem: [ CEFilesViewItem bookmarksItems ]    reloadChildren: YES ];
     
-    [ _outlineView expandItem: [ CEFileViewItem openDocumentsItem ] expandChildren: NO ];
+    [ _outlineView expandItem: [ CEFilesViewItem openDocumentsItem ] expandChildren: NO ];
     
     if( [ [ CEPreferences sharedInstance ] firstLaunch ] == YES )
     {
-        [ _outlineView expandItem: [ CEFileViewItem placesItem ]        expandChildren: NO ];
-        [ _outlineView expandItem: [ CEFileViewItem bookmarksItems ]    expandChildren: NO ];
+        [ _outlineView expandItem: [ CEFilesViewItem placesItem ]        expandChildren: NO ];
+        [ _outlineView expandItem: [ CEFilesViewItem bookmarksItems ]    expandChildren: NO ];
     }
 }
 
@@ -106,9 +106,9 @@
             path = [ panel.URL path ];
             
             [ [ CEPreferences sharedInstance ] addBookmark: path ];
-            [ ( CEFileViewItem * )[ CEFileViewItem bookmarksItems ] addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeBookmark name: path ] ];
-            [ _outlineView reloadItem: [ CEFileViewItem bookmarksItems ] reloadChildren: YES ];
-            [ _outlineView expandItem: [ CEFileViewItem bookmarksItems ] ];
+            [ ( CEFilesViewItem * )[ CEFilesViewItem bookmarksItems ] addChild: [ CEFilesViewItem fileViewItemWithType: CEFilesViewItemTypeBookmark name: path ] ];
+            [ _outlineView reloadItem: [ CEFilesViewItem bookmarksItems ] reloadChildren: YES ];
+            [ _outlineView expandItem: [ CEFilesViewItem bookmarksItems ] ];
         }
     ];
 }
@@ -116,7 +116,7 @@
 - ( IBAction )removeBookmark: ( id )sender
 {
     NSInteger        row;
-    CEFileViewItem * item;
+    CEFilesViewItem * item;
     
     ( void )sender;
     
@@ -129,20 +129,20 @@
     
     item = [ _outlineView itemAtRow: row ];
     
-    if( item == nil || item.type != CEFileViewItemTypeBookmark )
+    if( item == nil || item.type != CEFilesViewItemTypeBookmark )
     {
         return;
     }
     
     [ [ CEPreferences sharedInstance ] removeBookmark: item.name ];
-    [ ( CEFileViewItem * )[ CEFileViewItem bookmarksItems ] removeChild: item ];
-    [ _outlineView reloadItem: [ CEFileViewItem bookmarksItems ] reloadChildren: YES ];
+    [ ( CEFilesViewItem * )[ CEFilesViewItem bookmarksItems ] removeChild: item ];
+    [ _outlineView reloadItem: [ CEFilesViewItem bookmarksItems ] reloadChildren: YES ];
 }
 
 - ( IBAction )menuActionOpen: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFileViewItem  * item;
+    CEFilesViewItem  * item;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -151,7 +151,7 @@
     
     menuItem = sender;
     
-    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
@@ -162,7 +162,7 @@
 - ( IBAction )menuActionClose: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFileViewItem  * item;
+    CEFilesViewItem  * item;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -171,7 +171,7 @@
     
     menuItem = sender;
     
-    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
@@ -182,7 +182,7 @@
 - ( IBAction )menuActionShowInFinder: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFileViewItem  * item;
+    CEFilesViewItem  * item;
     NSString        * path;
     NSRange           range;
     
@@ -193,7 +193,7 @@
     
     menuItem = sender;
     
-    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
@@ -216,7 +216,7 @@
 - ( IBAction )menuActionOpenInDefaultEditor: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFileViewItem  * item;
+    CEFilesViewItem  * item;
     NSString        * path;
     NSRange           range;
     
@@ -227,7 +227,7 @@
     
     menuItem = sender;
     
-    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
@@ -250,7 +250,7 @@
 - ( IBAction )menuActionDelete: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFileViewItem  * item;
+    CEFilesViewItem  * item;
     NSString        * path;
     NSRange           range;
     NSError         * error;
@@ -262,7 +262,7 @@
     
     menuItem = sender;
     
-    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
@@ -312,9 +312,9 @@
             
             parent = item.parent;
             
-            if( [ parent isKindOfClass: [ CEFileViewItem class ] ] )
+            if( [ parent isKindOfClass: [ CEFilesViewItem class ] ] )
             {
-                [ ( CEFileViewItem * )parent removeChild: item ];
+                [ ( CEFilesViewItem * )parent removeChild: item ];
             }
             
             [ _outlineView reloadItem: parent reloadChildren: YES ];
@@ -325,7 +325,7 @@
 - ( IBAction )menuActionRemoveBookmark: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFileViewItem  * item;
+    CEFilesViewItem  * item;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -334,7 +334,7 @@
     
     menuItem = sender;
     
-    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
@@ -342,14 +342,14 @@
     item = menuItem.representedObject;
     
     [ [ CEPreferences sharedInstance ] removeBookmark: item.name ];
-    [ ( CEFileViewItem * )[ CEFileViewItem bookmarksItems ] removeChild: item ];
-    [ _outlineView reloadItem: [ CEFileViewItem bookmarksItems ] reloadChildren: YES ];
+    [ ( CEFilesViewItem * )[ CEFilesViewItem bookmarksItems ] removeChild: item ];
+    [ _outlineView reloadItem: [ CEFilesViewItem bookmarksItems ] reloadChildren: YES ];
 }
 
 - ( IBAction )menuActionGetInfo: ( id )sender
 {
     NSMenuItem              * menuItem;
-    CEFileViewItem          * item;
+    CEFilesViewItem          * item;
     CEInfoWindowController  * controller;
     NSString                * path;
     NSRange                   range;
@@ -361,7 +361,7 @@
     
     menuItem = sender;
     
-    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
@@ -398,7 +398,7 @@
 - ( IBAction )menuActionQuickLook: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFileViewItem  * item;
+    CEFilesViewItem  * item;
     NSString        * path;
     NSRange           range;
     
@@ -409,7 +409,7 @@
     
     menuItem = sender;
     
-    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }

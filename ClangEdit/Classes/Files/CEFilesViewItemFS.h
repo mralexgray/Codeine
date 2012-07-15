@@ -5,14 +5,19 @@
  
 /* $Id$ */
 
-#import "CEFilesViewController+Private.h"
-#import "CEFilesViewController+NSOutlineViewDelegate.h"
-#import "CEFilesViewController+NSOutlineViewDataSource.h"
 #import "CEFilesViewItem.h"
-#import "CEPreferences.h"
 
-@implementation CEFilesViewController( Private )
-
-
+@interface CEFilesViewItemFS: CEFilesViewItem
+{
+@protected
+    
+    NSString * _path;
+    NSString * _prefix;
+    BOOL       _isDirectory;
+    
+@private
+    
+    RESERVERD_IVARS( CEFileViewItemFS, 5 );
+}
 
 @end

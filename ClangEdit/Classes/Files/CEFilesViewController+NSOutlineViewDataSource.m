@@ -7,13 +7,13 @@
 
 #import "CEFilesViewController+NSOutlineViewDataSource.h"
 #import "CEFilesViewController+Private.h"
-#import "CEFileViewItem.h"
+#import "CEFilesViewItem.h"
 
 @implementation CEFilesViewController( NSOutlineViewDataSource )
 
 - ( NSInteger )outlineView: ( NSOutlineView * )outlineView numberOfChildrenOfItem: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     
     ( void )outlineView;
     
@@ -22,35 +22,35 @@
         return ( NSInteger )( _rootItems.count );
     }
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return 0;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     
     return ( NSInteger )( fileViewItem.children.count );
 }
 
 - ( BOOL )outlineView: ( NSOutlineView * )outlineView isItemExpandable: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     
     ( void )outlineView;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return NO;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     
     return fileViewItem.expandable;
 }
 
 - ( id )outlineView: ( NSOutlineView * )outlineView child: ( NSInteger )index ofItem: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     
     ( void )outlineView;
     
@@ -68,12 +68,12 @@
         }
     }
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return nil;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     
     @try
     {
@@ -89,24 +89,24 @@
 
 - ( id )outlineView: ( NSOutlineView * )outlineView objectValueForTableColumn: ( NSTableColumn * )tableColumn byItem: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     
     ( void )outlineView;
     ( void )tableColumn;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return nil;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     
-    return ( fileViewItem.type == CEFileViewItemTypeSection ) ? fileViewItem.displayName : fileViewItem;
+    return ( fileViewItem.type == CEFilesViewItemTypeSection ) ? fileViewItem.displayName : fileViewItem;
 }
 
 - ( void )outlineView: ( NSOutlineView * )outlineView setObjectValue: ( id )object forTableColumn: ( NSTableColumn * )tableColumn byItem: ( id )item
 {
-    CEFileViewItem  * fileViewItem;
+    CEFilesViewItem  * fileViewItem;
     NSString        * path;
     NSString        * newPath;
     NSString        * newName;
@@ -123,12 +123,12 @@
     
     newName = object;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     
     range = [ fileViewItem.name rangeOfString: @":" ];
     
@@ -158,7 +158,7 @@
         {
             id parent;
             
-            if( [ fileViewItem.parent isKindOfClass: [ CEFileViewItem class ] ] == YES )
+            if( [ fileViewItem.parent isKindOfClass: [ CEFilesViewItem class ] ] == YES )
             {
                 parent = fileViewItem.parent;
                 
@@ -172,17 +172,17 @@
 
 - ( id )outlineView: ( NSOutlineView * )outlineView persistentObjectForItem: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     NSDictionary   * dictionary;
     
     ( void )outlineView;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return nil;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     dictionary   = [ NSDictionary dictionaryWithObjectsAndKeys: [ NSNumber numberWithInteger: fileViewItem.type ],  @"Type",
                                                                 fileViewItem.name,                                  @"Name",
                                                                 nil
@@ -193,36 +193,36 @@
 
 - ( id )outlineView: ( NSOutlineView * )outlineView itemForPersistentObject: ( id )object
 {
-    CEFileViewItemType  type;
-    NSString          * name;
-    CEFileViewItem    * item;
+    CEFilesViewItemType  type;
+    NSString           * name;
+    CEFilesViewItem    * item;
     
     ( void )outlineView;
     
     if( [ object isKindOfClass: [ NSDictionary class ] ] )
     {
-        type = ( CEFileViewItemType )[ ( NSNumber * )[ ( NSDictionary * )object objectForKey: @"Type" ] integerValue ];
+        type = ( CEFilesViewItemType )[ ( NSNumber * )[ ( NSDictionary * )object objectForKey: @"Type" ] integerValue ];
         name = [ ( NSDictionary * )object objectForKey: @"Name" ];
         
-        if( type == CEFileViewItemTypeSection && [ name isEqualToString: CEFileViewOpenDocumentsItemName ] )
+        if( type == CEFilesViewItemTypeSection && [ name isEqualToString: CEFilesViewOpenDocumentsItemName ] )
         {
-            item = [ CEFileViewItem openDocumentsItem ];
+            item = [ CEFilesViewItem openDocumentsItem ];
         }
-        else if( type == CEFileViewItemTypeSection && [ name isEqualToString: CEFileViewPlacesItemName ] )
+        else if( type == CEFilesViewItemTypeSection && [ name isEqualToString: CEFilesViewPlacesItemName ] )
         {
-            item = [ CEFileViewItem placesItem ];
+            item = [ CEFilesViewItem placesItem ];
         }
-        else if( type == CEFileViewItemTypeSection && [ name isEqualToString: CEFileViewBookmarksItemName ] )
+        else if( type == CEFilesViewItemTypeSection && [ name isEqualToString: CEFilesViewBookmarksItemName ] )
         {
-            item = [ CEFileViewItem bookmarksItems ];
+            item = [ CEFilesViewItem bookmarksItems ];
         }
-        else if( type == CEFileViewItemTypeFS )
+        else if( type == CEFilesViewItemTypeFS )
         {
-            item = [ [ CEFileViewItem placesItem ] valueForKeyPath: name ];
+            item = [ [ CEFilesViewItem placesItem ] valueForKeyPath: name ];
         }
-        else if( type == CEFileViewItemTypeBookmark )
+        else if( type == CEFilesViewItemTypeBookmark )
         {
-            item = [ [ CEFileViewItem bookmarksItems ] valueForKeyPath: name ];
+            item = [ [ CEFilesViewItem bookmarksItems ] valueForKeyPath: name ];
         }
         else
         {

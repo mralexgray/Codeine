@@ -5,13 +5,18 @@
  
 /* $Id$ */
 
-#import "CEFilesViewController+Private.h"
-#import "CEFilesViewController+NSOutlineViewDelegate.h"
-#import "CEFilesViewController+NSOutlineViewDataSource.h"
-#import "CEFilesViewItem.h"
-#import "CEPreferences.h"
+#import "CEFilesViewItemFS.h"
 
-@implementation CEFilesViewController( Private )
+@interface CEFilesViewItemBookmark: CEFilesViewItemFS
+{
+@protected
+    
+    
+    
+@private
+    
+    RESERVERD_IVARS( CEFileViewItemBookmark, 5 );
+}
 
 
 

@@ -6,50 +6,50 @@
 /* $Id$ */
 
 #import "CEFilesViewController+NSOutlineViewDelegate.h"
-#import "CEFileViewItem.h"
-#import "CEFileViewCell.h"
+#import "CEFilesViewItem.h"
+#import "CEFilesViewCell.h"
 
 @implementation CEFilesViewController( NSOutlineViewDelegate )
 
 - ( BOOL )outlineView: ( NSOutlineView * )outlineView isGroupItem: ( id )item
 {
-    CEFileViewItem * filesViewItem;
+    CEFilesViewItem * filesViewItem;
     
     ( void )outlineView;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return NO;
     }
     
-    filesViewItem = ( CEFileViewItem * )item;
+    filesViewItem = ( CEFilesViewItem * )item;
     
-    return ( BOOL )( filesViewItem.type == CEFileViewItemTypeSection );
+    return ( BOOL )( filesViewItem.type == CEFilesViewItemTypeSection );
 }
 
 - ( void )outlineView: ( NSOutlineView * )outlineView willDisplayCell: ( id )cell forTableColumn: ( NSTableColumn * )tableColumn item: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     NSString       * path;
     NSRange          range;
     
     ( void )outlineView;
     ( void )tableColumn;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     
     [ ( NSCell * )cell setEditable: YES ];
     
-    if( fileViewItem.parent.type == CEFileViewItemTypeSection )
+    if( fileViewItem.parent.type == CEFilesViewItemTypeSection )
     {
         [ ( NSCell * )cell setEditable: NO ];
     }
-    else if( fileViewItem.type == CEFileViewItemTypeSection )
+    else if( fileViewItem.type == CEFilesViewItemTypeSection )
     {
         [ ( NSCell * )cell setEditable: NO ];
     }
@@ -73,21 +73,21 @@
 
 - ( NSCell * )outlineView: ( NSOutlineView * )outlineView dataCellForTableColumn: ( NSTableColumn * )tableColumn item: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     
     ( void )outlineView;
     ( void )tableColumn;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return nil;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     
-    if( fileViewItem.type != CEFileViewItemTypeSection )
+    if( fileViewItem.type != CEFilesViewItemTypeSection )
     {
-        return [ CEFileViewCell prototypeCell ];
+        return [ CEFilesViewCell prototypeCell ];
     }
     
     return nil;
@@ -95,22 +95,22 @@
 
 - ( BOOL )outlineView: ( NSOutlineView * )outlineView shouldSelectItem: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     
     ( void )outlineView;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return NO;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     
     if
     (
-           fileViewItem.type == CEFileViewItemTypeDocument
-        || fileViewItem.type == CEFileViewItemTypeFS
-        || fileViewItem.type == CEFileViewItemTypeBookmark
+           fileViewItem.type == CEFilesViewItemTypeDocument
+        || fileViewItem.type == CEFilesViewItemTypeFS
+        || fileViewItem.type == CEFilesViewItemTypeBookmark
     )
     {
         return YES;
@@ -121,7 +121,7 @@
 
 - ( NSMenu * )outlineView: ( CEFilesOutlineView * )view menuForRow: ( NSInteger )row
 {
-    CEFileViewItem * item;
+    CEFilesViewItem * item;
     NSMenuItem     * menuItem;
     NSMenu         * menu;
     NSString       * path;
@@ -132,12 +132,12 @@
     menu = nil;
     item = [ _outlineView itemAtRow: row ];
     
-    if( item.type == CEFileViewItemTypeDocument )
+    if( item.type == CEFilesViewItemTypeDocument )
     {
         menu = _openDocumentMenu;
     }
     
-    if( item.type == CEFileViewItemTypeFS )
+    if( item.type == CEFilesViewItemTypeFS )
     {
         range = [ item.name rangeOfString: @":" ];
         
@@ -159,7 +159,7 @@
             menu = _fsDirectoryMenu;
         }
         
-        if( item.parent.type == CEFileViewItemTypeSection )
+        if( item.parent.type == CEFilesViewItemTypeSection )
         {
             [ [ menu itemAtIndex: menu.numberOfItems - 1 ] setEnabled: NO ];
         }
@@ -174,7 +174,7 @@
         }
     }
     
-    if( item.type == CEFileViewItemTypeBookmark )
+    if( item.type == CEFilesViewItemTypeBookmark )
     {
         range = [ item.name rangeOfString: @":" ];
         
@@ -187,7 +187,7 @@
             path = [ item.name substringFromIndex: range.location + 1 ];
         }
         
-        if( item.parent.type == CEFileViewItemTypeBookmark )
+        if( item.parent.type == CEFilesViewItemTypeBookmark )
         {
             if( item.isLeaf == YES )
             {
@@ -219,16 +219,16 @@
 
 - ( void )outlineView: ( CEFilesOutlineView * )view showQuickLookForItem: ( id )item
 {
-    CEFileViewItem * fileViewItem;
+    CEFilesViewItem * fileViewItem;
     NSString       * path;
     NSRange          range;
     
-    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
     
-    fileViewItem = ( CEFileViewItem * )item;
+    fileViewItem = ( CEFilesViewItem * )item;
     range        = [ fileViewItem.name rangeOfString: @":" ];
     
     if( range.location == NSNotFound )

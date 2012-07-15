@@ -6,14 +6,14 @@
 /* $Id$ */
 
 #import "CEFilesOutlineView.h"
-#import "CEFileViewItem.h"
+#import "CEFilesViewItem.h"
 #import <Carbon/../Frameworks/HIToolbox.framework/Headers/Events.h>
 
 @implementation CEFilesOutlineView
 
 - ( void )keyDown: ( NSEvent * )e
 {
-    CEFileViewItem                    * item;
+    CEFilesViewItem                    * item;
     id < CEFilesOutlineViewDelegate >   delegate;
     
     delegate = nil;
@@ -27,9 +27,9 @@
     {
         item = [ self itemAtRow: self.selectedRow ];
         
-        if( [ item isKindOfClass: [ CEFileViewItem class ] ] == YES )
+        if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == YES )
         {
-            if( ( item.type == CEFileViewItemTypeFS || item.type == CEFileViewItemTypeBookmark ) && item.expandable == YES )
+            if( ( item.type == CEFilesViewItemTypeFS || item.type == CEFilesViewItemTypeBookmark ) && item.expandable == YES )
             {
                 if( [ self isItemExpanded: item ] == YES )
                 {
@@ -52,7 +52,7 @@
     {
         item = [ self itemAtRow: self.selectedRow ];
         
-        if( [ item isKindOfClass: [ CEFileViewItem class ] ] == YES )
+        if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == YES )
         {
             if( [ delegate respondsToSelector: @selector( outlineView:showQuickLookForItem: ) ] )
             {

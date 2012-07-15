@@ -7,7 +7,7 @@
 
 #import "CEViewController.h"
 
-@class CEFileViewItem;
+@class CEFilesViewItem;
 
 @interface CEFilesViewController: CEViewController
 {
@@ -19,7 +19,7 @@
     NSMenu         * _bookmarkMenu;
     NSMenu         * _fsDirectoryMenu;
     NSMenu         * _fsFileMenu;
-    CEFileViewItem * _quickLookItem;
+    CEFilesViewItem * _quickLookItem;
     
 @private
     
