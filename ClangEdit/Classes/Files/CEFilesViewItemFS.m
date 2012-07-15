@@ -7,6 +7,7 @@
 
 #import "CEFilesViewItemFS.h"
 #import "CEPreferences.h"
+#import "CEFile.h"
 
 @implementation CEFilesViewItemFS
 
@@ -35,6 +36,8 @@
             
             return nil;
         }
+        
+        _file = [ [ CEFile alloc ] initWithPath: _path ];
     }
     
     return self;
@@ -43,6 +46,7 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _path );
+    RELEASE_IVAR( _file );
     
     [ super dealloc ];
 }
@@ -165,6 +169,13 @@
 - ( BOOL )isLeaf
 {
     return ( _isDirectory == YES ) ? NO : YES;
+}
+
+- ( void )reload
+{
+    RELEASE_IVAR( _file );
+    
+    _file = [ [ CEFile alloc ] initWithPath: _path ];
 }
 
 @end

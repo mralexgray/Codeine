@@ -18,12 +18,15 @@ FOUNDATION_EXPORT NSString * const CEFilesViewOpenDocumentsItemName;
 FOUNDATION_EXPORT NSString * const CEFilesViewPlacesItemName;
 FOUNDATION_EXPORT NSString * const CEFilesViewBookmarksItemName;
 
+@class CEFile;
+
 @interface CEFilesViewItem: NSObject < NSCopying >
 {
 @protected
     
     CEFilesViewItemType _type;
     NSString          * _name;
+    CEFile            * _file;
     
 @private
 
@@ -41,6 +44,7 @@ FOUNDATION_EXPORT NSString * const CEFilesViewBookmarksItemName;
 @property( atomic, readonly          ) NSString          * displayName;
 @property( atomic, readonly          ) NSImage           * icon;
 @property( atomic, readonly          ) NSArray           * children;
+@property( atomic, readonly          ) CEFile            * file;
 @property( atomic, readonly          ) BOOL                expandable;
 @property( atomic, readwrite, retain ) id                  representedObject;
 @property( atomic, readonly          ) BOOL                isLeaf;

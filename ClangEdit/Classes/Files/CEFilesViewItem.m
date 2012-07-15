@@ -36,6 +36,7 @@ static void __exit( void )
 @synthesize displayName         = _displayName;
 @synthesize icon                = _icon;
 @synthesize parent              = _parent;
+@synthesize file                = _file;
 
 + ( id )openDocumentsItem
 {
