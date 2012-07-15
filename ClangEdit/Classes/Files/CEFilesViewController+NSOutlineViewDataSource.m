@@ -6,6 +6,7 @@
 /* $Id$ */
 
 #import "CEFilesViewController+NSOutlineViewDataSource.h"
+#import "CEFilesViewController+Private.h"
 #import "CEFileViewItem.h"
 
 @implementation CEFilesViewController( NSOutlineViewDataSource )
@@ -101,6 +102,61 @@
     fileViewItem = ( CEFileViewItem * )item;
     
     return ( fileViewItem.type == CEFileViewItemTypeSection ) ? fileViewItem.displayName : fileViewItem;
+}
+
+- ( void )outlineView: ( NSOutlineView * )outlineView setObjectValue: ( id )object forTableColumn: ( NSTableColumn * )tableColumn byItem: ( id )item
+{
+    CEFileViewItem  * fileViewItem;
+    NSString        * path;
+    NSString        * newPath;
+    NSString        * newName;
+    NSError         * error;
+    NSRange           range;
+    
+    ( void )outlineView;
+    ( void )tableColumn;
+    
+    if( [ object isKindOfClass: [ NSString class ] ] == NO )
+    {
+        return;
+    }
+    
+    newName = object;
+    
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    
+    range = [ fileViewItem.name rangeOfString: @":" ];
+    
+    if( range.location == NSNotFound )
+    {
+        path = fileViewItem.name;
+    }
+    else
+    {
+        path = [ fileViewItem.name substringFromIndex: range.location + 1 ];
+    }
+    
+    if( [ path.lastPathComponent isEqualToString: newName ] )
+    {
+        return;
+    }
+    
+    newPath = [ [ path stringByDeletingLastPathComponent ] stringByAppendingPathComponent: newName ];
+    error   = nil;
+    
+    if( [ FILE_MANAGER moveItemAtPath: path toPath: newPath error: &error ] == NO || error != nil )
+    {
+        NSBeep();
+    }
+    else
+    {
+        [ self reload ];
+    }
 }
 
 - ( id )outlineView: ( NSOutlineView * )outlineView persistentObjectForItem: ( id )item
