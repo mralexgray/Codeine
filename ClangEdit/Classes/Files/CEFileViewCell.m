@@ -85,6 +85,66 @@ static void __exit( void )
         return;
     }
     
+    if( item.type == CEFileViewItemTypeBookmark || item.type == CEFileViewItemTypeBookmark )
+    {
+        {
+            CGRect         rect;
+            NSBezierPath * path;
+            NSString     * filePath;
+            NSError      * error;
+            NSColor      * labelColor;
+            NSGradient   * gradient;
+            NSRange        range;
+            CGFloat        r;
+            CGFloat        g;
+            CGFloat        b;
+            
+            range = [ item.name rangeOfString: @":" ];
+            
+            if( range.location == NSNotFound )
+            {
+                filePath = item.name;
+            }
+            else
+            {
+                filePath = [ item.name substringFromIndex: range.location + 1 ];
+            }
+            
+            if( [ FILE_MANAGER fileExistsAtPath: filePath ] == YES )
+            {
+                error       = nil;
+                labelColor  = nil;
+                
+                [ [ NSURL fileURLWithPath: filePath ] getResourceValue: &labelColor forKey: NSURLLabelColorKey error: &error ];
+                
+                if( labelColor != nil )
+                {
+                    rect              = frame;
+                    rect.origin.x    += frame.size.height + 5;
+                    rect.origin.y    += 1;
+                    rect.size.width  -= frame.size.height + 5;
+                    rect.size.height -= 2;
+                    path              = [ NSBezierPath bezierPath ];
+                    
+                    labelColor = [ labelColor colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
+                    
+                    [ labelColor getRed: &r green: &g blue: &b alpha: NULL ];
+                    
+                    labelColor  = [ NSColor colorWithDeviceRed: r green: g blue: b alpha: ( CGFloat )0.5 ];
+                    gradient    = [ [ NSGradient alloc ] initWithColorsAndLocations:    [ NSColor whiteColor ], ( CGFloat )0.0,
+                                                                                        labelColor,             ( CGFloat )1.0,
+                                                                                        nil
+                                          ];
+                    
+                    [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )8 yRadius: ( CGFloat )8 ];
+                    
+                    [ gradient drawInBezierPath: path angle: 90 ];
+                    [ gradient release ];
+                }
+            }
+        }
+    }
+    
     text            = item.displayName;
     icon            = item.icon;
     color           = ( self.isHighlighted == YES ) ? [ NSColor alternateSelectedControlTextColor ] : [ NSColor textColor ];
