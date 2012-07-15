@@ -40,8 +40,6 @@
 
 - ( void )awakeFromNib
 {
-    [ NOTIFICATION_CENTER addObserver: self selector: @selector( reload ) name: CEPreferencesNotificationValueChanged object: CEPreferencesKeyShowHiddenFiles ];
-    
     _rootItems = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
     [ _rootItems addObject: [ CEFileViewItem openDocumentsItem ] ];
