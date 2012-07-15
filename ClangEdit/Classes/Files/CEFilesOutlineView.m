@@ -13,7 +13,15 @@
 
 - ( void )keyDown: ( NSEvent * )e
 {
-    CEFileViewItem * item;
+    CEFileViewItem                    * item;
+    id < CEFilesOutlineViewDelegate >   delegate;
+    
+    delegate = nil;
+    
+    if( [ self.delegate conformsToProtocol: @protocol( CEFilesOutlineViewDelegate ) ] )
+    {
+        delegate = ( id < CEFilesOutlineViewDelegate > )( self.delegate );
+    }
     
     if( e.keyCode == kVK_Return && self.selectedRow != -1 )
     {
@@ -38,6 +46,20 @@
             }
             
             return;
+        }
+    }
+    else if( e.keyCode == kVK_Space && self.selectedRow != -1 )
+    {
+        item = [ self itemAtRow: self.selectedRow ];
+        
+        if( [ item isKindOfClass: [ CEFileViewItem class ] ] == YES )
+        {
+            if( [ delegate respondsToSelector: @selector( outlineView:showQuickLookForItem: ) ] )
+            {
+                [ delegate outlineView: self showQuickLookForItem: item ];
+            
+                return;
+            }
         }
     }
     

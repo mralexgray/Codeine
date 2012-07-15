@@ -19,6 +19,7 @@
     NSMenu         * _bookmarkMenu;
     NSMenu         * _fsDirectoryMenu;
     NSMenu         * _fsFileMenu;
+    CEFileViewItem * _quickLookItem;
     
 @private
     
@@ -40,5 +41,6 @@
 - ( IBAction )menuActionDelete: ( id )sender;
 - ( IBAction )menuActionRemoveBookmark: ( id )sender;
 - ( IBAction )menuActionGetInfo: ( id )sender;
+- ( IBAction )menuActionQuickLook: ( id )sender;
 
 @end

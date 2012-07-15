@@ -15,5 +15,6 @@
     - ( void )outlineView: ( CEFilesOutlineView * )view willClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point;
     - ( void )outlineView: ( CEFilesOutlineView * )view didClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point;
     - ( NSMenu * )outlineView: ( CEFilesOutlineView * )view menuForRow: ( NSInteger )row;
+    - ( void )outlineView: ( CEFilesOutlineView * )view showQuickLookForItem: ( id )item;
 
 @end

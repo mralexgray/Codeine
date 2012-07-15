@@ -35,7 +35,6 @@
     
     ( void )outlineView;
     ( void )tableColumn;
-    ( void )item;
     
     if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
     {
@@ -216,6 +215,32 @@
     }
     
     return menu;
+}
+
+- ( void )outlineView: ( CEFilesOutlineView * )view showQuickLookForItem: ( id )item
+{
+    CEFileViewItem * fileViewItem;
+    NSString       * path;
+    NSRange          range;
+    
+    if( [ item isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    fileViewItem = ( CEFileViewItem * )item;
+    range        = [ fileViewItem.name rangeOfString: @":" ];
+    
+    if( range.location == NSNotFound )
+    {
+        path = fileViewItem.name;
+    }
+    else
+    {
+        path = [ fileViewItem.name substringFromIndex: range.location + 1 ];
+    }
+    
+    [ APPLICATION showQuickLookPanelForItemAtPath: path sender: view ];
 }
 
 /*

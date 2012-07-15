@@ -97,6 +97,10 @@
 		05DD2908159F1E5D008E228F /* CEOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */; };
 		05DD290B159F24AB008E228F /* CEMutableOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */; };
 		05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */; };
+		05F3174215B253560000C4CA /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F3174115B253550000C4CA /* QuickLook.framework */; };
+		05F3174415B254C40000C4CA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F3174315B254C40000C4CA /* Quartz.framework */; };
+		05F3174D15B25B9D0000C4CA /* CEQuickLookItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F3174C15B25B9D0000C4CA /* CEQuickLookItem.m */; };
+		05F3175615B25FFB0000C4CA /* NSApplication+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F3175515B25FFB0000C4CA /* NSApplication+CE.m */; };
 		05F4793A15B2188800B1D80E /* NSString+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4793915B2188800B1D80E /* NSString+CE.m */; };
 		05F5152A159A17AE0049A756 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F51528159A17AE0049A756 /* Localizable.strings */; };
 		05F5152E159A19820049A756 /* CEPreferencesWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */; };
@@ -275,6 +279,12 @@
 		05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMutableOrderedDictionary.m; sourceTree = "<group>"; };
 		05EF1967159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+Private.h"; sourceTree = "<group>"; };
 		05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesCompilerOptionsViewController+Private.m"; sourceTree = "<group>"; };
+		05F3174115B253550000C4CA /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		05F3174315B254C40000C4CA /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		05F3174B15B25B9D0000C4CA /* CEQuickLookItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEQuickLookItem.h; sourceTree = "<group>"; };
+		05F3174C15B25B9D0000C4CA /* CEQuickLookItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEQuickLookItem.m; sourceTree = "<group>"; };
+		05F3175415B25FFB0000C4CA /* NSApplication+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSApplication+CE.h"; sourceTree = "<group>"; };
+		05F3175515B25FFB0000C4CA /* NSApplication+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+CE.m"; sourceTree = "<group>"; };
 		05F4793815B2188800B1D80E /* NSString+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CE.h"; sourceTree = "<group>"; };
 		05F4793915B2188800B1D80E /* NSString+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CE.m"; sourceTree = "<group>"; };
 		05F51529159A17AE0049A756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -297,6 +307,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F3174415B254C40000C4CA /* Quartz.framework in Frameworks */,
+				05F3174215B253560000C4CA /* QuickLook.framework in Frameworks */,
 				05480FAD159A0B32005CFBC5 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +400,8 @@
 				05DD28F2159E12D4008E228F /* NSBundle+CE.m */,
 				05F4793815B2188800B1D80E /* NSString+CE.h */,
 				05F4793915B2188800B1D80E /* NSString+CE.m */,
+				05F3175415B25FFB0000C4CA /* NSApplication+CE.h */,
+				05F3175515B25FFB0000C4CA /* NSApplication+CE.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -412,6 +426,8 @@
 		05480FAB159A0B32005CFBC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05F3174315B254C40000C4CA /* Quartz.framework */,
+				05F3174115B253550000C4CA /* QuickLook.framework */,
 				05480FAC159A0B32005CFBC5 /* Cocoa.framework */,
 				05480FAE159A0B32005CFBC5 /* Other Frameworks */,
 			);
@@ -695,6 +711,8 @@
 				05F8036615A8804D00CD9F0D /* CEColorTheme.m */,
 				050629F815AB8B5B00DA6EE6 /* CELinkerObject.h */,
 				050629F915AB8B5C00DA6EE6 /* CELinkerObject.m */,
+				05F3174B15B25B9D0000C4CA /* CEQuickLookItem.h */,
+				05F3174C15B25B9D0000C4CA /* CEQuickLookItem.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -883,6 +901,8 @@
 				052CEA5315B1F39A00E0BC0F /* CEInfoWindowOutlineView.m in Sources */,
 				052CEA5615B1F3AA00E0BC0F /* CEInfoWindowView.m in Sources */,
 				05F4793A15B2188800B1D80E /* NSString+CE.m in Sources */,
+				05F3174D15B25B9D0000C4CA /* CEQuickLookItem.m in Sources */,
+				05F3175615B25FFB0000C4CA /* NSApplication+CE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

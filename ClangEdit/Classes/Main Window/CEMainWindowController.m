@@ -13,6 +13,7 @@
 #import "CESourceFile.h"
 #import "CETextEncoding.h"
 #import "CEPreferences.h"
+#import "CEQuickLookItem.h"
 
 @implementation CEMainWindowController
 

@@ -99,7 +99,7 @@
 
 + ( id )colorThemeWithName: ( NSString * )name
 {
-    return [ [ [ self alloc ] initWithName: name ] autorelease ];
+    return [ [ ( CEColorTheme * )[ self alloc ] initWithName: name ] autorelease ];
 }
 
 - ( id )initWithName: ( NSString * )name

@@ -5,17 +5,20 @@
  
 /* $Id$ */
 
-FOUNDATION_EXPORT NSString * const CEViewControllerException;
+#import <Quartz/Quartz.h>
 
-@interface CEViewController: NSViewController
+@interface CEQuickLookItem: NSObject < QLPreviewItem >
 {
 @protected
     
-    NSView * _currentView;
+    NSString * _path;
     
 @private
     
-    RESERVERD_IVARS( CEViewController , 5 );
+    RESERVERD_IVARS( CEQuickLookItem, 5 );
 }
+
++ ( id )quickLookItemWithPath: ( NSString * )path;
+- ( id )initWithPath: ( NSString * )path;
 
 @end

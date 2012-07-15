@@ -191,6 +191,7 @@
 						<string key="NSFrame">{{1, 119}, {238, 15}}</string>
 						<reference key="NSSuperview" ref="695435621"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:60</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<int key="NSsFlags">1</int>
@@ -264,6 +265,14 @@
 						<reference key="NSOnImage" ref="75921941"/>
 						<reference key="NSMixedImage" ref="166627893"/>
 					</object>
+					<object class="NSMenuItem" id="325037042">
+						<reference key="NSMenu" ref="1065147813"/>
+						<string key="NSTitle">Preview (QuickLook)</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="75921941"/>
+						<reference key="NSMixedImage" ref="166627893"/>
+					</object>
 					<object class="NSMenuItem" id="60978882">
 						<reference key="NSMenu" ref="1065147813"/>
 						<bool key="NSIsDisabled">YES</bool>
@@ -304,6 +313,14 @@
 						<reference key="NSOnImage" ref="75921941"/>
 						<reference key="NSMixedImage" ref="166627893"/>
 					</object>
+					<object class="NSMenuItem" id="282874270">
+						<reference key="NSMenu" ref="161839676"/>
+						<string key="NSTitle">Preview (QuickLook)</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="75921941"/>
+						<reference key="NSMixedImage" ref="166627893"/>
+					</object>
 					<object class="NSMenuItem" id="627391250">
 						<reference key="NSMenu" ref="161839676"/>
 						<bool key="NSIsDisabled">YES</bool>
@@ -339,6 +356,14 @@
 					<object class="NSMenuItem" id="892305978">
 						<reference key="NSMenu" ref="1031735553"/>
 						<string key="NSTitle">Get infos</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="75921941"/>
+						<reference key="NSMixedImage" ref="166627893"/>
+					</object>
+					<object class="NSMenuItem" id="579157086">
+						<reference key="NSMenu" ref="1031735553"/>
+						<string key="NSTitle">Preview (QuickLook)</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="75921941"/>
@@ -405,6 +430,14 @@
 					<object class="NSMenuItem" id="6483948">
 						<reference key="NSMenu" ref="779538480"/>
 						<string key="NSTitle">Get infos</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="75921941"/>
+						<reference key="NSMixedImage" ref="166627893"/>
+					</object>
+					<object class="NSMenuItem" id="424021862">
+						<reference key="NSMenu" ref="779538480"/>
+						<string key="NSTitle">Preview (QuickLook)</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="75921941"/>
@@ -610,6 +643,38 @@
 					</object>
 					<int key="connectionID">158</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">menuActionQuickLook:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="579157086"/>
+					</object>
+					<int key="connectionID">170</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">menuActionQuickLook:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="282874270"/>
+					</object>
+					<int key="connectionID">171</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">menuActionQuickLook:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="325037042"/>
+					</object>
+					<int key="connectionID">172</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">menuActionQuickLook:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="424021862"/>
+					</object>
+					<int key="connectionID">173</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -689,6 +754,7 @@
 							<reference ref="60978882"/>
 							<reference ref="958497334"/>
 							<reference ref="74279463"/>
+							<reference ref="325037042"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">FS File Menu</string>
@@ -701,6 +767,7 @@
 							<reference ref="294991337"/>
 							<reference ref="1067364921"/>
 							<reference ref="221620582"/>
+							<reference ref="282874270"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">FS Folder Menu</string>
@@ -733,6 +800,7 @@
 							<reference ref="62207800"/>
 							<reference ref="892305978"/>
 							<reference ref="468818236"/>
+							<reference ref="579157086"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Bookmarks Menu</string>
@@ -763,6 +831,7 @@
 							<reference ref="856080468"/>
 							<reference ref="489042642"/>
 							<reference ref="1049679023"/>
+							<reference ref="424021862"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Open Documents Menu</string>
@@ -842,6 +911,26 @@
 						<reference key="object" ref="227208787"/>
 						<reference key="parent" ref="779538480"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">159</int>
+						<reference key="object" ref="424021862"/>
+						<reference key="parent" ref="779538480"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">161</int>
+						<reference key="object" ref="325037042"/>
+						<reference key="parent" ref="1065147813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">163</int>
+						<reference key="object" ref="282874270"/>
+						<reference key="parent" ref="161839676"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">165</int>
+						<reference key="object" ref="579157086"/>
+						<reference key="parent" ref="1031735553"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -881,12 +970,16 @@
 				<string key="140.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="141.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="142.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="159.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="161.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="163.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="165.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">158</int>
+			<int key="maxID">173</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -906,6 +999,7 @@
 						<string key="menuActionClose:">id</string>
 						<string key="menuActionDelete:">id</string>
 						<string key="menuActionGetInfo:">id</string>
+						<string key="menuActionGetQuickLook:">id</string>
 						<string key="menuActionOpen:">id</string>
 						<string key="menuActionOpenInDefaultEditor:">id</string>
 						<string key="menuActionRemoveBookmark:">id</string>
@@ -927,6 +1021,10 @@
 						</object>
 						<object class="IBActionInfo" key="menuActionGetInfo:">
 							<string key="name">menuActionGetInfo:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="menuActionGetQuickLook:">
+							<string key="name">menuActionGetQuickLook:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="menuActionOpen:">

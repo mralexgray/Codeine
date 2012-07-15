@@ -12,6 +12,9 @@
 #import "CEFileViewItem.h"
 #import "CEPreferences.h"
 #import "CEInfoWindowController.h"
+#import "CEApplicationDelegate.h"
+#import "CEMainWindowController.h"
+#import <Quartz/Quartz.h>
 
 @implementation CEFilesViewController
 
@@ -34,6 +37,7 @@
     RELEASE_IVAR( _bookmarkMenu );
     RELEASE_IVAR( _fsDirectoryMenu );
     RELEASE_IVAR( _fsFileMenu );
+    RELEASE_IVAR( _quickLookItem );
     
     [ super dealloc ];
 }
@@ -55,6 +59,9 @@
     #endif
     
     [ _rootItems addObject: [ CEFileViewItem bookmarksItems ] ];
+    
+    [ self setNextResponder: _outlineView.nextResponder ];
+    [ _outlineView setNextResponder: self ];
     
     _outlineView.delegate               = self;
     _outlineView.dataSource             = self;
@@ -386,6 +393,40 @@
     {
         NSBeep();
     }
+}
+
+- ( IBAction )menuActionQuickLook: ( id )sender
+{
+    NSMenuItem      * menuItem;
+    CEFileViewItem  * item;
+    NSString        * path;
+    NSRange           range;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFileViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item  = menuItem.representedObject;
+    range = [ item.name rangeOfString: @":" ];
+    
+    if( range.location == NSNotFound )
+    {
+        path = item.name;
+    }
+    else
+    {
+        path = [ item.name substringFromIndex: range.location + 1 ];
+    }
+    
+    [ APPLICATION showQuickLookPanelForItemAtPath: path sender: sender ];
 }
 
 @end
