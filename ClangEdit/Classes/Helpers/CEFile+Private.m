@@ -32,6 +32,7 @@
     _icon   = [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
     
     [ _url getResourceValue: &_labelColor forKey: NSURLLabelColorKey error: NULL ];
+    [ _labelColor retain ];
     
     _bytes = [ ( NSNumber * )[ attributes objectForKey: NSFileSize ] unsignedIntegerValue ];
     _size  = [ [ NSString stringForDataSizeWithBytes: _bytes ] retain ];
