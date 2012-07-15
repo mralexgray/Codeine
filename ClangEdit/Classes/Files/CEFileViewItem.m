@@ -141,16 +141,19 @@ static void __exit( void )
     
     item = [ [ [ self class ] allocWithZone: zone ] initWithType: _type name: _name ];
     
-    [ item->_displayName        release ];
-    [ item->_icon               release ];
-    [ item->_representedObject  release ];
-    [ item->_children           release ];
-    
-    item->_displayName          = [ _displayName copyWithZone: zone ];
-    item->_icon                 = [ _icon copyWithZone: zone ];
-    item->_representedObject    = [ _representedObject retain ];
-    item->_children             = [ _children copyWithZone: zone ];
-    item->_parent               = _parent;
+    if( item != nil )
+    {
+        [ item->_displayName        release ];
+        [ item->_icon               release ];
+        [ item->_representedObject  release ];
+        [ item->_children           release ];
+        
+        item->_displayName          = [ _displayName copyWithZone: zone ];
+        item->_icon                 = [ _icon copyWithZone: zone ];
+        item->_representedObject    = [ _representedObject retain ];
+        item->_children             = [ _children copyWithZone: zone ];
+        item->_parent               = _parent;
+    }
     
     return item;
 }
@@ -225,6 +228,8 @@ static void __exit( void )
     RELEASE_IVAR( _children );
     
     _children = [ [ NSMutableArray alloc ] initWithCapacity: 100 ];
+    
+    [ self children ];
 }
 
 - ( BOOL )isLeaf

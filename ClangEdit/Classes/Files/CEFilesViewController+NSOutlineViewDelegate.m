@@ -125,6 +125,8 @@
     CEFileViewItem * item;
     NSMenuItem     * menuItem;
     NSMenu         * menu;
+    NSString       * path;
+    NSRange          range;
     
     ( void )view;
     
@@ -138,6 +140,17 @@
     
     if( item.type == CEFileViewItemTypeFS )
     {
+        range = [ item.name rangeOfString: @":" ];
+        
+        if( range.location == NSNotFound )
+        {
+            path = item.name;
+        }
+        else
+        {
+            path = [ item.name substringFromIndex: range.location + 1 ];
+        }
+        
         if( item.isLeaf == YES )
         {
             menu = _fsFileMenu;
@@ -146,10 +159,35 @@
         {
             menu = _fsDirectoryMenu;
         }
+        
+        if( item.parent.type == CEFileViewItemTypeSection )
+        {
+            [ [ menu itemAtIndex: menu.numberOfItems - 1 ] setEnabled: NO ];
+        }
+        else
+        {
+            [ [ menu itemAtIndex: menu.numberOfItems - 1 ] setEnabled: YES ];
+        }
+        
+        if( [ FILE_MANAGER isWritableFileAtPath: path ] == NO )
+        {
+            [ [ menu itemAtIndex: menu.numberOfItems - 1 ] setEnabled: NO ];
+        }
     }
     
     if( item.type == CEFileViewItemTypeBookmark )
     {
+        range = [ item.name rangeOfString: @":" ];
+        
+        if( range.location == NSNotFound )
+        {
+            path = item.name;
+        }
+        else
+        {
+            path = [ item.name substringFromIndex: range.location + 1 ];
+        }
+        
         if( item.parent.type == CEFileViewItemTypeBookmark )
         {
             if( item.isLeaf == YES )
@@ -164,6 +202,11 @@
         else
         {
             menu = _bookmarkMenu;
+        }
+        
+        if( [ FILE_MANAGER isWritableFileAtPath: path ] == NO )
+        {
+            [ [ menu itemAtIndex: menu.numberOfItems - 1 ] setEnabled: NO ];
         }
     }
     

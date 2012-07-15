@@ -155,7 +155,18 @@
     }
     else
     {
-        [ self reload ];
+        {
+            id parent;
+            
+            if( [ fileViewItem.parent isKindOfClass: [ CEFileViewItem class ] ] == YES )
+            {
+                parent = fileViewItem.parent;
+                
+                [ parent reload ];
+                
+                [ _outlineView reloadItem: parent reloadChildren: YES ];
+            }
+        }
     }
 }
 

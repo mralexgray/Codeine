@@ -191,7 +191,6 @@
 						<string key="NSFrame">{{1, 119}, {238, 15}}</string>
 						<reference key="NSSuperview" ref="695435621"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:60</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<int key="NSsFlags">1</int>
@@ -284,6 +283,7 @@
 						<reference key="NSMixedImage" ref="166627893"/>
 					</object>
 				</array>
+				<bool key="NSNoAutoenable">YES</bool>
 			</object>
 			<object class="NSMenu" id="161839676">
 				<string key="NSTitle"/>
@@ -323,6 +323,7 @@
 						<reference key="NSMixedImage" ref="166627893"/>
 					</object>
 				</array>
+				<bool key="NSNoAutoenable">YES</bool>
 			</object>
 			<object class="NSMenu" id="1031735553">
 				<string key="NSTitle"/>
@@ -362,6 +363,7 @@
 						<reference key="NSMixedImage" ref="166627893"/>
 					</object>
 				</array>
+				<bool key="NSNoAutoenable">YES</bool>
 			</object>
 			<object class="NSMenu" id="779538480">
 				<string key="NSTitle"/>
@@ -427,6 +429,7 @@
 						<reference key="NSMixedImage" ref="166627893"/>
 					</object>
 				</array>
+				<bool key="NSNoAutoenable">YES</bool>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -902,6 +905,7 @@
 						<string key="addBookmark:">id</string>
 						<string key="menuActionClose:">id</string>
 						<string key="menuActionDelete:">id</string>
+						<string key="menuActionGetInfo:">id</string>
 						<string key="menuActionOpen:">id</string>
 						<string key="menuActionOpenInDefaultEditor:">id</string>
 						<string key="menuActionRemoveBookmark:">id</string>
@@ -919,6 +923,10 @@
 						</object>
 						<object class="IBActionInfo" key="menuActionDelete:">
 							<string key="name">menuActionDelete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="menuActionGetInfo:">
+							<string key="name">menuActionGetInfo:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="menuActionOpen:">

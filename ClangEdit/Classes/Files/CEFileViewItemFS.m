@@ -53,12 +53,15 @@
     
     item = [ super copyWithZone: zone ];
     
-    [ item->_path   release ];
-    [ item->_prefix release ];
-    
-    item->_path        = [ _path   copy ];
-    item->_prefix      = [ _prefix copy ];
-    item->_isDirectory = _isDirectory;
+    if( item != nil )
+    {
+        [ item->_path   release ];
+        [ item->_prefix release ];
+        
+        item->_path        = [ _path   copy ];
+        item->_prefix      = [ _prefix copy ];
+        item->_isDirectory = _isDirectory;
+    }
     
     return item;
 }

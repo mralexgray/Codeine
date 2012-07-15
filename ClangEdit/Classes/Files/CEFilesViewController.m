@@ -41,7 +41,39 @@
 - ( void )awakeFromNib
 {
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( reload ) name: CEPreferencesNotificationValueChanged object: CEPreferencesKeyShowHiddenFiles ];
-    [ self reload ];
+    
+    _rootItems = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+    
+    [ _rootItems addObject: [ CEFileViewItem openDocumentsItem ] ];
+    
+    #ifdef APPSTORE
+        
+        /* iCloud files (maybe...) */
+        
+    #else
+        
+        [ _rootItems addObject: [ CEFileViewItem placesItem ] ];
+        
+    #endif
+    
+    [ _rootItems addObject: [ CEFileViewItem bookmarksItems ] ];
+    
+    _outlineView.delegate               = self;
+    _outlineView.dataSource             = self;
+    _outlineView.autosaveExpandedItems  = YES;
+    _outlineView.autosaveName           = NSStringFromClass( [ self class ] );
+    
+    [ _outlineView reloadItem: [ CEFileViewItem openDocumentsItem ] reloadChildren: YES ];
+    [ _outlineView reloadItem: [ CEFileViewItem placesItem ]        reloadChildren: YES ];
+    [ _outlineView reloadItem: [ CEFileViewItem bookmarksItems ]    reloadChildren: YES ];
+    
+    [ _outlineView expandItem: [ CEFileViewItem openDocumentsItem ] expandChildren: NO ];
+    
+    if( [ [ CEPreferences sharedInstance ] firstLaunch ] == YES )
+    {
+        [ _outlineView expandItem: [ CEFileViewItem placesItem ]        expandChildren: NO ];
+        [ _outlineView expandItem: [ CEFileViewItem bookmarksItems ]    expandChildren: NO ];
+    }
 }
 
 - ( IBAction )addBookmark: ( id )sender
@@ -69,7 +101,8 @@
             path = [ panel.URL path ];
             
             [ [ CEPreferences sharedInstance ] addBookmark: path ];
-            [ self reload ];
+            [ ( CEFileViewItem * )[ CEFileViewItem bookmarksItems ] addChild: [ CEFileViewItem fileViewItemWithType: CEFileViewItemTypeBookmark name: path ] ];
+            [ _outlineView reloadItem: [ CEFileViewItem bookmarksItems ] reloadChildren: YES ];
             [ _outlineView expandItem: [ CEFileViewItem bookmarksItems ] ];
         }
     ];
@@ -97,7 +130,8 @@
     }
     
     [ [ CEPreferences sharedInstance ] removeBookmark: item.name ];
-    [ self reload ];
+    [ ( CEFileViewItem * )[ CEFileViewItem bookmarksItems ] removeChild: item ];
+    [ _outlineView reloadItem: [ CEFileViewItem bookmarksItems ] reloadChildren: YES ];
 }
 
 - ( IBAction )menuActionOpen: ( id )sender
@@ -253,7 +287,7 @@
         }
     }
     
-    if( [ FILE_MANAGER removeItemAtPath: path error: &error ] == NO || error != nil || 1 )
+    if( [ FILE_MANAGER removeItemAtPath: path error: &error ] == NO || error != nil )
     {
         {
             NSAlert * alert;
@@ -268,7 +302,18 @@
     }
     else
     {
-        [ self reload ];
+        {
+            id parent;
+            
+            parent = item.parent;
+            
+            if( [ parent isKindOfClass: [ CEFileViewItem class ] ] )
+            {
+                [ ( CEFileViewItem * )parent removeChild: item ];
+            }
+            
+            [ _outlineView reloadItem: parent reloadChildren: YES ];
+        }
     }
 }
 
@@ -292,7 +337,8 @@
     item = menuItem.representedObject;
     
     [ [ CEPreferences sharedInstance ] removeBookmark: item.name ];
-    [ self reload ];
+    [ ( CEFileViewItem * )[ CEFileViewItem bookmarksItems ] removeChild: item ];
+    [ _outlineView reloadItem: [ CEFileViewItem bookmarksItems ] reloadChildren: YES ];
 }
 
 - ( IBAction )menuActionGetInfo: ( id )sender

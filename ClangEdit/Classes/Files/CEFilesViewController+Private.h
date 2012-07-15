@@ -9,6 +9,6 @@
 
 @interface CEFilesViewController( Private )
 
-- ( void )reload;
+
 
 @end
