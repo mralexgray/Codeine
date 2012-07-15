@@ -8,6 +8,7 @@
 #import "CEFilesViewController+NSOutlineViewDataSource.h"
 #import "CEFilesViewController+Private.h"
 #import "CEFilesViewItem.h"
+#import "CEFile.h"
 
 @implementation CEFilesViewController( NSOutlineViewDataSource )
 
@@ -111,7 +112,6 @@
     NSString        * newPath;
     NSString        * newName;
     NSError         * error;
-    NSRange           range;
     
     ( void )outlineView;
     ( void )tableColumn;
@@ -129,19 +129,9 @@
     }
     
     fileViewItem = ( CEFilesViewItem * )item;
+    path         = fileViewItem.file.path;
     
-    range = [ fileViewItem.name rangeOfString: @":" ];
-    
-    if( range.location == NSNotFound )
-    {
-        path = fileViewItem.name;
-    }
-    else
-    {
-        path = [ fileViewItem.name substringFromIndex: range.location + 1 ];
-    }
-    
-    if( [ path.lastPathComponent isEqualToString: newName ] )
+    if( path.length == 0 || [ path.lastPathComponent isEqualToString: newName ] )
     {
         return;
     }

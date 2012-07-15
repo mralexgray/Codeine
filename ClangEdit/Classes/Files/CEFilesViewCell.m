@@ -7,6 +7,7 @@
 
 #import "CEFilesViewCell.h"
 #import "CEFilesViewItem.h"
+#import "CEFile.h"
 
 static CEFilesViewCell * __prototypeCell = nil;
 
@@ -90,32 +91,19 @@ static void __exit( void )
         {
             CGRect         rect;
             NSBezierPath * path;
-            NSString     * filePath;
             NSError      * error;
             NSColor      * labelColor;
             NSGradient   * gradient;
-            NSRange        range;
             CGFloat        r;
             CGFloat        g;
             CGFloat        b;
             
-            range = [ item.name rangeOfString: @":" ];
-            
-            if( range.location == NSNotFound )
-            {
-                filePath = item.name;
-            }
-            else
-            {
-                filePath = [ item.name substringFromIndex: range.location + 1 ];
-            }
-            
-            if( [ FILE_MANAGER fileExistsAtPath: filePath ] == YES )
+            if( [ FILE_MANAGER fileExistsAtPath: item.file.path ] == YES )
             {
                 error       = nil;
                 labelColor  = nil;
                 
-                [ [ NSURL fileURLWithPath: filePath ] getResourceValue: &labelColor forKey: NSURLLabelColorKey error: &error ];
+                [ [ NSURL fileURLWithPath: item.file.path ] getResourceValue: &labelColor forKey: NSURLLabelColorKey error: &error ];
                 
                 if( labelColor != nil )
                 {

@@ -13,7 +13,7 @@
 
 - ( void )keyDown: ( NSEvent * )e
 {
-    CEFilesViewItem                    * item;
+    CEFilesViewItem                   * item;
     id < CEFilesOutlineViewDelegate >   delegate;
     
     delegate = nil;

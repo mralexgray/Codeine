@@ -8,6 +8,7 @@
 #import "CEFilesViewController+NSOutlineViewDelegate.h"
 #import "CEFilesViewItem.h"
 #import "CEFilesViewCell.h"
+#import "CEFile.h"
 
 @implementation CEFilesViewController( NSOutlineViewDelegate )
 
@@ -30,8 +31,6 @@
 - ( void )outlineView: ( NSOutlineView * )outlineView willDisplayCell: ( id )cell forTableColumn: ( NSTableColumn * )tableColumn item: ( id )item
 {
     CEFilesViewItem * fileViewItem;
-    NSString       * path;
-    NSRange          range;
     
     ( void )outlineView;
     ( void )tableColumn;
@@ -54,18 +53,7 @@
         [ ( NSCell * )cell setEditable: NO ];
     }
     
-    range = [ fileViewItem.name rangeOfString: @":" ];
-    
-    if( range.location == NSNotFound )
-    {
-        path = fileViewItem.name;
-    }
-    else
-    {
-        path = [ fileViewItem.name substringFromIndex: range.location + 1 ];
-    }
-    
-    if( [ FILE_MANAGER isWritableFileAtPath: path ] == NO )
+    if( fileViewItem.file.writable == NO )
     {
         [ ( NSCell * )cell setEditable: NO ];
     }
@@ -122,10 +110,8 @@
 - ( NSMenu * )outlineView: ( CEFilesOutlineView * )view menuForRow: ( NSInteger )row
 {
     CEFilesViewItem * item;
-    NSMenuItem     * menuItem;
-    NSMenu         * menu;
-    NSString       * path;
-    NSRange          range;
+    NSMenuItem      * menuItem;
+    NSMenu          * menu; 
     
     ( void )view;
     
@@ -139,17 +125,6 @@
     
     if( item.type == CEFilesViewItemTypeFS )
     {
-        range = [ item.name rangeOfString: @":" ];
-        
-        if( range.location == NSNotFound )
-        {
-            path = item.name;
-        }
-        else
-        {
-            path = [ item.name substringFromIndex: range.location + 1 ];
-        }
-        
         if( item.isLeaf == YES )
         {
             menu = _fsFileMenu;
@@ -168,7 +143,7 @@
             [ [ menu itemAtIndex: menu.numberOfItems - 1 ] setEnabled: YES ];
         }
         
-        if( [ FILE_MANAGER isWritableFileAtPath: path ] == NO )
+        if( item.file.writable == NO )
         {
             [ [ menu itemAtIndex: menu.numberOfItems - 1 ] setEnabled: NO ];
         }
@@ -176,17 +151,6 @@
     
     if( item.type == CEFilesViewItemTypeBookmark )
     {
-        range = [ item.name rangeOfString: @":" ];
-        
-        if( range.location == NSNotFound )
-        {
-            path = item.name;
-        }
-        else
-        {
-            path = [ item.name substringFromIndex: range.location + 1 ];
-        }
-        
         if( item.parent.type == CEFilesViewItemTypeBookmark )
         {
             if( item.isLeaf == YES )
@@ -203,7 +167,7 @@
             menu = _bookmarkMenu;
         }
         
-        if( [ FILE_MANAGER isWritableFileAtPath: path ] == NO )
+        if( item.file.writable == NO )
         {
             [ [ menu itemAtIndex: menu.numberOfItems - 1 ] setEnabled: NO ];
         }
@@ -220,8 +184,6 @@
 - ( void )outlineView: ( CEFilesOutlineView * )view showQuickLookForItem: ( id )item
 {
     CEFilesViewItem * fileViewItem;
-    NSString       * path;
-    NSRange          range;
     
     if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
@@ -229,18 +191,8 @@
     }
     
     fileViewItem = ( CEFilesViewItem * )item;
-    range        = [ fileViewItem.name rangeOfString: @":" ];
     
-    if( range.location == NSNotFound )
-    {
-        path = fileViewItem.name;
-    }
-    else
-    {
-        path = [ fileViewItem.name substringFromIndex: range.location + 1 ];
-    }
-    
-    [ APPLICATION showQuickLookPanelForItemAtPath: path sender: view ];
+    [ APPLICATION showQuickLookPanelForItemAtPath: fileViewItem.file.path sender: view ];
 }
 
 /*

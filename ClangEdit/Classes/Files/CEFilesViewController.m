@@ -14,6 +14,7 @@
 #import "CEInfoWindowController.h"
 #import "CEApplicationDelegate.h"
 #import "CEMainWindowController.h"
+#import "CEFile.h"
 #import <Quartz/Quartz.h>
 
 @implementation CEFilesViewController
@@ -115,7 +116,7 @@
 
 - ( IBAction )removeBookmark: ( id )sender
 {
-    NSInteger        row;
+    NSInteger         row;
     CEFilesViewItem * item;
     
     ( void )sender;
@@ -141,7 +142,7 @@
 
 - ( IBAction )menuActionOpen: ( id )sender
 {
-    NSMenuItem      * menuItem;
+    NSMenuItem       * menuItem;
     CEFilesViewItem  * item;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
@@ -161,7 +162,7 @@
 
 - ( IBAction )menuActionClose: ( id )sender
 {
-    NSMenuItem      * menuItem;
+    NSMenuItem       * menuItem;
     CEFilesViewItem  * item;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
@@ -181,10 +182,8 @@
 
 - ( IBAction )menuActionShowInFinder: ( id )sender
 {
-    NSMenuItem      * menuItem;
+    NSMenuItem       * menuItem;
     CEFilesViewItem  * item;
-    NSString        * path;
-    NSRange           range;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -198,27 +197,15 @@
         return;
     }
     
-    item  = menuItem.representedObject;
-    range = [ item.name rangeOfString: @":" ];
+    item = menuItem.representedObject;
     
-    if( range.location == NSNotFound )
-    {
-        path = item.name;
-    }
-    else
-    {
-        path = [ item.name substringFromIndex: range.location + 1 ];
-    }
-    
-    [ [ NSWorkspace sharedWorkspace ] selectFile: path inFileViewerRootedAtPath: nil ];
+    [ [ NSWorkspace sharedWorkspace ] selectFile: item.file.path inFileViewerRootedAtPath: nil ];
 }
 
 - ( IBAction )menuActionOpenInDefaultEditor: ( id )sender
 {
-    NSMenuItem      * menuItem;
+    NSMenuItem       * menuItem;
     CEFilesViewItem  * item;
-    NSString        * path;
-    NSRange           range;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -232,28 +219,16 @@
         return;
     }
     
-    item  = menuItem.representedObject;
-    range = [ item.name rangeOfString: @":" ];
+    item = menuItem.representedObject;
     
-    if( range.location == NSNotFound )
-    {
-        path = item.name;
-    }
-    else
-    {
-        path = [ item.name substringFromIndex: range.location + 1 ];
-    }
-    
-    [ [ NSWorkspace sharedWorkspace ] openFile: path ];
+    [ [ NSWorkspace sharedWorkspace ] openFile: item.file.path ];
 }
 
 - ( IBAction )menuActionDelete: ( id )sender
 {
-    NSMenuItem      * menuItem;
+    NSMenuItem       * menuItem;
     CEFilesViewItem  * item;
-    NSString        * path;
-    NSRange           range;
-    NSError         * error;
+    NSError          * error;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -268,23 +243,12 @@
     }
     
     item  = menuItem.representedObject;
-    range = [ item.name rangeOfString: @":" ];
-    
-    if( range.location == NSNotFound )
-    {
-        path = item.name;
-    }
-    else
-    {
-        path = [ item.name substringFromIndex: range.location + 1 ];
-    }
-    
     error = nil;
     
     {
         NSAlert * alert;
         
-        alert = [ NSAlert alertWithMessageText: [ NSString stringWithFormat: L10N( "DeleteAlertTitle" ), [ FILE_MANAGER displayNameAtPath: path ] ] defaultButton: L10N( "OK" ) alternateButton: L10N( "Cancel" ) otherButton: nil informativeTextWithFormat: L10N( "DeleteAlertText" ) ];
+        alert = [ NSAlert alertWithMessageText: [ NSString stringWithFormat: L10N( "DeleteAlertTitle" ), [ FILE_MANAGER displayNameAtPath: item.file.path ] ] defaultButton: L10N( "OK" ) alternateButton: L10N( "Cancel" ) otherButton: nil informativeTextWithFormat: L10N( "DeleteAlertText" ) ];
         
         if( [ alert runModal ] != NSAlertDefaultReturn )
         {
@@ -292,7 +256,7 @@
         }
     }
     
-    if( [ FILE_MANAGER removeItemAtPath: path error: &error ] == NO || error != nil )
+    if( [ FILE_MANAGER removeItemAtPath: item.file.path error: &error ] == NO || error != nil )
     {
         {
             NSAlert * alert;
@@ -325,7 +289,7 @@
 - ( IBAction )menuActionRemoveBookmark: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFilesViewItem  * item;
+    CEFilesViewItem * item;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -349,10 +313,8 @@
 - ( IBAction )menuActionGetInfo: ( id )sender
 {
     NSMenuItem              * menuItem;
-    CEFilesViewItem          * item;
+    CEFilesViewItem         * item;
     CEInfoWindowController  * controller;
-    NSString                * path;
-    NSRange                   range;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -366,19 +328,8 @@
         return;
     }
     
-    item  = menuItem.representedObject;
-    range = [ item.name rangeOfString: @":" ];
-    
-    if( range.location == NSNotFound )
-    {
-        path = item.name;
-    }
-    else
-    {
-        path = [ item.name substringFromIndex: range.location + 1 ];
-    }
-    
-    controller = [ [ CEInfoWindowController alloc ] initWithPath: path ];
+    item        = menuItem.representedObject;
+    controller  = [ [ CEInfoWindowController alloc ] initWithPath: item.file.path ];
     
     if( controller != nil )
     {
@@ -398,9 +349,7 @@
 - ( IBAction )menuActionQuickLook: ( id )sender
 {
     NSMenuItem      * menuItem;
-    CEFilesViewItem  * item;
-    NSString        * path;
-    NSRange           range;
+    CEFilesViewItem * item;
     
     if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
     {
@@ -414,19 +363,9 @@
         return;
     }
     
-    item  = menuItem.representedObject;
-    range = [ item.name rangeOfString: @":" ];
+    item = menuItem.representedObject;
     
-    if( range.location == NSNotFound )
-    {
-        path = item.name;
-    }
-    else
-    {
-        path = [ item.name substringFromIndex: range.location + 1 ];
-    }
-    
-    [ APPLICATION showQuickLookPanelForItemAtPath: path sender: sender ];
+    [ APPLICATION showQuickLookPanelForItemAtPath: item.file.path sender: sender ];
 }
 
 @end
