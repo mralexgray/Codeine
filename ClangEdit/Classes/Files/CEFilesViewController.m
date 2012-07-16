@@ -15,6 +15,7 @@
 #import "CEApplicationDelegate.h"
 #import "CEMainWindowController.h"
 #import "CEFile.h"
+#import "CEColorLabelMenuItem.h"
 #import <Quartz/Quartz.h>
 
 @implementation CEFilesViewController
@@ -366,6 +367,47 @@
     item = menuItem.representedObject;
     
     [ APPLICATION showQuickLookPanelForItemAtPath: item.file.path sender: sender ];
+}
+
+- ( IBAction )menuActionSetColorLabel: ( id )sender
+{
+    CEColorLabelMenuItem * menuItem;
+    CEFilesViewItem      * item;
+    NSArray              * colors;
+    NSUInteger             index;
+    
+    if( [ sender isKindOfClass: [ CEColorLabelMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    menuItem = sender;
+    
+    if( menuItem.selectedColor == nil )
+    {
+        return;
+    }
+    
+    if( [ menuItem.representedObject isKindOfClass: [ CEFilesViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = menuItem.representedObject;
+    
+    if( item.file == nil )
+    {
+        return;
+    }
+    
+    colors = [ [ NSWorkspace sharedWorkspace ] fileLabelColors ];
+    index  = [ colors indexOfObject: menuItem.selectedColor ];
+    
+    if( index < colors.count )
+    {
+        [ item.file.url setResourceValue: [ NSNumber numberWithUnsignedInteger: index ] forKey: NSURLLabelNumberKey error: NULL ];
+        [ _outlineView reloadItem: item reloadChildren: NO ];
+    }
 }
 
 @end

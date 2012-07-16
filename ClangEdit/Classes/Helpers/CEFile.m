@@ -97,8 +97,6 @@
     NSDictionary * attributes;
     NSError      * error;
     
-    RELEASE_IVAR( _path );
-    RELEASE_IVAR( _url );
     RELEASE_IVAR( _attributes );
     RELEASE_IVAR( _name );
     RELEASE_IVAR( _kind );

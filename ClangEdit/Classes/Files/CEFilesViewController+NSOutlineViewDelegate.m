@@ -9,6 +9,7 @@
 #import "CEFilesViewItem.h"
 #import "CEFilesViewCell.h"
 #import "CEFile.h"
+#import "CEColorLabelMenuItem.h"
 
 @implementation CEFilesViewController( NSOutlineViewDelegate )
 
@@ -175,6 +176,13 @@
     
     for( menuItem in menu.itemArray )
     {
+        if( [ menuItem isKindOfClass: [ CEColorLabelMenuItem class ] ] )
+        {
+            [ item.file refresh ];
+            
+            ( ( CEColorLabelMenuItem * )menuItem ).selectedColor = item.file.labelColor;
+        }
+        
         menuItem.representedObject = item;
     }
     

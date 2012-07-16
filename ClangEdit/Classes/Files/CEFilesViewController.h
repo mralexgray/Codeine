@@ -42,5 +42,6 @@
 - ( IBAction )menuActionRemoveBookmark: ( id )sender;
 - ( IBAction )menuActionGetInfo: ( id )sender;
 - ( IBAction )menuActionQuickLook: ( id )sender;
+- ( IBAction )menuActionSetColorLabel: ( id )sender;
 
 @end

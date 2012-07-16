@@ -85,10 +85,10 @@
     NSLog                                       \
     (                                           \
         @"NSRange:\n"                           \
-        @"    Location: %i\n"                   \
-        @"    Length:   %i\n",                  \
-        range.location,                         \
-        range.length                            \
+        @"    Location: %lu\n"                  \
+        @"    Length:   %lu\n",                 \
+        ( unsigned long )range.location,        \
+        ( unsigned long )range.length           \
     )
     
 #endif /* __CE_MACROS_H__ */
