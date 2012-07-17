@@ -26,6 +26,8 @@
     CESourceFile                * _sourceFile;
     CELanguageWindowController  * _languageWindowController;
     NSPopUpButton               * _encodingPopUp;
+    NSArray                     * _documents;
+
     
 @private
     

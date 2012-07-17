@@ -72,7 +72,7 @@
 {
     [ super showWindow: sender ];
     
-    if( _sourceFile == nil )
+    if( _documents.count == 0 )
     {
         dispatch_after
         (
@@ -80,7 +80,7 @@
             dispatch_get_main_queue(),
             ^( void )
             {
-                [ self showLanguageWindow ];
+                [ self newDocument: sender ];
             }
         );
     }
@@ -116,7 +116,7 @@
 {
     ( void )sender;
     
-    NSLog( @"New document..." );
+    [ self showLanguageWindow ];
 }
 
 - ( IBAction )saveDocument: ( id )sender
