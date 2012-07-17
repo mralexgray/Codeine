@@ -13,12 +13,12 @@
 {
 @protected
     
-    NSOutlineView  * _outlineView;
-    NSMutableArray * _rootItems;
-    NSMenu         * _openDocumentMenu;
-    NSMenu         * _bookmarkMenu;
-    NSMenu         * _fsDirectoryMenu;
-    NSMenu         * _fsFileMenu;
+    NSOutlineView   * _outlineView;
+    NSMutableArray  * _rootItems;
+    NSMenu          * _openDocumentMenu;
+    NSMenu          * _bookmarkMenu;
+    NSMenu          * _fsDirectoryMenu;
+    NSMenu          * _fsFileMenu;
     CEFilesViewItem * _quickLookItem;
     
 @private
