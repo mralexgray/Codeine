@@ -22,10 +22,12 @@ NSString * const CEPreferencesKeyForegoundColor             = @"ForegroundColor"
 NSString * const CEPreferencesKeyBackgroundColor            = @"BackgroundColor";
 NSString * const CEPreferencesKeySelectionColor             = @"SelectionColor";
 NSString * const CEPreferencesKeyCurrentLineColor           = @"CurrentLineColor";
+NSString * const CEPreferencesKeyInvisibleColor             = @"InvisibleColor";
 NSString * const CEPreferencesKeyKeywordColor               = @"KeywordColor";
 NSString * const CEPreferencesKeyCommentColor               = @"CommentColor";
 NSString * const CEPreferencesKeyStringColor                = @"StringColor";
 NSString * const CEPreferencesKeyPredefinedColor            = @"PredefinedColor";
+NSString * const CEPreferencesKeyNumberColor                = @"NumberColor";
 NSString * const CEPreferencesKeyWarningFlags               = @"WarningFlags";
 NSString * const CEPreferencesKeyWarningFlagsPresetStrict   = @"WarningFlagsPresetStrict";
 NSString * const CEPreferencesKeyWarningFlagsPresetNormal   = @"WarningFlagsPresetNormal";
@@ -224,14 +226,16 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
 
 - ( void )setColorsFromColorTheme: ( CEColorTheme * )theme
 {
-    self.foregroundColor     = theme.foregroundColor;
-    self.backgroundColor     = theme.backgroundColor;
-    self.selectionColor      = theme.selectionColor;
-    self.currentLineColor    = theme.currentLineColor;
-    self.keywordColor        = theme.keywordColor;
-    self.commentColor        = theme.commentColor;
-    self.stringColor         = theme.stringColor;
-    self.predefinedColor     = theme.predefinedColor;
+    self.foregroundColor    = theme.foregroundColor;
+    self.backgroundColor    = theme.backgroundColor;
+    self.selectionColor     = theme.selectionColor;
+    self.currentLineColor   = theme.currentLineColor;
+    self.invisibleColor     = theme.invisibleColor;
+    self.keywordColor       = theme.keywordColor;
+    self.commentColor       = theme.commentColor;
+    self.stringColor        = theme.stringColor;
+    self.predefinedColor    = theme.predefinedColor;
+    self.numberColor        = theme.numberColor;
 }
 
 - ( void )addBookmark: ( NSString * )path
@@ -469,6 +473,14 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( NSColor * )invisibleColor
+{
+    @synchronized( self )
+    {
+        return [ self colorForKey: CEPreferencesKeyInvisibleColor ];
+    }
+}
+
 - ( NSColor * )keywordColor
 {
     @synchronized( self )
@@ -498,6 +510,14 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     @synchronized( self )
     {
         return [ self colorForKey: CEPreferencesKeyPredefinedColor ];
+    }
+}
+
+- ( NSColor * )numberColor
+{
+    @synchronized( self )
+    {
+        return [ self colorForKey: CEPreferencesKeyNumberColor ];
     }
 }
 
@@ -748,6 +768,17 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( void )setInvisibleColor: ( NSColor * )value
+{
+    @synchronized( self )
+    {
+        [ self setColor: value forKey: CEPreferencesKeyInvisibleColor ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyInvisibleColor );
+    }
+}
+
 - ( void )setKeywordColor: ( NSColor * )value
 {
     @synchronized( self )
@@ -789,6 +820,17 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyPredefinedColor );
+    }
+}
+
+- ( void )setNumberColor: ( NSColor * )value
+{
+    @synchronized( self )
+    {
+        [ self setColor: value forKey: CEPreferencesKeyNumberColor ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyNumberColor );
     }
 }
 

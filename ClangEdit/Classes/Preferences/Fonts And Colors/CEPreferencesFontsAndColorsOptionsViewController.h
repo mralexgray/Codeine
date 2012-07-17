@@ -16,10 +16,12 @@
     NSColorWell   * _generalBackgroundColorWell;
     NSColorWell   * _generalSelectionColorWell;
     NSColorWell   * _generalCurrentLineColorWell;
+    NSColorWell   * _generalInvisibleColorWell;
     NSColorWell   * _sourceKeywordColorWell;
     NSColorWell   * _sourceCommentColorWell;
     NSColorWell   * _sourceStringColorWell;
     NSColorWell   * _sourcePredefinedColorWell;
+    NSColorWell   * _sourceNumberColorWell;
     NSPopUpButton * _colorThemesPopUp;
     
 @private
@@ -32,10 +34,12 @@
 @property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * generalBackgroundColorWell;
 @property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * generalSelectionColorWell;
 @property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * generalCurrentLineColorWell;
+@property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * generalInvisibleColorWell;
 @property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * sourceKeywordColorWell;
 @property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * sourceCommentColorWell;
 @property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * sourceStringColorWell;
 @property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * sourcePredefinedColorWell;
+@property( nonatomic, readwrite, retain ) IBOutlet NSColorWell   * sourceNumberColorWell;
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * colorThemesPopUp;
 
 - ( IBAction )chooseFont: ( id )sender;

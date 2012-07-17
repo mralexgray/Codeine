@@ -38,6 +38,15 @@
 		<key>B</key>
 		<integer>240</integer>
 	</dict>
+	<key>Invisible</key>
+	<dict>
+		<key>R</key>
+		<integer>85</integer>
+		<key>G</key>
+		<integer>85</integer>
+		<key>B</key>
+		<integer>85</integer>
+	</dict>
 	<key>Keyword</key>
 	<dict>
 		<key>R</key>
@@ -73,6 +82,15 @@
 		<integer>129</integer>
 		<key>B</key>
 		<integer>183</integer>
+	</dict>
+	<key>Number</key>
+	<dict>
+		<key>R</key>
+		<integer>0</integer>
+		<key>G</key>
+		<integer>0</integer>
+		<key>B</key>
+		<integer>204</integer>
 	</dict>
 </dict>
 </plist>

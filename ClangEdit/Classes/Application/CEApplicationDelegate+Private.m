@@ -98,14 +98,7 @@
         
         theme = [ CEColorTheme defaultColorThemeWithName: @"Xcode" ];
         
-        [ [ CEPreferences sharedInstance ] setForegroundColor:   theme.foregroundColor ];
-        [ [ CEPreferences sharedInstance ] setBackgroundColor:   theme.backgroundColor ];
-        [ [ CEPreferences sharedInstance ] setSelectionColor:    theme.selectionColor ];
-        [ [ CEPreferences sharedInstance ] setCurrentLineColor:  theme.currentLineColor ];
-        [ [ CEPreferences sharedInstance ] setKeywordColor:      theme.keywordColor ];
-        [ [ CEPreferences sharedInstance ] setCommentColor:      theme.commentColor ];
-        [ [ CEPreferences sharedInstance ] setStringColor:       theme.stringColor ];
-        [ [ CEPreferences sharedInstance ] setPredefinedColor:   theme.predefinedColor ];
+        [ [ CEPreferences sharedInstance ] setColorsFromColorTheme: theme ];
     }
 }
 

@@ -13,49 +13,47 @@
 
 - ( void )drawGlyphsForGlyphRange: ( NSRange )range atPoint: ( NSPoint )origin
 {
-    NSTextView * textView;
-    NSFont     * font;
-    NSGlyph      space;
-    NSGlyph      tab;
-    NSGlyph      lineBreak;
-    NSUInteger   i;
-    NSUInteger   charIndex;
-    unichar      c;
+    NSString  * text;
+    NSUInteger  length;
+    NSUInteger  i;
+    unichar     c;
+    NSPoint     point;
+    NSRect      rect;
+    NSRange     effectiveRange;
     
-    if( _showInvisibles == YES )
+    if( _showInvisibles )
     {
-        textView    = [ self firstTextView ];
-        font        = [ [ textView typingAttributes ] objectForKey:NSFontAttributeName ];
-        space       = [ font glyphWithName: @"lozenge" ];
-        tab         = [ font glyphWithName: @"Delta" ];
-        lineBreak   = [ font glyphWithName: @"logicalnot" ];
+        text = [ [ self textStorage ] string ];
         
-        for( i = range.location; i != range.location + range.length; i++ )
+        if( text.length > 0 )
         {
-            charIndex   = [ self characterIndexForGlyphAtIndex: i ];
-            c           = [ self.textStorage.string characterAtIndex: charIndex ];
+            length = NSMaxRange( range );
             
-            switch( c )
+            for( i = range.location; i < length; i++ )
             {
-                case ' ':
+                c = [ text characterAtIndex: i ];
+                
+                if( c == '\t' || c == '\n' || c == ' ' )
+                {
+                    point  = [ self locationForGlyphAtIndex: i ];
+                    rect   = [ self lineFragmentUsedRectForGlyphAtIndex: i effectiveRange: &effectiveRange ];
                     
-                    [ self replaceGlyphAtIndex: charIndex withGlyph: space ];
-                    break;
+                    rect.origin.x   = point.x;
+                    rect.size.width = ( rect.size.width ) / effectiveRange.length;
                     
-                case '\t':
-                    
-                    [ self replaceGlyphAtIndex: charIndex withGlyph: tab ];
-                    break;
-                    
-                case '\r':
-                case '\n':
-                    
-                    [ self replaceGlyphAtIndex: charIndex withGlyph: lineBreak ];
-                    break;
-                    
-                default:
-                    
-                    break;
+                    if( c == '\t' )
+                    {
+                        
+                    }
+                    else if( c == '\n' )
+                    {
+                        
+                    }
+                    else if( c == ' ' )
+                    {
+                        
+                    }
+                }
             }
         }
     }
