@@ -8,6 +8,7 @@
 #import "CEApplicationDelegate+Private.h"
 #import "CEPreferences.h"
 #import "CEColorTheme.h"
+#import "CEMainWindowController.h"
 
 @implementation CEApplicationDelegate( Private )
 
@@ -108,7 +109,7 @@
     }
 }
 
-- ( void )mainWindowDidClose: ( NSNotification * )notification
+- ( void )windowDidClose: ( NSNotification * )notification
 {
     NSWindow           * window;
     NSWindowController * controller;
@@ -116,7 +117,10 @@
     window      = [ notification object ];
     controller  = window.windowController;
     
-    [ _mainWindowControllers removeObject: controller ];
+    if( [ controller isKindOfClass: [ CEMainWindowController class ] ] == YES )
+    {
+        [ _mainWindowControllers removeObject: controller ];
+    }
 }
 
 @end

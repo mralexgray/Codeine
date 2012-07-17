@@ -36,7 +36,7 @@
     [ self installApplicationSupportFiles ];
     [ self firstLaunch ];
     
-    [ NOTIFICATION_CENTER addObserver: self selector: @selector( mainWindowDidClose: ) name: NSWindowWillCloseNotification object: nil ];
+    [ NOTIFICATION_CENTER addObserver: self selector: @selector( windowDidClose: ) name: NSWindowWillCloseNotification object: nil ];
     
     _mainWindowControllers = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
