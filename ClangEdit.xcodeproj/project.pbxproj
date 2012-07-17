@@ -42,6 +42,7 @@
 		052FD029159E09AF0045C9ED /* CEApplicationDelegate+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD028159E09AF0045C9ED /* CEApplicationDelegate+Private.m */; };
 		052FD03A159E0E460045C9ED /* NSFileManager+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD039159E0E460045C9ED /* NSFileManager+CE.m */; };
 		05348FF315B40590004D4355 /* CEColorLabelMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */; };
+		05420E9B15B5E600008B2294 /* CEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420E9A15B5E600008B2294 /* CEDocument.m */; };
 		05480FAD159A0B32005CFBC5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05480FAC159A0B32005CFBC5 /* Cocoa.framework */; };
 		05480FB7159A0B32005CFBC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05480FB5159A0B32005CFBC5 /* InfoPlist.strings */; };
 		05480FB9159A0B32005CFBC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FB8159A0B32005CFBC5 /* main.m */; };
@@ -178,6 +179,8 @@
 		052FD039159E0E460045C9ED /* NSFileManager+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CE.m"; sourceTree = "<group>"; };
 		05348FF115B40590004D4355 /* CEColorLabelMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorLabelMenuItem.h; sourceTree = "<group>"; };
 		05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorLabelMenuItem.m; sourceTree = "<group>"; };
+		05420E9915B5E600008B2294 /* CEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDocument.h; sourceTree = "<group>"; };
+		05420E9A15B5E600008B2294 /* CEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDocument.m; sourceTree = "<group>"; };
 		05480FA8159A0B32005CFBC5 /* ClangEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClangEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05480FAC159A0B32005CFBC5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05480FAF159A0B32005CFBC5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -733,6 +736,8 @@
 				056D154915B3118100F27EB2 /* CEFile.m */,
 				056D154C15B3158C00F27EB2 /* CEFile+Private.h */,
 				056D154D15B3158C00F27EB2 /* CEFile+Private.m */,
+				05420E9915B5E600008B2294 /* CEDocument.h */,
+				05420E9A15B5E600008B2294 /* CEDocument.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -935,6 +940,7 @@
 				056D157215B3709D00F27EB2 /* CEColorLabelView.m in Sources */,
 				05348FF315B40590004D4355 /* CEColorLabelMenuItem.m in Sources */,
 				0576BEFA15B4C4E40097B660 /* CEColorLabelMenuItem+CEColorLabelViewDelegate.m in Sources */,
+				05420E9B15B5E600008B2294 /* CEDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
