@@ -26,6 +26,10 @@
 "Preview"                                   = "Preview:";
 "Permissions"                               = "Permissions:";
 "Label"                                     = "Label:";
+"LanguageC"                                 = "C source file";
+"LanguageCPP"                               = "C++ source file";
+"LanguageObjC"                              = "Objective-C source file";
+"LanguageObjCPP"                            = "Objective-C++ source file";
 "CEStringDataSizeTypeBytes"                 = "bytes";
 "CEStringDataSizeTypeKiloBytes"             = "KB";
 "CEStringDataSizeTypeMegaBytes"             = "MB";
