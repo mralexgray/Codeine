@@ -158,4 +158,14 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
     [ APPLICATION endSheet: self.window ];
 }
 
+- ( IBAction )cancel: ( id )sender
+{
+    _language    = CESourceFileLanguageNone;
+    _lineEndings = CESourceFileLineEndingsUnknown;
+    _encoding    = nil;
+    
+    [ self.window orderOut: sender ];
+    [ APPLICATION endSheet: self.window ];
+}
+
 @end

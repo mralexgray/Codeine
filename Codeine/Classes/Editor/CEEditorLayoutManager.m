@@ -43,7 +43,7 @@
                     rect   = [ self lineFragmentUsedRectForGlyphAtIndex: i effectiveRange: &effectiveRange ];
                     
                     rect.origin.x   = point.x;
-                    rect.size.width = ( rect.size.width ) / effectiveRange.length;
+                    rect.size.width = rect.size.width / effectiveRange.length;
                     
                     if( size == 0 )
                     {

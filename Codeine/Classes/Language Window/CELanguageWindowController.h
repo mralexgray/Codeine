@@ -44,5 +44,6 @@ FOUNDATION_EXPORT NSString * const CELanguageWindowControllerTableColumnIdentifi
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView            * recentFilesTableView;
     
 - ( IBAction )done: ( id )sender;
+- ( IBAction )cancel: ( id )sender;
 
 @end

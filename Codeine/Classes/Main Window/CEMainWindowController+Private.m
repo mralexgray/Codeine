@@ -26,7 +26,18 @@
     NSString * templates;
     NSString * template;
     
+    if
+    (
+           _languageWindowController.language == CESourceFileLanguageNone
+        || _languageWindowController.lineEndings == CESourceFileLineEndingsUnknown
+        || _languageWindowController.encoding == nil
+    )
+    {
+        return;
+    }
+    
     templates = [ [ FILE_MANAGER applicationSupportDirectory ] stringByAppendingPathComponent: @"Templates" ];
+    
     
     ( void )sender;
     
