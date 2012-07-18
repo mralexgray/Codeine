@@ -41,11 +41,11 @@
 	<key>Invisible</key>
 	<dict>
 		<key>R</key>
-		<integer>85</integer>
+		<integer>200</integer>
 		<key>G</key>
-		<integer>85</integer>
+		<integer>200</integer>
 		<key>B</key>
-		<integer>85</integer>
+		<integer>200</integer>
 	</dict>
 	<key>Keyword</key>
 	<dict>
