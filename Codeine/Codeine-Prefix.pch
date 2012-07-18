@@ -1,0 +1,21 @@
+/*******************************************************************************
+ * Copyright (c) 2012, Jean-David Gadina <macmade@eosgarden.com>
+ * All rights reserved
+ ******************************************************************************/
+ 
+/* $Id$ */
+
+#ifdef __OBJC__
+    
+    #import <Cocoa/Cocoa.h>
+    
+    #import "CEWarnings.h"
+    #import "CEMacros.h"
+    #import "CETypes.h"
+    
+    #import "NSFileManager+CE.h"
+    #import "NSBundle+CE.h"
+    #import "NSString+CE.h"
+    #import "NSApplication+CE.h"
+    
+#endif
