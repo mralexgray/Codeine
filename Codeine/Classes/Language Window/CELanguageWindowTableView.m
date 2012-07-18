@@ -48,8 +48,6 @@
 {
     NSRange         rows;
     NSColor       * color;
-    NSColor       * color1;
-    NSColor       * color2;
     NSIndexSet    * selectedRows;
     NSUInteger      row;
     NSUInteger      endRow;
@@ -71,13 +69,11 @@
     
     if( APPLICATION.isActive )
     {
-        color1 = [ NSColor colorWithCalibratedHue: h saturation: s brightness: b alpha: ( CGFloat )0.5 ];
-        color2 = [ NSColor colorWithCalibratedHue: h saturation: s brightness: ( CGFloat )0.2 alpha: ( CGFloat )0.5 ];
+        color = [ NSColor colorWithCalibratedHue: h saturation: s brightness: b alpha: ( CGFloat )0.5 ];
     }
     else
     {
-        color1 = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b alpha: ( CGFloat )0.5 ];
-        color2 = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0.2 brightness: ( CGFloat )0 alpha: ( CGFloat )0.5 ];
+        color = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b alpha: ( CGFloat )0.5 ];
     }
     
     rows            = [ self rowsInRect: rect ];
@@ -85,14 +81,14 @@
     row             = rows.location;
     endRow          = row + rows.length;
     
-    gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
+    gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color, ( CGFloat )0, nil ];
     
     for( ; row < endRow; row++ )
     {
         if( [ selectedRows containsIndex: row ] )
         {
             
-            rowRect              = NSInsetRect( [ self rectOfRow: ( NSInteger )row] , ( CGFloat )0, ( CGFloat )0 );
+            rowRect              = NSInsetRect( [ self rectOfRow: ( NSInteger )row ] , ( CGFloat )0, ( CGFloat )0 );
             rowRect.origin.x    += 5;
             rowRect.origin.y    += 5;
             rowRect.size.width  -= 10;
