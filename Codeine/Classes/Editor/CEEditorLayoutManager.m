@@ -54,12 +54,31 @@
                     rect.origin.y   += ( rect.size.height - size ) / 2;
                     rect.size.width  = size;
                     rect.size.height = size;
-                        
-                    color    = [ [ CEPreferences sharedInstance ] invisibleColor ];
+                    
+                    color = [ [ CEPreferences sharedInstance ] invisibleColor ];
                     
                     if( c == '\t' )
                     {
-                        
+                        {
+                            NSPoint         p1;
+                            NSPoint         p2;
+                            NSPoint         p3;
+                            NSBezierPath  * triangle;
+                            
+                            p1 = NSMakePoint( rect.origin.x, rect.origin.y + rect.size.height );
+                            p2 = NSMakePoint( rect.origin.x + ( rect.size.width / ( CGFloat )2 ), rect.origin.y );
+                            p3 = NSMakePoint( rect.origin.x + rect.size.width, rect.origin.y + rect.size.height );
+                            
+                            triangle = [ NSBezierPath bezierPath ];
+                            
+                            [ triangle moveToPoint: p1 ];
+                            [ triangle lineToPoint: p2 ];
+                            [ triangle lineToPoint: p3 ];
+                            [ triangle lineToPoint: p1 ];
+                            
+                            [ color set ];
+                            [ triangle stroke ];
+                        }
                     }
                     else if( c == '\n' )
                     {
@@ -77,6 +96,8 @@
                             path     = [ NSBezierPath bezierPath ];
                             
                             [ path appendBezierPathWithOvalInRect: rect ];
+                            [ path appendBezierPathWithOvalInRect: NSMakeRect( rect.origin.x + 1, rect.origin.y + 1, rect.size.width - 2, rect.size.height - 2 ) ];
+                            [ path setWindingRule: NSEvenOddWindingRule ];
                             [ gradient drawInBezierPath: path angle: ( CGFloat )0 ];
                             [ gradient release ];
                         }
