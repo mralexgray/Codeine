@@ -42,6 +42,7 @@
 		052FD029159E09AF0045C9ED /* CEApplicationDelegate+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD028159E09AF0045C9ED /* CEApplicationDelegate+Private.m */; };
 		052FD03A159E0E460045C9ED /* NSFileManager+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD039159E0E460045C9ED /* NSFileManager+CE.m */; };
 		05348FF315B40590004D4355 /* CEColorLabelMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */; };
+		0539897C15B898C500D66EBC /* NSTextView+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539897B15B898C500D66EBC /* NSTextView+CE.m */; };
 		05420E9B15B5E600008B2294 /* CEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420E9A15B5E600008B2294 /* CEDocument.m */; };
 		05420EBC15B5EA2E008B2294 /* CELanguageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420EBB15B5EA2E008B2294 /* CELanguageWindowController.m */; };
 		05480FAD159A0B32005CFBC5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05480FAC159A0B32005CFBC5 /* Cocoa.framework */; };
@@ -70,6 +71,8 @@
 		0566D9A4159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A2159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib */; };
 		0566D9A6159A33C70060FF7D /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A5159A33C70060FF7D /* Defaults.plist */; };
 		0566D9A9159A40E70060FF7D /* CEPreferences+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566D9A8159A40E70060FF7D /* CEPreferences+Private.m */; };
+		056B9E4C15B8653A00B72186 /* CEEditorRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056B9E4B15B8653A00B72186 /* CEEditorRulerView.m */; };
+		056B9E6115B8777300B72186 /* CEEditorRulerView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 056B9E6015B8777300B72186 /* CEEditorRulerView+Private.m */; };
 		056D154A15B3118100F27EB2 /* CEFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D154915B3118100F27EB2 /* CEFile.m */; };
 		056D154E15B3158D00F27EB2 /* CEFile+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D154D15B3158C00F27EB2 /* CEFile+Private.m */; };
 		056D157215B3709D00F27EB2 /* CEColorLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D157115B3709D00F27EB2 /* CEColorLabelView.m */; };
@@ -108,6 +111,10 @@
 		05DD28FD159E1F16008E228F /* CEDebugViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD28FC159E1F16008E228F /* CEDebugViewController+Private.m */; };
 		05DD2908159F1E5D008E228F /* CEOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */; };
 		05DD290B159F24AB008E228F /* CEMutableOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */; };
+		05E566DD15B834CF001314B1 /* CEAlternateAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E566DB15B834CF001314B1 /* CEAlternateAboutWindow.xib */; };
+		05E566E115B834FA001314B1 /* Unicorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E566DF15B834FA001314B1 /* Unicorn.png */; };
+		05E566E215B834FA001314B1 /* Unicorn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E566E015B834FA001314B1 /* Unicorn@2x.png */; };
+		05E566E515B835B1001314B1 /* CEAlternateAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E566E415B835B1001314B1 /* CEAlternateAboutWindowController.m */; };
 		05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */; };
 		05F3174215B253560000C4CA /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F3174115B253550000C4CA /* QuickLook.framework */; };
 		05F3174415B254C40000C4CA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F3174315B254C40000C4CA /* Quartz.framework */; };
@@ -185,6 +192,8 @@
 		052FD039159E0E460045C9ED /* NSFileManager+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CE.m"; sourceTree = "<group>"; };
 		05348FF115B40590004D4355 /* CEColorLabelMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorLabelMenuItem.h; sourceTree = "<group>"; };
 		05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorLabelMenuItem.m; sourceTree = "<group>"; };
+		0539897A15B898C500D66EBC /* NSTextView+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+CE.h"; sourceTree = "<group>"; };
+		0539897B15B898C500D66EBC /* NSTextView+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+CE.m"; sourceTree = "<group>"; };
 		05420E9915B5E600008B2294 /* CEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDocument.h; sourceTree = "<group>"; };
 		05420E9A15B5E600008B2294 /* CEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDocument.m; sourceTree = "<group>"; };
 		05420EBA15B5EA2E008B2294 /* CELanguageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELanguageWindowController.h; sourceTree = "<group>"; };
@@ -243,6 +252,10 @@
 		0566D9A5159A33C70060FF7D /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		0566D9A7159A40E70060FF7D /* CEPreferences+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferences+Private.h"; sourceTree = "<group>"; };
 		0566D9A8159A40E70060FF7D /* CEPreferences+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferences+Private.m"; sourceTree = "<group>"; };
+		056B9E4A15B8653A00B72186 /* CEEditorRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorRulerView.h; sourceTree = "<group>"; };
+		056B9E4B15B8653A00B72186 /* CEEditorRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorRulerView.m; sourceTree = "<group>"; };
+		056B9E5F15B8777200B72186 /* CEEditorRulerView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEEditorRulerView+Private.h"; sourceTree = "<group>"; };
+		056B9E6015B8777300B72186 /* CEEditorRulerView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEEditorRulerView+Private.m"; sourceTree = "<group>"; };
 		056D154815B3118100F27EB2 /* CEFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFile.h; sourceTree = "<group>"; };
 		056D154915B3118100F27EB2 /* CEFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFile.m; sourceTree = "<group>"; };
 		056D154C15B3158C00F27EB2 /* CEFile+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFile+Private.h"; sourceTree = "<group>"; };
@@ -313,6 +326,11 @@
 		05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOrderedDictionary.m; sourceTree = "<group>"; };
 		05DD2909159F24AB008E228F /* CEMutableOrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMutableOrderedDictionary.h; sourceTree = "<group>"; };
 		05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMutableOrderedDictionary.m; sourceTree = "<group>"; };
+		05E566DC15B834CF001314B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEAlternateAboutWindow.xib; sourceTree = "<group>"; };
+		05E566DF15B834FA001314B1 /* Unicorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unicorn.png; sourceTree = "<group>"; };
+		05E566E015B834FA001314B1 /* Unicorn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unicorn@2x.png"; sourceTree = "<group>"; };
+		05E566E315B835B1001314B1 /* CEAlternateAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEAlternateAboutWindowController.h; sourceTree = "<group>"; };
+		05E566E415B835B1001314B1 /* CEAlternateAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEAlternateAboutWindowController.m; sourceTree = "<group>"; };
 		05EF1967159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+Private.h"; sourceTree = "<group>"; };
 		05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesCompilerOptionsViewController+Private.m"; sourceTree = "<group>"; };
 		05F3174115B253550000C4CA /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
@@ -394,6 +412,8 @@
 			children = (
 				051F2E0E159A12DB0027DD4F /* CEAboutWindowController.h */,
 				051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */,
+				05E566E315B835B1001314B1 /* CEAlternateAboutWindowController.h */,
+				05E566E415B835B1001314B1 /* CEAlternateAboutWindowController.m */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -439,6 +459,8 @@
 				05F4793915B2188800B1D80E /* NSString+CE.m */,
 				05F3175415B25FFB0000C4CA /* NSApplication+CE.h */,
 				05F3175515B25FFB0000C4CA /* NSApplication+CE.m */,
+				0539897A15B898C500D66EBC /* NSTextView+CE.h */,
+				0539897B15B898C500D66EBC /* NSTextView+CE.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -568,6 +590,7 @@
 				05480FCE159A0B98005CFBC5 /* CEMainMenu.xib */,
 				05480FDA159A0CD5005CFBC5 /* CEMainWindow.xib */,
 				051F2E11159A13270027DD4F /* CEAboutWindow.xib */,
+				05E566DB15B834CF001314B1 /* CEAlternateAboutWindow.xib */,
 				051F2E14159A13320027DD4F /* CEPreferencesWindow.xib */,
 				05DA3460159A2404006B688A /* CEPreferencesGeneralOptionsView.xib */,
 				05DA3463159A2417006B688A /* CEPreferencesEditorOptionsView.xib */,
@@ -715,6 +738,10 @@
 				05DD28F6159E1E3C008E228F /* CEEditorViewController+Private.m */,
 				054BEB7115AF815D002D7730 /* CEEditorLayoutManager.h */,
 				054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */,
+				056B9E5F15B8777200B72186 /* CEEditorRulerView+Private.h */,
+				056B9E6015B8777300B72186 /* CEEditorRulerView+Private.m */,
+				056B9E4A15B8653A00B72186 /* CEEditorRulerView.h */,
+				056B9E4B15B8653A00B72186 /* CEEditorRulerView.m */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -788,6 +815,8 @@
 		05F3172815B22B010000C4CA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				05E566DF15B834FA001314B1 /* Unicorn.png */,
+				05E566E015B834FA001314B1 /* Unicorn@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -886,6 +915,9 @@
 				050629EB15AB73CA00DA6EE6 /* Themes in Resources */,
 				050629F715AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib in Resources */,
 				0517226515B1A5A7004D5AF5 /* CEInfoWindow.xib in Resources */,
+				05E566DD15B834CF001314B1 /* CEAlternateAboutWindow.xib in Resources */,
+				05E566E115B834FA001314B1 /* Unicorn.png in Resources */,
+				05E566E215B834FA001314B1 /* Unicorn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,6 +1017,10 @@
 				05749F4B15B74B8200E2C5E0 /* CELanguageWindowController+NSTableViewDelegate.m in Sources */,
 				05749F4E15B752F200E2C5E0 /* CELanguageWindowTitleCell.m in Sources */,
 				05749F5115B7576200E2C5E0 /* CELanguageWindowTableView.m in Sources */,
+				05E566E515B835B1001314B1 /* CEAlternateAboutWindowController.m in Sources */,
+				056B9E4C15B8653A00B72186 /* CEEditorRulerView.m in Sources */,
+				056B9E6115B8777300B72186 /* CEEditorRulerView+Private.m in Sources */,
+				0539897C15B898C500D66EBC /* NSTextView+CE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1125,6 +1161,14 @@
 				05DA346D159A243B006B688A /* en */,
 			);
 			name = CEPreferencesFileTypesOptionsView.xib;
+			sourceTree = "<group>";
+		};
+		05E566DB15B834CF001314B1 /* CEAlternateAboutWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05E566DC15B834CF001314B1 /* en */,
+			);
+			name = CEAlternateAboutWindow.xib;
 			sourceTree = "<group>";
 		};
 		05F51528159A17AE0049A756 /* Localizable.strings */ = {
