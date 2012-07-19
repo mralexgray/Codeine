@@ -26,7 +26,7 @@
     CESourceFile                * _sourceFile;
     CELanguageWindowController  * _languageWindowController;
     NSPopUpButton               * _encodingPopUp;
-    NSArray                     * _documents;
+    NSMutableArray              * _documents;
 
     
 @private
@@ -39,6 +39,7 @@
 @property( nonatomic, readwrite, retain ) IBOutlet NSView        * bottomView;
 @property(    atomic, readwrite, retain )          CESourceFile  * sourceFile;
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * encodingPopUp;
+@property( nonatomic, readonly          )          NSArray       * documents;
 
 - ( IBAction )newDocument: ( id )sender;
 - ( IBAction )addBookmark: ( id )sender;

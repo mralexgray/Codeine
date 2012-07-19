@@ -34,6 +34,7 @@
     RELEASE_IVAR( _sourceFile );
     RELEASE_IVAR( _languageWindowController );
     RELEASE_IVAR( _encodingPopUp );
+    RELEASE_IVAR( _documents );
     
     [ super dealloc ];
 }
@@ -64,6 +65,8 @@
     [ _mainView   addSubview: _editorViewController.view ];
     [ _bottomView addSubview: _debugViewController.view ];
     [ _leftView   addSubview: _fileViewController.view ];
+    
+    _documents = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
     [ self.window setContentBorderThickness: ( CGFloat )29 forEdge: NSMinYEdge ];
 }
@@ -134,6 +137,14 @@
 - ( IBAction )removeBookmark: ( id )sender
 {
     [ _fileViewController removeBookmark: sender ];
+}
+
+- ( NSArray * )documents
+{
+    @synchronized( self )
+    {
+        return [ NSArray arrayWithArray: _documents ];
+    }
 }
 
 @end
