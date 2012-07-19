@@ -62,8 +62,8 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
     [ _iconView setImage: icon ];
     [ icon release ];
     
-    _contentView.backgroundColor = [ NSColor colorWithDeviceWhite: ( CGFloat )1   alpha: ( CGFloat )0.8 ];
-    _contentView.borderColor     = [ NSColor colorWithDeviceWhite: ( CGFloat )0.8 alpha: ( CGFloat )1 ];
+    _contentView.backgroundColor = [ NSColor colorWithDeviceWhite: ( CGFloat )1   alpha: ( CGFloat )0.5 ];
+    _contentView.borderColor     = [ NSColor colorWithDeviceWhite: ( CGFloat )0.5 alpha: ( CGFloat )1 ];
     
     [ _iconView removeFromSuperview ];
     [ self.window.contentView addSubview: _iconView positioned: NSWindowBelow relativeTo: nil ];
