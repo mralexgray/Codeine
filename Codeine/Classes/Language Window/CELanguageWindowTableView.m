@@ -47,7 +47,8 @@
 - ( void )highlightSelectionInClipRect: ( NSRect )rect
 {
     NSRange         rows;
-    NSColor       * color;
+    NSColor       * color1;
+    NSColor       * color2;
     NSIndexSet    * selectedRows;
     NSUInteger      row;
     NSUInteger      endRow;
@@ -62,18 +63,20 @@
     s = ( CGFloat )0;
     b = ( CGFloat )0;
     
-    color = [ NSColor selectedControlColor ];
-    color = [ color colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
+    color1 = [ NSColor colorForControlTint: NSGraphiteControlTint ];
+    color1 = [ color1 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     
-    [ color getHue: &h saturation: &s brightness: &b alpha: NULL ];
+    [ color1 getHue: &h saturation: &s brightness: &b alpha: NULL ];
     
     if( APPLICATION.isActive )
     {
-        color = [ NSColor colorWithCalibratedHue: h saturation: s brightness: b alpha: ( CGFloat )0.5 ];
+        color1 = [ NSColor colorWithCalibratedHue: h saturation: s brightness: b alpha: ( CGFloat )1 ];
+        color2 = [ NSColor colorWithCalibratedHue: h saturation: s + ( CGFloat )0.1 brightness: b - ( CGFloat )0.1 alpha: ( CGFloat )1 ];
     }
     else
     {
-        color = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b alpha: ( CGFloat )0.5 ];
+        color1 = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b alpha: ( CGFloat )1 ];
+        color2 = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b - ( CGFloat )0.1 alpha: ( CGFloat )1 ];
     }
     
     rows            = [ self rowsInRect: rect ];
@@ -81,26 +84,39 @@
     row             = rows.location;
     endRow          = row + rows.length;
     
-    gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color, ( CGFloat )0, nil ];
-    
     for( ; row < endRow; row++ )
     {
         if( [ selectedRows containsIndex: row ] )
         {
+            gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
             
-            rowRect              = NSInsetRect( [ self rectOfRow: ( NSInteger )row ] , ( CGFloat )0, ( CGFloat )0 );
-            rowRect.origin.x    += 5;
-            rowRect.origin.y    += 5;
-            rowRect.size.width  -= 10;
-            rowRect.size.height -= 10;
+            rowRect = NSInsetRect( [ self rectOfRow: ( NSInteger )row ] , ( CGFloat )0, ( CGFloat )0 );
+            path    = [ NSBezierPath bezierPath ];
             
-            path = [ NSBezierPath bezierPathWithRoundedRect: rowRect xRadius: 10 yRadius: 10 ];
+            rowRect.origin.x    += ( CGFloat )5;
+            rowRect.origin.y    += ( CGFloat )5;
+            rowRect.size.width  -= ( CGFloat )10;
+            rowRect.size.height -= ( CGFloat )10;
             
+            [ path appendBezierPathWithRoundedRect: rowRect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
             [ gradient drawInBezierPath: path angle: 90 ];
+            [ gradient release ];
+            
+            gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.15 ]
+                                                      endingColor:      [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.30 ]
+                       ];
+                               
+            rowRect.origin.x    += ( CGFloat )0.30;
+            rowRect.origin.y    += ( CGFloat )0.30;
+            rowRect.size.width  -= ( CGFloat )0.60;
+            rowRect.size.height -= ( CGFloat )0.60;
+            
+            [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rowRect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ] ];
+            [ path setWindingRule: NSEvenOddWindingRule ];
+            [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
+            [ gradient release ];
         }
     }
-    
-    [ gradient release ];
 }
 
 @end

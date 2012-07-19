@@ -71,7 +71,15 @@
     
     [ attributes setObject: [ NSFont systemFontOfSize: fontSize ]   forKey: NSFontAttributeName ];
     [ attributes setObject: [ NSColor clearColor ]                  forKey: NSBackgroundColorAttributeName ];
-    [ attributes setObject: [ NSColor textColor ]                   forKey: NSForegroundColorAttributeName ];
+    
+    if( self.backgroundStyle == NSBackgroundStyleDark )
+    {
+        [ attributes setObject: [ NSColor whiteColor ] forKey: NSForegroundColorAttributeName ];
+    }
+    else
+    {
+        [ attributes setObject: [ NSColor textColor ] forKey: NSForegroundColorAttributeName ];
+    }
     
     [ languageName drawInRect: textRect withAttributes: attributes ];
 }
