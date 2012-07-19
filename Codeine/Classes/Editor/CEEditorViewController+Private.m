@@ -8,6 +8,7 @@
 #import "CEEditorViewController+Private.h"
 #import "CEPreferences.h"
 #import "CEEditorLayoutManager.h"
+#import "CEEditorRulerView.h"
 
 @implementation CEEditorViewController( Private )
 
@@ -31,6 +32,32 @@
                             ];
     
     [ _textView setSelectedTextAttributes: selectionAttributes ];
+    
+    if( [ [ CEPreferences sharedInstance ] showLineNumbers ] == YES )
+    {
+        {
+            CEEditorRulerView * rulerView;
+            
+            rulerView = [ CEEditorRulerView new ];
+            
+            [ rulerView setClientView: _textView ];
+            [ rulerView setScrollView: [ _textView enclosingScrollView ] ];
+            
+            [ [ _textView enclosingScrollView ] setVerticalRulerView: rulerView ];
+            [ [ _textView enclosingScrollView ] setHasHorizontalRuler: NO ];
+            [ [ _textView enclosingScrollView ] setHasVerticalRuler: YES ];
+            [ [ _textView enclosingScrollView ] setRulersVisible: YES ];
+            
+            [ rulerView release ];
+        }
+    }
+    else
+    {
+        [ [ _textView enclosingScrollView ] setVerticalRulerView: nil ];
+        [ [ _textView enclosingScrollView ] setHasHorizontalRuler: NO ];
+        [ [ _textView enclosingScrollView ] setHasVerticalRuler: NO ];
+        [ [ _textView enclosingScrollView ] setRulersVisible: NO ];
+}
 }
 
 @end

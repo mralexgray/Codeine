@@ -11,6 +11,7 @@
 #import "CEMainWindowController.h"
 #import "CESourceFile.h"
 #import "CEEditorLayoutManager.h"
+#import "CEEditorRulerView.h"
 
 @implementation CEEditorViewController
 
