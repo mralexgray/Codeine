@@ -42,9 +42,9 @@ static void __exit( void )
 {
     rect = NSMakeRect
     (
-        rect.origin.x + rect.size.height + 10,
+        rect.origin.x + rect.size.height + 20,
         rect.origin.y + 3,
-        rect.size.width - ( rect.size.height + 4 ),
+        rect.size.width - ( rect.size.height + 14 ),
         rect.size.height - 6
     );
     
@@ -78,6 +78,9 @@ static void __exit( void )
     
     ( void )frame;
     ( void )view;
+    
+    frame.origin.x   += ( CGFloat )10;
+    frame.size.width -= ( CGFloat )10;
     
     item = ( CEFilesViewItem * )[ self objectValue ];
     
@@ -117,8 +120,8 @@ static void __exit( void )
                     if( self.backgroundStyle == NSBackgroundStyleDark )
                     {
                         rect.origin.x    += ( rect.size.width - rect.size.height );
-                        rect.size.height -= 6;
-                        rect.origin.y    += 3;
+                        rect.size.height -= ( CGFloat )6;
+                        rect.origin.y    += ( CGFloat )3;
                         rect.size.width   = rect.size.height;
                     }
                     

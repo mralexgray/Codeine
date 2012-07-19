@@ -57,7 +57,7 @@
         [ [ _textView enclosingScrollView ] setHasHorizontalRuler: NO ];
         [ [ _textView enclosingScrollView ] setHasVerticalRuler: NO ];
         [ [ _textView enclosingScrollView ] setRulersVisible: NO ];
-}
+    }
 }
 
 @end
