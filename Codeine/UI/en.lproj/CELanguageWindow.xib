@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
 		<string key="IBDocument.SystemVersion">12A269</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2818</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
 		<string key="IBDocument.AppKitVersion">1187</string>
 		<string key="IBDocument.HIToolboxVersion">624.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2818</string>
+			<string key="NS.object.0">2549</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSButton</string>
@@ -296,7 +296,7 @@
 											<string key="NSReuseIdentifierKey">_NS:11</string>
 											<reference key="NSDocView" ref="511236621"/>
 											<reference key="NSBGColor" ref="113786681"/>
-											<int key="NScvFlags">6</int>
+											<int key="NScvFlags">2</int>
 										</object>
 										<object class="NSScroller" id="537974735">
 											<reference key="NSNextResponder" ref="671995637"/>
@@ -331,7 +331,7 @@
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="582781983"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
-									<int key="NSsFlags">133682</int>
+									<int key="NSsFlags">154162</int>
 									<reference key="NSVScroller" ref="537974735"/>
 									<reference key="NSHScroller" ref="457819765"/>
 									<reference key="NSContentView" ref="582781983"/>
@@ -443,7 +443,7 @@
 											<string key="NSReuseIdentifierKey">_NS:11</string>
 											<reference key="NSDocView" ref="337253556"/>
 											<reference key="NSBGColor" ref="113786681"/>
-											<int key="NScvFlags">6</int>
+											<int key="NScvFlags">2</int>
 										</object>
 										<object class="NSScroller" id="953628931">
 											<reference key="NSNextResponder" ref="473200131"/>
@@ -478,7 +478,7 @@
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="1061165894"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
-									<int key="NSsFlags">133682</int>
+									<int key="NSsFlags">154162</int>
 									<reference key="NSVScroller" ref="953628931"/>
 									<reference key="NSHScroller" ref="912200586"/>
 									<reference key="NSContentView" ref="1061165894"/>
