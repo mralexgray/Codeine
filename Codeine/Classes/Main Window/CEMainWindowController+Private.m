@@ -23,21 +23,22 @@
 
 - ( void )didChooseLanguage: ( id )sender
 {
-    NSString * templates;
-    NSString * template;
+    NSString         * templates;
+    NSString         * template;
+    CESourceFile     * sourceFile;
+    NSDateComponents * dateComponents;
     
     if
     (
-           _languageWindowController.language == CESourceFileLanguageNone
+           _languageWindowController.language    == CESourceFileLanguageNone
         || _languageWindowController.lineEndings == CESourceFileLineEndingsUnknown
-        || _languageWindowController.encoding == nil
+        || _languageWindowController.encoding    == nil
     )
     {
         return;
     }
     
     templates = [ [ FILE_MANAGER applicationSupportDirectory ] stringByAppendingPathComponent: @"Templates" ];
-    
     
     ( void )sender;
     
@@ -69,7 +70,11 @@
             break;
     }
     
-    self.sourceFile = [ CESourceFile sourceFileWithLanguage: _languageWindowController.language fromFile: template ];
+    dateComponents  = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
+    sourceFile      = [ CESourceFile sourceFileWithLanguage: _languageWindowController.language fromFile: template ];
+    sourceFile.text = [ sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: NSFullUserName() ];
+    sourceFile.text = [ sourceFile.text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
+    self.sourceFile = sourceFile;
     
     RELEASE_IVAR( _languageWindowController );
 }
