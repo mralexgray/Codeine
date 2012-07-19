@@ -10,6 +10,7 @@
 #import "CEMainWindowController.h"
 #import "CEPreferencesWindowController.h"
 #import "CEAboutWindowController.h"
+#import "CEAlternateAboutWindowController.h"
 #import "CEPreferences.h"
 
 @implementation CEApplicationDelegate
@@ -24,6 +25,7 @@
     RELEASE_IVAR( _mainWindowControllers );
     RELEASE_IVAR( _preferencesWindowController );
     RELEASE_IVAR( _aboutWindowController );
+    RELEASE_IVAR( _alternateAboutWindowController );
     
     [ super dealloc ];
 }
@@ -64,8 +66,6 @@
 
 - ( IBAction )showAboutWindow: ( id )sender
 {
-    ( void )sender;
-    
     if( _aboutWindowController == nil )
     {
         _aboutWindowController = [ CEAboutWindowController new ];
@@ -74,6 +74,18 @@
     [ _aboutWindowController.window center ];
     [ _aboutWindowController showWindow: sender ];
     [ _aboutWindowController.window makeKeyAndOrderFront: sender ];
+}
+
+- ( IBAction )showAlternateAboutWindow: ( id )sender
+{
+    if( _alternateAboutWindowController == nil )
+    {
+        _alternateAboutWindowController = [ CEAlternateAboutWindowController new ];
+    }
+    
+    [ _alternateAboutWindowController.window center ];
+    [ _alternateAboutWindowController showWindow: sender ];
+    [ _alternateAboutWindowController.window makeKeyAndOrderFront: sender ];
 }
 
 - ( IBAction )newWindow: ( id )sender

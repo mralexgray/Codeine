@@ -7,14 +7,16 @@
 
 @class CEPreferencesWindowController;
 @class CEAboutWindowController;
+@class CEAlternateAboutWindowController;
 
 @interface CEApplicationDelegate: NSObject < NSApplicationDelegate >
 {
 @protected
     
-    NSMutableArray                  * _mainWindowControllers;
-    CEPreferencesWindowController   * _preferencesWindowController;
-    CEAboutWindowController         * _aboutWindowController;
+    NSMutableArray                   * _mainWindowControllers;
+    CEPreferencesWindowController    * _preferencesWindowController;
+    CEAboutWindowController          * _aboutWindowController;
+    CEAlternateAboutWindowController * _alternateAboutWindowController;
     
 @private
     
@@ -24,6 +26,7 @@
 + ( CEApplicationDelegate * )sharedInstance;
 - ( IBAction )showPreferencesWindow: ( id )sender;
 - ( IBAction )showAboutWindow: ( id )sender;
+- ( IBAction )showAlternateAboutWindow: ( id )sender;
 - ( IBAction )newWindow: ( id )sender;
 - ( IBAction )toggleInvisibleCharacters: ( id )sender;
 
