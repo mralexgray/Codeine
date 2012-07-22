@@ -40,6 +40,7 @@ NSString * const CEPreferencesKeyLineEndings                = @"LineEndings";
 NSString * const CEPreferencesKeyShowInvisibles             = @"ShowInvisibles";
 NSString * const CEPreferencesKeyAutoExpandTabs             = @"AutoExpandTabs";
 NSString * const CEPreferencesKeyAutoIndent                 = @"AutoIndent";
+NSString * const CEPreferencesKeySoftWrap                   = @"SoftWrap";
 NSString * const CEPreferencesKeyShowLineNumbers            = @"ShowLineNumbers";
 NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
 NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
@@ -617,6 +618,14 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( BOOL )softWrap
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeySoftWrap ];
+    }
+}
+
 - ( BOOL )showLineNumbers
 {
     @synchronized( self )
@@ -908,6 +917,17 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyAutoIndent );
+    }
+}
+
+- ( void )setSoftWrap: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeySoftWrap ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySoftWrap );
     }
 }
 

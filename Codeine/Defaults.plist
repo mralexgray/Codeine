@@ -8,6 +8,8 @@
 	<true/>
 	<key>AutoIndent</key>
 	<true/>
+	<key>SoftWrap</key>
+	<false/>
 	<key>FontName</key>
 	<string>Menlo</string>
 	<key>FontSize</key>
