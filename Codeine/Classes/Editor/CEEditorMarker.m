@@ -33,7 +33,7 @@
     
     gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
     path     = [ NSBezierPath bezierPath ];
-    rect     = NSInsetRect( rect, ( CGFloat )2, ( CGFloat )0 );
+    rect     = NSInsetRect( rect, ( CGFloat )1, ( CGFloat )0 );
     
     [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )5 yRadius: ( CGFloat )5 ];
     [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
