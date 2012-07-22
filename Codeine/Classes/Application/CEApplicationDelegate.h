@@ -28,6 +28,8 @@
 - ( IBAction )showAboutWindow: ( id )sender;
 - ( IBAction )showAlternateAboutWindow: ( id )sender;
 - ( IBAction )newWindow: ( id )sender;
+- ( IBAction )toggleLineNumbers: ( id )sender;
+- ( IBAction )toggleSoftWrap: ( id )sender;
 - ( IBAction )toggleInvisibleCharacters: ( id )sender;
 
 @end

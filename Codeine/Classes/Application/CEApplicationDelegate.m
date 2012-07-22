@@ -116,15 +116,37 @@
     }
 }
 
-- ( IBAction )toggleInvisibleCharacters: ( id )sender
+- ( IBAction )toggleLineNumbers: ( id )sender
 {
-    BOOL showInvisibles;
+    BOOL value;
     
     ( void )sender;
     
-    showInvisibles = [ [ CEPreferences sharedInstance ] showInvisibles ];
+    value = [ [ CEPreferences sharedInstance ] showLineNumbers ];
     
-    [ [ CEPreferences sharedInstance ] setShowInvisibles: ( showInvisibles == YES ) ? NO : YES ];
+    [ [ CEPreferences sharedInstance ] setShowLineNumbers: ( value == YES ) ? NO : YES ];
+}
+
+- ( IBAction )toggleSoftWrap: ( id )sender
+{
+    BOOL value;
+    
+    ( void )sender;
+    
+    value = [ [ CEPreferences sharedInstance ] softWrap ];
+    
+    [ [ CEPreferences sharedInstance ] setSoftWrap: ( value == YES ) ? NO : YES ];
+}
+
+- ( IBAction )toggleInvisibleCharacters: ( id )sender
+{
+    BOOL value;
+    
+    ( void )sender;
+    
+    value = [ [ CEPreferences sharedInstance ] showInvisibles ];
+    
+    [ [ CEPreferences sharedInstance ] setShowInvisibles: ( value == YES ) ? NO : YES ];
 }
 
 @end
