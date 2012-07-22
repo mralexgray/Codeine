@@ -9,5 +9,7 @@
 
 - ( NSUInteger )numberOfHardLines;
 - ( NSUInteger )numberOfSoftLines;
+- ( void )enableSoftWrap;
+- ( void )disableSoftWrap;
 
 @end

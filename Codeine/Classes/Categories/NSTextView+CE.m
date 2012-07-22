@@ -50,4 +50,14 @@
     return numberOfLines;
 }
 
+- ( void )enableSoftWrap
+{}
+
+- ( void )disableSoftWrap
+{
+    [ self.textContainer setContainerSize:NSMakeSize( CGFLOAT_MAX, CGFLOAT_MAX ) ];
+    [ self.textContainer setWidthTracksTextView: NO ];
+    [ self setHorizontallyResizable: YES ];
+}
+
 @end
