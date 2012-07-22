@@ -14,4 +14,9 @@
     [ super drawRect: rect ];
 }
 
+- ( void )drawViewBackgroundInRect: ( NSRect )rect
+{
+    [ super drawViewBackgroundInRect: rect ];
+}
+
 @end
