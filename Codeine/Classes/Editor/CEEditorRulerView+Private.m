@@ -116,6 +116,28 @@
     [ self setNeedsDisplay: YES ];
 }
 
+- ( void )removeMarkerForLine: ( NSUInteger )line
+{
+    if( _textView == nil )
+    {
+        return;
+    }
+    
+    if( _lineMarkers == nil )
+    {
+        return;
+    }
+    
+    if( line >= _lineMarkersSize )
+    {
+        return;
+    }
+    
+    _lineMarkers[ line ] = nil;
+    
+    [ self setNeedsDisplay: YES ];
+}
+
 - ( CEEditorMarker * )markerForLine: ( NSUInteger )line
 {
     if( _textView == nil )

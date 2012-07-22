@@ -189,7 +189,14 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         return;
     }
     
-    [ self addMarkerForLine: line ];
+    if( [ self markerForLine: line ] == nil )
+    {
+        [ self addMarkerForLine: line ];
+    }
+    else
+    {
+        [ self removeMarkerForLine: line ];
+    }
 }
 
 @end

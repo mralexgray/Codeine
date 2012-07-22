@@ -14,6 +14,7 @@
 - ( NSRect )rectForLine: ( NSUInteger )line;
 - ( NSUInteger )lineForPoint: ( NSPoint )point;
 - ( void )addMarkerForLine: ( NSUInteger )line;
+- ( void )removeMarkerForLine: ( NSUInteger )line;
 - ( CEEditorMarker * )markerForLine: ( NSUInteger )line;
 
 @end
