@@ -9,6 +9,7 @@
 
 @class CESourceFile;
 @class CEEditorLayoutManager;
+@class CEEditorRulerView;
 
 @interface CEEditorViewController: CEViewController
 {
@@ -17,6 +18,7 @@
     NSTextView              * _textView;
     CESourceFile            * _sourceFile;
     CEEditorLayoutManager   * _layoutManager;
+    CEEditorRulerView       * _rulerView;
     
 @private
     

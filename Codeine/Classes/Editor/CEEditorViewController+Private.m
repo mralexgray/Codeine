@@ -35,21 +35,18 @@
     
     if( [ [ CEPreferences sharedInstance ] showLineNumbers ] == YES )
     {
+        if( _rulerView == nil )
         {
-            CEEditorRulerView * rulerView;
-            
-            rulerView = [ CEEditorRulerView new ];
-            
-            [ rulerView setClientView: _textView ];
-            [ rulerView setScrollView: [ _textView enclosingScrollView ] ];
-            
-            [ [ _textView enclosingScrollView ] setVerticalRulerView: rulerView ];
-            [ [ _textView enclosingScrollView ] setHasHorizontalRuler: NO ];
-            [ [ _textView enclosingScrollView ] setHasVerticalRuler: YES ];
-            [ [ _textView enclosingScrollView ] setRulersVisible: YES ];
-            
-            [ rulerView release ];
+            _rulerView = [ CEEditorRulerView new ];
         }
+        
+        [ _rulerView setClientView: _textView ];
+        [ _rulerView setScrollView: [ _textView enclosingScrollView ] ];
+        
+        [ [ _textView enclosingScrollView ] setVerticalRulerView: _rulerView ];
+        [ [ _textView enclosingScrollView ] setHasHorizontalRuler: NO ];
+        [ [ _textView enclosingScrollView ] setHasVerticalRuler: YES ];
+        [ [ _textView enclosingScrollView ] setRulersVisible: YES ];
     }
     else
     {

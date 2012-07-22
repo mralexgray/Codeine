@@ -6,6 +6,8 @@
 /* $Id$ */
 
 #import "CEEditorRulerView.h"
+#import "CEEditorRulerView+Private.h"
+#import "CEEditorMarker.h"
 #import "CEPreferences.h"
 
 NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
@@ -14,9 +16,19 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
 
 - ( void )dealloc
 {
+    NSUInteger i;
+    
     [ NOTIFICATION_CENTER removeObserver: self ];
     
     RELEASE_IVAR( _textView );
+    
+    for( i = 0; i < _lineMarkersSize; i++ )
+    {
+        [ _lineMarkers[ i ] release ];
+    }
+    
+    free( _lineMarkers );
+    free( _linesRect );
     
     [ super dealloc ];
 }
@@ -28,7 +40,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     [ super setClientView: view ];
     [ NOTIFICATION_CENTER removeObserver: self name: NSTextStorageDidProcessEditingNotification object: _textView.textStorage ];
     
-    if( [ view isKindOfClass: [ NSTextView class ] ] == NO )
+    if( view != nil && [ view isKindOfClass: [ NSTextView class ] ] == NO )
     {
         e = [ NSException exceptionWithName: CEEditorRulerViewException reason: @"Bad client view - Kind must be NSTextView" userInfo: nil ];
         
@@ -78,6 +90,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         NSRange                   glyphRange;
         NSRect                    visibleRect;
         NSRange                   lineRange;
+        CEEditorMarker          * marker;
         
         text = _textView.textStorage.string;
         
@@ -86,7 +99,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         start           = 0;
         end             = 0;
         contentsEnd     = 0;
-        line            = 1;
+        line            = 0;
         
         selectedRange   = NSMakeRange( NSNotFound, 0 );
         textContainer   = [ _textView.layoutManager.textContainers objectAtIndex: 0 ];
@@ -141,13 +154,42 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
             lineRect.origin.x   = ( CGFloat )0;
             lineRect.size.width = ( CGFloat )rect.size.width - ( CGFloat )5;
             
-            [ [ NSString stringWithFormat: @"%lu", line ] drawInRect: lineRect withAttributes: attributes ];
+            marker = [ self markerForLine: line ];
+            
+            if( marker != nil )
+            {
+                [ marker drawRect: NSMakeRect( lineRect.origin.x, lineRect.origin.y, lineRect.size.width + ( CGFloat )5, lineRect.size.height ) ];
+                [ attributes setObject: [ NSColor whiteColor ] forKey: NSForegroundColorAttributeName ];
+            }
+            else
+            {
+                [ attributes setObject: [ NSColor grayColor ] forKey: NSForegroundColorAttributeName ];
+            }
+            
+            [ [ NSString stringWithFormat: @"%lu", line + 1 ] drawInRect: lineRect withAttributes: attributes ];
+            [ self setRect: lineRect forLine: line ];
             
             range.location = end;
             
             line++;
         }
     }
+}
+
+- ( void )mouseDown: ( NSEvent * )e
+{
+	NSPoint    location;
+    NSUInteger line;
+	
+	location = [ self convertPoint: e.locationInWindow fromView: nil ];
+    line     = [ self lineForPoint: location ];
+    
+    if( line == NSNotFound )
+    {
+        return;
+    }
+    
+    [ self addMarkerForLine: line ];
 }
 
 @end

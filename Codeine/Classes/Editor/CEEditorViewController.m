@@ -24,6 +24,7 @@
     RELEASE_IVAR( _textView );
     RELEASE_IVAR( _sourceFile );
     RELEASE_IVAR( _layoutManager );
+    RELEASE_IVAR( _rulerView );
     
     [ super dealloc ];
 }

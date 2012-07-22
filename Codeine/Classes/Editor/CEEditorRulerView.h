@@ -7,11 +7,17 @@
 
 FOUNDATION_EXPORT NSString * const CEEditorRulerViewException;
 
+@class CEEditorMarker;
+
 @interface CEEditorRulerView: NSRulerView
 {
 @protected
     
-    NSTextView * _textView;
+    NSTextView      * _textView;
+    NSRect          * _linesRect;
+    NSUInteger        _linesRectSize;
+    CEEditorMarker ** _lineMarkers;
+    NSUInteger        _lineMarkersSize;
     
 @private
     
