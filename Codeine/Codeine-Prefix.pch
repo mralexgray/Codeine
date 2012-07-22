@@ -17,5 +17,6 @@
     #import "NSBundle+CE.h"
     #import "NSString+CE.h"
     #import "NSApplication+CE.h"
+    #import "NSTextView+CE.h"
     
 #endif

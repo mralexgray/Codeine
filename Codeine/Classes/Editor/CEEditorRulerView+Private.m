@@ -9,6 +9,11 @@
 
 @implementation CEEditorRulerView( Private )
 
-
+- ( void )textStorageDidProcessEditing: ( NSNotification * )notification
+{
+    ( void )notification;
+    
+    [ self setNeedsDisplay: YES ];
+}
 
 @end

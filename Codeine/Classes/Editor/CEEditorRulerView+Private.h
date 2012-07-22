@@ -9,6 +9,6 @@
 
 @interface CEEditorRulerView( Private )
 
-
+- ( void )textStorageDidProcessEditing: ( NSNotification * )notification;
 
 @end
