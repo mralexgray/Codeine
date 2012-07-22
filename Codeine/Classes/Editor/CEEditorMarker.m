@@ -28,8 +28,8 @@
     
     [ color1 getHue: &h saturation: &s brightness: &b alpha: NULL ];
     
-    color1 = [ NSColor colorWithCalibratedHue: h saturation: s brightness: b alpha: ( CGFloat )1 ];
-    color2 = [ NSColor colorWithCalibratedHue: h saturation: s + ( CGFloat )0.2 brightness: b - ( CGFloat )0.2 alpha: ( CGFloat )1 ];
+    color1 = [ NSColor colorWithCalibratedHue: h saturation: s + ( CGFloat )0.2 brightness: b alpha: ( CGFloat )1 ];
+    color2 = [ NSColor colorWithCalibratedHue: h saturation: s + ( CGFloat )0.4 brightness: b - ( CGFloat )0.4 alpha: ( CGFloat )1 ];
     
     gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
     path     = [ NSBezierPath bezierPath ];
@@ -44,8 +44,8 @@
     rect.size.width  -= ( CGFloat )0.60;
     rect.size.height -= ( CGFloat )0.60;
     
-    gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.15 ]
-                                              endingColor:      [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.30 ]
+    gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.50 ]
+                                              endingColor:      [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.75 ]
                ];
     
     [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rect xRadius: ( CGFloat )5 yRadius: ( CGFloat )5 ] ];
