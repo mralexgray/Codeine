@@ -30,6 +30,9 @@ NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescri
 
 - ( void )dealloc
 {
+    _tableView.delegate   = nil;
+    _tableView.dataSource = nil;
+    
     RELEASE_IVAR( _tableView );
     RELEASE_IVAR( _flags );
     RELEASE_IVAR( _warningsPresetPopUp );

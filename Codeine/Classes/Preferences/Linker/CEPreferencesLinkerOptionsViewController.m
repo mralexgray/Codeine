@@ -25,6 +25,14 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
 
 - ( void )dealloc
 {
+    _frameworksTableView.delegate = nil;
+    _sharedLibsTableView.delegate = nil;
+    _staticLibsTableView.delegate = nil;
+    
+    _frameworksTableView.dataSource = nil;
+    _sharedLibsTableView.dataSource = nil;
+    _staticLibsTableView.dataSource = nil;
+    
     RELEASE_IVAR( _frameworksTableView );
     RELEASE_IVAR( _sharedLibsTableView );
     RELEASE_IVAR( _staticLibsTableView );
