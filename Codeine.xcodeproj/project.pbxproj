@@ -882,6 +882,7 @@
 				05480FA4159A0B32005CFBC5 /* Sources */,
 				05480FA5159A0B32005CFBC5 /* Frameworks */,
 				05480FA6159A0B32005CFBC5 /* Resources */,
+				05FFDA1115BDFF1D001EA4A3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -954,6 +955,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05FFDA1115BDFF1D001EA4A3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nplist=\"Codeine/Codeine-Info.plist\"\nrev=$(git log --pretty=format:'%h' -n 1)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $rev\" \"$plist\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05480FA4159A0B32005CFBC5 /* Sources */ = {
