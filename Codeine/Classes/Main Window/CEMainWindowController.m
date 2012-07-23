@@ -14,6 +14,7 @@
 #import "CETextEncoding.h"
 #import "CEPreferences.h"
 #import "CEQuickLookItem.h"
+#import "CERegistrationBadge.h"
 
 @implementation CEMainWindowController
 
@@ -69,6 +70,19 @@
     _documents = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
     [ self.window setContentBorderThickness: ( CGFloat )29 forEdge: NSMinYEdge ];
+    
+    {
+        NSRect                badgeRect;
+        CERegistrationBadge * badge;
+        
+        badgeRect              = NSMakeRect( self.window.frame.size.width - 230, self.window.frame.size.height - 20, 200, 20 );
+        badge                  = [ [ CERegistrationBadge alloc ] initWithFrame: badgeRect ];
+        badge.autoresizingMask = NSViewMinXMargin | NSViewMinYMargin;
+    
+        [ ( ( NSView * )self.window.contentView ).superview addSubview: badge ];
+        
+        [ badge release ];
+    }
 }
 
 - ( void )showWindow: ( id )sender
