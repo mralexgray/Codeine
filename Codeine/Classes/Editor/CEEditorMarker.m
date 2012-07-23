@@ -28,8 +28,16 @@
     
     [ color1 getHue: &h saturation: &s brightness: &b alpha: NULL ];
     
-    color1 = [ NSColor colorWithCalibratedHue: h saturation: s + ( CGFloat )0.2 brightness: b alpha: ( CGFloat )1 ];
-    color2 = [ NSColor colorWithCalibratedHue: h saturation: s + ( CGFloat )0.4 brightness: b - ( CGFloat )0.4 alpha: ( CGFloat )1 ];
+    if( APPLICATION.isActive == YES )
+    {
+        color1 = [ NSColor colorWithCalibratedHue: h saturation: s + ( CGFloat )0.2 brightness: b alpha: ( CGFloat )1 ];
+        color2 = [ NSColor colorWithCalibratedHue: h saturation: s + ( CGFloat )0.4 brightness: b - ( CGFloat )0.4 alpha: ( CGFloat )1 ];
+    }
+    else
+    {
+        color1 = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b alpha: ( CGFloat )1 ];
+        color2 = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b - ( CGFloat )0.4 alpha: ( CGFloat )1 ];
+    }
     
     gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
     path     = [ NSBezierPath bezierPath ];

@@ -17,6 +17,13 @@
     [ self setNeedsDisplay: YES ];
 }
 
+- ( void )applicationStateDidChange: ( NSNotification * )notification
+{
+    ( void )notification;
+    
+    [ self setNeedsDisplay: YES ];
+}
+
 - ( void )setRect: ( NSRect )rect forLine: ( NSUInteger )line
 {
     if( _textView == nil )

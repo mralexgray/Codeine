@@ -18,6 +18,7 @@ FOUNDATION_EXPORT NSString * const CEEditorRulerViewException;
     NSUInteger        _linesRectSize;
     CEEditorMarker ** _lineMarkers;
     NSUInteger        _lineMarkersSize;
+    BOOL              _hasApplicationObserver;
     
 @private
     
