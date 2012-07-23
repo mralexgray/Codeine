@@ -15,6 +15,7 @@
 #import "CEPreferences.h"
 #import "CEQuickLookItem.h"
 #import "CERegistrationBadge.h"
+#import "CEApplicationDelegate.h"
 
 @implementation CEMainWindowController
 
@@ -78,7 +79,10 @@
         badgeRect              = NSMakeRect( self.window.frame.size.width - 230, self.window.frame.size.height - 20, 200, 20 );
         badge                  = [ [ CERegistrationBadge alloc ] initWithFrame: badgeRect ];
         badge.autoresizingMask = NSViewMinXMargin | NSViewMinYMargin;
-    
+        
+        [ badge setTarget: [ CEApplicationDelegate sharedInstance ] ];
+        [ badge setAction: @selector( showRegistrationWindow: ) ];
+        
         [ ( ( NSView * )self.window.contentView ).superview addSubview: badge ];
         
         [ badge release ];

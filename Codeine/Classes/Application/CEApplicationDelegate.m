@@ -12,6 +12,7 @@
 #import "CEAboutWindowController.h"
 #import "CEAlternateAboutWindowController.h"
 #import "CEPreferences.h"
+#import "CERegistrationWindowController.h"
 
 @implementation CEApplicationDelegate
 
@@ -86,6 +87,18 @@
     [ _alternateAboutWindowController.window center ];
     [ _alternateAboutWindowController showWindow: sender ];
     [ _alternateAboutWindowController.window makeKeyAndOrderFront: sender ];
+}
+
+- ( IBAction )showRegistrationWindow: ( id )sender
+{
+    if( _registrationWindowController == nil )
+    {
+        _registrationWindowController = [ CERegistrationWindowController new ];
+    }
+    
+    [ _registrationWindowController.window center ];
+    [ _registrationWindowController showWindow: sender ];
+    [ _registrationWindowController.window makeKeyAndOrderFront: sender ];
 }
 
 - ( IBAction )newWindow: ( id )sender

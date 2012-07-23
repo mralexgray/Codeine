@@ -131,6 +131,8 @@
 		05F8035D15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */; };
 		05F8036115A7794300CD9F0D /* Application.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F8036015A7794300CD9F0D /* Application.icns */; };
 		05F8036715A8804D00CD9F0D /* CEColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8036615A8804D00CD9F0D /* CEColorTheme.m */; };
+		05FFD9EC15BDDEE5001EA4A3 /* CERegistrationWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FFD9EA15BDDEE5001EA4A3 /* CERegistrationWindow.xib */; };
+		05FFD9F015BDDF2A001EA4A3 /* CERegistrationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FFD9EF15BDDF2A001EA4A3 /* CERegistrationWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -364,6 +366,9 @@
 		05F8036515A8804D00CD9F0D /* CEColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorTheme.h; sourceTree = "<group>"; };
 		05F8036615A8804D00CD9F0D /* CEColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorTheme.m; sourceTree = "<group>"; };
 		05FE777D15B49FE700A7C28B /* CEColorLabelViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEColorLabelViewDelegate.h; sourceTree = "<group>"; };
+		05FFD9EB15BDDEE5001EA4A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CERegistrationWindow.xib; sourceTree = "<group>"; };
+		05FFD9EE15BDDF2A001EA4A3 /* CERegistrationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CERegistrationWindowController.h; sourceTree = "<group>"; };
+		05FFD9EF15BDDF2A001EA4A3 /* CERegistrationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERegistrationWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,6 +572,7 @@
 				05941094159A264300257F9E /* Helpers */,
 				051F2E06159A12A10027DD4F /* About */,
 				051F2E07159A12A10027DD4F /* Preferences */,
+				05FFD9ED15BDDF0C001EA4A3 /* Registration Window */,
 				05480FD6159A0CC1005CFBC5 /* Main Window */,
 				05420EB915B5EA2E008B2294 /* Language Window */,
 				05480FCA159A0B98005CFBC5 /* Application */,
@@ -613,6 +619,7 @@
 				052FD001159DECEF0045C9ED /* CEFilesView.xib */,
 				052FD007159DF53C0045C9ED /* CELanguageWindow.xib */,
 				0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */,
+				05FFD9EA15BDDEE5001EA4A3 /* CERegistrationWindow.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -856,6 +863,15 @@
 			path = "UI Elements";
 			sourceTree = "<group>";
 		};
+		05FFD9ED15BDDF0C001EA4A3 /* Registration Window */ = {
+			isa = PBXGroup;
+			children = (
+				05FFD9EE15BDDF2A001EA4A3 /* CERegistrationWindowController.h */,
+				05FFD9EF15BDDF2A001EA4A3 /* CERegistrationWindowController.m */,
+			);
+			path = "Registration Window";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -933,6 +949,7 @@
 				05E566DD15B834CF001314B1 /* CEAlternateAboutWindow.xib in Resources */,
 				05E566E115B834FA001314B1 /* Unicorn.png in Resources */,
 				05E566E215B834FA001314B1 /* Unicorn@2x.png in Resources */,
+				05FFD9EC15BDDEE5001EA4A3 /* CERegistrationWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,6 +1056,7 @@
 				05A1DFBD15BC6A26007F9560 /* CEEditorTextView.m in Sources */,
 				05A1DFCB15BC78FF007F9560 /* CEEditorMarker.m in Sources */,
 				05DA002715BDB841001FDB95 /* CERegistrationBadge.m in Sources */,
+				05FFD9F015BDDF2A001EA4A3 /* CERegistrationWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1195,6 +1213,14 @@
 				05F51529159A17AE0049A756 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		05FFD9EA15BDDEE5001EA4A3 /* CERegistrationWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05FFD9EB15BDDEE5001EA4A3 /* en */,
+			);
+			name = CERegistrationWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

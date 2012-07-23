@@ -8,6 +8,7 @@
 @class CEPreferencesWindowController;
 @class CEAboutWindowController;
 @class CEAlternateAboutWindowController;
+@class CERegistrationWindowController;
 
 @interface CEApplicationDelegate: NSObject < NSApplicationDelegate >
 {
@@ -17,6 +18,7 @@
     CEPreferencesWindowController    * _preferencesWindowController;
     CEAboutWindowController          * _aboutWindowController;
     CEAlternateAboutWindowController * _alternateAboutWindowController;
+    CERegistrationWindowController   * _registrationWindowController;
     
 @private
     
@@ -27,6 +29,7 @@
 - ( IBAction )showPreferencesWindow: ( id )sender;
 - ( IBAction )showAboutWindow: ( id )sender;
 - ( IBAction )showAlternateAboutWindow: ( id )sender;
+- ( IBAction )showRegistrationWindow: ( id )sender;
 - ( IBAction )newWindow: ( id )sender;
 - ( IBAction )toggleLineNumbers: ( id )sender;
 - ( IBAction )toggleSoftWrap: ( id )sender;
