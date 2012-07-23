@@ -9,12 +9,65 @@
 
 @implementation CERegistrationBadge
 
+@synthesize target = _target;
+@synthesize action = _action;
+
 - ( id )initWithFrame: ( NSRect )frame
 {
+    NSTrackingAreaOptions options;
+    NSRect                trackingRect;
+    
     if( ( self = [ super initWithFrame: frame ] ) )
-    {}
+    {
+        trackingRect  = NSMakeRect( ( CGFloat )0, ( CGFloat )0, frame.size.width, frame.size.height );
+        options       = NSTrackingEnabledDuringMouseDrag
+                      | NSTrackingMouseEnteredAndExited
+                      | NSTrackingActiveInActiveApp
+                      | NSTrackingActiveAlways;
+        _trackingArea = [ [ NSTrackingArea alloc ] initWithRect: trackingRect options: options owner: self userInfo: nil ];
+        
+        [ self addTrackingArea: _trackingArea ];
+    }
     
     return self;
+}
+
+- ( void )dealloc
+{
+    [ self removeTrackingArea: _trackingArea ];
+    
+    RELEASE_IVAR( _trackingArea );
+    RELEASE_IVAR( _target );
+    
+    [ super dealloc ];
+}
+
+- ( void )mouseEntered: ( NSEvent * )event
+{
+    ( void )event;
+    
+    _inTrackingArea = YES;
+    
+    [ self setNeedsDisplay: YES ];
+}
+
+- ( void )mouseExited: ( NSEvent * )event
+{
+    ( void )event;
+    
+    _inTrackingArea = NO;
+    
+    [ self setNeedsDisplay: YES ];
+}
+
+- ( void )mouseDown: ( NSEvent * )event
+{
+    ( void )event;
+    
+    if( _target != nil && _action != NULL )
+    {
+        [ _target performSelector: _action withObject: self ];
+    }
 }
 
 - ( void )drawRect: ( NSRect )rect
@@ -43,7 +96,15 @@
     s = ( CGFloat )0;
     b = ( CGFloat )0;
     
-    color1 = [ NSColor colorForControlTint: NSGraphiteControlTint ];
+    if( _inTrackingArea == YES )
+    {
+        color1 = [ NSColor colorForControlTint: NSBlueControlTint ];
+    }
+    else
+    {
+        color1 = [ NSColor colorForControlTint: NSGraphiteControlTint ];
+    }
+    
     color1 = [ color1 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     
     [ color1 getHue: &h saturation: &s brightness: &b alpha: NULL ];
