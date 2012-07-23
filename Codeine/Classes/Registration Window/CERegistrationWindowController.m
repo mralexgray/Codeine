@@ -18,7 +18,7 @@
 - ( void )awakeFromNib
 {}
 
-- ( IBAction )register: ( id )sender
+- ( IBAction )enterSerialNumber: ( id )sender
 {
     ( void )sender;
     
