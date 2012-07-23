@@ -91,14 +91,15 @@
 
 - ( IBAction )showRegistrationWindow: ( id )sender
 {
+    ( void )sender;
+    
     if( _registrationWindowController == nil )
     {
         _registrationWindowController = [ CERegistrationWindowController new ];
     }
     
     [ _registrationWindowController.window center ];
-    [ _registrationWindowController showWindow: sender ];
-    [ _registrationWindowController.window makeKeyAndOrderFront: sender ];
+    [ APPLICATION runModalForWindow: _registrationWindowController.window ];
 }
 
 - ( IBAction )newWindow: ( id )sender

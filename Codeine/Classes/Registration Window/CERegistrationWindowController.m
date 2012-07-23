@@ -6,9 +6,40 @@
 /* $Id$ */
 
 #import "CERegistrationWindowController.h"
+#import "CEBackgroundView.h"
 
 @implementation CERegistrationWindowController
 
+- ( void )dealloc
+{
+    [ super dealloc ];
+}
 
+- ( void )awakeFromNib
+{}
+
+- ( IBAction )register: ( id )sender
+{
+    ( void )sender;
+    
+    [ self.window close ];
+    [ APPLICATION stopModal ];
+}
+
+- ( IBAction )cancel: ( id )sender
+{
+    ( void )sender;
+    
+    [ self.window close ];
+    [ APPLICATION stopModal ];
+}
+
+- ( IBAction )buy: ( id )sender
+{
+    ( void )sender;
+    
+    [ self.window close ];
+    [ APPLICATION stopModal ];
+}
 
 @end

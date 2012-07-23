@@ -17,7 +17,9 @@
     
     RESERVERD_IVARS( CERegistrationWindowController, 5 );
 }
-
-
+    
+- ( IBAction )register: ( id )sender;
+- ( IBAction )cancel: ( id )sender;
+- ( IBAction )buy: ( id )sender;
 
 @end
