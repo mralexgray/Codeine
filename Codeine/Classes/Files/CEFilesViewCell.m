@@ -97,8 +97,8 @@ static void __exit( void )
             NSError      * error;
             NSColor      * labelColor;
             NSGradient   * gradient;
-            CGFloat        r;
-            CGFloat        g;
+            CGFloat        h;
+            CGFloat        s;
             CGFloat        b;
             
             if( [ FILE_MANAGER fileExistsAtPath: item.file.path ] == YES )
@@ -127,9 +127,17 @@ static void __exit( void )
                     
                     labelColor = [ labelColor colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
                     
-                    [ labelColor getRed: &r green: &g blue: &b alpha: NULL ];
+                    [ labelColor getHue: &h saturation: &s brightness: &b alpha: NULL ];
                     
-                    labelColor  = [ NSColor colorWithDeviceRed: r green: g blue: b alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
+                    if( APPLICATION.isActive == YES )
+                    {
+                        labelColor  = [ NSColor colorWithDeviceHue: h saturation: s brightness: b alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
+                    }
+                    else
+                    {
+                        labelColor  = [ NSColor colorWithDeviceHue: ( CGFloat )0 saturation: ( CGFloat )0 brightness: ( CGFloat )0.75 alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
+                    }
+                    
                     gradient    = [ [ NSGradient alloc ] initWithColorsAndLocations:    [ NSColor whiteColor ], ( CGFloat )0.0,
                                                                                         labelColor,             ( CGFloat )1.0,
                                                                                         nil
