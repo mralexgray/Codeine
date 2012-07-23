@@ -138,10 +138,10 @@ static void __exit( void )
                         labelColor  = [ NSColor colorWithDeviceHue: ( CGFloat )0 saturation: ( CGFloat )0 brightness: ( CGFloat )0.75 alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
                     }
                     
-                    gradient    = [ [ NSGradient alloc ] initWithColorsAndLocations:    [ NSColor whiteColor ], ( CGFloat )0.0,
+                    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:    [ NSColor whiteColor ], ( CGFloat )0.0,
                                                                                         labelColor,             ( CGFloat )1.0,
                                                                                         nil
-                                  ];
+                               ];
                     
                     [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
                     
