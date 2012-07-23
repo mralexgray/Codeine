@@ -67,6 +67,13 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
 
 - ( void )dealloc
 {
+    NSTrackingArea * area;
+    
+    for( area in _tracking )
+    {
+        [ self removeTrackingArea: area ];
+    }
+    
     RELEASE_IVAR( _colors );
     RELEASE_IVAR( _labels );
     RELEASE_IVAR( _tracking );
