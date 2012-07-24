@@ -33,11 +33,10 @@ __grayscalePixel;
     CGFloat             b;
     CGFloat             a;
     
-    size            = self.size;
-    grayscaleImage  = [ [ [ self class ] alloc ] initWithSize: size ];
-    width           = ( NSInteger )size.width;
-    height          = ( NSInteger )size.height;
-    
+    size              = self.size;
+    grayscaleImage    = [ [ [ self class ] alloc ] initWithSize: size ];
+    width             = ( NSInteger )size.width;
+    height            = ( NSInteger )size.height;
     grayscaleImageRep = [ [ NSBitmapImageRep alloc ] initWithBitmapDataPlanes:  nil
                                                      pixelsWide:                width
                                                      pixelsHigh:                height
