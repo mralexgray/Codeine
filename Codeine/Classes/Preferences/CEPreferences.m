@@ -43,6 +43,7 @@ NSString * const CEPreferencesKeyAutoIndent                 = @"AutoIndent";
 NSString * const CEPreferencesKeySoftWrap                   = @"SoftWrap";
 NSString * const CEPreferencesKeyShowLineNumbers            = @"ShowLineNumbers";
 NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
+NSString * const CEPreferencesKeyShowTabStops               = @"ShowTabStops";
 NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
 NSString * const CEPreferencesKeyTreatWarningsAsErrors      = @"TreatWarningsAsErrors";
 NSString * const CEPreferencesKeyShowHiddenFiles            = @"ShowHiddenFiles";
@@ -642,6 +643,14 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( BOOL )showTabStops
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyShowTabStops ];
+    }
+}
+
 - ( CEColorTheme * )currentColorTheme
 {
     CEColorTheme * theme;
@@ -950,6 +959,17 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowPageGuide );
+    }
+}
+
+- ( void )setShowTabStops: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowTabStops ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowTabStops );
     }
 }
 
