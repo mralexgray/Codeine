@@ -7,9 +7,40 @@
 
 #import "CEFilesOutlineView.h"
 #import "CEFilesViewItem.h"
+#import "CEFilesOutlineView+Private.h"
+
 #import <Carbon/../Frameworks/HIToolbox.framework/Headers/Events.h>
 
 @implementation CEFilesOutlineView
+
+- ( id )initWithCoder: ( NSCoder * )coder
+{
+    if( ( self = [ super initWithCoder: coder ] ) )
+    {
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidBecomeActiveNotification object: APPLICATION ];
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidResignActiveNotification object: APPLICATION ];
+    }
+    
+    return self;
+}
+
+- ( id )initWithFrame: ( NSRect )frame
+{
+    if( ( self = [ super initWithFrame: frame ] ) )
+    {
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidBecomeActiveNotification object: APPLICATION ];
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidResignActiveNotification object: APPLICATION ];
+    }
+    
+    return self;
+}
+
+- ( void )dealloc
+{
+    [ NOTIFICATION_CENTER removeObserver: self ];
+    
+    [ super dealloc ];
+}
 
 - ( void )keyDown: ( NSEvent * )e
 {
