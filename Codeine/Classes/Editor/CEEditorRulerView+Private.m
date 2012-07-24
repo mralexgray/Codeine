@@ -69,15 +69,11 @@
     NSNumber * key;
     NSValue  * value;
     NSRect     rect;
-    NSRect     visibleRect;
     
     if( _textView == nil || _linesRect == nil )
     {
         return NSNotFound;
     }
-    
-    visibleRect = [ [ [ self scrollView ] contentView ] bounds ];
-    point.y    += visibleRect.origin.y;
     
     for( key in _linesRect )
     {

@@ -189,9 +189,12 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
 {
 	NSPoint    location;
     NSUInteger line;
+    NSRect     visibleRect;
 	
-	location = [ self convertPoint: e.locationInWindow fromView: nil ];
-    line     = [ self lineForPoint: location ];
+	location    = [ self convertPoint: e.locationInWindow fromView: nil ];
+    visibleRect = [ [ [ self scrollView ] contentView ] bounds ];
+    location.y += visibleRect.origin.y;
+    line        = [ self lineForPoint: location ];
     
     if( line == NSNotFound )
     {
