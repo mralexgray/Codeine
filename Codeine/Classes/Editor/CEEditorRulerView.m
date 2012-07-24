@@ -177,7 +177,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         }
         
         [ [ NSString stringWithFormat: @"%lu", line + 1 ] drawInRect: lineRect withAttributes: attributes ];
-        [ self setRect: lineRect forLine: line ];
+        [ self setRect: rectArray[ 0 ] forLine: line ];
         
         range.location = end;
         
