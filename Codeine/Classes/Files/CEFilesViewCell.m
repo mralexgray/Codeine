@@ -229,6 +229,11 @@ static void __exit( void )
             icon.size.height
         );
         
+        if( APPLICATION.isActive == NO )
+        {
+            icon = [ icon grayscaleImage ];
+        }
+        
         [ [ NSGraphicsContext currentContext ] setImageInterpolation: NSImageInterpolationHigh ];	
         [ icon drawInRect: drawRect fromRect: fromRect operation: NSCompositeSourceOver fraction: ( CGFloat )1 ];
         [ [ NSGraphicsContext currentContext ] setImageInterpolation: interpolation ];

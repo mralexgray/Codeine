@@ -18,5 +18,6 @@
     #import "NSString+CE.h"
     #import "NSApplication+CE.h"
     #import "NSTextView+CE.h"
+    #import "NSImage+CE.h"
     
 #endif

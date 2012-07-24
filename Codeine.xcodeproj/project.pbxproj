@@ -46,6 +46,7 @@
 		053F60CC15BF17D20069C870 /* CEWindowBadge+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60CB15BF17D20069C870 /* CEWindowBadge+Private.m */; };
 		053F60D415BF1B3F0069C870 /* CEFilesOutlineView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60D315BF1B3F0069C870 /* CEFilesOutlineView+Private.m */; };
 		053F60D815BF25CB0069C870 /* CEEditorTextView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60D715BF25CB0069C870 /* CEEditorTextView+Private.m */; };
+		053F60E615BF44E00069C870 /* NSImage+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60E515BF44E00069C870 /* NSImage+CE.m */; };
 		05420E9B15B5E600008B2294 /* CEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420E9A15B5E600008B2294 /* CEDocument.m */; };
 		05420EBC15B5EA2E008B2294 /* CELanguageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420EBB15B5EA2E008B2294 /* CELanguageWindowController.m */; };
 		05480FAD159A0B32005CFBC5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05480FAC159A0B32005CFBC5 /* Cocoa.framework */; };
@@ -208,6 +209,8 @@
 		053F60D315BF1B3F0069C870 /* CEFilesOutlineView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesOutlineView+Private.m"; sourceTree = "<group>"; };
 		053F60D615BF25CB0069C870 /* CEEditorTextView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEEditorTextView+Private.h"; sourceTree = "<group>"; };
 		053F60D715BF25CB0069C870 /* CEEditorTextView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEEditorTextView+Private.m"; sourceTree = "<group>"; };
+		053F60E415BF44E00069C870 /* NSImage+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+CE.h"; sourceTree = "<group>"; };
+		053F60E515BF44E00069C870 /* NSImage+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+CE.m"; sourceTree = "<group>"; };
 		05420E9915B5E600008B2294 /* CEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDocument.h; sourceTree = "<group>"; };
 		05420E9A15B5E600008B2294 /* CEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDocument.m; sourceTree = "<group>"; };
 		05420EBA15B5EA2E008B2294 /* CELanguageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELanguageWindowController.h; sourceTree = "<group>"; };
@@ -484,6 +487,8 @@
 				05F3175515B25FFB0000C4CA /* NSApplication+CE.m */,
 				0539897A15B898C500D66EBC /* NSTextView+CE.h */,
 				0539897B15B898C500D66EBC /* NSTextView+CE.m */,
+				053F60E415BF44E00069C870 /* NSImage+CE.h */,
+				053F60E515BF44E00069C870 /* NSImage+CE.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1092,6 +1097,7 @@
 				053F60CC15BF17D20069C870 /* CEWindowBadge+Private.m in Sources */,
 				053F60D415BF1B3F0069C870 /* CEFilesOutlineView+Private.m in Sources */,
 				053F60D815BF25CB0069C870 /* CEEditorTextView+Private.m in Sources */,
+				053F60E615BF44E00069C870 /* NSImage+CE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
