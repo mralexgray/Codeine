@@ -43,6 +43,8 @@
 		052FD03A159E0E460045C9ED /* NSFileManager+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD039159E0E460045C9ED /* NSFileManager+CE.m */; };
 		05348FF315B40590004D4355 /* CEColorLabelMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */; };
 		0539897C15B898C500D66EBC /* NSTextView+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539897B15B898C500D66EBC /* NSTextView+CE.m */; };
+		053F60CC15BF17D20069C870 /* CEWindowBadge+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60CB15BF17D20069C870 /* CEWindowBadge+Private.m */; };
+		053F60D415BF1B3F0069C870 /* CEFilesOutlineView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60D315BF1B3F0069C870 /* CEFilesOutlineView+Private.m */; };
 		05420E9B15B5E600008B2294 /* CEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420E9A15B5E600008B2294 /* CEDocument.m */; };
 		05420EBC15B5EA2E008B2294 /* CELanguageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420EBB15B5EA2E008B2294 /* CELanguageWindowController.m */; };
 		05480FAD159A0B32005CFBC5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05480FAC159A0B32005CFBC5 /* Cocoa.framework */; };
@@ -102,7 +104,7 @@
 		059C9B3315A9044F00AEF506 /* CEFilesOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C9B3215A9044F00AEF506 /* CEFilesOutlineView.m */; };
 		05A1DFBD15BC6A26007F9560 /* CEEditorTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A1DFBC15BC6A26007F9560 /* CEEditorTextView.m */; };
 		05A1DFCB15BC78FF007F9560 /* CEEditorMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A1DFCA15BC78FE007F9560 /* CEEditorMarker.m */; };
-		05DA002715BDB841001FDB95 /* CERegistrationBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DA002615BDB841001FDB95 /* CERegistrationBadge.m */; };
+		05DA002715BDB841001FDB95 /* CEWindowBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DA002615BDB841001FDB95 /* CEWindowBadge.m */; };
 		05DA3452159A2296006B688A /* CEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DA3451159A2296006B688A /* CEViewController.m */; };
 		05DA3462159A2404006B688A /* CEPreferencesGeneralOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DA3460159A2404006B688A /* CEPreferencesGeneralOptionsView.xib */; };
 		05DA3465159A2417006B688A /* CEPreferencesEditorOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DA3463159A2417006B688A /* CEPreferencesEditorOptionsView.xib */; };
@@ -199,6 +201,10 @@
 		05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorLabelMenuItem.m; sourceTree = "<group>"; };
 		0539897A15B898C500D66EBC /* NSTextView+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+CE.h"; sourceTree = "<group>"; };
 		0539897B15B898C500D66EBC /* NSTextView+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+CE.m"; sourceTree = "<group>"; };
+		053F60CA15BF17D20069C870 /* CEWindowBadge+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEWindowBadge+Private.h"; sourceTree = "<group>"; };
+		053F60CB15BF17D20069C870 /* CEWindowBadge+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEWindowBadge+Private.m"; sourceTree = "<group>"; };
+		053F60D215BF1B3F0069C870 /* CEFilesOutlineView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesOutlineView+Private.h"; sourceTree = "<group>"; };
+		053F60D315BF1B3F0069C870 /* CEFilesOutlineView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesOutlineView+Private.m"; sourceTree = "<group>"; };
 		05420E9915B5E600008B2294 /* CEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDocument.h; sourceTree = "<group>"; };
 		05420E9A15B5E600008B2294 /* CEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDocument.m; sourceTree = "<group>"; };
 		05420EBA15B5EA2E008B2294 /* CELanguageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELanguageWindowController.h; sourceTree = "<group>"; };
@@ -317,8 +323,8 @@
 		05A1DFBC15BC6A26007F9560 /* CEEditorTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorTextView.m; sourceTree = "<group>"; };
 		05A1DFC915BC78FE007F9560 /* CEEditorMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorMarker.h; sourceTree = "<group>"; };
 		05A1DFCA15BC78FE007F9560 /* CEEditorMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorMarker.m; sourceTree = "<group>"; };
-		05DA002515BDB841001FDB95 /* CERegistrationBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CERegistrationBadge.h; sourceTree = "<group>"; };
-		05DA002615BDB841001FDB95 /* CERegistrationBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERegistrationBadge.m; sourceTree = "<group>"; };
+		05DA002515BDB841001FDB95 /* CEWindowBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEWindowBadge.h; sourceTree = "<group>"; };
+		05DA002615BDB841001FDB95 /* CEWindowBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEWindowBadge.m; sourceTree = "<group>"; };
 		05DA3450159A2296006B688A /* CEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEViewController.h; sourceTree = "<group>"; };
 		05DA3451159A2296006B688A /* CEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEViewController.m; sourceTree = "<group>"; };
 		05DA3461159A2404006B688A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesGeneralOptionsView.xib; sourceTree = "<group>"; };
@@ -789,6 +795,8 @@
 				050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */,
 				05087FC615A8E66900582A01 /* CEFilesViewCell.h */,
 				05087FC715A8E66900582A01 /* CEFilesViewCell.m */,
+				053F60D215BF1B3F0069C870 /* CEFilesOutlineView+Private.h */,
+				053F60D315BF1B3F0069C870 /* CEFilesOutlineView+Private.m */,
 				059C9B3115A9044F00AEF506 /* CEFilesOutlineView.h */,
 				059C9B3215A9044F00AEF506 /* CEFilesOutlineView.m */,
 				054BEB9615AFA139002D7730 /* CEFilesOutlineViewDelegate.h */,
@@ -857,8 +865,10 @@
 				0576BEF915B4C4E40097B660 /* CEColorLabelMenuItem+CEColorLabelViewDelegate.m */,
 				05749F3F15B742FF00E2C5E0 /* CEBackgroundView.h */,
 				05749F4015B742FF00E2C5E0 /* CEBackgroundView.m */,
-				05DA002515BDB841001FDB95 /* CERegistrationBadge.h */,
-				05DA002615BDB841001FDB95 /* CERegistrationBadge.m */,
+				053F60CA15BF17D20069C870 /* CEWindowBadge+Private.h */,
+				053F60CB15BF17D20069C870 /* CEWindowBadge+Private.m */,
+				05DA002515BDB841001FDB95 /* CEWindowBadge.h */,
+				05DA002615BDB841001FDB95 /* CEWindowBadge.m */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -1072,8 +1082,10 @@
 				0539897C15B898C500D66EBC /* NSTextView+CE.m in Sources */,
 				05A1DFBD15BC6A26007F9560 /* CEEditorTextView.m in Sources */,
 				05A1DFCB15BC78FF007F9560 /* CEEditorMarker.m in Sources */,
-				05DA002715BDB841001FDB95 /* CERegistrationBadge.m in Sources */,
+				05DA002715BDB841001FDB95 /* CEWindowBadge.m in Sources */,
 				05FFD9F015BDDF2A001EA4A3 /* CERegistrationWindowController.m in Sources */,
+				053F60CC15BF17D20069C870 /* CEWindowBadge+Private.m in Sources */,
+				053F60D415BF1B3F0069C870 /* CEFilesOutlineView+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
