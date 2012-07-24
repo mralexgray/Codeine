@@ -168,6 +168,13 @@
     [ _fileViewController removeBookmark: sender ];
 }
 
+- ( IBAction )clearConsole: ( id )sender
+{
+    ( void )sender;
+    
+    NSLog( @"Clear console..." );
+}
+
 - ( NSArray * )documents
 {
     @synchronized( self )

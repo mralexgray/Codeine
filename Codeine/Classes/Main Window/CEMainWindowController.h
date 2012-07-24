@@ -44,5 +44,6 @@
 - ( IBAction )newDocument: ( id )sender;
 - ( IBAction )addBookmark: ( id )sender;
 - ( IBAction )removeBookmark: ( id )sender;
+- ( IBAction )clearConsole: ( id )sender;
 
 @end
