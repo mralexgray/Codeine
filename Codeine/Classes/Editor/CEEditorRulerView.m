@@ -16,19 +16,10 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
 
 - ( void )dealloc
 {
-    NSUInteger i;
-    
     [ NOTIFICATION_CENTER removeObserver: self ];
     
     RELEASE_IVAR( _textView );
-    
-    for( i = 0; i < _lineMarkersSize; i++ )
-    {
-        [ _lineMarkers[ i ] release ];
-    }
-    
-    free( _lineMarkers );
-    free( _linesRect );
+    RELEASE_IVAR( _linesRect );
     
     [ super dealloc ];
 }

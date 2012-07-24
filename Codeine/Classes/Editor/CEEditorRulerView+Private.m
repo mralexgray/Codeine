@@ -26,65 +26,67 @@
 
 - ( void )setRect: ( NSRect )rect forLine: ( NSUInteger )line
 {
-    if( _textView == nil )
-    {
-        return;
-    }
+    NSNumber * key;
+    NSValue  * value;
     
     if( _linesRect == nil )
     {
-        _linesRectSize = [ _textView numberOfHardLines ];
-        
-        if( ( _linesRect = ( NSRect * )calloc( sizeof( NSRect ), _linesRectSize ) ) == NULL )
-        {
-            return;
-        }
+        _linesRect = [ [ NSMutableDictionary alloc ] initWithCapacity: 10 ];
     }
     
-    if( line >= _linesRectSize )
-    {
-        _linesRectSize = line + 1;
-        
-        if( ( _linesRect = ( NSRect * )calloc( sizeof( NSRect ), _linesRectSize ) ) == NULL )
-        {
-            return;
-        }
-    }
+    key   = [ NSNumber numberWithUnsignedInteger: line ];
+    value = [ NSValue valueWithRect: rect ];
     
-    _linesRect[ line ] = rect;
+    [ _linesRect removeObjectForKey: key ];
+    [ _linesRect setObject: value forKey: key ];
 }
 
 - ( NSRect )rectForLine: ( NSUInteger )line
 {
-    if( _textView == nil )
+    NSNumber * key;
+    NSValue  * value;
+    
+    if( _textView == nil || _linesRect == nil )
     {
         return NSZeroRect;
     }
     
-    if( _linesRectSize <= line + 1 )
+    for( key in _linesRect )
     {
-        return NSZeroRect;
+        if( [ key unsignedIntegerValue ] == line )
+        {
+            value = [ _linesRect objectForKey: key ];
+            
+            return [ value rectValue ];
+        }
     }
     
-    return _linesRect[ line ];
+    return NSZeroRect;
 }
 
 - ( NSUInteger )lineForPoint: ( NSPoint )point
 {
-    NSUInteger i;
-    NSRect     lineRect;
+    NSNumber * key;
+    NSValue  * value;
+    NSRect     rect;
     
-    for( i = 0; i < _linesRectSize; i++ )
+    if( _textView == nil || _linesRect == nil )
     {
-        lineRect = _linesRect[ i ];
+        return NSNotFound;
+    }
+    
+    for( key in _linesRect )
+    {
+        value = [ _linesRect objectForKey: key ];
+        rect  = [ value rectValue ];
         
         if
         (
-               point.y >= lineRect.origin.y
-            && point.y <= lineRect.origin.y + lineRect.size.height
+               point.y >= rect.origin.y
+            && point.y <= rect.origin.y + rect.size.height
         )
         {
-            return i;
+            return [ key unsignedIntegerValue ];
         }
     }
     
@@ -93,71 +95,90 @@
 
 - ( void )addMarkerForLine: ( NSUInteger )line
 {
-    if( _textView == nil )
-    {
-        return;
-    }
+    NSRulerMarker * marker;
+    NSArray       * markers;
+    NSNumber      * lineNumber;
     
-    if( _lineMarkers == nil )
+    markers = [ self markers ];
+    
+    for( marker in markers )
     {
-        _lineMarkersSize = [ _textView numberOfHardLines ];
+        if( [ ( NSObject * )( marker.representedObject ) isKindOfClass: [ NSNumber class ] ] == NO )
+        {
+            continue;
+        }
         
-        if( ( _lineMarkers = ( CEEditorMarker ** )calloc( sizeof( CEEditorMarker * ), _lineMarkersSize ) ) == NULL )
+        lineNumber = ( NSNumber * )( marker.representedObject );
+        
+        if( [ lineNumber unsignedIntegerValue ] == line )
         {
             return;
         }
     }
     
-    if( line >= _lineMarkersSize )
-    {
-        _lineMarkersSize = line + 1;
-        
-        if( ( _lineMarkers = ( CEEditorMarker ** )calloc( sizeof( CEEditorMarker * ), _lineMarkersSize ) ) == NULL )
-        {
-            return;
-        }
-    }
+    marker                   = [ CEEditorMarker new ];
+    marker.representedObject = [ NSNumber numberWithUnsignedInteger: line ];
     
-    _lineMarkers[ line ] = [ CEEditorMarker new ];
-    
+    [ self addMarker: marker ];
     [ self setNeedsDisplay: YES ];
 }
 
 - ( void )removeMarkerForLine: ( NSUInteger )line
 {
-    if( _textView == nil )
+    NSRulerMarker * marker;
+    NSArray       * markers;
+    NSNumber      * lineNumber;
+    
+    markers = [ NSArray arrayWithArray: [ self markers ] ];
+    
+    for( marker in markers )
     {
-        return;
+        if( [ ( NSObject * )( marker.representedObject ) isKindOfClass: [ NSNumber class ] ] == NO )
+        {
+            continue;
+        }
+        
+        lineNumber = ( NSNumber * )( marker.representedObject );
+        
+        if( [ lineNumber unsignedIntegerValue ] == line )
+        {
+            [ self removeMarker: marker ];
+            [ self setNeedsDisplay: YES ];
+            
+            return;
+        }
     }
-    
-    if( _lineMarkers == nil )
-    {
-        return;
-    }
-    
-    if( line >= _lineMarkersSize )
-    {
-        return;
-    }
-    
-    _lineMarkers[ line ] = nil;
-    
-    [ self setNeedsDisplay: YES ];
 }
 
 - ( CEEditorMarker * )markerForLine: ( NSUInteger )line
 {
-    if( _textView == nil )
+    NSRulerMarker * marker;
+    NSArray       * markers;
+    NSNumber      * lineNumber;
+    
+    markers = [ NSArray arrayWithArray: [ self markers ] ];
+    
+    for( marker in markers )
     {
-        return nil;
+        if( [ ( NSObject * )( marker.representedObject ) isKindOfClass: [ NSNumber class ] ] == NO )
+        {
+            continue;
+        }
+        
+        if( [ marker isKindOfClass: [ CEEditorMarker class ] ] == NO )
+        {
+            continue;
+        }
+        
+        lineNumber = ( NSNumber * )( marker.representedObject );
+        
+        if( [ lineNumber unsignedIntegerValue ] == line )
+        {
+            return ( CEEditorMarker * )marker;
+        }
     }
     
-    if( _lineMarkersSize <= line + 1 )
-    {
-        return nil;
-    }
-    
-    return _lineMarkers[ line ];
+    return nil;
 }
 
 @end
