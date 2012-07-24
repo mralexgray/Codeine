@@ -49,6 +49,11 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     NSColor      * color2;
     NSGradient   * gradient;
     
+    if( rect.size.width < self.ruleThickness )
+    {
+        return;
+    }
+    
     if( _hasApplicationObserver == NO )
     {
         [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidBecomeActiveNotification object: APPLICATION ];
