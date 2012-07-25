@@ -12,6 +12,7 @@
 #import "CESourceFile.h"
 #import "CEEditorLayoutManager.h"
 #import "CEEditorRulerView.h"
+#import "CEDocument.h"
 
 @implementation CEEditorViewController
 
@@ -22,9 +23,9 @@
     [ NOTIFICATION_CENTER removeObserver: self ];
     
     RELEASE_IVAR( _textView );
-    RELEASE_IVAR( _sourceFile );
     RELEASE_IVAR( _layoutManager );
     RELEASE_IVAR( _rulerView );
+    RELEASE_IVAR( _document );
     
     [ super dealloc ];
 }
@@ -43,33 +44,33 @@
     [ self updateView ];
 }
 
-- ( CESourceFile * )sourceFile
+- ( CEDocument * )document
 {
     @synchronized( self )
     {
-        return _sourceFile;
+        return _document;
     }
 }
 
-- ( void )setSourceFile: ( CESourceFile * )sourceFile
+- ( void )setDocument: ( CEDocument * )document
 {
     CEMainWindowController * controller;
     
     @synchronized( self )
     {
-        if( sourceFile != _sourceFile )
+        if( document != _document )
         {
-            RELEASE_IVAR( _sourceFile );
+            RELEASE_IVAR( _document );
             
-            _sourceFile = [ sourceFile retain ];
-            controller  = ( CEMainWindowController * )self.view.window.windowController;
+            _document  = [ document retain ];
+            controller = ( CEMainWindowController * )self.view.window.windowController;
             
-            if( controller.sourceFile != sourceFile )
+            if( controller.activeDocument != document )
             {
-                controller.sourceFile = sourceFile;
+                controller.activeDocument = document;
             }
             
-            _textView.string = _sourceFile.text;
+            _textView.string = document.sourceFile.text;
         }
     }
 }

@@ -12,6 +12,7 @@
 @class CEDebugViewController;
 @class CESourceFile;
 @class CELanguageWindowController;
+@class CEDocument;
 
 @interface CEMainWindowController: CEWindowController
 {
@@ -23,10 +24,10 @@
     NSView                      * _leftView;
     NSView                      * _mainView;
     NSView                      * _bottomView;
-    CESourceFile                * _sourceFile;
     CELanguageWindowController  * _languageWindowController;
     NSPopUpButton               * _encodingPopUp;
     NSMutableArray              * _documents;
+    CEDocument                  * _activeDocument;
 
     
 @private
@@ -37,9 +38,9 @@
 @property( nonatomic, readwrite, retain ) IBOutlet NSView        * leftView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSView        * mainView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSView        * bottomView;
-@property(    atomic, readwrite, retain )          CESourceFile  * sourceFile;
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * encodingPopUp;
 @property( nonatomic, readonly          )          NSArray       * documents;
+@property( nonatomic, readwrite, retain )          CEDocument    * activeDocument;
 
 - ( IBAction )newDocument: ( id )sender;
 - ( IBAction )addBookmark: ( id )sender;

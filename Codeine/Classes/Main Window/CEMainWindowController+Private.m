@@ -8,6 +8,7 @@
 #import "CEMainWindowController+Private.h"
 #import "CELanguageWindowController.h"
 #import "CESourceFile.h"
+#import "CEDocument.h"
 
 @implementation CEMainWindowController( Private )
 
@@ -25,8 +26,8 @@
 {
     NSString         * templates;
     NSString         * template;
-    CESourceFile     * sourceFile;
     NSDateComponents * dateComponents;
+    CEDocument       * document;
     
     if
     (
@@ -41,8 +42,6 @@
     templates = [ [ FILE_MANAGER applicationSupportDirectory ] stringByAppendingPathComponent: @"Templates" ];
     
     ( void )sender;
-    
-    RELEASE_IVAR( _sourceFile );
     
     switch( _languageWindowController.language )
     {
@@ -70,11 +69,21 @@
             break;
     }
     
-    dateComponents  = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
-    sourceFile      = [ CESourceFile sourceFileWithLanguage: _languageWindowController.language fromFile: template ];
-    sourceFile.text = [ sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: NSFullUserName() ];
-    sourceFile.text = [ sourceFile.text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
-    self.sourceFile = sourceFile;
+    document                 = [ CEDocument documentWithLanguage: _languageWindowController.language ];
+    document.sourceFile.text = [ NSString stringWithContentsOfFile: template encoding: NSUTF8StringEncoding error: NULL ];
+    
+    if( document.sourceFile.text == nil )
+    {
+        document.sourceFile.text = @"";
+    }
+    
+    dateComponents           = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
+    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: NSFullUserName() ];
+    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
+    
+    [ _documents addObject: document ];
+    
+    self.activeDocument = document;
     
     RELEASE_IVAR( _languageWindowController );
 }

@@ -10,13 +10,14 @@
 @class CESourceFile;
 @class CEEditorLayoutManager;
 @class CEEditorRulerView;
+@class CEDocument;
 
 @interface CEEditorViewController: CEViewController
 {
 @protected
     
     NSTextView              * _textView;
-    CESourceFile            * _sourceFile;
+    CEDocument              * _document;
     CEEditorLayoutManager   * _layoutManager;
     CEEditorRulerView       * _rulerView;
     
@@ -25,7 +26,7 @@
     RESERVERD_IVARS( CEEditorViewController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSTextView   * textView;
-@property(    atomic, readwrite, retain )          CESourceFile * sourceFile;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextView * textView;
+@property(    atomic, readwrite, retain )          CEDocument * document;
 
 @end

@@ -23,7 +23,6 @@
 @synthesize leftView      = _leftView;
 @synthesize mainView      = _mainView;
 @synthesize bottomView    = _bottomView;
-@synthesize sourceFile    = _sourceFile;
 @synthesize encodingPopUp = _encodingPopUp;
 
 - ( void )dealloc
@@ -34,10 +33,10 @@
     RELEASE_IVAR( _leftView );
     RELEASE_IVAR( _mainView );
     RELEASE_IVAR( _bottomView );
-    RELEASE_IVAR( _sourceFile );
     RELEASE_IVAR( _languageWindowController );
     RELEASE_IVAR( _encodingPopUp );
     RELEASE_IVAR( _documents );
+    RELEASE_IVAR( _activeDocument );
     
     [ super dealloc ];
 }
@@ -140,27 +139,27 @@
     }
 }
 
-- ( CESourceFile * )sourceFile
+- ( CEDocument * )activeDocument
 {
     @synchronized( self )
     {
-        return _sourceFile;
+        return _activeDocument;
     }
 }
 
-- ( void )setSourceFile: ( CESourceFile * )sourceFile
+- ( void )setActiveDocument: ( CEDocument * )document
 {
     @synchronized( self )
     {
-        if( sourceFile != _sourceFile )
+        if( document != _activeDocument )
         {
-            RELEASE_IVAR( _sourceFile );
+            RELEASE_IVAR( _activeDocument );
             
-            _sourceFile = [ sourceFile retain ];
+            _activeDocument = [ document retain ];
             
-            if( _editorViewController.sourceFile != sourceFile )
+            if( _editorViewController.document != document )
             {
-                _editorViewController.sourceFile = sourceFile;
+                _editorViewController.document = document;
             }
             
             [ _editorViewController.view removeFromSuperview ];
