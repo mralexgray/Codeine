@@ -16,6 +16,7 @@
 #import "CEQuickLookItem.h"
 #import "CEWindowBadge.h"
 #import "CEApplicationDelegate.h"
+#import "CEHUDView.h"
 
 @implementation CEMainWindowController
 
@@ -43,7 +44,9 @@
 
 - ( void )awakeFromNib
 {
-    NSUInteger resizingMask;
+    NSUInteger  resizingMask;
+    CEHUDView * editorHUD;
+    CEHUDView * consoleHUD;
     
     resizingMask = NSViewWidthSizable
                  | NSViewHeightSizable
@@ -64,9 +67,28 @@
     _debugViewController.view.autoresizingMask  = resizingMask;
     _fileViewController.view.autoresizingMask   = resizingMask;
     
-    [ _mainView   addSubview: _editorViewController.view ];
-    [ _bottomView addSubview: _debugViewController.view ];
-    [ _leftView   addSubview: _fileViewController.view ];
+    editorHUD  = [ [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ] autorelease ];
+    consoleHUD = [ [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ] autorelease ];
+    
+    editorHUD.title  = L10N( "NoEditor" );
+    consoleHUD.title = L10N( "NoConsole" );
+    
+    [ _mainView   addSubview: editorHUD ];
+    [ _bottomView addSubview: consoleHUD ];
+    
+    [ editorHUD centerInSuperview ];
+    [ consoleHUD centerInSuperview ];
+    
+    editorHUD.autoresizingMask  = NSViewMinXMargin
+                                | NSViewMaxXMargin
+                                | NSViewMinYMargin
+                                | NSViewMaxYMargin;
+    consoleHUD.autoresizingMask = NSViewMinXMargin
+                                | NSViewMaxXMargin
+                                | NSViewMinYMargin
+                                | NSViewMaxYMargin;
+    
+    [ _leftView addSubview: _fileViewController.view ];
     
     _documents = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
@@ -140,6 +162,12 @@
             {
                 _editorViewController.sourceFile = sourceFile;
             }
+            
+            [ _editorViewController.view removeFromSuperview ];
+            [ _debugViewController.view  removeFromSuperview ];;
+            
+            [ _mainView   addSubview: _editorViewController.view ];
+            [ _bottomView addSubview: _debugViewController.view ];
         }
     }
 }
