@@ -110,6 +110,7 @@
 - ( void )observeValueForKeyPath: ( NSString * )keyPath ofObject: ( id )object change: ( NSDictionary * )change context: ( void * )context
 {
     CEFilesViewItem * item;
+    CEFilesViewItem * selectedItem;
     CEDocument      * document;
     
     ( void )object;
@@ -120,16 +121,28 @@
     {
         [ _openDocumentsItem removeAllChildren ];
         
+        selectedItem = nil;
+        
         for( document in _mainWindowController.documents )
         {
             item                    = [ CEFilesViewItem fileViewItemWithType: CEFilesViewItemTypeDocument name: document.name ];
             item.representedObject  = document;
+            
+            if( document == _mainWindowController.activeDocument )
+            {
+                selectedItem = item;
+            }
             
             [ _openDocumentsItem addChild: item ];
         }
         
         [ _outlineView reloadData ];
         [ _outlineView expandItem: _openDocumentsItem ];
+        
+        if( selectedItem != nil )
+        {
+            [ _outlineView selectRowIndexes: [ NSIndexSet indexSetWithIndex: ( NSUInteger )[ _outlineView rowForItem: selectedItem ] ] byExtendingSelection: NO ];
+        }
     }
 }
 
