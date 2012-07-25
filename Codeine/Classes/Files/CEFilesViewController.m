@@ -122,7 +122,8 @@
         
         for( document in _mainWindowController.documents )
         {
-            item = [ CEFilesViewItem fileViewItemWithType: CEFilesViewItemTypeDocument name: document.name ];
+            item                    = [ CEFilesViewItem fileViewItemWithType: CEFilesViewItemTypeDocument name: document.name ];
+            item.representedObject  = document;
             
             [ _openDocumentsItem addChild: item ];
         }

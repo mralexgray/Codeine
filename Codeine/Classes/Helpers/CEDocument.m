@@ -6,11 +6,14 @@
 /* $Id$ */
 
 #import "CEDocument.h"
+#import "CEDocument+Private.h"
+#import "CEFile.h"
 
 @implementation CEDocument
 
 @synthesize file        = _file;
 @synthesize sourceFile  = _sourceFile;
+@synthesize name        = _name;
 
 + ( id )documentWithPath: ( NSString * )path
 {
@@ -56,6 +59,8 @@
             
             return nil;
         }
+        
+        _name = [ _file copy ];
     }
     
     return self;
@@ -73,6 +78,8 @@
             
             return nil;
         }
+        
+        _name = [ [ self nameForNewDocument ] copy ];
     }
     
     return self;
@@ -82,6 +89,7 @@
 {
     RELEASE_IVAR( _file );
     RELEASE_IVAR( _sourceFile );
+    RELEASE_IVAR( _name );
     
     [ super dealloc ];
 }

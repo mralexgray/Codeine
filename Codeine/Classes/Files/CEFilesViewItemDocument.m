@@ -6,6 +6,7 @@
 /* $Id$ */
 
 #import "CEFilesViewItemDocument.h"
+#import "CEDocument.h"
 
 @implementation CEFilesViewItemDocument
 
@@ -16,7 +17,16 @@
 
 - ( NSString * )displayName
 {
-    return @"DOCUMENT_ITEM";
+    CEDocument * document;
+    
+    if( [ self.representedObject isKindOfClass: [ CEDocument class ] ] == NO )
+    {
+        return nil;
+    }
+    
+    document = self.representedObject;
+    
+    return document.name;
 }
 
 @end

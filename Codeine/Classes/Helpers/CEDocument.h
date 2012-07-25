@@ -16,6 +16,7 @@
     
     CEFile       * _file;
     CESourceFile * _sourceFile;
+    NSString     * _name;
     
 @private
     
@@ -24,6 +25,7 @@
 
 @property( atomic, readonly ) CEFile        * file;
 @property( atomic, readonly ) CESourceFile  * sourceFile;
+@property( atomic, readonly ) NSString      * name;
 
 + ( id )documentWithPath: ( NSString * )path;
 + ( id )documentWithURL: ( NSURL * )url;
