@@ -18,15 +18,15 @@
     NSUInteger      length;
     NSUInteger      i;
     unichar         c;
-    NSPoint         point;
     NSRect          rect;
-    NSRange         effectiveRange;
     NSColor       * color;
     CGFloat         size;
+    NSRect          glyphRect;
     
     if( _showInvisibles )
     {
-        text = [ [ self textStorage ] string ];
+        color = [ [ CEPreferences sharedInstance ] invisibleColor ];
+        text  = [ [ self textStorage ] string ];
         
         if( text.length > 0 )
         {
@@ -39,23 +39,30 @@
                 
                 if( c == '\t' || c == '\n' || c == ' ' )
                 {
-                    point  = [ self locationForGlyphAtIndex: i ];
-                    rect   = [ self lineFragmentUsedRectForGlyphAtIndex: i effectiveRange: &effectiveRange ];
+                    rect = [ self boundingRectForGlyphRange: NSMakeRange( i, 1 ) inTextContainer: [ self.textContainers objectAtIndex: 0 ] ];
                     
-                    rect.origin.x   = point.x;
-                    rect.size.width = rect.size.width / effectiveRange.length;
-                    
-                    if( size == 0 )
+                    if( rect.size.width > rect.size.height )
                     {
-                        size = MIN( rect.size.width - 2, rect.size.height - 2 );
+                        glyphRect = NSMakeRect
+                        (
+                            rect.origin.y + ( ( rect.size.width - rect.size.height ) / ( CGFloat )2 ),
+                            rect.origin.y,
+                            rect.size.height,
+                            rect.size.height
+                        );
+                    }
+                    else
+                    {
+                        glyphRect = NSMakeRect
+                        (
+                            rect.origin.x,
+                            rect.origin.y + ( ( rect.size.height - rect.size.width ) / ( CGFloat )2 ),
+                            rect.size.width,
+                            rect.size.width
+                        );
                     }
                     
-                    rect.origin.x   += ( rect.size.width  - size ) / 2;
-                    rect.origin.y   += ( rect.size.height - size ) / 2;
-                    rect.size.width  = size;
-                    rect.size.height = size;
-                    
-                    color = [ [ CEPreferences sharedInstance ] invisibleColor ];
+                    glyphRect = NSInsetRect( glyphRect, ( CGFloat )1, ( CGFloat )1 );
                     
                     if( c == '\t' )
                     {
@@ -63,43 +70,70 @@
                             NSPoint         p1;
                             NSPoint         p2;
                             NSPoint         p3;
-                            NSBezierPath  * triangle;
+                            NSBezierPath  * path;
                             
-                            p1 = NSMakePoint( rect.origin.x, rect.origin.y + rect.size.height );
-                            p2 = NSMakePoint( rect.origin.x + ( rect.size.width / ( CGFloat )2 ), rect.origin.y );
-                            p3 = NSMakePoint( rect.origin.x + rect.size.width, rect.origin.y + rect.size.height );
+                            continue;
                             
-                            triangle = [ NSBezierPath bezierPath ];
+                            p1 = NSMakePoint( glyphRect.origin.x, glyphRect.origin.y );
+                            p2 = NSMakePoint( glyphRect.origin.x + glyphRect.size.width, glyphRect.origin.y + ( glyphRect.size.height / ( CGFloat )2 ) );
+                            p3 = NSMakePoint( glyphRect.origin.x, glyphRect.origin.y + glyphRect.size.height );
                             
-                            [ triangle moveToPoint: p1 ];
-                            [ triangle lineToPoint: p2 ];
-                            [ triangle lineToPoint: p3 ];
-                            [ triangle lineToPoint: p1 ];
+                            path = [ NSBezierPath bezierPath ];
+                            
+                            [ path moveToPoint: p1 ];
+                            [ path lineToPoint: p2 ];
+                            [ path lineToPoint: p3 ];
+                            [ path closePath ];
                             
                             [ color set ];
-                            [ triangle stroke ];
+                            [ path fill ];
                         }
                     }
                     else if( c == '\n' )
                     {
-                        [ color setFill ];
-                        
-                        NSRectFill( rect );
+                        {
+                            NSBezierPath  * path;
+                            NSPoint         p1;
+                            NSPoint         p2;
+                            NSPoint         p3;
+                            NSPoint         p4;
+                            NSPoint         p5;
+                            NSPoint         p6;
+                            
+                            continue;
+                            
+                            path = [ NSBezierPath bezierPath ];
+                            
+                            p1 = NSMakePoint( glyphRect.origin.x, glyphRect.origin.y );
+                            p2 = NSMakePoint( glyphRect.origin.x + glyphRect.size.width, glyphRect.origin.y );
+                            p3 = NSMakePoint( glyphRect.origin.x + glyphRect.size.width, glyphRect.origin.y + glyphRect.size.height );
+                            p4 = NSMakePoint( glyphRect.origin.x + ( glyphRect.size.width / ( CGFloat )2 ), glyphRect.origin.y + glyphRect.size.height );
+                            p5 = NSMakePoint( glyphRect.origin.x + ( glyphRect.size.width / ( CGFloat )2 ), glyphRect.origin.y + ( glyphRect.size.height / ( CGFloat )2 ) );
+                            p6 = NSMakePoint( glyphRect.origin.x, glyphRect.origin.y + ( glyphRect.size.height / ( CGFloat )2 ) );
+                            
+                            [ path moveToPoint: p1 ];
+                            [ path lineToPoint: p2 ];
+                            [ path lineToPoint: p3 ];
+                            [ path lineToPoint: p4 ];
+                            [ path lineToPoint: p5 ];
+                            [ path lineToPoint: p6 ];
+                            [ path closePath ];
+                            
+                            [ color set ];
+                            [ path fill ];
+                        }
                     }
                     else if( c == ' ' )
                     {
                         {
                             NSBezierPath  * path;
-                            NSGradient    * gradient;
                             
-                            gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color, ( CGFloat )0, nil ];
-                            path     = [ NSBezierPath bezierPath ];
+                            path = [ NSBezierPath bezierPath ];
                             
-                            [ path appendBezierPathWithOvalInRect: rect ];
-                            [ path appendBezierPathWithOvalInRect: NSMakeRect( rect.origin.x + 1, rect.origin.y + 1, rect.size.width - 2, rect.size.height - 2 ) ];
-                            [ path setWindingRule: NSEvenOddWindingRule ];
-                            [ gradient drawInBezierPath: path angle: ( CGFloat )0 ];
-                            [ gradient release ];
+                            [ path appendBezierPathWithOvalInRect: glyphRect ];
+                            
+                            [ color set ];
+                            [ path stroke ];
                         }
                     }
                 }
