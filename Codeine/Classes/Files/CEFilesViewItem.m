@@ -38,16 +38,6 @@ static void __exit( void )
 @synthesize parent              = _parent;
 @synthesize file                = _file;
 
-+ ( id )openDocumentsItem
-{
-    if( __openDocumentsItem == nil )
-    {
-        __openDocumentsItem = [ [ self fileViewItemWithType: CEFilesViewItemTypeSection name: CEFilesViewOpenDocumentsItemName ] retain ];
-    }
-    
-    return __openDocumentsItem;
-}
-
 + ( id )placesItem
 {
     if( __placesItem == nil )

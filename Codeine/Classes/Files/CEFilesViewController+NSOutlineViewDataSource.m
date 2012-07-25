@@ -173,10 +173,16 @@
     }
     
     fileViewItem = ( CEFilesViewItem * )item;
-    dictionary   = [ NSDictionary dictionaryWithObjectsAndKeys: [ NSNumber numberWithInteger: fileViewItem.type ],  @"Type",
-                                                                fileViewItem.name,                                  @"Name",
-                                                                nil
-                   ];
+    
+    if( fileViewItem.type == CEFilesViewItemTypeDocument )
+    {
+        return nil;
+    }
+    
+    dictionary = [ NSDictionary dictionaryWithObjectsAndKeys: [ NSNumber numberWithInteger: fileViewItem.type ],  @"Type",
+                                                              fileViewItem.name,                                  @"Name",
+                                                              nil
+                 ];
     
     return dictionary;
 }
@@ -194,11 +200,7 @@
         type = ( CEFilesViewItemType )[ ( NSNumber * )[ ( NSDictionary * )object objectForKey: @"Type" ] integerValue ];
         name = [ ( NSDictionary * )object objectForKey: @"Name" ];
         
-        if( type == CEFilesViewItemTypeSection && [ name isEqualToString: CEFilesViewOpenDocumentsItemName ] )
-        {
-            item = [ CEFilesViewItem openDocumentsItem ];
-        }
-        else if( type == CEFilesViewItemTypeSection && [ name isEqualToString: CEFilesViewPlacesItemName ] )
+        if( type == CEFilesViewItemTypeSection && [ name isEqualToString: CEFilesViewPlacesItemName ] )
         {
             item = [ CEFilesViewItem placesItem ];
         }

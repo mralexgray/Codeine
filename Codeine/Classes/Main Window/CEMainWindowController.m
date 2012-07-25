@@ -18,6 +18,8 @@
 #import "CEApplicationDelegate.h"
 #import "CEHUDView.h"
 
+NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
+
 @implementation CEMainWindowController
 
 @synthesize leftView      = _leftView;
@@ -57,6 +59,8 @@
     _editorViewController = [ CEEditorViewController new ];
     _debugViewController  = [ CEDebugViewController  new ];
     _fileViewController   = [ CEFilesViewController  new ];
+    
+    _fileViewController.mainWindowController = self;
     
     _editorViewController.view.frame = _mainView.bounds;
     _debugViewController.view.frame  = _bottomView.bounds;

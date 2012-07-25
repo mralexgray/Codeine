@@ -9,6 +9,7 @@
 #import "CELanguageWindowController.h"
 #import "CESourceFile.h"
 #import "CEDocument.h"
+#import "CEFilesViewController.h"
 
 @implementation CEMainWindowController( Private )
 
@@ -81,9 +82,9 @@
     document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: NSFullUserName() ];
     document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
     
-    [ _documents addObject: document ];
-    
     self.activeDocument = document;
+    
+    [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] insertObject: document atIndex: 0 ];
     
     RELEASE_IVAR( _languageWindowController );
 }

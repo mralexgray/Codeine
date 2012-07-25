@@ -16,19 +16,21 @@
 #import "CEMainWindowController.h"
 #import "CEFile.h"
 #import "CEColorLabelMenuItem.h"
+#import "CEDocument.h"
 #import <Quartz/Quartz.h>
 
 @implementation CEFilesViewController
 
-@synthesize outlineView         = _outlineView;
-@synthesize openDocumentMenu    = _openDocumentMenu;
-@synthesize bookmarkMenu        = _bookmarkMenu;
-@synthesize fsDirectoryMenu     = _fsDirectoryMenu;
-@synthesize fsFileMenu          = _fsFileMenu;
+@synthesize outlineView             = _outlineView;
+@synthesize openDocumentMenu        = _openDocumentMenu;
+@synthesize bookmarkMenu            = _bookmarkMenu;
+@synthesize fsDirectoryMenu         = _fsDirectoryMenu;
+@synthesize fsFileMenu              = _fsFileMenu;
 
 - ( void )dealloc
 {
     [ NOTIFICATION_CENTER removeObserver: self ];
+    [ _mainWindowController removeObserver: self forKeyPath: CEMainWindowControllerDocumentsArrayKey ];
     
     _outlineView.delegate   = nil;
     _outlineView.dataSource = nil;
@@ -40,15 +42,17 @@
     RELEASE_IVAR( _fsDirectoryMenu );
     RELEASE_IVAR( _fsFileMenu );
     RELEASE_IVAR( _quickLookItem );
+    RELEASE_IVAR( _openDocumentsItem );
     
     [ super dealloc ];
 }
 
 - ( void )awakeFromNib
 {
-    _rootItems = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+    _rootItems          = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+    _openDocumentsItem  = [ [ CEFilesViewItem alloc ] initWithType: CEFilesViewItemTypeSection name: CEFilesViewOpenDocumentsItemName ];
     
-    [ _rootItems addObject: [ CEFilesViewItem openDocumentsItem ] ];
+    [ _rootItems addObject: _openDocumentsItem ];
     
     #ifdef APPSTORE
         
@@ -70,16 +74,61 @@
     _outlineView.autosaveExpandedItems  = YES;
     _outlineView.autosaveName           = NSStringFromClass( [ self class ] );
     
-    [ _outlineView reloadItem: [ CEFilesViewItem openDocumentsItem ] reloadChildren: YES ];
-    [ _outlineView reloadItem: [ CEFilesViewItem placesItem ]        reloadChildren: YES ];
-    [ _outlineView reloadItem: [ CEFilesViewItem bookmarksItems ]    reloadChildren: YES ];
+    [ _outlineView reloadItem: _openDocumentsItem                   reloadChildren: YES ];
+    [ _outlineView reloadItem: [ CEFilesViewItem placesItem ]       reloadChildren: YES ];
+    [ _outlineView reloadItem: [ CEFilesViewItem bookmarksItems ]   reloadChildren: YES ];
     
-    [ _outlineView expandItem: [ CEFilesViewItem openDocumentsItem ] expandChildren: NO ];
+    [ _outlineView expandItem: _openDocumentsItem expandChildren: NO ];
     
     if( [ [ CEPreferences sharedInstance ] firstLaunch ] == YES )
     {
         [ _outlineView expandItem: [ CEFilesViewItem placesItem ]        expandChildren: NO ];
         [ _outlineView expandItem: [ CEFilesViewItem bookmarksItems ]    expandChildren: NO ];
+    }
+}
+
+- ( CEMainWindowController * )mainWindowController
+{
+    @synchronized( self )
+    {
+        return _mainWindowController;
+    }
+}
+
+- ( void )setMainWindowController: ( CEMainWindowController * )controller
+{
+    if( controller != _mainWindowController )
+    {
+        [ _mainWindowController removeObserver: self forKeyPath: CEMainWindowControllerDocumentsArrayKey ];
+        
+        _mainWindowController = controller;
+        
+        [ _mainWindowController addObserver: self forKeyPath: CEMainWindowControllerDocumentsArrayKey options: NSKeyValueObservingOptionNew context: nil ];
+    }
+}
+
+- ( void )observeValueForKeyPath: ( NSString * )keyPath ofObject: ( id )object change: ( NSDictionary * )change context: ( void * )context
+{
+    CEFilesViewItem * item;
+    CEDocument      * document;
+    
+    ( void )object;
+    ( void )change;
+    ( void )context;
+    
+    if( keyPath == CEMainWindowControllerDocumentsArrayKey )
+    {
+        [ _openDocumentsItem removeAllChildren ];
+        
+        for( document in _mainWindowController.documents )
+        {
+            item = [ CEFilesViewItem fileViewItemWithType: CEFilesViewItemTypeDocument name: document.name ];
+            
+            [ _openDocumentsItem addChild: item ];
+        }
+        
+        [ _outlineView reloadData ];
+        [ _outlineView expandItem: _openDocumentsItem ];
     }
 }
 

@@ -8,29 +8,33 @@
 #import "CEViewController.h"
 
 @class CEFilesViewItem;
+@class CEMainWindowController;
 
 @interface CEFilesViewController: CEViewController
 {
 @protected
     
-    NSOutlineView   * _outlineView;
-    NSMutableArray  * _rootItems;
-    NSMenu          * _openDocumentMenu;
-    NSMenu          * _bookmarkMenu;
-    NSMenu          * _fsDirectoryMenu;
-    NSMenu          * _fsFileMenu;
-    CEFilesViewItem * _quickLookItem;
+    NSOutlineView           * _outlineView;
+    NSMutableArray          * _rootItems;
+    NSMenu                  * _openDocumentMenu;
+    NSMenu                  * _bookmarkMenu;
+    NSMenu                  * _fsDirectoryMenu;
+    NSMenu                  * _fsFileMenu;
+    CEFilesViewItem         * _quickLookItem;
+    CEMainWindowController  * _mainWindowController;
+    CEFilesViewItem         * _openDocumentsItem;
     
 @private
     
     RESERVERD_IVARS( CEFilesViewController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSOutlineView * outlineView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * openDocumentMenu;
-@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * bookmarkMenu;
-@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * fsDirectoryMenu;
-@property( nonatomic, readwrite, retain ) IBOutlet NSMenu        * fsFileMenu;
+@property( nonatomic, readwrite, retain ) IBOutlet NSOutlineView          * outlineView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMenu                 * openDocumentMenu;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMenu                 * bookmarkMenu;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMenu                 * fsDirectoryMenu;
+@property( nonatomic, readwrite, retain ) IBOutlet NSMenu                 * fsFileMenu;
+@property( atomic,    readwrite, assign )          CEMainWindowController * mainWindowController;
 
 - ( IBAction )addBookmark: ( id )sender;
 - ( IBAction )removeBookmark: ( id )sender;

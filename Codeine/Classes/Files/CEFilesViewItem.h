@@ -50,7 +50,6 @@ FOUNDATION_EXPORT NSString * const CEFilesViewBookmarksItemName;
 @property( atomic, readonly          ) BOOL                isLeaf;
 @property( atomic, readonly          ) CEFilesViewItem    * parent;
 
-+ ( id )openDocumentsItem;
 + ( id )placesItem;
 + ( id )bookmarksItems;
 + ( id )fileViewItemWithType: ( CEFilesViewItemType )type name: ( NSString * )name;

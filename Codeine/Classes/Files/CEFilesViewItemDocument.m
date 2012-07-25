@@ -14,4 +14,9 @@
     return YES;
 }
 
+- ( NSString * )displayName
+{
+    return @"DOCUMENT_ITEM";
+}
+
 @end

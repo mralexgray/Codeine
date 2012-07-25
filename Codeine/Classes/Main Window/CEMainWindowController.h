@@ -14,6 +14,8 @@
 @class CELanguageWindowController;
 @class CEDocument;
 
+FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
+
 @interface CEMainWindowController: CEWindowController
 {
 @protected
@@ -28,7 +30,6 @@
     NSPopUpButton               * _encodingPopUp;
     NSMutableArray              * _documents;
     CEDocument                  * _activeDocument;
-
     
 @private
     
