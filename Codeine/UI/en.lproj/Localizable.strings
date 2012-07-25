@@ -31,6 +31,8 @@
 "LanguageObjC"                              = "Objective-C source file";
 "LanguageObjCPP"                            = "Objective-C++ source file";
 "NotRegistered"                             = "Not registered - Click here";
+"NoEditor"                                  = "No file to display";
+"NoConsole"                                 = "Console not available";
 "CEStringDataSizeTypeBytes"                 = "bytes";
 "CEStringDataSizeTypeKiloBytes"             = "KB";
 "CEStringDataSizeTypeMegaBytes"             = "MB";
