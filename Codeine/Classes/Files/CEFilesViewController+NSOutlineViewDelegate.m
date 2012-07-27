@@ -189,18 +189,51 @@
     return menu;
 }
 
-- ( void )outlineView: ( CEFilesOutlineView * )view showQuickLookForItem: ( id )item
+- ( void )outlineView: ( CEFilesOutlineView * )view didReceiveKeyEvent: ( CEVirtualKey )key onRow: ( NSInteger )row
 {
-    CEFilesViewItem * fileViewItem;
+    CEFilesViewItem * item;
+    
+    item = [ view itemAtRow: row ];
     
     if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
         return;
     }
     
-    fileViewItem = ( CEFilesViewItem * )item;
+    if( key == CEVirtualKeySpace )
+    {
+        [ APPLICATION showQuickLookPanelForItemAtPath: item.file.path sender: view ];
+    }
+}
+
+- ( void )outlineView: ( CEFilesOutlineView * )view didClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point
+{
+    CEFilesViewItem * item;
     
-    [ APPLICATION showQuickLookPanelForItemAtPath: fileViewItem.file.path sender: view ];
+    ( void )point;
+    
+    item = [ view itemAtRow: row ];
+    
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    [ view selectRowIndexes: [ NSIndexSet indexSetWithIndex: ( NSUInteger )row ] byExtendingSelection: NO ];
+}
+
+- ( void )outlineView: ( CEFilesOutlineView * )view didDoubleClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point
+{
+    CEFilesViewItem * item;
+    
+    ( void )point;
+    
+    item = [ view itemAtRow: row ];
+    
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
+    {
+        return;
+    }
 }
 
 /*
