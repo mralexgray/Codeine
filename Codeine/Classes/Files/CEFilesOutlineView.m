@@ -45,8 +45,9 @@
 
 - ( void )keyDown: ( NSEvent * )e
 {
-    CEFilesViewItem                   * item;
-    id < CEFilesOutlineViewDelegate >   delegate;
+    id < CEFilesOutlineViewDelegate > delegate;
+    
+    [ super keyDown: e ];
     
     delegate = nil;
     
@@ -55,47 +56,13 @@
         delegate = ( id < CEFilesOutlineViewDelegate > )( self.delegate );
     }
     
-    if( e.keyCode == CEVirtualKeyReturn && self.selectedRow != -1 )
+    if( self.selectedRow != -1 )
     {
-        item = [ self itemAtRow: self.selectedRow ];
-        
-        if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == YES )
+        if( [ delegate respondsToSelector: @selector( outlineView:didReceiveKeyEventForRow: ) ] )
         {
-            if( ( item.type == CEFilesViewItemTypeFS || item.type == CEFilesViewItemTypeBookmark ) && item.expandable == YES )
-            {
-                if( [ self isItemExpanded: item ] == YES )
-                {
-                    [ self collapseItem: item ];
-                }
-                else
-                {
-                    [ self expandItem: item ];
-                }
-            }
-            else
-            {
-                [ self editColumn: self.selectedColumn row: self.selectedRow withEvent: e select: YES ];
-            }
-            
-            return;
+            [ delegate outlineView: self didReceiveKeyEventForRow: self.selectedRow ];
         }
     }
-    else if( e.keyCode == CEVirtualKeySpace && self.selectedRow != -1 )
-    {
-        item = [ self itemAtRow: self.selectedRow ];
-        
-        if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == YES )
-        {
-            if( [ delegate respondsToSelector: @selector( outlineView:showQuickLookForItem: ) ] )
-            {
-                [ delegate outlineView: self showQuickLookForItem: item ];
-            
-                return;
-            }
-        }
-    }
-    
-    [ super keyDown: e ];
 }
 
 - ( void )mouseDown: ( NSEvent * )e
@@ -103,7 +70,6 @@
     NSPoint                             point;
     NSInteger                           row;
     CGRect                              frame;
-    CEFilesViewItem                   * item;
     id < CEFilesOutlineViewDelegate >   delegate;
     
     point       = [ self convertPoint: [ e locationInWindow ] fromView: nil ];
@@ -134,33 +100,25 @@
     
     if( e.clickCount == 2 )
     {
-        item = [ self itemAtRow: self.selectedRow ];
-        
-        if( ( item.type == CEFilesViewItemTypeFS || item.type == CEFilesViewItemTypeBookmark ) && item.expandable == YES )
+        if( [ delegate respondsToSelector: @selector( outlineView:didDoubleClickOnRow:atPoint: ) ] )
         {
-            if( [ self isItemExpanded: item ] == YES )
-            {
-                [ self collapseItem: item ];
-            }
-            else
-            {
-                [ self expandItem: item ];
-            }
+            [ delegate outlineView: self didClickOnRow: row atPoint: point ];
         }
         else
         {
-            ( ( CEMainWindowController * )( self.window.windowController ) ).activeDocument = [ CEDocument documentWithPath: item.file.path ];
-            //[ self editColumn: self.selectedColumn row: self.selectedRow withEvent: e select: YES ];
+            [ super mouseDown: e ];
         }
     }
     else
     {
-        [ super mouseDown: e ];
-    }
-    
-    if( [ delegate respondsToSelector: @selector( outlineView:didClickOnRow:atPoint: ) ] )
-    {
-        [ delegate outlineView: self didClickOnRow: row atPoint: point ];
+        if( [ delegate respondsToSelector: @selector( outlineView:didClickOnRow:atPoint: ) ] )
+        {
+            [ delegate outlineView: self didClickOnRow: row atPoint: point ];
+        }
+        else
+        {
+            [ super mouseDown: e ];
+        }
     }
 }
 
