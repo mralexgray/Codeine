@@ -9,7 +9,8 @@
 #import "CEFilesViewItem.h"
 #import "CEFilesOutlineView+Private.h"
 
-#import <Carbon/../Frameworks/HIToolbox.framework/Headers/Events.h>
+#import "CEMainWindowController.h"
+#import "CEDocument.h"
 
 @implementation CEFilesOutlineView
 
@@ -54,7 +55,7 @@
         delegate = ( id < CEFilesOutlineViewDelegate > )( self.delegate );
     }
     
-    if( e.keyCode == kVK_Return && self.selectedRow != -1 )
+    if( e.keyCode == CEVirtualKeyReturn && self.selectedRow != -1 )
     {
         item = [ self itemAtRow: self.selectedRow ];
         
@@ -79,7 +80,7 @@
             return;
         }
     }
-    else if( e.keyCode == kVK_Space && self.selectedRow != -1 )
+    else if( e.keyCode == CEVirtualKeySpace && self.selectedRow != -1 )
     {
         item = [ self itemAtRow: self.selectedRow ];
         
@@ -148,7 +149,8 @@
         }
         else
         {
-            [ self editColumn: self.selectedColumn row: self.selectedRow withEvent: e select: YES ];
+            ( ( CEMainWindowController * )( self.window.windowController ) ).activeDocument = [ CEDocument documentWithPath: item.file.path ];
+            //[ self editColumn: self.selectedColumn row: self.selectedRow withEvent: e select: YES ];
         }
     }
     else

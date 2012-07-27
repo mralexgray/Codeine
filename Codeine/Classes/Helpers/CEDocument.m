@@ -60,7 +60,7 @@
             return nil;
         }
         
-        _name = [ _file copy ];
+        _name = [ _file.name copy ];
     }
     
     return self;
@@ -92,6 +92,43 @@
     RELEASE_IVAR( _name );
     
     [ super dealloc ];
+}
+
+- ( NSImage * )icon
+{if( _file != nil )
+    {
+        return _file.icon;
+    }
+    
+    if( _sourceFile != nil )
+    {
+        switch( _sourceFile.language )
+        {
+            case CESourceFileLanguageC:
+                
+                return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"c" ];
+                
+            case CESourceFileLanguageCPP:
+                
+                return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"cpp" ];
+                
+            case CESourceFileLanguageObjC:
+                
+                return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"m" ];
+                
+            case CESourceFileLanguageObjCPP:
+                
+                return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"mm" ];
+                
+            case CESourceFileLanguageHeader:
+            case CESourceFileLanguageNone:
+            default:
+                
+                break;
+        }
+    }
+    
+    return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"" ];
 }
 
 - ( void )save

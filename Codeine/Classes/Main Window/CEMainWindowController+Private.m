@@ -84,8 +84,6 @@
     
     self.activeDocument = document;
     
-    [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] insertObject: document atIndex: 0 ];
-    
     RELEASE_IVAR( _languageWindowController );
 }
 

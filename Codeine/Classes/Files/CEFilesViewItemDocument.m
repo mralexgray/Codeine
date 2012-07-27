@@ -29,4 +29,18 @@
     return document.name;
 }
 
+- ( NSImage * )icon
+{
+    CEDocument * document;
+    
+    if( [ self.representedObject isKindOfClass: [ CEDocument class ] ] == NO )
+    {
+        return nil;
+    }
+    
+    document = self.representedObject;
+    
+    return document.icon;
+}
+
 @end

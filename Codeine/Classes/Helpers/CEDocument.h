@@ -26,6 +26,7 @@
 @property( atomic, readonly ) CEFile        * file;
 @property( atomic, readonly ) CESourceFile  * sourceFile;
 @property( atomic, readonly ) NSString      * name;
+@property( atomic, readonly ) NSImage       * icon;
 
 + ( id )documentWithPath: ( NSString * )path;
 + ( id )documentWithURL: ( NSURL * )url;
