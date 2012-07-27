@@ -19,6 +19,7 @@
 #define APPLICATION                             ( ( NSApplication        * )[ NSApplication         sharedApplication ] )
 #define DEFAULTS                                ( ( NSUserDefaults       * )[ NSUserDefaults        standardUserDefaults ] )
 #define BUNDLE                                  ( ( NSBundle             * )[ NSBundle              mainBundle ] )
+#define WORKSPACE                               ( ( NSWorkspace          * )[ NSWorkspace           sharedWorkspace ] )
 
 #define Log( object )                                                           \
     NSLog                                                                       \

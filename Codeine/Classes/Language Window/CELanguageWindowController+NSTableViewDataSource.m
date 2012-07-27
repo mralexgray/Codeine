@@ -34,19 +34,19 @@
             {
                 case 0:
                     
-                    return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"c" ];
+                    return [ WORKSPACE iconForFileType: @"c" ];
                     
                 case 1:
                     
-                    return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"cpp" ];
+                    return [ WORKSPACE iconForFileType: @"cpp" ];
                     
                 case 2:
                     
-                    return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"m" ];
+                    return [ WORKSPACE iconForFileType: @"m" ];
                     
                 case 3:
                     
-                    return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"mm" ];
+                    return [ WORKSPACE iconForFileType: @"mm" ];
                     
                 default:
                     

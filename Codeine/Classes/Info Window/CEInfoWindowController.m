@@ -130,7 +130,7 @@
     
     [ self resizeWindow: NO ];
     
-    icon    = [ [ NSWorkspace sharedWorkspace ] iconForFile: _path ];
+    icon    = [ WORKSPACE iconForFile: _path ];
     rect    = NSMakeRect( ( CGFloat )0, ( CGFloat )0, ( CGFloat )512, ( CGFloat )512 );
     cgImage = [ icon CGImageForProposedRect: &rect context: nil hints: nil ];
     icon    = [ [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ] autorelease ];
@@ -139,7 +139,7 @@
     [ _largeIconView setImage: icon ];
     
     bytes = [ [ _attributes objectForKey: NSFileSize ] unsignedLongLongValue ];
-    kind  = [ [ NSWorkspace sharedWorkspace ] localizedDescriptionForType: [ [ NSWorkspace sharedWorkspace ] typeOfFile: _path error: NULL ] ];
+    kind  = [ WORKSPACE localizedDescriptionForType: [ WORKSPACE typeOfFile: _path error: NULL ] ];
     
     [ _infoNameTextField    setStringValue: [ FILE_MANAGER displayNameAtPath: _path ] ];
     [ _generalKindTextField setStringValue: [ kind capitalizedString ] ];

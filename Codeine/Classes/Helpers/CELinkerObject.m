@@ -119,7 +119,7 @@
 
 - ( NSImage * )icon
 {
-    return [ [ NSWorkspace sharedWorkspace ] iconForFile: _path ];
+    return [ WORKSPACE iconForFile: _path ];
 }
 
 @end

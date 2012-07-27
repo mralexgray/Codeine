@@ -263,7 +263,7 @@
     
     item = menuItem.representedObject;
     
-    [ [ NSWorkspace sharedWorkspace ] selectFile: item.file.path inFileViewerRootedAtPath: nil ];
+    [ WORKSPACE selectFile: item.file.path inFileViewerRootedAtPath: nil ];
 }
 
 - ( IBAction )menuActionOpenInDefaultEditor: ( id )sender
@@ -285,7 +285,7 @@
     
     item = menuItem.representedObject;
     
-    [ [ NSWorkspace sharedWorkspace ] openFile: item.file.path ];
+    [ WORKSPACE openFile: item.file.path ];
 }
 
 - ( IBAction )menuActionDelete: ( id )sender
@@ -463,7 +463,7 @@
         return;
     }
     
-    colors = [ [ NSWorkspace sharedWorkspace ] fileLabelColors ];
+    colors = [ WORKSPACE fileLabelColors ];
     index  = [ colors indexOfObject: menuItem.selectedColor ];
     
     if( index < colors.count )

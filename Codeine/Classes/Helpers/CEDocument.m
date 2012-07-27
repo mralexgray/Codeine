@@ -107,19 +107,19 @@
         {
             case CESourceFileLanguageC:
                 
-                return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"c" ];
+                return [ WORKSPACE iconForFileType: @"c" ];
                 
             case CESourceFileLanguageCPP:
                 
-                return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"cpp" ];
+                return [ WORKSPACE iconForFileType: @"cpp" ];
                 
             case CESourceFileLanguageObjC:
                 
-                return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"m" ];
+                return [ WORKSPACE iconForFileType: @"m" ];
                 
             case CESourceFileLanguageObjCPP:
                 
-                return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"mm" ];
+                return [ WORKSPACE iconForFileType: @"mm" ];
                 
             case CESourceFileLanguageHeader:
             case CESourceFileLanguageNone:
@@ -129,7 +129,7 @@
         }
     }
     
-    return [ [ NSWorkspace sharedWorkspace ] iconForFileType: @"" ];
+    return [ WORKSPACE iconForFileType: @"" ];
 }
 
 - ( void )save

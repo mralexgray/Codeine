@@ -63,7 +63,7 @@
         }
         
         _attributes = [ attributes retain ];
-        _isPackage  = [ [ NSWorkspace sharedWorkspace ] isFilePackageAtPath: _path ];
+        _isPackage  = [ WORKSPACE isFilePackageAtPath: _path ];
         _readable   = [ FILE_MANAGER isReadableFileAtPath: _path ];
         _writable   = [ FILE_MANAGER isWritableFileAtPath: _path ];
     }
@@ -136,8 +136,8 @@
     
     if( _kind == nil )
     {
-        type  = [ [ NSWorkspace sharedWorkspace ] typeOfFile: _path error: NULL ];
-        _kind = [ [ [ NSWorkspace sharedWorkspace ] localizedDescriptionForType: type ] retain ];
+        type  = [ WORKSPACE typeOfFile: _path error: NULL ];
+        _kind = [ [ WORKSPACE localizedDescriptionForType: type ] retain ];
     }
     
     return _name;
@@ -162,7 +162,7 @@
     
     if( _icon == nil )
     {
-        icon    = [ [ NSWorkspace sharedWorkspace ] iconForFile: _path ];
+        icon    = [ WORKSPACE iconForFile: _path ];
         rect    = NSMakeRect( ( CGFloat )0, ( CGFloat )0, ( CGFloat )512, ( CGFloat )512 );
         cgImage = [ icon CGImageForProposedRect: &rect context: nil hints: nil ];
         _icon   = [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];

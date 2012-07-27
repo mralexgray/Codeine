@@ -25,8 +25,8 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
 {
     if( ( self = [ super initWithFrame: frame ] ) )
     {
-        _colors   = [ [ [ NSWorkspace sharedWorkspace ] fileLabelColors ] retain ];
-        _labels   = [ [ [ NSWorkspace sharedWorkspace ] fileLabels      ] retain ];
+        _colors   = [ [ WORKSPACE fileLabelColors ] retain ];
+        _labels   = [ [ WORKSPACE fileLabels      ] retain ];
         _tracking = [ [ NSMutableArray alloc ] initWithCapacity: _colors.count ];
         
         if( _colors.count != _labels.count )
@@ -47,8 +47,8 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
 {
     if( ( self = [ super initWithCoder: coder ] ) )
     {
-        _colors   = [ [ [ NSWorkspace sharedWorkspace ] fileLabelColors ] retain ];
-        _labels   = [ [ [ NSWorkspace sharedWorkspace ] fileLabels      ] retain ];
+        _colors   = [ [ WORKSPACE fileLabelColors ] retain ];
+        _labels   = [ [ WORKSPACE fileLabels      ] retain ];
         _tracking = [ [ NSMutableArray alloc ] initWithCapacity: _colors.count ];
         
         if( _colors.count != _labels.count )

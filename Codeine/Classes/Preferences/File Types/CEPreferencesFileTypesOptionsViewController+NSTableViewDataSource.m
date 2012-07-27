@@ -46,7 +46,7 @@
         {
             NSImage * icon;
             
-            icon = [ [ NSWorkspace sharedWorkspace ] iconForFileType: extension ];
+            icon = [ WORKSPACE iconForFileType: extension ];
             
             if( icon != nil )
             {
