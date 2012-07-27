@@ -85,21 +85,21 @@
         delegate = ( id < CEFilesOutlineViewDelegate > )( self.delegate );
     }
     
-    if( [ delegate respondsToSelector: @selector( outlineView:shouldClickOnRow:atPoint: ) ] )
-    {
-        if( [ delegate outlineView: self shouldClickOnRow: row atPoint: point ] == NO )
-        {
-            return;
-        }
-    }
-    
-    if( [ delegate respondsToSelector: @selector( outlineView:willClickOnRow:atPoint: ) ] )
-    {
-        [ delegate outlineView: self willClickOnRow: row atPoint: point ];
-    }
-    
     if( e.clickCount == 2 )
     {
+        if( [ delegate respondsToSelector: @selector( outlineView:shouldDoubleClickOnRow:atPoint: ) ] )
+        {
+            if( [ delegate outlineView: self shouldClickOnRow: row atPoint: point ] == NO )
+            {
+                return;
+            }
+        }
+        
+        if( [ delegate respondsToSelector: @selector( outlineView:willDoubleClickOnRow:atPoint: ) ] )
+        {
+            [ delegate outlineView: self willClickOnRow: row atPoint: point ];
+        }
+        
         if( [ delegate respondsToSelector: @selector( outlineView:didDoubleClickOnRow:atPoint: ) ] )
         {
             [ delegate outlineView: self didClickOnRow: row atPoint: point ];
@@ -111,6 +111,19 @@
     }
     else
     {
+        if( [ delegate respondsToSelector: @selector( outlineView:shouldClickOnRow:atPoint: ) ] )
+        {
+            if( [ delegate outlineView: self shouldClickOnRow: row atPoint: point ] == NO )
+            {
+                return;
+            }
+        }
+        
+        if( [ delegate respondsToSelector: @selector( outlineView:willClickOnRow:atPoint: ) ] )
+        {
+            [ delegate outlineView: self willClickOnRow: row atPoint: point ];
+        }
+        
         if( [ delegate respondsToSelector: @selector( outlineView:didClickOnRow:atPoint: ) ] )
         {
             [ delegate outlineView: self didClickOnRow: row atPoint: point ];
