@@ -95,7 +95,8 @@
 }
 
 - ( NSImage * )icon
-{if( _file != nil )
+{
+    if( _file != nil )
     {
         return _file.icon;
     }
@@ -141,6 +142,25 @@
     ( void )error;
     
     return YES;
+}
+
+- ( BOOL )isEqual: ( id )object
+{
+    CEDocument * document;
+    
+    if( [ object isKindOfClass: [ self class ] ] == NO )
+    {
+        return NO;
+    }
+    
+    document = object;
+    
+    if( self.file == nil || document.file == nil )
+    {
+        return [ self.name isEqualToString: document.name ];
+    }
+    
+    return [ self.file.path isEqualToString: document.file.path ];
 }
 
 @end
