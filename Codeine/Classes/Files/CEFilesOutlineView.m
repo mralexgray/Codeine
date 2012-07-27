@@ -58,9 +58,9 @@
     
     if( self.selectedRow != -1 )
     {
-        if( [ delegate respondsToSelector: @selector( outlineView:didReceiveKeyEventForRow: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:didReceiveKeyEvent:onRow: ) ] )
         {
-            [ delegate outlineView: self didReceiveKeyEventForRow: self.selectedRow ];
+            [ delegate outlineView: self didReceiveKeyEvent: e.keyCode onRow: self.selectedRow ];
         }
     }
 }
