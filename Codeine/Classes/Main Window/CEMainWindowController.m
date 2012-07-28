@@ -10,6 +10,7 @@
 #import "CEEditorViewController.h"
 #import "CEDebugViewController.h"
 #import "CEFilesViewController.h"
+#import "CEFileDetailsViewController.h"
 #import "CESourceFile.h"
 #import "CETextEncoding.h"
 #import "CEPreferences.h"
@@ -17,6 +18,7 @@
 #import "CEWindowBadge.h"
 #import "CEApplicationDelegate.h"
 #import "CEHUDView.h"
+#import "CEDocument.h"
 
 NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 
@@ -32,6 +34,7 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     RELEASE_IVAR( _fileViewController );
     RELEASE_IVAR( _editorViewController );
     RELEASE_IVAR( _debugViewController );
+    RELEASE_IVAR( _fileDetailsViewController );
     RELEASE_IVAR( _leftView );
     RELEASE_IVAR( _mainView );
     RELEASE_IVAR( _bottomView );
@@ -162,15 +165,8 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
         {
             RELEASE_IVAR( _activeDocument );
             
-            _activeDocument = [ document retain ];
-            
-            if( _editorViewController.document != document )
-            {
-                _editorViewController.document = document;
-            }
-            
             [ _editorViewController.view removeFromSuperview ];
-            [ _debugViewController.view  removeFromSuperview ];;
+            [ _debugViewController.view  removeFromSuperview ];
             
             [ _mainView   addSubview: _editorViewController.view ];
             [ _bottomView addSubview: _debugViewController.view ];
@@ -189,7 +185,38 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
             
             if( found == NO )
             {
-                [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] insertObject: document atIndex: 0 ];
+                if( document.sourceFile.text != nil )
+                {
+                    _activeDocument = [ document retain ];
+                    
+                    if( _editorViewController.document != document )
+                    {
+                        _editorViewController.document = document;
+                    }
+                    
+                    [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] insertObject: document atIndex: 0 ];
+                }
+                else
+                {
+                    if( _fileDetailsViewController == nil )
+                    {
+                        _fileDetailsViewController                       = [ CEFileDetailsViewController new ];
+                        _fileDetailsViewController.view.frame            = _mainView.bounds;
+                        _fileDetailsViewController.view.autoresizingMask = NSViewWidthSizable
+                                                                         | NSViewHeightSizable
+                                                                         | NSViewMinXMargin
+                                                                         | NSViewMaxXMargin
+                                                                         | NSViewMinYMargin
+                                                                         | NSViewMaxYMargin;
+                    }
+                    
+                    _fileDetailsViewController.file = document.file;
+                    
+                    [ _editorViewController.view removeFromSuperview ];
+                    [ _debugViewController.view  removeFromSuperview ];
+                    
+                    [ _mainView addSubview: _fileDetailsViewController.view ];
+                }
             }
         }
     }

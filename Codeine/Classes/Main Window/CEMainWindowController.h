@@ -12,6 +12,7 @@
 @class CEDebugViewController;
 @class CESourceFile;
 @class CELanguageWindowController;
+@class CEFileDetailsViewController;
 @class CEDocument;
 
 FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
@@ -23,6 +24,7 @@ FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
     CEFilesViewController       * _fileViewController;
     CEEditorViewController      * _editorViewController;
     CEDebugViewController       * _debugViewController;
+    CEFileDetailsViewController * _fileDetailsViewController;
     NSView                      * _leftView;
     NSView                      * _mainView;
     NSView                      * _bottomView;

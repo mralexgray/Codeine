@@ -83,8 +83,10 @@
     RELEASE_IVAR( _size );
     RELEASE_IVAR( _creationDate );
     RELEASE_IVAR( _modificationDate );
+    RELEASE_IVAR( _lastOpenedDate );
     RELEASE_IVAR( _creationTime );
     RELEASE_IVAR( _modificationTime );
+    RELEASE_IVAR( _lastOpenedTime );
     RELEASE_IVAR( _owner );
     RELEASE_IVAR( _group );
     RELEASE_IVAR( _humanPermissions );
@@ -105,8 +107,10 @@
     RELEASE_IVAR( _size );
     RELEASE_IVAR( _creationDate );
     RELEASE_IVAR( _modificationDate );
+    RELEASE_IVAR( _lastOpenedDate );
     RELEASE_IVAR( _creationTime );
     RELEASE_IVAR( _modificationTime );
+    RELEASE_IVAR( _lastOpenedTime );
     RELEASE_IVAR( _owner );
     RELEASE_IVAR( _group );
     RELEASE_IVAR( _humanPermissions );
@@ -140,7 +144,7 @@
         _kind = [ [ WORKSPACE localizedDescriptionForType: type ] retain ];
     }
     
-    return _name;
+    return _kind;
 }
 
 - ( NSColor * )labelColor
@@ -211,6 +215,17 @@
     return _modificationDate;
 }
 
+- ( NSDate * )lastOpenedDate
+{
+    if( _lastOpenedDate == nil )
+    {
+        [ self.url getResourceValue: &_lastOpenedDate forKey: NSURLContentAccessDateKey error: NULL ];
+        [ _lastOpenedDate retain ];
+    }
+    
+    return _lastOpenedDate;
+}
+
 - ( NSString * )creationTime
 {
     NSDateFormatter * dateFormatter;
@@ -247,6 +262,25 @@
     }
     
     return _modificationTime;
+}
+
+- ( NSString * )lastOpenedTime
+{
+    NSDateFormatter * dateFormatter;
+    
+    if( _lastOpenedTime == nil )
+    {
+        dateFormatter                               = [ NSDateFormatter new ];
+        dateFormatter.doesRelativeDateFormatting    = YES;
+        dateFormatter.dateStyle                     = NSDateFormatterLongStyle;
+        dateFormatter.timeStyle                     = NSDateFormatterShortStyle;
+        
+        _lastOpenedTime = [ [ dateFormatter stringFromDate: self.lastOpenedDate ] retain ];
+        
+        [ dateFormatter release ];
+    }
+    
+    return _lastOpenedTime;
 }
 
 - ( NSString * )owner

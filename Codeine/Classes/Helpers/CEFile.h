@@ -22,8 +22,10 @@
     NSString     * _size;
     NSDate       * _creationDate;
     NSDate       * _modificationDate;
+    NSDate       * _lastOpenedDate;
     NSString     * _creationTime;
     NSString     * _modificationTime;
+    NSString     * _lastOpenedTime;
     NSString     * _owner;
     NSString     * _group;
     NSUInteger     _ownerID;
@@ -52,8 +54,10 @@
 @property( atomic, readonly ) NSString   * size;
 @property( atomic, readonly ) NSDate     * creationDate;
 @property( atomic, readonly ) NSDate     * modificationDate;
+@property( atomic, readonly ) NSDate     * lastOpenedDate;
 @property( atomic, readonly ) NSString   * creationTime;
 @property( atomic, readonly ) NSString   * modificationTime;
+@property( atomic, readonly ) NSString   * lastOpenedTime;
 @property( atomic, readonly ) NSString   * owner;
 @property( atomic, readonly ) NSString   * group;
 @property( atomic, readonly ) NSUInteger   ownerID;
