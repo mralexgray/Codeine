@@ -8,6 +8,7 @@
 #import "CEDocument.h"
 #import "CEDocument+Private.h"
 #import "CEFile.h"
+#import "CEPreferences.h"
 
 @implementation CEDocument
 
@@ -40,6 +41,11 @@
 
 - ( id )initWithURL: ( NSURL * )url
 {
+    NSDictionary        * types;
+    NSString            * extension;
+    NSNumber            * value;
+    CESourceFileLanguage  language;
+    
     if( ( self = [ self init ] ) )
     {
         _file = [ [ CEFile alloc ] initWithURL: url ];
@@ -51,7 +57,21 @@
             return nil;
         }
         
-        _sourceFile = [ [ CESourceFile alloc ] initWithLanguage: 0 fromFile: _file.path ];
+        language = CESourceFileLanguageNone;
+        types    = [ [ CEPreferences sharedInstance ] fileTypes ];
+        
+        for( extension in types )
+        {
+            if( [ extension.lowercaseString isEqualToString: url.path.pathExtension.lowercaseString ] )
+            {
+                value    = [ types objectForKey: extension ];
+                language = ( CESourceFileLanguage )[ value integerValue ];
+                
+                break;
+            }
+        }
+        
+        _sourceFile = [ [ CESourceFile alloc ] initWithLanguage: language fromFile: _file.path ];
         
         if( _sourceFile == nil )
         {
