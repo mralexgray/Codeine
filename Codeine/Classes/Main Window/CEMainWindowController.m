@@ -168,6 +168,10 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
             [ _editorViewController.view removeFromSuperview ];
             [ _debugViewController.view  removeFromSuperview ];
             
+            _editorViewController.view.frame = _mainView.bounds;
+            _debugViewController.view.frame  = _bottomView.bounds;
+            _fileViewController.view.frame   = _leftView.bounds;
+            
             [ _mainView   addSubview: _editorViewController.view ];
             [ _bottomView addSubview: _debugViewController.view ];
             
