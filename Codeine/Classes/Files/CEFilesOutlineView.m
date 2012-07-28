@@ -58,9 +58,9 @@
     
     if( self.selectedRow != -1 )
     {
-        if( [ delegate respondsToSelector: @selector( outlineView:didReceiveKeyEvent:onRow: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:didReceiveKeyEvent:onRow:event: ) ] )
         {
-            [ delegate outlineView: self didReceiveKeyEvent: e.keyCode onRow: self.selectedRow ];
+            [ delegate outlineView: self didReceiveKeyEvent: e.keyCode onRow: self.selectedRow event: e ];
         }
     }
 }
@@ -87,22 +87,22 @@
     
     if( e.clickCount == 2 )
     {
-        if( [ delegate respondsToSelector: @selector( outlineView:shouldDoubleClickOnRow:atPoint: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:shouldDoubleClickOnRow:atPoint:event: ) ] )
         {
-            if( [ delegate outlineView: self shouldClickOnRow: row atPoint: point ] == NO )
+            if( [ delegate outlineView: self shouldDoubleClickOnRow: row atPoint: point event: e ] == NO )
             {
                 return;
             }
         }
         
-        if( [ delegate respondsToSelector: @selector( outlineView:willDoubleClickOnRow:atPoint: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:willDoubleClickOnRow:atPoint:event: ) ] )
         {
-            [ delegate outlineView: self willClickOnRow: row atPoint: point ];
+            [ delegate outlineView: self willDoubleClickOnRow: row atPoint: point event: e ];
         }
         
-        if( [ delegate respondsToSelector: @selector( outlineView:didDoubleClickOnRow:atPoint: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:didDoubleClickOnRow:atPoint:event: ) ] )
         {
-            [ delegate outlineView: self didClickOnRow: row atPoint: point ];
+            [ delegate outlineView: self didDoubleClickOnRow: row atPoint: point event: e ];
         }
         else
         {
@@ -111,22 +111,22 @@
     }
     else
     {
-        if( [ delegate respondsToSelector: @selector( outlineView:shouldClickOnRow:atPoint: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:shouldClickOnRow:atPoint:event: ) ] )
         {
-            if( [ delegate outlineView: self shouldClickOnRow: row atPoint: point ] == NO )
+            if( [ delegate outlineView: self shouldClickOnRow: row atPoint: point event: e ] == NO )
             {
                 return;
             }
         }
         
-        if( [ delegate respondsToSelector: @selector( outlineView:willClickOnRow:atPoint: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:willClickOnRow:atPoint:event: ) ] )
         {
-            [ delegate outlineView: self willClickOnRow: row atPoint: point ];
+            [ delegate outlineView: self willClickOnRow: row atPoint: point event: e ];
         }
         
-        if( [ delegate respondsToSelector: @selector( outlineView:didClickOnRow:atPoint: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:didClickOnRow:atPoint:event: ) ] )
         {
-            [ delegate outlineView: self didClickOnRow: row atPoint: point ];
+            [ delegate outlineView: self didClickOnRow: row atPoint: point event: e ];
         }
         else
         {

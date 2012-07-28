@@ -10,8 +10,19 @@
 #import "CEFilesViewCell.h"
 #import "CEFile.h"
 #import "CEColorLabelMenuItem.h"
+#import "CEFilesOutlineView.h"
+#import "CEMainWindowController.h"
+#import "CEDocument.h"
 
 @implementation CEFilesViewController( NSOutlineViewDelegate )
+
+- ( CGFloat )outlineView: ( NSOutlineView * )outlineView heightOfRowByItem: ( id )item
+{
+    ( void )outlineView;
+    ( void )item;
+    
+    return ( CGFloat )20;
+}
 
 - ( BOOL )outlineView: ( NSOutlineView * )outlineView isGroupItem: ( id )item
 {
@@ -189,9 +200,11 @@
     return menu;
 }
 
-- ( void )outlineView: ( CEFilesOutlineView * )view didReceiveKeyEvent: ( CEVirtualKey )key onRow: ( NSInteger )row
+- ( void )outlineView: ( CEFilesOutlineView * )view didReceiveKeyEvent: ( CEVirtualKey )key onRow: ( NSInteger )row event: ( NSEvent * )e
 {
     CEFilesViewItem * item;
+    
+    ( void )e;
     
     item = [ view itemAtRow: row ];
     
@@ -204,13 +217,18 @@
     {
         [ APPLICATION showQuickLookPanelForItemAtPath: item.file.path sender: view ];
     }
+    else if( key == CEVirtualKeyEscape )
+    {
+        [ view selectRowIndexes: [ NSIndexSet indexSetWithIndex: ( NSUInteger )row ] byExtendingSelection: NO ];
+    }
 }
 
-- ( void )outlineView: ( CEFilesOutlineView * )view didClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point
+- ( void )outlineView: ( CEFilesOutlineView * )view didDoubleClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point event: ( NSEvent * )e
 {
     CEFilesViewItem * item;
     
     ( void )point;
+    ( void )e;
     
     item = [ view itemAtRow: row ];
     
@@ -219,20 +237,20 @@
         return;
     }
     
-    [ view selectRowIndexes: [ NSIndexSet indexSetWithIndex: ( NSUInteger )row ] byExtendingSelection: NO ];
-}
-
-- ( void )outlineView: ( CEFilesOutlineView * )view didDoubleClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point
-{
-    CEFilesViewItem * item;
-    
-    ( void )point;
-    
-    item = [ view itemAtRow: row ];
-    
-    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
+    if( item.expandable == YES )
     {
-        return;
+        if( [ view isItemExpanded: item ] )
+        {
+            [ view collapseItem: item ];
+        }
+        else
+        {
+            [ view expandItem: item ];
+        }
+    }
+    else
+    {
+        [ ( CEMainWindowController * )( self.view.window.windowController ) setActiveDocument: [ CEDocument documentWithPath: item.file.path ] ];
     }
 }
 
