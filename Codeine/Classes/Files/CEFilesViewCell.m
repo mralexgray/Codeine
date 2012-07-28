@@ -89,7 +89,7 @@ static void __exit( void )
         return;
     }
     
-    if( item.type == CEFilesViewItemTypeFS || item.type == CEFilesViewItemTypeBookmark )
+    if( item.type == CEFilesViewItemTypeFS || item.type == CEFilesViewItemTypeBookmark || item.type == CEFilesViewItemTypeDocument )
     {
         {
             CGRect         rect;

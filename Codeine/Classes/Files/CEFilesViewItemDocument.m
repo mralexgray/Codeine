@@ -43,4 +43,18 @@
     return document.icon;
 }
 
+- ( CEFile * )file
+{
+    CEDocument * document;
+    
+    if( [ self.representedObject isKindOfClass: [ CEDocument class ] ] == NO )
+    {
+        return nil;
+    }
+    
+    document = self.representedObject;
+    
+    return document.file;
+}
+
 @end

@@ -221,25 +221,9 @@
     }
     else if( key == CEVirtualKeyReturn )
     {
-        if( item.expandable == YES )
-        {
-            if( [ view isItemExpanded: item ] )
-            {
-                [ view collapseItem: item ];
-            }
-            else
-            {
-                [ view expandItem: item ];
-            }
-            
-            return YES;
-        }
-        else
-        {
-            [ ( CEMainWindowController * )( self.view.window.windowController ) setActiveDocument: [ CEDocument documentWithPath: item.file.path ] ];
-            
-            return YES;
-        }
+        [ self outlineView: view didDoubleClickOnRow: row atPoint: NSZeroPoint event: nil ];
+        
+        return YES;
     }
     
     return NO;
@@ -272,34 +256,15 @@
     }
     else
     {
-        [ ( CEMainWindowController * )( self.view.window.windowController ) setActiveDocument: [ CEDocument documentWithPath: item.file.path ] ];
+        if( item.type == CEFilesViewItemTypeDocument )
+        {
+            [ ( CEMainWindowController * )( self.view.window.windowController ) setActiveDocument: item.representedObject ];
+        }
+        else
+        {
+            [ ( CEMainWindowController * )( self.view.window.windowController ) setActiveDocument: [ CEDocument documentWithPath: item.file.path ] ];
+        }
     }
 }
-
-/*
-- ( BOOL )outlineView: ( CEFilesOutlineView * )view shouldClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point
-{
-    id item;
-    
-    ( void )view;
-    ( void )row;
-    ( void )point;
-    
-    item = [ _outlineView itemAtRow: row ];
-    
-    [ _outlineView selectRowIndexes: [ NSIndexSet indexSetWithIndex: ( NSUInteger )row ] byExtendingSelection: NO ];
-    
-    if( [ _outlineView isItemExpanded: item ] == YES )
-    {
-        [ _outlineView collapseItem: item ];
-    }
-    else
-    {
-        [ _outlineView expandItem: item ];
-    }
-    
-    return NO;
-}
-*/
 
 @end
