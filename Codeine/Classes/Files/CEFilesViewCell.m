@@ -167,7 +167,7 @@ static void __exit( void )
     }
     
     text            = item.displayName;
-    icon            = item.icon;
+    icon            = [ item.icon imageWithSize: ( CGFloat )16 ];
     color           = ( self.isHighlighted == YES ) ? [ NSColor alternateSelectedControlTextColor ] : [ NSColor textColor ];
     font            = [ NSFont systemFontOfSize: [ NSFont smallSystemFontSize ] ];
     paragraphStyle  = [ [ NSMutableParagraphStyle new ] autorelease ];
@@ -182,9 +182,9 @@ static void __exit( void )
     
     textRect = CGRectMake
     (
-        frame.origin.x + frame.size.height + 10,
-        frame.origin.y + ( ( frame.size.height - [ NSFont smallSystemFontSize ] ) / 2 ),
-        frame.size.width - ( frame.size.height + 10 ),
+        frame.origin.x + frame.size.height + ( CGFloat )10,
+        frame.origin.y + ( ( frame.size.height - [ NSFont smallSystemFontSize ] ) / ( CGFloat )2 ),
+        frame.size.width - ( frame.size.height + ( CGFloat )10 ),
         frame.size.height
     );
     
@@ -196,6 +196,7 @@ static void __exit( void )
         CGFloat              yOffset;
         CGRect               drawRect;
         CGRect               fromRect;
+        CGFloat              height;
         
         [ [ NSGraphicsContext currentContext ] saveGraphicsState ];
         
@@ -211,14 +212,24 @@ static void __exit( void )
             [ transform concat ];	
             
             yOffset = -( frame.origin.y );
-        }		
+        }
+        
+        if( icon.size.height <= frame.size.height )
+        {
+            yOffset += ( frame.size.height - icon.size.height ) / ( CGFloat )2;
+            height   = icon.size.height;
+        }
+        else
+        {
+            height = frame.size.height - ( CGFloat )2;
+        }
         
         drawRect = NSMakeRect
         (
             frame.origin.x + ( CGFloat )5,
             yOffset,
-            frame.size.height - 2,
-            frame.size.height - 2
+            height,
+            height
         );
         
         fromRect = NSMakeRect
