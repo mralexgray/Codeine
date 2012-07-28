@@ -25,7 +25,7 @@ CELinkerObjectType;
     
 @private
     
-    RESERVERD_IVARS( CELinkerObject, 5 );
+    RESERVED_IVARS( CELinkerObject, 5 );
 }
 
 @property( atomic, readonly ) CELinkerObjectType    type;

@@ -24,7 +24,7 @@ CEParserTokenType;
     
 @private
     
-    RESERVERD_IVARS( CEParserToken, 5 );
+    RESERVED_IVARS( CEParserToken, 5 );
 }
 
 @property( atomic, readonly ) CEParserTokenType type;

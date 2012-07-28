@@ -23,7 +23,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEColorTheme , 5 );
+    RESERVED_IVARS( CEColorTheme , 5 );
 }
 
 @property( atomic, readwrite, copy ) NSString * name;

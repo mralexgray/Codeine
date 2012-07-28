@@ -41,7 +41,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEInfoWindowController, 5 );
+    RESERVED_IVARS( CEInfoWindowController, 5 );
 }
 
 @property( atomic, readonly             )          NSString      * path;

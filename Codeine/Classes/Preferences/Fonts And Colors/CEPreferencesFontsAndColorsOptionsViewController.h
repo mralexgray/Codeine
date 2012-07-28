@@ -26,7 +26,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEPreferencesFontsAndColorsOptionsViewController , 5 );
+    RESERVED_IVARS( CEPreferencesFontsAndColorsOptionsViewController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField   * fontTextField;

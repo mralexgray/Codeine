@@ -19,7 +19,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEPreferencesFileTypesAddNewViewController, 5 );
+    RESERVED_IVARS( CEPreferencesFileTypesAddNewViewController, 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField          * textField;

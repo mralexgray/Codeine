@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEParserTokenPredefined, 5 );
+    RESERVED_IVARS( CEParserTokenPredefined, 5 );
 }
 
 

@@ -13,7 +13,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEFileViewCell, 5 );
+    RESERVED_IVARS( CEFileViewCell, 5 );
 }
 
 + ( id )prototypeCell;

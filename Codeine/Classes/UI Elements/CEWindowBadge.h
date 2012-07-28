@@ -19,7 +19,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEWindowBadge, 5 );
+    RESERVED_IVARS( CEWindowBadge, 5 );
 }
 
 @property( atomic, readwrite, copy   ) NSString * title;

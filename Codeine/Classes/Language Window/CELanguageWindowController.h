@@ -30,7 +30,7 @@ FOUNDATION_EXPORT NSString * const CELanguageWindowControllerTableColumnIdentifi
     
 @private
     
-    RESERVERD_IVARS( CELanguageWindowController , 5 );
+    RESERVED_IVARS( CELanguageWindowController , 5 );
 }
 
 @property( atomic, readonly )                      CESourceFileLanguage     language;

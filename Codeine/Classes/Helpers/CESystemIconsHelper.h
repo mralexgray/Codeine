@@ -13,7 +13,7 @@
     
 @private
     
-    RESERVERD_IVARS( CESystemIconsHelper , 5 );
+    RESERVED_IVARS( CESystemIconsHelper , 5 );
 }
 
 + ( CESystemIconsHelper * )sharedInstance;

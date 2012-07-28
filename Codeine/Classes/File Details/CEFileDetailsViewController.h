@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEFileDetailsViewController, 5 );
+    RESERVED_IVARS( CEFileDetailsViewController, 5 );
 }
 
 

@@ -23,7 +23,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEEditorViewController , 5 );
+    RESERVED_IVARS( CEEditorViewController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextView * textView;

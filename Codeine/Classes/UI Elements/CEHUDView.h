@@ -18,7 +18,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEHUDView, 5 );
+    RESERVED_IVARS( CEHUDView, 5 );
 }
 
 @property( atomic, readwrite, assign ) CGFloat    cornerRadius;

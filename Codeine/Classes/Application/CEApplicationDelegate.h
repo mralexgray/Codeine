@@ -22,7 +22,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEApplicationDelegate , 5 );
+    RESERVED_IVARS( CEApplicationDelegate , 5 );
 }
 
 + ( CEApplicationDelegate * )sharedInstance;

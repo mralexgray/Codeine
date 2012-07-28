@@ -12,7 +12,7 @@
 
 #define RELEASE_IVAR( __ivar__ )                [ __ivar__ release ]; __ivar__ = nil
 
-#define RESERVERD_IVARS( __cls__, __num__ )     id _ ## __cls__ ## _Reserved[ __num__ ] __attribute__( ( unused ) )
+#define RESERVED_IVARS( __cls__, __num__ )     id _ ## __cls__ ## _Reserved[ __num__ ] __attribute__( ( unused ) )
 
 #define NOTIFICATION_CENTER                     ( ( NSNotificationCenter * )[ NSNotificationCenter  defaultCenter ] )
 #define FILE_MANAGER                            ( ( NSFileManager        * )[ NSFileManager         defaultManager ] )

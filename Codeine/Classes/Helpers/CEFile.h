@@ -37,7 +37,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEFile, 5 );
+    RESERVED_IVARS( CEFile, 5 );
 }
 
 @property( atomic, readonly ) NSString   * path;

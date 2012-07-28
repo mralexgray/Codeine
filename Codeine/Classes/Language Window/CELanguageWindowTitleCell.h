@@ -13,7 +13,7 @@
     
 @private
     
-    RESERVERD_IVARS( CELanguageWindowTitleCell, 5 );
+    RESERVED_IVARS( CELanguageWindowTitleCell, 5 );
 }
 
 

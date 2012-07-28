@@ -13,7 +13,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEInfoWindowOutlineView, 5 );
+    RESERVED_IVARS( CEInfoWindowOutlineView, 5 );
 }
 
 @end

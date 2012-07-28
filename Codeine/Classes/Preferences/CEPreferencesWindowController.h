@@ -28,7 +28,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEPreferencesWindowController , 5 );
+    RESERVED_IVARS( CEPreferencesWindowController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSToolbar * toolbar;

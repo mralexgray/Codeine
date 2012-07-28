@@ -33,7 +33,7 @@ FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
     
 @private
     
-    RESERVERD_IVARS( CEMainWindowController , 5 );
+    RESERVED_IVARS( CEMainWindowController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSView        * leftView;

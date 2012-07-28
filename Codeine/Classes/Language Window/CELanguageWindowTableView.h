@@ -13,7 +13,7 @@
     
 @private
     
-    RESERVERD_IVARS( CELanguageWindowTableView, 5 );
+    RESERVED_IVARS( CELanguageWindowTableView, 5 );
 }
 
 

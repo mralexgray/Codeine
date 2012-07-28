@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEQuickLookItem, 5 );
+    RESERVED_IVARS( CEQuickLookItem, 5 );
 }
 
 + ( id )quickLookItemWithPath: ( NSString * )path;

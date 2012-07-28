@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEFileViewItemBookmark, 5 );
+    RESERVED_IVARS( CEFileViewItemBookmark, 5 );
 }
 
 

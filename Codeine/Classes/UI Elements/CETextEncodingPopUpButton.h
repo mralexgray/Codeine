@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CETextEncodingPopUpButton , 5 );
+    RESERVED_IVARS( CETextEncodingPopUpButton , 5 );
 }
 
 - ( CETextEncoding * )selectedTextEncoding;

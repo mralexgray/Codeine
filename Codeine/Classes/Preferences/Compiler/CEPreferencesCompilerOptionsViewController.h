@@ -23,7 +23,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerTab
     
 @private
     
-    RESERVERD_IVARS( CEPreferencesCompilerOptionsViewController , 5 );
+    RESERVED_IVARS( CEPreferencesCompilerOptionsViewController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView   * tableView;

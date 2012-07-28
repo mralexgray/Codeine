@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEBuilder , 5 );
+    RESERVED_IVARS( CEBuilder , 5 );
 }
 
 @property( atomic, readonly ) CESourceFile * sourceFile;

@@ -20,7 +20,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEDocument, 5 );
+    RESERVED_IVARS( CEDocument, 5 );
 }
 
 @property( atomic, readonly ) CEFile        * file;

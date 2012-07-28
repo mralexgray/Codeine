@@ -14,7 +14,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEOrderedDictionary , 5 );
+    RESERVED_IVARS( CEOrderedDictionary , 5 );
 }
 
 - ( id )keyAtIndex: ( NSUInteger )index;

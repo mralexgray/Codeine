@@ -13,7 +13,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEEditorLayoutManager , 5 );
+    RESERVED_IVARS( CEEditorLayoutManager , 5 );
 }
 
 @property( atomic, readwrite, assign ) BOOL showInvisibles;

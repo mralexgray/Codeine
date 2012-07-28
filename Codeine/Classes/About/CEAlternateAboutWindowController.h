@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEAlternateAboutWindowController , 5 );
+    RESERVED_IVARS( CEAlternateAboutWindowController , 5 );
 }
 
 

@@ -33,7 +33,7 @@ CESourceFileLineEndings;
     
 @private
     
-    RESERVERD_IVARS( CESourceFile , 5 );
+    RESERVED_IVARS( CESourceFile , 5 );
 }
 
 @property( atomic, readonly )        CESourceFileLanguage language;

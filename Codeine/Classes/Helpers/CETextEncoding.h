@@ -14,7 +14,7 @@
     
 @private
     
-    RESERVERD_IVARS( CETextEncoding, 5 );
+    RESERVED_IVARS( CETextEncoding, 5 );
 }
 
 @property( atomic, readonly ) NSStringEncoding value;

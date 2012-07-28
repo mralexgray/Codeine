@@ -15,7 +15,7 @@ FOUNDATION_EXPORT NSString * const CEViewControllerException;
     
 @private
     
-    RESERVERD_IVARS( CEViewController , 5 );
+    RESERVED_IVARS( CEViewController , 5 );
 }
 
 @end

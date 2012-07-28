@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEAboutWindowController , 5 );
+    RESERVED_IVARS( CEAboutWindowController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField * versionTextField;

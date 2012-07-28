@@ -36,7 +36,7 @@ FOUNDATION_EXPORT NSString * const CEFilesViewBookmarksItemName;
     NSImage          * _icon;
     NSString         * _displayName;
     
-    RESERVERD_IVARS( CEFileViewItem, 5 );
+    RESERVED_IVARS( CEFileViewItem, 5 );
 }
 
 @property( atomic, readonly          ) CEFilesViewItemType type;

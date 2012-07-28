@@ -19,7 +19,7 @@ FOUNDATION_EXPORT NSString * const CEEditorRulerViewException;
     
 @private
     
-    RESERVERD_IVARS( CEEditorRulerView, 5 );
+    RESERVED_IVARS( CEEditorRulerView, 5 );
 }
 
 

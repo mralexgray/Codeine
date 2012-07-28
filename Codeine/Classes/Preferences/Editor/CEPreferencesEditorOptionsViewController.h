@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEPreferencesEditorOptionsViewController , 5 );
+    RESERVED_IVARS( CEPreferencesEditorOptionsViewController , 5 );
 }
 
 

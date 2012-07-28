@@ -56,7 +56,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyOptimizationLevel;
     
 @private
     
-    RESERVERD_IVARS( CEPreferences, 5 );
+    RESERVED_IVARS( CEPreferences, 5 );
 }
 
 @property( atomic, readwrite, assign ) NSString               * fontName;

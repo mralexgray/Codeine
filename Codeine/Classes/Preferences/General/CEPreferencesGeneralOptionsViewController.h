@@ -17,7 +17,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEPreferencesGeneralOptionsViewController , 5 );
+    RESERVED_IVARS( CEPreferencesGeneralOptionsViewController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * languagePopUp;

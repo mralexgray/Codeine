@@ -16,7 +16,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEColorLabelView, 5 );
+    RESERVED_IVARS( CEColorLabelView, 5 );
 }
 
 @property( nonatomic, readwrite, retain ) NSColor * selectedColor;

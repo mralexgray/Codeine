@@ -24,7 +24,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesLinkerOptionsViewControllerTable
     
 @private
     
-    RESERVERD_IVARS( CEPreferencesLinkerOptionsViewController , 5 );
+    RESERVED_IVARS( CEPreferencesLinkerOptionsViewController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView * frameworksTableView;

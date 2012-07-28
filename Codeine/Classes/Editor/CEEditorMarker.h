@@ -13,7 +13,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEEditorMarker, 5 );
+    RESERVED_IVARS( CEEditorMarker, 5 );
 }
 
 

@@ -24,7 +24,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesCompilerOptionsViewControllerCol
     
 @private
     
-    RESERVERD_IVARS( CEPreferencesFileTypesOptionsViewController , 5 );
+    RESERVED_IVARS( CEPreferencesFileTypesOptionsViewController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView * tableView;

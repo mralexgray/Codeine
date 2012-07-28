@@ -13,7 +13,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEEditorTextView, 5 );
+    RESERVED_IVARS( CEEditorTextView, 5 );
 }
 
 

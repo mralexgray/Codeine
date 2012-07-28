@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEFilesOutlineView, 5 );
+    RESERVED_IVARS( CEFilesOutlineView, 5 );
 }
 
 

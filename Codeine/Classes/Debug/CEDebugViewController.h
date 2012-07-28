@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEDebugViewController , 5 );
+    RESERVED_IVARS( CEDebugViewController , 5 );
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextView * textView;

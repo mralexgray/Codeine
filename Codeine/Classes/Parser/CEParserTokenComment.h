@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CEParserTokenComment, 5 );
+    RESERVED_IVARS( CEParserTokenComment, 5 );
 }
 
 

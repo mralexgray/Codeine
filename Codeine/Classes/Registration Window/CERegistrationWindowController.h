@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVERD_IVARS( CERegistrationWindowController, 5 );
+    RESERVED_IVARS( CERegistrationWindowController, 5 );
 }
     
 - ( IBAction )enterSerialNumber: ( id )sender;
