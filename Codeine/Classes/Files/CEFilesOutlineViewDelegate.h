@@ -17,7 +17,7 @@
     - ( BOOL )outlineView: ( CEFilesOutlineView * )view shouldDoubleClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point event: ( NSEvent * )e;
     - ( void )outlineView: ( CEFilesOutlineView * )view willDoubleClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point event: ( NSEvent * )e;
     - ( void )outlineView: ( CEFilesOutlineView * )view didDoubleClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point event: ( NSEvent * )e;
-    - ( void )outlineView: ( CEFilesOutlineView * )view didReceiveKeyEvent: ( CEVirtualKey )key onRow: ( NSInteger )row event: ( NSEvent * )e;
+    - ( BOOL )outlineView: ( CEFilesOutlineView * )view processKeyEvent: ( CEVirtualKey )key onRow: ( NSInteger )row event: ( NSEvent * )e;
     - ( NSMenu * )outlineView: ( CEFilesOutlineView * )view menuForRow: ( NSInteger )row;
 
 @end

@@ -47,8 +47,6 @@
 {
     id < CEFilesOutlineViewDelegate > delegate;
     
-    [ super keyDown: e ];
-    
     delegate = nil;
     
     if( [ self.delegate conformsToProtocol: @protocol( CEFilesOutlineViewDelegate ) ] )
@@ -58,11 +56,16 @@
     
     if( self.selectedRow != -1 )
     {
-        if( [ delegate respondsToSelector: @selector( outlineView:didReceiveKeyEvent:onRow:event: ) ] )
+        if( [ delegate respondsToSelector: @selector( outlineView:processKeyEvent:onRow:event: ) ] )
         {
-            [ delegate outlineView: self didReceiveKeyEvent: e.keyCode onRow: self.selectedRow event: e ];
+            if( [ delegate outlineView: self processKeyEvent: e.keyCode onRow: self.selectedRow event: e ] == YES )
+            {
+                return;
+            }
         }
     }
+    
+    [ super keyDown: e ];
 }
 
 - ( void )mouseDown: ( NSEvent * )e

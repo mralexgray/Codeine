@@ -200,7 +200,7 @@
     return menu;
 }
 
-- ( void )outlineView: ( CEFilesOutlineView * )view didReceiveKeyEvent: ( CEVirtualKey )key onRow: ( NSInteger )row event: ( NSEvent * )e
+- ( BOOL )outlineView: ( CEFilesOutlineView * )view processKeyEvent: ( CEVirtualKey )key onRow: ( NSInteger )row event: ( NSEvent * )e
 {
     CEFilesViewItem * item;
     
@@ -210,17 +210,39 @@
     
     if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
     {
-        return;
+        return NO;
     }
     
     if( key == CEVirtualKeySpace )
     {
         [ APPLICATION showQuickLookPanelForItemAtPath: item.file.path sender: view ];
+        
+        return YES;
     }
-    else if( key == CEVirtualKeyEscape )
+    else if( key == CEVirtualKeyReturn )
     {
-        [ view selectRowIndexes: [ NSIndexSet indexSetWithIndex: ( NSUInteger )row ] byExtendingSelection: NO ];
+        if( item.expandable == YES )
+        {
+            if( [ view isItemExpanded: item ] )
+            {
+                [ view collapseItem: item ];
+            }
+            else
+            {
+                [ view expandItem: item ];
+            }
+            
+            return YES;
+        }
+        else
+        {
+            [ ( CEMainWindowController * )( self.view.window.windowController ) setActiveDocument: [ CEDocument documentWithPath: item.file.path ] ];
+            
+            return YES;
+        }
     }
+    
+    return NO;
 }
 
 - ( void )outlineView: ( CEFilesOutlineView * )view didDoubleClickOnRow: ( NSInteger )row atPoint: ( NSPoint )point event: ( NSEvent * )e
