@@ -187,7 +187,12 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                 }
             }
             
-            if( found == NO )
+            if( found == YES )
+            {
+                _activeDocument                = [ document retain ];
+                _editorViewController.document = document;
+            }
+            else
             {
                 if( document.sourceFile.text != nil )
                 {
