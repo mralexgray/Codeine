@@ -194,6 +194,17 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                         _editorViewController.document = document;
                     }
                     
+                    if
+                    (
+                           _activeDocument.sourceFile.language != CESourceFileLanguageC
+                        && _activeDocument.sourceFile.language != CESourceFileLanguageCPP
+                        && _activeDocument.sourceFile.language != CESourceFileLanguageObjC
+                        && _activeDocument.sourceFile.language != CESourceFileLanguageObjCPP
+                    )
+                    {
+                        [ _debugViewController.view  removeFromSuperview ];
+                    }
+                    
                     [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] insertObject: document atIndex: 0 ];
                 }
                 else
