@@ -108,6 +108,8 @@
 		059C9B3315A9044F00AEF506 /* CEFilesOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C9B3215A9044F00AEF506 /* CEFilesOutlineView.m */; };
 		05A1DFBD15BC6A26007F9560 /* CEEditorTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A1DFBC15BC6A26007F9560 /* CEEditorTextView.m */; };
 		05A1DFCB15BC78FF007F9560 /* CEEditorMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A1DFCA15BC78FE007F9560 /* CEEditorMarker.m */; };
+		05B2CB2415C36E44009B4014 /* CEFileDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B2CB2215C36E44009B4014 /* CEFileDetailsView.xib */; };
+		05B2CB2915C370A2009B4014 /* CEFileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2CB2815C370A2009B4014 /* CEFileDetailsViewController.m */; };
 		05DA002715BDB841001FDB95 /* CEWindowBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DA002615BDB841001FDB95 /* CEWindowBadge.m */; };
 		05DA3452159A2296006B688A /* CEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DA3451159A2296006B688A /* CEViewController.m */; };
 		05DA3462159A2404006B688A /* CEPreferencesGeneralOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DA3460159A2404006B688A /* CEPreferencesGeneralOptionsView.xib */; };
@@ -336,6 +338,9 @@
 		05A1DFBC15BC6A26007F9560 /* CEEditorTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorTextView.m; sourceTree = "<group>"; };
 		05A1DFC915BC78FE007F9560 /* CEEditorMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorMarker.h; sourceTree = "<group>"; };
 		05A1DFCA15BC78FE007F9560 /* CEEditorMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorMarker.m; sourceTree = "<group>"; };
+		05B2CB2315C36E44009B4014 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEFileDetailsView.xib; sourceTree = "<group>"; };
+		05B2CB2715C370A2009B4014 /* CEFileDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileDetailsViewController.h; sourceTree = "<group>"; };
+		05B2CB2815C370A2009B4014 /* CEFileDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileDetailsViewController.m; sourceTree = "<group>"; };
 		05DA002515BDB841001FDB95 /* CEWindowBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEWindowBadge.h; sourceTree = "<group>"; };
 		05DA002615BDB841001FDB95 /* CEWindowBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEWindowBadge.m; sourceTree = "<group>"; };
 		05DA3450159A2296006B688A /* CEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEViewController.h; sourceTree = "<group>"; };
@@ -605,6 +610,7 @@
 				057F5862159D40A200C84780 /* Debug */,
 				057F5863159D40A200C84780 /* Editor */,
 				057F5864159D40A300C84780 /* Files */,
+				05B2CB2615C37081009B4014 /* File Details */,
 				0517226615B1A765004D5AF5 /* Info Window */,
 			);
 			path = Classes;
@@ -645,6 +651,7 @@
 				052FD007159DF53C0045C9ED /* CELanguageWindow.xib */,
 				0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */,
 				05FFD9EA15BDDEE5001EA4A3 /* CERegistrationWindow.xib */,
+				05B2CB2215C36E44009B4014 /* CEFileDetailsView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -863,6 +870,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		05B2CB2615C37081009B4014 /* File Details */ = {
+			isa = PBXGroup;
+			children = (
+				05B2CB2715C370A2009B4014 /* CEFileDetailsViewController.h */,
+				05B2CB2815C370A2009B4014 /* CEFileDetailsViewController.m */,
+			);
+			path = "File Details";
+			sourceTree = "<group>";
+		};
 		05F3172815B22B010000C4CA /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1002,7 @@
 				05E566E115B834FA001314B1 /* Unicorn.png in Resources */,
 				05E566E215B834FA001314B1 /* Unicorn@2x.png in Resources */,
 				05FFD9EC15BDDEE5001EA4A3 /* CERegistrationWindow.xib in Resources */,
+				05B2CB2415C36E44009B4014 /* CEFileDetailsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1116,6 +1133,7 @@
 				053F60E915BF51530069C870 /* CEHUDView.m in Sources */,
 				053F60EC15BF56820069C870 /* NSView+CE.m in Sources */,
 				05F3125C15C075660029964B /* CEDocument+Private.m in Sources */,
+				05B2CB2915C370A2009B4014 /* CEFileDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1224,6 +1242,14 @@
 				057F586F159D444A00C84780 /* en */,
 			);
 			name = CEDebugView.xib;
+			sourceTree = "<group>";
+		};
+		05B2CB2215C36E44009B4014 /* CEFileDetailsView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B2CB2315C36E44009B4014 /* en */,
+			);
+			name = CEFileDetailsView.xib;
 			sourceTree = "<group>";
 		};
 		05DA3460159A2404006B688A /* CEPreferencesGeneralOptionsView.xib */ = {
