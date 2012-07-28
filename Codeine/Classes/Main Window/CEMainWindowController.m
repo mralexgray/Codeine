@@ -158,6 +158,7 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 {
     CEDocument * d;
     BOOL         found;
+    NSUInteger   i;
     
     @synchronized( self )
     {
@@ -176,6 +177,7 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
             [ _bottomView addSubview: _debugViewController.view ];
             
             found = NO;
+            i     = 0;
             
             for( d in _documents )
             {
@@ -183,16 +185,18 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                 {
                     found = YES;
                     
+                    _activeDocument                = [ document retain ];
+                    _editorViewController.document = document;
+                    
+                    [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] replaceObjectAtIndex: i withObject: document ];
+                    
                     break;
                 }
+                
+                i++;
             }
             
-            if( found == YES )
-            {
-                _activeDocument                = [ document retain ];
-                _editorViewController.document = document;
-            }
-            else
+            if( found == NO )
             {
                 if( document.sourceFile.text != nil )
                 {
