@@ -50,6 +50,7 @@
         return;
     }
     
+    [ [ CEPreferences sharedInstance ] setUserName: NSFullUserName() ];
     [ [ CEPreferences sharedInstance ] setTextEncoding: NSUTF8StringEncoding ];
     
     {
@@ -82,7 +83,7 @@
     {
         CEColorTheme * theme;
         
-        theme = [ CEColorTheme defaultColorThemeWithName: @"Xcode" ];
+        theme = [ CEColorTheme defaultColorThemeWithName: @"Codeine - Dark" ];
         
         [ [ CEPreferences sharedInstance ] setColorsFromColorTheme: theme ];
     }

@@ -32,6 +32,8 @@
 	<integer>1</integer>
 	<key>DefaultLicense</key>
 	<string>Closed Source</string>
+	<key>UserName</key>
+	<string></string>
 	<key>TreatWarningsAsErrors</key>
 	<true/>
 	<key>ShowHiddenFiles</key>

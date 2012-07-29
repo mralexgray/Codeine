@@ -11,6 +11,7 @@
 #import "CEDocument.h"
 #import "CEFilesViewController.h"
 #import "CELicensePopUpButton.h"
+#import "CEPreferences.h"
 
 @implementation CEMainWindowController( Private )
 
@@ -83,7 +84,7 @@
     license                  = [ _languageWindowController.licensePopUp.licenseText stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceAndNewlineCharacterSet ] ];
     dateComponents           = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
     document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${LICENSE}" withString: license ];
-    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: NSFullUserName() ];
+    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: [ [ CEPreferences sharedInstance ] userName ] ];
     document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
     
     self.activeDocument = document;
