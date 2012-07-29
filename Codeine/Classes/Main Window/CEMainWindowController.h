@@ -45,9 +45,11 @@ FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
 @property( nonatomic, readonly          )          NSArray       * documents;
 @property( nonatomic, readwrite, retain )          CEDocument    * activeDocument;
 
-- ( IBAction )newDocument: ( id )sender;
 - ( IBAction )addBookmark: ( id )sender;
 - ( IBAction )removeBookmark: ( id )sender;
 - ( IBAction )clearConsole: ( id )sender;
+- ( IBAction )openDocument: ( id )sender;
+- ( IBAction )newDocument: ( id )sender;
+- ( IBAction )saveDocument: ( id )sender;
 
 @end

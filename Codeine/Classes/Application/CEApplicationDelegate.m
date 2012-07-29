@@ -18,6 +18,8 @@
 
 @implementation CEApplicationDelegate
 
+@synthesize activeMainWindowController = _activeMainWindowController;
+
 + ( CEApplicationDelegate * )sharedInstance
 {
     return ( CEApplicationDelegate * )( APPLICATION.delegate );
@@ -39,10 +41,13 @@
 
 - ( void )dealloc
 {
+    [ NOTIFICATION_CENTER removeObserver: self ];
+    
     RELEASE_IVAR( _mainWindowControllers );
     RELEASE_IVAR( _preferencesWindowController );
     RELEASE_IVAR( _aboutWindowController );
     RELEASE_IVAR( _alternateAboutWindowController );
+    RELEASE_IVAR( _activeMainWindowController );
     
     [ super dealloc ];
 }
@@ -55,7 +60,8 @@
     [ self installApplicationSupportFiles ];
     [ self firstLaunch ];
     
-    [ NOTIFICATION_CENTER addObserver: self selector: @selector( windowDidClose: ) name: NSWindowWillCloseNotification object: nil ];
+    [ NOTIFICATION_CENTER addObserver: self selector: @selector( windowDidClose: )     name: NSWindowWillCloseNotification    object: nil ];
+    [ NOTIFICATION_CENTER addObserver: self selector: @selector( windowDidBecomeKey: ) name: NSWindowDidBecomeKeyNotification object: nil ];
     
     if( _mainWindowControllers.count == 0 )
     {
@@ -139,7 +145,7 @@
     
     if(_mainWindowControllers.count > 0 )
     {
-        [ ( CEMainWindowController * )[ _mainWindowControllers objectAtIndex: 0 ] newDocument: sender ];
+        [ self.activeMainWindowController newDocument: sender ];
     }
     else
     {
@@ -182,13 +188,16 @@
 
 - ( IBAction )openDocument: ( id )sender
 {
-    NSOpenPanel * panel;
+            NSOpenPanel            * panel;
+    __block CEMainWindowController * controller;
     
     if( _mainWindowControllers.count > 0 )
     {
-        [ [ _mainWindowControllers objectAtIndex: 0 ] makeKeyAndOrderFront: sender ];
-        [ [ _mainWindowControllers objectAtIndex: 0 ] showWindow: sender ];
-        [ [ _mainWindowControllers objectAtIndex: 0 ] openDocument: sender ];
+        controller = self.activeMainWindowController;
+        
+        [ controller.window makeKeyAndOrderFront: sender ];
+        [ controller showWindow: sender ];
+        [ controller openDocument: sender ];
         
         return;
     }
@@ -203,8 +212,6 @@
     
     [ panel beginWithCompletionHandler: ^( NSInteger result )
         {
-            CEMainWindowController * controller;
-            
             if( result != NSFileHandlingPanelOKButton )
             {
                 return;
@@ -239,7 +246,7 @@
     
     if( _mainWindowControllers.count > 0 )
     {
-        controller = [ _mainWindowControllers objectAtIndex: 0 ];
+        controller = self.activeMainWindowController;
     }
     else
     {

@@ -116,4 +116,22 @@
     }
 }
 
+- ( void )windowDidBecomeKey: ( NSNotification * )notification
+{
+    NSWindow           * window;
+    NSWindowController * controller;
+    
+    window      = [ notification object ];
+    controller  = window.windowController;
+    
+    if( [ controller isKindOfClass: [ CEMainWindowController class ] ] == YES )
+    {
+        [ controller retain ];
+        
+        RELEASE_IVAR( _activeMainWindowController );
+        
+        _activeMainWindowController = ( CEMainWindowController * )controller;
+    }
+}
+
 @end
