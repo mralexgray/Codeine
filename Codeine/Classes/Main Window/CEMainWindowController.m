@@ -215,6 +215,10 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                 {
                     [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] insertObject: document atIndex: 0 ];
                 }
+                else
+                {
+                    [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] replaceObjectAtIndex: i withObject: document ];
+                }
             }
             else
             {
