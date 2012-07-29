@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0503E8D815B70EAF006FB2F6 /* CEEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503E8D715B70EAF006FB2F6 /* CEEditorViewController.m */; };
 		050629E815AB62E300DA6EE6 /* CEFilesViewItemBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */; };
-		050629EB15AB73CA00DA6EE6 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 050629EA15AB73CA00DA6EE6 /* Themes */; };
 		050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */; };
 		050629F415AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629F315AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m */; };
 		050629F715AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050629F515AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib */; };
@@ -38,7 +37,6 @@
 		052FD003159DECEF0045C9ED /* CEFilesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052FD001159DECEF0045C9ED /* CEFilesView.xib */; };
 		052FD009159DF53C0045C9ED /* CELanguageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052FD007159DF53C0045C9ED /* CELanguageWindow.xib */; };
 		052FD01A159DF97D0045C9ED /* CEMainWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD019159DF97D0045C9ED /* CEMainWindowController+Private.m */; };
-		052FD026159E098A0045C9ED /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 052FD025159E098A0045C9ED /* Templates */; };
 		052FD029159E09AF0045C9ED /* CEApplicationDelegate+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD028159E09AF0045C9ED /* CEApplicationDelegate+Private.m */; };
 		052FD03A159E0E460045C9ED /* NSFileManager+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD039159E0E460045C9ED /* NSFileManager+CE.m */; };
 		05348FF315B40590004D4355 /* CEColorLabelMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */; };
@@ -67,6 +65,11 @@
 		054BEB8F15AF9B6C002D7730 /* CEParserTokenComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8E15AF9B6C002D7730 /* CEParserTokenComment.m */; };
 		054BEB9215AF9B76002D7730 /* CEParserTokenString.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB9115AF9B75002D7730 /* CEParserTokenString.m */; };
 		054BEB9515AF9B80002D7730 /* CEParserTokenPredefined.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */; };
+		05589E2E15C5E4D9006ECFB5 /* CELicensePopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05589E2D15C5E4D9006ECFB5 /* CELicensePopUpButton.m */; };
+		05589E3115C5E4E5006ECFB5 /* CELicensePopUpButton+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05589E3015C5E4E5006ECFB5 /* CELicensePopUpButton+Private.m */; };
+		05589E3515C5E7D1006ECFB5 /* Licenses in Resources */ = {isa = PBXBuildFile; fileRef = 05589E3215C5E7D1006ECFB5 /* Licenses */; };
+		05589E3615C5E7D1006ECFB5 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 05589E3315C5E7D1006ECFB5 /* Templates */; };
+		05589E3715C5E7D1006ECFB5 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 05589E3415C5E7D1006ECFB5 /* Themes */; };
 		0563E04715A8A7B400BA5828 /* CEFilesViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */; };
 		0563E04A15A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04915A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m */; };
 		0563E04D15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */; };
@@ -152,7 +155,6 @@
 		0503E8D715B70EAF006FB2F6 /* CEEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorViewController.m; sourceTree = "<group>"; };
 		050629E615AB62E300DA6EE6 /* CEFilesViewItemBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFilesViewItemBookmark.h; sourceTree = "<group>"; };
 		050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFilesViewItemBookmark.m; sourceTree = "<group>"; };
-		050629EA15AB73CA00DA6EE6 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		050629EC15AB780B00DA6EE6 /* CEColorTheme+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEColorTheme+Private.h"; sourceTree = "<group>"; };
 		050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEColorTheme+Private.m"; sourceTree = "<group>"; };
 		050629F215AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesLinkerOptionsViewController.h; sourceTree = "<group>"; };
@@ -202,7 +204,6 @@
 		052FD008159DF53C0045C9ED /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CELanguageWindow.xib; sourceTree = "<group>"; };
 		052FD018159DF97C0045C9ED /* CEMainWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEMainWindowController+Private.h"; sourceTree = "<group>"; };
 		052FD019159DF97D0045C9ED /* CEMainWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEMainWindowController+Private.m"; sourceTree = "<group>"; };
-		052FD025159E098A0045C9ED /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		052FD027159E09AF0045C9ED /* CEApplicationDelegate+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEApplicationDelegate+Private.h"; sourceTree = "<group>"; };
 		052FD028159E09AF0045C9ED /* CEApplicationDelegate+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEApplicationDelegate+Private.m"; sourceTree = "<group>"; };
 		052FD038159E0E460045C9ED /* NSFileManager+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CE.h"; sourceTree = "<group>"; };
@@ -263,6 +264,13 @@
 		054BEB9315AF9B80002D7730 /* CEParserTokenPredefined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenPredefined.h; sourceTree = "<group>"; };
 		054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenPredefined.m; sourceTree = "<group>"; };
 		054BEB9615AFA139002D7730 /* CEFilesOutlineViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEFilesOutlineViewDelegate.h; sourceTree = "<group>"; };
+		05589E2C15C5E4D9006ECFB5 /* CELicensePopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELicensePopUpButton.h; sourceTree = "<group>"; };
+		05589E2D15C5E4D9006ECFB5 /* CELicensePopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELicensePopUpButton.m; sourceTree = "<group>"; };
+		05589E2F15C5E4E5006ECFB5 /* CELicensePopUpButton+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CELicensePopUpButton+Private.h"; sourceTree = "<group>"; };
+		05589E3015C5E4E5006ECFB5 /* CELicensePopUpButton+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CELicensePopUpButton+Private.m"; sourceTree = "<group>"; };
+		05589E3215C5E7D1006ECFB5 /* Licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Licenses; sourceTree = "<group>"; };
+		05589E3315C5E7D1006ECFB5 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		05589E3415C5E7D1006ECFB5 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+Private.h"; sourceTree = "<group>"; };
 		0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+Private.m"; sourceTree = "<group>"; };
 		0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDataSource.h"; sourceTree = "<group>"; };
@@ -491,8 +499,9 @@
 		052FD01B159E019C0045C9ED /* Application Support */ = {
 			isa = PBXGroup;
 			children = (
-				050629EA15AB73CA00DA6EE6 /* Themes */,
-				052FD025159E098A0045C9ED /* Templates */,
+				05589E3215C5E7D1006ECFB5 /* Licenses */,
+				05589E3315C5E7D1006ECFB5 /* Templates */,
+				05589E3415C5E7D1006ECFB5 /* Themes */,
 			);
 			path = "Application Support";
 			sourceTree = "<group>";
@@ -906,10 +915,14 @@
 		05F8035715A75CCC00CD9F0D /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
-				05F8035815A75CED00CD9F0D /* CETextEncodingPopUpButton.h */,
-				05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */,
+				05589E2F15C5E4E5006ECFB5 /* CELicensePopUpButton+Private.h */,
+				05589E3015C5E4E5006ECFB5 /* CELicensePopUpButton+Private.m */,
+				05589E2C15C5E4D9006ECFB5 /* CELicensePopUpButton.h */,
+				05589E2D15C5E4D9006ECFB5 /* CELicensePopUpButton.m */,
 				05F8035B15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.h */,
 				05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */,
+				05F8035815A75CED00CD9F0D /* CETextEncodingPopUpButton.h */,
+				05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */,
 				056D157015B3709D00F27EB2 /* CEColorLabelView.h */,
 				056D157115B3709D00F27EB2 /* CEColorLabelView.m */,
 				05FE777D15B49FE700A7C28B /* CEColorLabelViewDelegate.h */,
@@ -1007,10 +1020,8 @@
 				057F5870159D444A00C84780 /* CEDebugView.xib in Resources */,
 				052FD003159DECEF0045C9ED /* CEFilesView.xib in Resources */,
 				052FD009159DF53C0045C9ED /* CELanguageWindow.xib in Resources */,
-				052FD026159E098A0045C9ED /* Templates in Resources */,
 				052B91D915A632DD00F82759 /* CEPreferencesFileTypesAddNewView.xib in Resources */,
 				05F8036115A7794300CD9F0D /* Application.icns in Resources */,
-				050629EB15AB73CA00DA6EE6 /* Themes in Resources */,
 				050629F715AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib in Resources */,
 				0517226515B1A5A7004D5AF5 /* CEInfoWindow.xib in Resources */,
 				05E566DD15B834CF001314B1 /* CEAlternateAboutWindow.xib in Resources */,
@@ -1018,6 +1029,9 @@
 				05E566E215B834FA001314B1 /* Unicorn@2x.png in Resources */,
 				05FFD9EC15BDDEE5001EA4A3 /* CERegistrationWindow.xib in Resources */,
 				05B2CB2415C36E44009B4014 /* CEFileDetailsView.xib in Resources */,
+				05589E3515C5E7D1006ECFB5 /* Licenses in Resources */,
+				05589E3615C5E7D1006ECFB5 /* Templates in Resources */,
+				05589E3715C5E7D1006ECFB5 /* Themes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1152,6 +1166,8 @@
 				05B2CB2C15C57629009B4014 /* CEMainWindowController+NSOpenSavePanelDelegate.m in Sources */,
 				05B2CB2F15C57818009B4014 /* CEApplicationDelegate+NSOpenSavePanelDelegate.m in Sources */,
 				05C0CC6315C59D8400CA715F /* CEEditorLayoutManager+Private.m in Sources */,
+				05589E2E15C5E4D9006ECFB5 /* CELicensePopUpButton.m in Sources */,
+				05589E3115C5E4E5006ECFB5 /* CELicensePopUpButton+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

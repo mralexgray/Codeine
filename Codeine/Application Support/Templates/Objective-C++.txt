@@ -1,7 +1,4 @@
-/*******************************************************************************
- * Copyright (c) ${YEAR}, ${USER_NAME}
- * All rights reserved
- ******************************************************************************/
+${LICENSE}
 
 #include <Foundation/Foundation.h>
 #include <iostream>

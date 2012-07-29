@@ -10,6 +10,7 @@
 
 @class CETextEncoding;
 @class CEBackgroundView;
+@class CELicensePopUpButton;
 
 FOUNDATION_EXPORT NSString * const CELanguageWindowControllerTableColumnIdentifierIcon;
 FOUNDATION_EXPORT NSString * const CELanguageWindowControllerTableColumnIdentifierTitle;
@@ -27,6 +28,7 @@ FOUNDATION_EXPORT NSString * const CELanguageWindowControllerTableColumnIdentifi
     NSImageView           * _iconView;
     NSTableView           * _languagesTableView;
     NSTableView           * _recentFilesTableView;
+    CELicensePopUpButton  * _licensePopUp;
     
 @private
     
@@ -42,6 +44,7 @@ FOUNDATION_EXPORT NSString * const CELanguageWindowControllerTableColumnIdentifi
 @property( nonatomic, readwrite, retain ) IBOutlet NSImageView            * iconView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView            * languagesTableView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView            * recentFilesTableView;
+@property( nonatomic, readwrite, retain ) IBOutlet CELicensePopUpButton   * licensePopUp;
     
 - ( IBAction )done: ( id )sender;
 - ( IBAction )cancel: ( id )sender;

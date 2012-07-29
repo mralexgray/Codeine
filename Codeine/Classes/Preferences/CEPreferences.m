@@ -36,6 +36,7 @@ NSString * const CEPreferencesKeyFileTypes                  = @"FileTypes";
 NSString * const CEPreferencesKeyFirstLaunch                = @"FirstLaunch";
 NSString * const CEPreferencesKeyTextEncoding               = @"TextEncoding";
 NSString * const CEPreferencesKeyDefaultLanguage            = @"DefaultLanguage";
+NSString * const CEPreferencesKeyDefaultLicense             = @"DefaultLicense";
 NSString * const CEPreferencesKeyLineEndings                = @"LineEndings";
 NSString * const CEPreferencesKeyShowInvisibles             = @"ShowInvisibles";
 NSString * const CEPreferencesKeyAutoExpandTabs             = @"AutoExpandTabs";
@@ -587,6 +588,14 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( NSString * )defaultLicense
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS objectForKey: CEPreferencesKeyDefaultLicense ];
+    }
+}
+
 - ( CESourceFileLineEndings )lineEndings
 {
     @synchronized( self )
@@ -882,6 +891,17 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDefaultLanguage );
+    }
+}
+
+- ( void )setDefaultLicense: ( NSString * )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: value forKey: CEPreferencesKeyDefaultLicense ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDefaultLicense );
     }
 }
 

@@ -14,11 +14,13 @@
 
 - ( void )installApplicationSupportFiles
 {
-    NSString * path;
+    void ( ^ installDir )( NSString * directory );
     
+    installDir = ^( NSString * directory )
     {
-        NSString * templatesBundlePath;
-        NSString * templatesPath;
+        NSString * path;
+        NSString * bundlePath;
+        NSString * dirPath;
         
         path = [ FILE_MANAGER applicationSupportDirectory ];
         
@@ -27,34 +29,18 @@
             return;
         }
         
-        templatesBundlePath = [ BUNDLE pathForResource: @"Templates" ofType: nil ];
-        templatesPath       = [ path stringByAppendingPathComponent: [ templatesBundlePath lastPathComponent ] ];
+        bundlePath = [ BUNDLE pathForResource: directory ofType: nil ];
+        dirPath    = [ path stringByAppendingPathComponent: [ bundlePath lastPathComponent ] ];
         
-        if( [ FILE_MANAGER fileExistsAtPath: templatesPath ] == NO )
+        if( [ FILE_MANAGER fileExistsAtPath: dirPath ] == NO )
         {
-            [ FILE_MANAGER copyItemAtPath: templatesBundlePath toPath: templatesPath error: NULL ];
+            [ FILE_MANAGER copyItemAtPath: bundlePath toPath: dirPath error: NULL ];
         }
-    }
+    };
     
-    {
-        NSString * themesBundlePath;
-        NSString * themesPath;
-        
-        path = [ FILE_MANAGER applicationSupportDirectory ];
-        
-        if( path == nil )
-        {
-            return;
-        }
-        
-        themesBundlePath = [ BUNDLE pathForResource: @"Themes" ofType: nil ];
-        themesPath       = [ path stringByAppendingPathComponent: [ themesBundlePath lastPathComponent ] ];
-        
-        if( [ FILE_MANAGER fileExistsAtPath: themesPath ] == NO )
-        {
-            [ FILE_MANAGER copyItemAtPath: themesBundlePath toPath: themesPath error: NULL ];
-        }
-    }
+    installDir( @"Licenses" );
+    installDir( @"Templates" );
+    installDir( @"Themes" );
 }
 
 - ( void )firstLaunch

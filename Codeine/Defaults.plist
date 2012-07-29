@@ -30,6 +30,8 @@
 	<integer>1</integer>
 	<key>DefaultLanguage</key>
 	<integer>1</integer>
+	<key>DefaultLicense</key>
+	<string>Closed Source</string>
 	<key>TreatWarningsAsErrors</key>
 	<true/>
 	<key>ShowHiddenFiles</key>

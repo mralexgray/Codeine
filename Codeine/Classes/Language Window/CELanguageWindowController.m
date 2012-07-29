@@ -26,6 +26,7 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
 @synthesize iconView                = _iconView;
 @synthesize languagesTableView      = _languagesTableView;
 @synthesize recentFilesTableView    = _recentFilesTableView;
+@synthesize licensePopUp            = _licensePopUp;
 
 - ( void )dealloc
 {
@@ -41,6 +42,7 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
     RELEASE_IVAR( _iconView );
     RELEASE_IVAR( _languagesTableView );
     RELEASE_IVAR( _recentFilesTableView );
+    RELEASE_IVAR( _licensePopUp );
     
     [ super dealloc ];
 }

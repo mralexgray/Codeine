@@ -10,6 +10,7 @@
 #import "CESourceFile.h"
 #import "CEDocument.h"
 #import "CEFilesViewController.h"
+#import "CELicensePopUpButton.h"
 
 @implementation CEMainWindowController( Private )
 
@@ -79,6 +80,7 @@
     }
     
     dateComponents           = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
+    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${LICENSE}" withString: _languageWindowController.licensePopUp.licenseText ];
     document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: NSFullUserName() ];
     document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
     
