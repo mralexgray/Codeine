@@ -23,6 +23,20 @@
     return ( CEApplicationDelegate * )( APPLICATION.delegate );
 }
 
+- ( id )init
+{
+    if( ( self = [ super init ] ) )
+    {
+        [ CEPreferences sharedInstance ];
+        [ self installApplicationSupportFiles ];
+        [ self firstLaunch ];
+        
+        _mainWindowControllers = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+    }
+    
+    return self;
+}
+
 - ( void )dealloc
 {
     RELEASE_IVAR( _mainWindowControllers );
@@ -43,9 +57,10 @@
     
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( windowDidClose: ) name: NSWindowWillCloseNotification object: nil ];
     
-    _mainWindowControllers = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
-    
-    [ self newWindow: nil ];
+    if( _mainWindowControllers.count == 0 )
+    {
+        [ self newWindow: nil ];
+    }
 }
 
 - ( void )applicationWillTerminate: ( NSNotification * )notification
@@ -207,4 +222,39 @@
         }
     ];
 }
+
+- ( BOOL )application: ( NSApplication * )application openFile: ( NSString * )filename
+{
+    CEMainWindowController * controller;
+    CEDocument             * document;
+    
+    ( void )application;
+    
+    document = [ CEDocument documentWithPath: filename ];
+    
+    if( document.sourceFile.text == nil )
+    {
+        return NO;
+    }
+    
+    if( _mainWindowControllers.count > 0 )
+    {
+        controller = [ _mainWindowControllers objectAtIndex: 0 ];
+    }
+    else
+    {
+        controller = [ CEMainWindowController new ];
+        
+        [ _mainWindowControllers addObject: controller ];
+        [ controller autorelease ];
+        [ controller.window center ];
+    }
+    
+    [ controller setActiveDocument: document ];
+    [ controller showWindow: nil ];
+    [ controller.window makeKeyAndOrderFront: nil ];
+    
+    return YES;
+}
+
 @end
