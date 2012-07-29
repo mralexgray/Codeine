@@ -9,6 +9,6 @@
 
 @interface CEEditorLayoutManager( Private )
 
-- ( void )updateDummyTextView: ( NSNotification * )notification;
+- ( void )updateDummyTextView;
 
 @end

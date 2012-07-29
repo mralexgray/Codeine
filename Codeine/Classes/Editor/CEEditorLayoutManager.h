@@ -20,7 +20,7 @@
 }
 
 @property( atomic, readwrite, assign ) BOOL    showInvisibles;
-@property( atomic, readwrite, assign ) CGSize  glyphSize;
-@property( atomic, readwrite, assign ) CGFloat firstGlyphLeftMargin;
+@property( atomic, readonly          ) CGSize  glyphSize;
+@property( atomic, readonly          ) CGFloat firstGlyphLeftMargin;
 
 @end

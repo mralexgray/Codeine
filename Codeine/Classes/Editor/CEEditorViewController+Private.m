@@ -14,8 +14,9 @@
 
 - ( void )updateView
 {
-    NSFont       * font;
-    NSDictionary * selectionAttributes;
+    NSFont                  * font;
+    NSDictionary            * selectionAttributes;
+    NSMutableParagraphStyle * paragraphStyle;
     
     _layoutManager.showInvisibles = [ [ CEPreferences sharedInstance ] showInvisibles ];
     
@@ -55,6 +56,29 @@
         [ [ _textView enclosingScrollView ] setHasVerticalRuler: NO ];
         [ [ _textView enclosingScrollView ] setRulersVisible: NO ];
     }
+    
+    paragraphStyle = [ [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ] autorelease ];
+    
+    [ paragraphStyle setTabStops: [ NSArray array ] ];
+    [ paragraphStyle setDefaultTabInterval: ( ( CEEditorLayoutManager * )( _textView.layoutManager ) ).glyphSize.width * ( CGFloat )4 ];
+    
+    [ _textView setDefaultParagraphStyle: paragraphStyle ];
+    
+    [ _textView.textStorage enumerateAttributesInRange: NSMakeRange( 0, _textView.string.length )
+                            options:                    NSAttributedStringEnumerationReverse
+                            usingBlock:                 ^( NSDictionary * attributes, NSRange range, BOOL * stop )
+                            {
+                                NSMutableDictionary * newAttributes;
+                                
+                                ( void )stop;
+                                
+                                newAttributes = [ NSMutableDictionary dictionaryWithDictionary: attributes ];
+                                
+                                [ newAttributes setObject: paragraphStyle forKey: NSParagraphStyleAttributeName ];
+                                [ _textView.textStorage setAttributes: newAttributes range: range ];
+
+                            }
+    ];
 }
 
 @end

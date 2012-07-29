@@ -10,11 +10,9 @@
 
 @implementation CEEditorLayoutManager( Private )
 
-- ( void )updateDummyTextView: ( NSNotification * )notification
+- ( void )updateDummyTextView
 {
     NSRect rect;
-    
-    ( void )notification;
     
     _textView.font   = [ NSFont fontWithName: [ [ CEPreferences sharedInstance ] fontName ] size: [ [ CEPreferences sharedInstance ] fontSize ] ];
     _textView.string = @" ";
