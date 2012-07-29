@@ -7,17 +7,23 @@
 
 #import "CEWindowController.h"
 
+@class CEBackgroundView;
+
 @interface CEAboutWindowController: CEWindowController
 {
 @protected
     
-    NSTextField * _versionTextField;
+    CEBackgroundView * _backgroundView;
+    NSTextField      * _versionTextField;
+    NSImageView      * _iconView;
     
 @private
     
     RESERVED_IVARS( CEAboutWindowController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSTextField * versionTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet CEBackgroundView * backgroundView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSTextField      * versionTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSImageView      * iconView;
 
 @end
