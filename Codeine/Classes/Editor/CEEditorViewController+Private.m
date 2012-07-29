@@ -26,10 +26,10 @@
     _textView.textColor           = [ [ CEPreferences sharedInstance ] foregroundColor ];
     _textView.insertionPointColor = [ [ CEPreferences sharedInstance ] foregroundColor ];
     
-    selectionAttributes =   [ NSDictionary dictionaryWithObjectsAndKeys:    [ [ CEPreferences sharedInstance ] selectionColor ],  NSBackgroundColorAttributeName,
-                                                                            [ [ CEPreferences sharedInstance ] foregroundColor ], NSForegroundColorAttributeName,
-                                                                            nil
-                            ];
+    selectionAttributes = [ NSDictionary dictionaryWithObjectsAndKeys:  [ [ CEPreferences sharedInstance ] selectionColor ],  NSBackgroundColorAttributeName,
+                                                                        [ [ CEPreferences sharedInstance ] foregroundColor ], NSForegroundColorAttributeName,
+                                                                        nil
+                          ];
     
     [ _textView setSelectedTextAttributes: selectionAttributes ];
     

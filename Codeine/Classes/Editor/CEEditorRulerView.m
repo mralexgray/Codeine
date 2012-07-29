@@ -49,6 +49,8 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     NSColor      * color2;
     NSGradient   * gradient;
     
+    [ [ NSColor clearColor ] setFill ];
+    
     if( rect.size.width < self.ruleThickness )
     {
         return;

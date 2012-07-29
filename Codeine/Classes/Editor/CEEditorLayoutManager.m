@@ -66,6 +66,28 @@
                 {
                     rect = [ self boundingRectForGlyphRange: NSMakeRange( i, 1 ) inTextContainer: [ self.textContainers objectAtIndex: 0 ] ];
                     
+                    if( c == '\n' && i != 0 )
+                    {
+                        {
+                            NSRect previousGlyphRect;
+                            
+                            previousGlyphRect = [ self boundingRectForGlyphRange: NSMakeRange( i - 1, 1 ) inTextContainer: [ self.textContainers objectAtIndex: 0 ] ];
+                            
+                            if( CGFLOAT_EQUAL( previousGlyphRect.origin.y, rect.origin.y ) )
+                            {
+                                rect.origin.x = previousGlyphRect.origin.x + self.glyphSize.width;
+                            }
+                        }
+                    }
+                    
+                    rect.size.width  = self.glyphSize.width;
+                    rect.size.height = self.glyphSize.height;
+                    
+                    if( rect.origin.x < self.firstGlyphLeftMargin )
+                    {
+                        rect.origin.x = self.firstGlyphLeftMargin;
+                    }
+                    
                     if( rect.size.width > rect.size.height )
                     {
                         glyphRect = NSMakeRect
@@ -89,15 +111,26 @@
                     
                     glyphRect = NSInsetRect( glyphRect, ( CGFloat )1, ( CGFloat )1 );
                     
-                    if( c == '\t' )
+                    if( c == ' ' )
+                    {
+                        {
+                            NSBezierPath  * path;
+                            
+                            path = [ NSBezierPath bezierPath ];
+                            
+                            [ path appendBezierPathWithOvalInRect: glyphRect ];
+                            
+                            [ color set ];
+                            [ path stroke ];
+                        }
+                    }
+                    else if( c == '\t' )
                     {
                         {
                             NSPoint         p1;
                             NSPoint         p2;
                             NSPoint         p3;
                             NSBezierPath  * path;
-                            
-                            continue;
                             
                             p1 = NSMakePoint( glyphRect.origin.x, glyphRect.origin.y );
                             p2 = NSMakePoint( glyphRect.origin.x + glyphRect.size.width, glyphRect.origin.y + ( glyphRect.size.height / ( CGFloat )2 ) );
@@ -125,8 +158,6 @@
                             NSPoint         p5;
                             NSPoint         p6;
                             
-                            continue;
-                            
                             path = [ NSBezierPath bezierPath ];
                             
                             p1 = NSMakePoint( glyphRect.origin.x, glyphRect.origin.y );
@@ -146,19 +177,6 @@
                             
                             [ color set ];
                             [ path fill ];
-                        }
-                    }
-                    else if( c == ' ' )
-                    {
-                        {
-                            NSBezierPath  * path;
-                            
-                            path = [ NSBezierPath bezierPath ];
-                            
-                            [ path appendBezierPathWithOvalInRect: glyphRect ];
-                            
-                            [ color set ];
-                            [ path stroke ];
                         }
                     }
                 }
