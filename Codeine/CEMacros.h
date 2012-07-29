@@ -92,4 +92,13 @@
         ( unsigned long )range.length           \
     )
     
+#define FLOAT_EQUAL( __a__, __b__ )     ( bool )( fabsf( ( float )__a__ - ( float )__b__ ) < FLT_EPSILON )
+#define FLOAT_ZERO( __a__ )             ( bool )( fabsf( ( float )__a__ ) < FLT_EPSILON )
+#define DOUBLE_EQUAL( __a__, __b__ )    ( bool )( fabs( ( double )__a__ - ( double )__b__ ) < DBL_EPSILON )
+#define DOUBLE_ZERO( __a__ )            ( bool )( fabs( ( double )__a__ ) < DBL_EPSILON )
+#define LDOUBLE_EQUAL( __a__, __b__ )   ( bool )( fabsl( ( long double )__a__ - ( long double )__b__ ) < LDBL_EPSILON )
+#define LDOUBLE_ZERO( __a__ )           ( bool )( fabsl( ( long double )__a__ ) < LDBL_EPSILON )
+#define CGFLOAT_EQUAL( __a__, __b__ )   ( bool )( fabs( ( CGFloat )__a__ - ( CGFloat )__b__ ) < DBL_EPSILON )
+#define CGFLOAT_ZERO( __a__ )           ( bool )( fabs( ( CGFloat )__a__ ) < DBL_EPSILON )
+
 #endif /* __CE_MACROS_H__ */
