@@ -116,7 +116,7 @@
     
     while( tabRect.origin.x < rect.size.width )
     {
-        if( count != 20 )
+        if( count != 20 || [ [ CEPreferences sharedInstance ] showPageGuide ] == NO )
         {
             lineRect = NSMakeRect( tabRect.origin.x, rect.origin.y, ( CGFloat )1, rect.size.height );
             
