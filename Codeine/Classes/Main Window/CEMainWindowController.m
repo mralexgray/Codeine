@@ -7,6 +7,7 @@
 
 #import "CEMainWindowController.h"
 #import "CEMainWindowController+Private.h"
+#import "CEMainWindowController+NSOpenSavePanelDelegate.h"
 #import "CEEditorViewController.h"
 #import "CEDebugViewController.h"
 #import "CEFilesViewController.h"
@@ -243,6 +244,32 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
             }
         }
     }
+}
+
+- ( IBAction )openDocument: ( id )sender
+{
+    NSOpenPanel * panel;
+    
+    ( void )sender;
+    
+    panel                                   = [ NSOpenPanel openPanel ];
+    panel.allowsMultipleSelection           = NO;
+    panel.canChooseDirectories              = NO;
+    panel.canChooseFiles                    = YES;
+    panel.canCreateDirectories              = NO;
+    panel.treatsFilePackagesAsDirectories   = YES;
+    panel.delegate                          = self;
+    
+    [ panel beginSheetModalForWindow: self.window completionHandler: ^( NSInteger result )
+        {
+            if( result != NSFileHandlingPanelOKButton )
+            {
+                return;
+            }
+            
+            self.activeDocument = [ CEDocument documentWithPath: [ panel.URL path ] ];
+        }
+    ];
 }
 
 - ( IBAction )newDocument: ( id )sender

@@ -12,6 +12,7 @@
 - ( BOOL )panel: ( id )sender validateURL: ( NSURL * )url error: ( NSError ** )outError
 {
     NSString * path;
+    BOOL       valid;
     
     ( void )sender;
     ( void )outError;
@@ -22,22 +23,35 @@
     {
         case  CELinkerObjectTypeFramework:
             
-            return [ path.pathExtension isEqualToString: @"framework" ];
+            valid = [ path.pathExtension isEqualToString: @"framework" ];
+            
+            break;
             
         case  CELinkerObjectTypeSharedLibrary:
             
-            return [ path.pathExtension isEqualToString: @"dylib" ];
+            valid = [ path.pathExtension isEqualToString: @"dylib" ];
+            
+            break;
             
         case  CELinkerObjectTypeStaticLibrary:
             
-            return [ path.pathExtension isEqualToString: @"a" ];
+            valid = [ path.pathExtension isEqualToString: @"a" ];
+            
+            break;
             
         default:
+            
+            valid = NO;
             
             break;
     }
     
-    return NO;
+    if( valid == NO )
+    {
+        NSBeep();
+    }
+    
+    return valid;
 }
 
 @end
