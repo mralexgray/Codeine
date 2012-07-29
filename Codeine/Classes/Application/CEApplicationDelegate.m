@@ -7,11 +7,13 @@
 
 #import "CEApplicationDelegate.h"
 #import "CEApplicationDelegate+Private.h"
+#import "CEApplicationDelegate+NSOpenSavePanelDelegate.h"
 #import "CEMainWindowController.h"
 #import "CEPreferencesWindowController.h"
 #import "CEAboutWindowController.h"
 #import "CEAlternateAboutWindowController.h"
 #import "CEPreferences.h"
+#import "CEDocument.h"
 #import "CERegistrationWindowController.h"
 
 @implementation CEApplicationDelegate
@@ -163,4 +165,46 @@
     [ [ CEPreferences sharedInstance ] setShowInvisibles: ( value == YES ) ? NO : YES ];
 }
 
+- ( IBAction )openDocument: ( id )sender
+{
+    NSOpenPanel * panel;
+    
+    if( _mainWindowControllers.count > 0 )
+    {
+        [ [ _mainWindowControllers objectAtIndex: 0 ] makeKeyAndOrderFront: sender ];
+        [ [ _mainWindowControllers objectAtIndex: 0 ] showWindow: sender ];
+        [ [ _mainWindowControllers objectAtIndex: 0 ] openDocument: sender ];
+        
+        return;
+    }
+    
+    panel                                   = [ NSOpenPanel openPanel ];
+    panel.allowsMultipleSelection           = NO;
+    panel.canChooseDirectories              = NO;
+    panel.canChooseFiles                    = YES;
+    panel.canCreateDirectories              = NO;
+    panel.treatsFilePackagesAsDirectories   = YES;
+    panel.delegate                          = self;
+    
+    [ panel beginWithCompletionHandler: ^( NSInteger result )
+        {
+            CEMainWindowController * controller;
+            
+            if( result != NSFileHandlingPanelOKButton )
+            {
+                return;
+            }
+            
+            controller                  = [ CEMainWindowController new ];
+            controller.activeDocument   = [ CEDocument documentWithPath: [ panel.URL path ] ];
+            
+            [ _mainWindowControllers addObject: controller ];
+            [ controller autorelease ];
+            
+            [ controller.window center ];
+            [ controller showWindow: sender ];
+            [ controller.window makeKeyAndOrderFront: sender ];
+        }
+    ];
+}
 @end

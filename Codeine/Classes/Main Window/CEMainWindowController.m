@@ -30,6 +30,21 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 @synthesize bottomView    = _bottomView;
 @synthesize encodingPopUp = _encodingPopUp;
 
+- ( id )init
+{
+    if( ( self = [ super init ] ) )
+    {
+        _documents            = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+        _editorViewController = [ CEEditorViewController new ];
+        _debugViewController  = [ CEDebugViewController  new ];
+        _fileViewController   = [ CEFilesViewController  new ];
+        
+        _fileViewController.mainWindowController = self;
+    }
+    
+    return self;
+}
+
 - ( void )dealloc
 {
     RELEASE_IVAR( _fileViewController );
@@ -59,12 +74,6 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                  | NSViewMaxXMargin
                  | NSViewMinYMargin
                  | NSViewMaxYMargin;
-    
-    _editorViewController = [ CEEditorViewController new ];
-    _debugViewController  = [ CEDebugViewController  new ];
-    _fileViewController   = [ CEFilesViewController  new ];
-    
-    _fileViewController.mainWindowController = self;
     
     _editorViewController.view.frame = _mainView.bounds;
     _debugViewController.view.frame  = _bottomView.bounds;
@@ -96,8 +105,6 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                                 | NSViewMaxYMargin;
     
     [ _leftView addSubview: _fileViewController.view ];
-    
-    _documents = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
     
     [ self.window setContentBorderThickness: ( CGFloat )29 forEdge: NSMinYEdge ];
     
@@ -145,6 +152,10 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
             }
         );
     }
+    else
+    {
+        self.activeDocument = [ _documents objectAtIndex: 0 ];
+    }
 }
 
 - ( CEDocument * )activeDocument
@@ -163,6 +174,8 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     
     @synchronized( self )
     {
+        [ self window ];
+        
         if( document != _activeDocument )
         {
             RELEASE_IVAR( _activeDocument );
