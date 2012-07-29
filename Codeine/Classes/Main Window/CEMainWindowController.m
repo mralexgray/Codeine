@@ -185,62 +185,57 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                 {
                     found = YES;
                     
-                    _activeDocument                = [ document retain ];
-                    _editorViewController.document = document;
-                    
-                    [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] replaceObjectAtIndex: i withObject: document ];
-                    
                     break;
                 }
                 
                 i++;
             }
             
-            if( found == NO )
+            if( document.sourceFile.text != nil )
             {
-                if( document.sourceFile.text != nil )
+                _activeDocument = [ document retain ];
+                
+                if( _editorViewController.document != document )
                 {
-                    _activeDocument = [ document retain ];
-                    
-                    if( _editorViewController.document != document )
-                    {
-                        _editorViewController.document = document;
-                    }
-                    
-                    if
-                    (
-                           _activeDocument.sourceFile.language != CESourceFileLanguageC
-                        && _activeDocument.sourceFile.language != CESourceFileLanguageCPP
-                        && _activeDocument.sourceFile.language != CESourceFileLanguageObjC
-                        && _activeDocument.sourceFile.language != CESourceFileLanguageObjCPP
-                    )
-                    {
-                        [ _debugViewController.view  removeFromSuperview ];
-                    }
-                    
+                    _editorViewController.document = document;
+                }
+                
+                if
+                (
+                       _activeDocument.sourceFile.language != CESourceFileLanguageC
+                    && _activeDocument.sourceFile.language != CESourceFileLanguageCPP
+                    && _activeDocument.sourceFile.language != CESourceFileLanguageObjC
+                    && _activeDocument.sourceFile.language != CESourceFileLanguageObjCPP
+                )
+                {
+                    [ _debugViewController.view  removeFromSuperview ];
+                }
+                
+                if( found == NO )
+                {
                     [ [ self mutableArrayValueForKey: CEMainWindowControllerDocumentsArrayKey ] insertObject: document atIndex: 0 ];
                 }
-                else
+            }
+            else
+            {
+                if( _fileDetailsViewController == nil )
                 {
-                    if( _fileDetailsViewController == nil )
-                    {
-                        _fileDetailsViewController                       = [ CEFileDetailsViewController new ];
-                        _fileDetailsViewController.view.frame            = _mainView.bounds;
-                        _fileDetailsViewController.view.autoresizingMask = NSViewWidthSizable
-                                                                         | NSViewHeightSizable
-                                                                         | NSViewMinXMargin
-                                                                         | NSViewMaxXMargin
-                                                                         | NSViewMinYMargin
-                                                                         | NSViewMaxYMargin;
-                    }
-                    
-                    _fileDetailsViewController.file = document.file;
-                    
-                    [ _editorViewController.view removeFromSuperview ];
-                    [ _debugViewController.view  removeFromSuperview ];
-                    
-                    [ _mainView addSubview: _fileDetailsViewController.view ];
+                    _fileDetailsViewController                       = [ CEFileDetailsViewController new ];
+                    _fileDetailsViewController.view.frame            = _mainView.bounds;
+                    _fileDetailsViewController.view.autoresizingMask = NSViewWidthSizable
+                                                                     | NSViewHeightSizable
+                                                                     | NSViewMinXMargin
+                                                                     | NSViewMaxXMargin
+                                                                     | NSViewMinYMargin
+                                                                     | NSViewMaxYMargin;
                 }
+                
+                _fileDetailsViewController.file = document.file;
+                
+                [ _editorViewController.view removeFromSuperview ];
+                [ _debugViewController.view  removeFromSuperview ];
+                
+                [ _mainView addSubview: _fileDetailsViewController.view ];
             }
         }
     }
