@@ -26,6 +26,7 @@
 
 - ( void )didChooseLanguage: ( id )sender
 {
+    NSString         * license;
     NSString         * templates;
     NSString         * template;
     NSDateComponents * dateComponents;
@@ -79,8 +80,9 @@
         document.sourceFile.text = @"";
     }
     
+    license                  = [ _languageWindowController.licensePopUp.licenseText stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceAndNewlineCharacterSet ] ];
     dateComponents           = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
-    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${LICENSE}" withString: _languageWindowController.licensePopUp.licenseText ];
+    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${LICENSE}" withString: license ];
     document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: NSFullUserName() ];
     document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
     
