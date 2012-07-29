@@ -65,12 +65,12 @@
             [ self view ];
             
             _iconView.image                         = _file.icon;
-            _nameTextField.stringValue              = ( _file.name != nil )             ? _file.name             : @"";
-            _kindTextField.stringValue              = ( _file.kind != nil )             ? _file.kind             : @"";
-            _sizeTextField.stringValue              = ( _file.size != nil )             ? _file.size             : @"";
-            _creationDateTextField.stringValue      = ( _file.creationTime != nil )     ? _file.creationTime     : @"";
-            _modificationDateTextField.stringValue  = ( _file.modificationTime != nil ) ? _file.modificationTime : @"";
-            _lastOpenedDateTextField.stringValue    = ( _file.lastOpenedTime != nil )   ? _file.lastOpenedTime   : @"";
+            _nameTextField.stringValue              = ( _file.name != nil )             ? _file.name                    : @"";
+            _kindTextField.stringValue              = ( _file.kind != nil )             ? _file.kind.capitalizedString  : @"";
+            _sizeTextField.stringValue              = ( _file.size != nil )             ? _file.size                    : @"";
+            _creationDateTextField.stringValue      = ( _file.creationTime != nil )     ? _file.creationTime            : @"";
+            _modificationDateTextField.stringValue  = ( _file.modificationTime != nil ) ? _file.modificationTime        : @"";
+            _lastOpenedDateTextField.stringValue    = ( _file.lastOpenedTime != nil )   ? _file.lastOpenedTime          : @"";
             
             if( _document.sourceFile.text == nil )
             {
