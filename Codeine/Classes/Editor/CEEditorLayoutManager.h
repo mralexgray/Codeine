@@ -9,13 +9,18 @@
 {
 @protected
     
-    BOOL _showInvisibles;
+    NSTextView * _textView;
+    BOOL         _showInvisibles;
+    CGSize       _glyphSize;
+    CGFloat      _firstGlyphLeftMargin;
     
 @private
     
     RESERVED_IVARS( CEEditorLayoutManager , 5 );
 }
 
-@property( atomic, readwrite, assign ) BOOL showInvisibles;
+@property( atomic, readwrite, assign ) BOOL    showInvisibles;
+@property( atomic, readwrite, assign ) CGSize  glyphSize;
+@property( atomic, readwrite, assign ) CGFloat firstGlyphLeftMargin;
 
 @end

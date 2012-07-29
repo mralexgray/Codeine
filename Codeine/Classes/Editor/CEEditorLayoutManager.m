@@ -6,11 +6,36 @@
 /* $Id$ */
 
 #import "CEEditorLayoutManager.h"
+#import "CEEditorLayoutManager+Private.h"
 #import "CEPreferences.h"
 
 @implementation CEEditorLayoutManager
 
-@synthesize showInvisibles = _showInvisibles;
+@synthesize showInvisibles          = _showInvisibles;
+@synthesize glyphSize               = _glyphSize;
+@synthesize firstGlyphLeftMargin    = _firstGlyphLeftMargin;
+
+- ( id )init
+{
+    if( ( self = [ super init ] ) )
+    {
+        _textView = [ [ NSTextView alloc ] initWithFrame: CGRectMake( ( CGFloat )0, ( CGFloat )0, ( CGFloat )800, ( CGFloat )600 ) ];
+        
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateDummyTextView: ) name: CEPreferencesNotificationValueChanged object: nil ];
+        [ self updateDummyTextView: nil ];
+    }
+    
+    return self;
+}
+
+- ( void )dealloc
+{
+    [ NOTIFICATION_CENTER removeObserver: self ];
+    
+    RELEASE_IVAR( _textView );
+    
+    [ super dealloc ];
+}
 
 - ( void )drawGlyphsForGlyphRange: ( NSRange )range atPoint: ( NSPoint )origin
 {

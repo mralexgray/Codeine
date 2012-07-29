@@ -7,13 +7,14 @@
 
 #import "CEEditorTextView+Private.h"
 #import "CEPreferences.h"
+#import "CEEditorLayoutManager.h"
 
 @implementation CEEditorTextView( Private )
 
 - ( void )drawPageGuideInRect: ( NSRect )rect
 {
-    NSUInteger  count;
-    NSRectArray rectArray;
+    CGFloat     margin;
+    CGSize      size;
     NSRect      lineRect;
     NSColor   * backgroundColor;
     NSColor   * color;
@@ -21,12 +22,8 @@
     CGFloat     s;
     CGFloat     b;
     
-    rectArray = [ self.layoutManager rectArrayForCharacterRange: NSMakeRange( 0, 80 ) withinSelectedCharacterRange: NSMakeRange( 0, 0 ) inTextContainer: self.textContainer rectCount: &count ];
-    
-    if( rectArray == NULL || count == 0 )
-    {
-        return;
-    }
+    margin = [ ( CEEditorLayoutManager * )( self.layoutManager ) firstGlyphLeftMargin ];
+    size   = [ ( CEEditorLayoutManager * )( self.layoutManager ) glyphSize ];
     
     h               = ( CGFloat )0;
     s               = ( CGFloat )0;
@@ -45,7 +42,7 @@
     }
     
     lineRect            = rect;
-    lineRect.origin.x   = rectArray[ 0 ].size.width + rectArray[ 0 ].origin.x;
+    lineRect.origin.x   = margin + ( size.width * ( CGFloat )80 );
     lineRect.size.width = ( CGFloat )1;
     
     [ color setFill ];
@@ -71,24 +68,19 @@
 
 - ( void )drawTabStopsInRect: ( NSRect )rect
 {
-    NSUInteger  count;
-    NSRectArray rectArray;
-    NSRect      tabRect;
-    NSRect      lineRect;
-    CGFloat     textOrigin;
-    CGFloat     tabWidth;
-    NSColor   * backgroundColor;
-    NSColor   * color;
+    CGFloat     margin;
+    CGSize      size;
     CGFloat     h;
     CGFloat     s;
     CGFloat     b;
+    NSUInteger  count;
+    NSRect      tabRect;
+    NSRect      lineRect;
+    NSColor   * color;
+    NSColor   * backgroundColor;
     
-    rectArray = [ self.layoutManager rectArrayForCharacterRange: NSMakeRange( 0, 4 ) withinSelectedCharacterRange: NSMakeRange( 0, 0 ) inTextContainer: self.textContainer rectCount: &count ];
-    
-    if( rectArray == NULL || count == 0 )
-    {
-        return;
-    }
+    margin = [ ( CEEditorLayoutManager * )( self.layoutManager ) firstGlyphLeftMargin ];
+    size   = [ ( CEEditorLayoutManager * )( self.layoutManager ) glyphSize ];
     
     h               = ( CGFloat )0;
     s               = ( CGFloat )0;
@@ -106,9 +98,13 @@
         color = [ NSColor colorWithDeviceHue: h saturation: s brightness: b - ( CGFloat )0.035 alpha: 1 ];
     }
     
-    tabRect     = rectArray[ 0 ];
-    textOrigin  = tabRect.origin.x;
-    tabWidth    = tabRect.size.width;
+    tabRect = NSMakeRect
+    (
+        margin,
+        0,
+        size.width * ( CGFloat )4,
+        size.height
+    );
     
     [ color setFill ];
     
@@ -123,7 +119,7 @@
             NSRectFill( lineRect );
         }
         
-        tabRect.origin.x += tabWidth;
+        tabRect.origin.x += tabRect.size.width;
         
         count++;
     }
