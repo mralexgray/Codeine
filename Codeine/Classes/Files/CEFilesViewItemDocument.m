@@ -33,6 +33,11 @@
 {
     CEDocument * document;
     
+    if( self.file != nil )
+    {
+        return [ WORKSPACE iconForFile: self.file.path ];
+    }
+    
     if( [ self.representedObject isKindOfClass: [ CEDocument class ] ] == NO )
     {
         return nil;

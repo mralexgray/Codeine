@@ -8,6 +8,7 @@
 #import "CEViewController.h"
 
 @class CEFile;
+@class CEDocument;
 
 @interface CEFileDetailsViewController: CEViewController
 {
@@ -21,6 +22,8 @@
     NSTextField * _creationDateTextField;
     NSTextField * _modificationDateTextField;
     NSTextField * _lastOpenedDateTextField;
+    NSButton    * _openButton;
+    CEDocument  * _document;
     
 @private
     
@@ -35,9 +38,11 @@
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField * creationDateTextField;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField * modificationDateTextField;
 @property( nonatomic, readwrite, retain ) IBOutlet NSTextField * lastOpenedDateTextField;
+@property( nonatomic, readwrite, retain ) IBOutlet NSButton    * openButton;
 
-- ( IBAction )showInFinder: ( id )sender;
+- ( IBAction )open: ( id )sender;
 - ( IBAction )openWithDefaultEditor: ( id )sender;
+- ( IBAction )showInFinder: ( id )sender;
 - ( IBAction )preview: ( id )sender;
 
 @end

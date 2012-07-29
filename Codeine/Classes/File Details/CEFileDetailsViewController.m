@@ -8,6 +8,8 @@
 #import "CEFileDetailsViewController.h"
 #import "CEFile.h"
 #import "CEBackgroundView.h"
+#import "CEMainWindowController.h"
+#import "CEDocument.h"
 
 @implementation CEFileDetailsViewController
 
@@ -18,6 +20,7 @@
 @synthesize creationDateTextField       = _creationDateTextField;
 @synthesize modificationDateTextField   = _modificationDateTextField;
 @synthesize lastOpenedDateTextField     = _lastOpenedDateTextField;
+@synthesize openButton                  = _openButton;
 
 - ( void )dealloc
 {
@@ -29,6 +32,7 @@
     RELEASE_IVAR( _creationDateTextField );
     RELEASE_IVAR( _modificationDateTextField );
     RELEASE_IVAR( _lastOpenedDateTextField );
+    RELEASE_IVAR( _openButton );
     
     [ super dealloc ];
 }
@@ -52,28 +56,39 @@
     {
         if( file != _file )
         {
-            [ _file release ];
+            [ _document release ];
+            [ _file     release ];
             
-            _file = [ file retain ];
+            _file     = [ file retain ];
+            _document = [ [ CEDocument documentWithPath: _file.path ] retain ];
             
             [ self view ];
             
             _iconView.image                         = _file.icon;
-            _nameTextField.stringValue              = _file.name;
-            _kindTextField.stringValue              = _file.kind;
-            _sizeTextField.stringValue              = _file.size;
-            _creationDateTextField.stringValue      = _file.creationTime;
-            _modificationDateTextField.stringValue  = _file.modificationTime;
-            _lastOpenedDateTextField.stringValue    = _file.lastOpenedTime;
+            _nameTextField.stringValue              = ( _file.name != nil )             ? _file.name             : @"";
+            _kindTextField.stringValue              = ( _file.kind != nil )             ? _file.kind             : @"";
+            _sizeTextField.stringValue              = ( _file.size != nil )             ? _file.size             : @"";
+            _creationDateTextField.stringValue      = ( _file.creationTime != nil )     ? _file.creationTime     : @"";
+            _modificationDateTextField.stringValue  = ( _file.modificationTime != nil ) ? _file.modificationTime : @"";
+            _lastOpenedDateTextField.stringValue    = ( _file.lastOpenedTime != nil )   ? _file.lastOpenedTime   : @"";
+            
+            if( _document.sourceFile.text == nil )
+            {
+                [ _openButton setEnabled: NO ];
+            }
+            else
+            {
+                [ _openButton setEnabled: YES ];
+            }
         }
     }
 }
 
-- ( IBAction )showInFinder: ( id )sender
+- ( IBAction )open: ( id )sender
 {
     ( void )sender;
     
-    [ WORKSPACE selectFile: _file.path inFileViewerRootedAtPath: nil ];
+    [ ( CEMainWindowController * )( self.view.window.windowController ) setActiveDocument: _document ];
 }
 
 - ( IBAction )openWithDefaultEditor: ( id )sender
@@ -81,6 +96,13 @@
     ( void )sender;
     
     [ WORKSPACE openFile: _file.path ];
+}
+
+- ( IBAction )showInFinder: ( id )sender
+{
+    ( void )sender;
+    
+    [ WORKSPACE selectFile: _file.path inFileViewerRootedAtPath: nil ];
 }
 
 - ( IBAction )preview: ( id )sender

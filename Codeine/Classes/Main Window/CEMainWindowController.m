@@ -181,7 +181,7 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
             
             for( d in _documents )
             {
-                if( [ document isEqual: d ] == YES )
+                if( [ document isEqual: d ] == YES && document.sourceFile.text != nil )
                 {
                     found = YES;
                     

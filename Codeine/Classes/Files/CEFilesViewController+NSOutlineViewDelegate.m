@@ -119,6 +119,38 @@
     return NO;
 }
 
+- ( void )outlineViewSelectionDidChange: ( NSNotification * )notification
+{
+    CEFilesViewItem * item;
+    CEDocument      * document;
+    
+    ( void )notification;
+    
+    if( _outlineView.selectedRow == NSNotFound )
+    {
+        return;
+    }
+    
+    item = [ _outlineView itemAtRow: _outlineView.selectedRow ];
+    
+    if( [ item isKindOfClass: [ CEFilesViewItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    if( item.type == CEFilesViewItemTypeDocument )
+    {
+        [ self outlineView: ( CEFilesOutlineView * )_outlineView didDoubleClickOnRow: _outlineView.selectedRow atPoint: NSZeroPoint event: nil ];
+    }
+    else
+    {
+        document      = [ CEDocument documentWithLanguage: CESourceFileLanguageNone ];
+        document.file = item.file;
+        
+        [ ( CEMainWindowController * )( self.view.window.windowController ) setActiveDocument: document ];
+    }
+}
+
 - ( NSMenu * )outlineView: ( CEFilesOutlineView * )view menuForRow: ( NSInteger )row
 {
     CEFilesViewItem * item;

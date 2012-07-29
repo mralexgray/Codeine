@@ -180,7 +180,7 @@
         return [ self.name isEqualToString: document.name ];
     }
     
-    return [ self.file.path isEqualToString: document.file.path ];
+    return [ self.file.path isEqualToString: document.file.path ] && self.sourceFile.language == document.sourceFile.language;
 }
 
 @end
