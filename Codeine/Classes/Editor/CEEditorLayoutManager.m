@@ -82,13 +82,20 @@
                     if( c == '\n' && i != 0 )
                     {
                         {
-                            NSRect previousGlyphRect;
+                            unichar previousChar;
+                            NSRect  previousGlyphRect;
                             
+                            previousChar      = [ text characterAtIndex: i - 1 ];
                             previousGlyphRect = [ self boundingRectForGlyphRange: NSMakeRange( i - 1, 1 ) inTextContainer: [ self.textContainers objectAtIndex: 0 ] ];
                             
                             if( CGFLOAT_EQUAL( previousGlyphRect.origin.y, rect.origin.y ) )
                             {
                                 rect.origin.x = previousGlyphRect.origin.x + self.glyphSize.width;
+                            }
+                            
+                            if( previousChar == '\t' )
+                            {
+                                rect.origin.x += self.glyphSize.width * ( CGFloat )3;
                             }
                         }
                     }
