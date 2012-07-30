@@ -11,12 +11,13 @@
 
 @implementation CEEditorLayoutManager
 
-@synthesize showInvisibles          = _showInvisibles;
+@synthesize showInvisibles = _showInvisibles;
 
 - ( id )init
 {
     if( ( self = [ super init ] ) )
     {
+        [ self setAllowsNonContiguousLayout: YES ];
         _textView = [ [ NSTextView alloc ] initWithFrame: CGRectMake( ( CGFloat )0, ( CGFloat )0, ( CGFloat )800, ( CGFloat )600 ) ];
     }
     
@@ -60,11 +61,15 @@
     NSColor       * color;
     CGFloat         size;
     NSRect          glyphRect;
+    NSFont        * font;
     
     if( _showInvisibles )
     {
+        font  = [ NSFont fontWithName: [ [ CEPreferences sharedInstance ] fontName ] size: [ [ CEPreferences sharedInstance ] fontSize ] ];
         color = [ [ CEPreferences sharedInstance ] invisibleColor ];
         text  = [ [ self textStorage ] string ];
+        
+        [ self updateDummyTextView ];
         
         if( text.length > 0 )
         {
@@ -90,22 +95,22 @@
                             
                             if( CGFLOAT_EQUAL( previousGlyphRect.origin.y, rect.origin.y ) )
                             {
-                                rect.origin.x = previousGlyphRect.origin.x + self.glyphSize.width;
+                                rect.origin.x = previousGlyphRect.origin.x + _glyphSize.width;
                             }
                             
                             if( previousChar == '\t' )
                             {
-                                rect.origin.x += self.glyphSize.width * ( CGFloat )3;
+                                rect.origin.x += _glyphSize.width * ( CGFloat )3;
                             }
                         }
                     }
                     
-                    rect.size.width  = self.glyphSize.width;
-                    rect.size.height = self.glyphSize.height;
+                    rect.size.width  = _glyphSize.width;
+                    rect.size.height = _glyphSize.height;
                     
-                    if( rect.origin.x < self.firstGlyphLeftMargin )
+                    if( rect.origin.x < _firstGlyphLeftMargin )
                     {
-                        rect.origin.x = self.firstGlyphLeftMargin;
+                        rect.origin.x = _firstGlyphLeftMargin;
                     }
                     
                     if( rect.size.width > rect.size.height )
