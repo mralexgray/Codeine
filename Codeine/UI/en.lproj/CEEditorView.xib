@@ -79,7 +79,7 @@
 										<array class="NSMutableArray" key="NSTextContainers">
 											<reference ref="216990251"/>
 										</array>
-										<int key="NSLMFlags">166</int>
+										<int key="NSLMFlags">38</int>
 										<nil key="NSDelegate"/>
 									</object>
 									<reference key="NSTextView" ref="93961992"/>
@@ -303,7 +303,6 @@ wGw</bytes>
 						<string key="NSFrame">{{224, 0}, {16, 135}}</string>
 						<reference key="NSSuperview" ref="238631904"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:84</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<reference key="NSTarget" ref="238631904"/>
