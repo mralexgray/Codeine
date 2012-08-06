@@ -84,7 +84,7 @@
                 {
                     rect = [ self boundingRectForGlyphRange: NSMakeRange( i, 1 ) inTextContainer: [ self.textContainers objectAtIndex: 0 ] ];
                     
-                    if( c == '\n' && i != 0 )
+                    if( CGFLOAT_ZERO( rect.origin.x ) && i > 0 )
                     {
                         {
                             unichar previousChar;
@@ -95,23 +95,18 @@
                             
                             if( CGFLOAT_EQUAL( previousGlyphRect.origin.y, rect.origin.y ) )
                             {
-                                rect.origin.x = previousGlyphRect.origin.x + _glyphSize.width;
-                            }
-                            
-                            if( previousChar == '\t' )
-                            {
-                                rect.origin.x += _glyphSize.width * ( CGFloat )3;
+                                rect.origin.x = previousGlyphRect.origin.x + previousGlyphRect.size.width;
                             }
                         }
                     }
                     
-                    rect.size.width  = _glyphSize.width;
-                    rect.size.height = _glyphSize.height;
-                    
-                    if( rect.origin.x < _firstGlyphLeftMargin )
+                    if( CGFLOAT_ZERO( rect.origin.x ) )
                     {
                         rect.origin.x = _firstGlyphLeftMargin;
                     }
+                    
+                    rect.size.width  = _glyphSize.width;
+                    rect.size.height = _glyphSize.height;
                     
                     if( rect.size.width > rect.size.height )
                     {
@@ -138,6 +133,8 @@
                     
                     if( c == ' ' )
                     {
+                        glyphRect = NSInsetRect( glyphRect, ( CGFloat )0.5, ( CGFloat )0.5 );
+                        
                         {
                             NSBezierPath  * path;
                             
