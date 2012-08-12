@@ -143,6 +143,23 @@
 		05FFD9F015BDDF2A001EA4A3 /* CERegistrationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FFD9EF15BDDF2A001EA4A3 /* CERegistrationWindowController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0518BA3E15D8203000349932 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0518BA3515D8203000349932 /* ClangKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 059872EE15D74D09006FF8D2;
+			remoteInfo = ClangKit;
+		};
+		0518BA4015D8203000349932 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0518BA3515D8203000349932 /* ClangKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0518B9D015D7577D00349932;
+			remoteInfo = ClangKitTest;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		0598738915D75701006FF8D2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -176,6 +193,7 @@
 		0517226815B1A792004D5AF5 /* CEInfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInfoWindowController.m; sourceTree = "<group>"; };
 		0517226A15B1ABD3004D5AF5 /* CEWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEWindowController+Private.h"; sourceTree = "<group>"; };
 		0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEWindowController+Private.m"; sourceTree = "<group>"; };
+		0518BA3515D8203000349932 /* ClangKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ClangKit.xcodeproj; path = ClangKit/ClangKit.xcodeproj; sourceTree = "<group>"; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
 		051F2E09159A12B10027DD4F /* CEPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferences.m; sourceTree = "<group>"; };
 		051F2E0B159A12D20027DD4F /* CEPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -455,6 +473,15 @@
 			path = "Info Window";
 			sourceTree = "<group>";
 		};
+		0518BA3615D8203000349932 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0518BA3F15D8203000349932 /* ClangKit.framework */,
+				0518BA4115D8203000349932 /* ClangKitTest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		051F2E06159A12A10027DD4F /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +567,7 @@
 		05480F9D159A0B32005CFBC5 = {
 			isa = PBXGroup;
 			children = (
+				0518BA3515D8203000349932 /* ClangKit.xcodeproj */,
 				05480FB2159A0B32005CFBC5 /* Codeine */,
 				05480FAB159A0B32005CFBC5 /* Frameworks */,
 				05480FA9159A0B32005CFBC5 /* Products */,
@@ -962,12 +990,35 @@
 			mainGroup = 05480F9D159A0B32005CFBC5;
 			productRefGroup = 05480FA9159A0B32005CFBC5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0518BA3615D8203000349932 /* Products */;
+					ProjectRef = 0518BA3515D8203000349932 /* ClangKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				05480FA7159A0B32005CFBC5 /* Codeine */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0518BA3F15D8203000349932 /* ClangKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ClangKit.framework;
+			remoteRef = 0518BA3E15D8203000349932 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0518BA4115D8203000349932 /* ClangKitTest */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = ClangKitTest;
+			remoteRef = 0518BA4015D8203000349932 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		05480FA6159A0B32005CFBC5 /* Resources */ = {
