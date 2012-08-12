@@ -116,25 +116,32 @@
     
     for( token in tokens )
     {
-        if( token.kind == CKTokenKindComment )
+        @try
         {
-            [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: commentColor range: token.range ];
+            if( token.kind == CKTokenKindComment )
+            {
+                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: commentColor range: token.range ];
+            }
+            else if( token.kind == CKTokenKindIdentifier )
+            {
+                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: predefinedColor range: token.range ];
+            }
+            else if( token.kind == CKTokenKindKeyword )
+            {
+                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: keywordColor range: token.range ];
+            }
+            else if( token.kind == CKTokenKindLiteral )
+            {
+                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: stringColor range: token.range ];
+            }
+            else
+            {
+                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: foregroundColor range: token.range ];
+            }
         }
-        else if( token.kind == CKTokenKindIdentifier )
+        @catch( NSException * e )
         {
-            [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: predefinedColor range: token.range ];
-        }
-        else if( token.kind == CKTokenKindKeyword )
-        {
-            [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: keywordColor range: token.range ];
-        }
-        else if( token.kind == CKTokenKindLiteral )
-        {
-            [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: stringColor range: token.range ];
-        }
-        else
-        {
-            [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: foregroundColor range: token.range ];
+            ( void )e;
         }
     }
 }
