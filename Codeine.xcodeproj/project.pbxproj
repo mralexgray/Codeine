@@ -58,13 +58,6 @@
 		05480FDC159A0CD5005CFBC5 /* CEMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05480FDA159A0CD5005CFBC5 /* CEMainWindow.xib */; };
 		05480FE0159A0CFB005CFBC5 /* CEWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FDF159A0CFB005CFBC5 /* CEWindowController.m */; };
 		054BEB7315AF815D002D7730 /* CEEditorLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */; };
-		054BEB8315AF9974002D7730 /* CEParserToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8215AF9974002D7730 /* CEParserToken.m */; };
-		054BEB8615AF9B41002D7730 /* CEParserTokenUnknown.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8515AF9B41002D7730 /* CEParserTokenUnknown.m */; };
-		054BEB8915AF9B54002D7730 /* CEParserTokenWhitespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8815AF9B54002D7730 /* CEParserTokenWhitespace.m */; };
-		054BEB8C15AF9B60002D7730 /* CEParserTokenKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8B15AF9B60002D7730 /* CEParserTokenKeyword.m */; };
-		054BEB8F15AF9B6C002D7730 /* CEParserTokenComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB8E15AF9B6C002D7730 /* CEParserTokenComment.m */; };
-		054BEB9215AF9B76002D7730 /* CEParserTokenString.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB9115AF9B75002D7730 /* CEParserTokenString.m */; };
-		054BEB9515AF9B80002D7730 /* CEParserTokenPredefined.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */; };
 		05589E2E15C5E4D9006ECFB5 /* CELicensePopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05589E2D15C5E4D9006ECFB5 /* CELicensePopUpButton.m */; };
 		05589E3115C5E4E5006ECFB5 /* CELicensePopUpButton+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05589E3015C5E4E5006ECFB5 /* CELicensePopUpButton+Private.m */; };
 		05589E3515C5E7D1006ECFB5 /* Licenses in Resources */ = {isa = PBXBuildFile; fileRef = 05589E3215C5E7D1006ECFB5 /* Licenses */; };
@@ -150,6 +143,18 @@
 		05FFD9F015BDDF2A001EA4A3 /* CERegistrationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FFD9EF15BDDF2A001EA4A3 /* CERegistrationWindowController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0598738915D75701006FF8D2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0503E8D615B70EAF006FB2F6 /* CEEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorViewController.h; sourceTree = "<group>"; };
 		0503E8D715B70EAF006FB2F6 /* CEEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorViewController.m; sourceTree = "<group>"; };
@@ -228,7 +233,7 @@
 		05420E9A15B5E600008B2294 /* CEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDocument.m; sourceTree = "<group>"; };
 		05420EBA15B5EA2E008B2294 /* CELanguageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELanguageWindowController.h; sourceTree = "<group>"; };
 		05420EBB15B5EA2E008B2294 /* CELanguageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELanguageWindowController.m; sourceTree = "<group>"; };
-		05480FA8159A0B32005CFBC5 /* ClangEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ClangEdit.app; path = Codeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05480FA8159A0B32005CFBC5 /* Codeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Codeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05480FAC159A0B32005CFBC5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05480FAF159A0B32005CFBC5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		05480FB0159A0B32005CFBC5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -249,20 +254,6 @@
 		054BEB7115AF815D002D7730 /* CEEditorLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorLayoutManager.h; sourceTree = "<group>"; };
 		054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorLayoutManager.m; sourceTree = "<group>"; };
 		054BEB7E15AF9484002D7730 /* CETypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETypes.h; sourceTree = "<group>"; };
-		054BEB8115AF9974002D7730 /* CEParserToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserToken.h; sourceTree = "<group>"; };
-		054BEB8215AF9974002D7730 /* CEParserToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserToken.m; sourceTree = "<group>"; };
-		054BEB8415AF9B41002D7730 /* CEParserTokenUnknown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenUnknown.h; sourceTree = "<group>"; };
-		054BEB8515AF9B41002D7730 /* CEParserTokenUnknown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenUnknown.m; sourceTree = "<group>"; };
-		054BEB8715AF9B54002D7730 /* CEParserTokenWhitespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenWhitespace.h; sourceTree = "<group>"; };
-		054BEB8815AF9B54002D7730 /* CEParserTokenWhitespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenWhitespace.m; sourceTree = "<group>"; };
-		054BEB8A15AF9B60002D7730 /* CEParserTokenKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenKeyword.h; sourceTree = "<group>"; };
-		054BEB8B15AF9B60002D7730 /* CEParserTokenKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenKeyword.m; sourceTree = "<group>"; };
-		054BEB8D15AF9B6C002D7730 /* CEParserTokenComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenComment.h; sourceTree = "<group>"; };
-		054BEB8E15AF9B6C002D7730 /* CEParserTokenComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenComment.m; sourceTree = "<group>"; };
-		054BEB9015AF9B75002D7730 /* CEParserTokenString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenString.h; sourceTree = "<group>"; };
-		054BEB9115AF9B75002D7730 /* CEParserTokenString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenString.m; sourceTree = "<group>"; };
-		054BEB9315AF9B80002D7730 /* CEParserTokenPredefined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEParserTokenPredefined.h; sourceTree = "<group>"; };
-		054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEParserTokenPredefined.m; sourceTree = "<group>"; };
 		054BEB9615AFA139002D7730 /* CEFilesOutlineViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEFilesOutlineViewDelegate.h; sourceTree = "<group>"; };
 		05589E2C15C5E4D9006ECFB5 /* CELicensePopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELicensePopUpButton.h; sourceTree = "<group>"; };
 		05589E2D15C5E4D9006ECFB5 /* CELicensePopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELicensePopUpButton.m; sourceTree = "<group>"; };
@@ -558,7 +549,7 @@
 		05480FA9159A0B32005CFBC5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05480FA8159A0B32005CFBC5 /* ClangEdit.app */,
+				05480FA8159A0B32005CFBC5 /* Codeine.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -613,7 +604,6 @@
 		05480FC9159A0B98005CFBC5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				054BEB8015AF9967002D7730 /* Parser */,
 				05F8035715A75CCC00CD9F0D /* UI Elements */,
 				052FD037159E0E440045C9ED /* Categories */,
 				0594109F159A26AB00257F9E /* Protocols */,
@@ -704,27 +694,6 @@
 				05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		054BEB8015AF9967002D7730 /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-				054BEB8115AF9974002D7730 /* CEParserToken.h */,
-				054BEB8215AF9974002D7730 /* CEParserToken.m */,
-				054BEB8415AF9B41002D7730 /* CEParserTokenUnknown.h */,
-				054BEB8515AF9B41002D7730 /* CEParserTokenUnknown.m */,
-				054BEB8715AF9B54002D7730 /* CEParserTokenWhitespace.h */,
-				054BEB8815AF9B54002D7730 /* CEParserTokenWhitespace.m */,
-				054BEB8A15AF9B60002D7730 /* CEParserTokenKeyword.h */,
-				054BEB8B15AF9B60002D7730 /* CEParserTokenKeyword.m */,
-				054BEB8D15AF9B6C002D7730 /* CEParserTokenComment.h */,
-				054BEB8E15AF9B6C002D7730 /* CEParserTokenComment.m */,
-				054BEB9015AF9B75002D7730 /* CEParserTokenString.h */,
-				054BEB9115AF9B75002D7730 /* CEParserTokenString.m */,
-				054BEB9315AF9B80002D7730 /* CEParserTokenPredefined.h */,
-				054BEB9415AF9B80002D7730 /* CEParserTokenPredefined.m */,
-			);
-			path = Parser;
 			sourceTree = "<group>";
 		};
 		057F5845159D3BE000C84780 /* Compiler */ = {
@@ -962,6 +931,7 @@
 				05480FA5159A0B32005CFBC5 /* Frameworks */,
 				05480FA6159A0B32005CFBC5 /* Resources */,
 				05FFDA1115BDFF1D001EA4A3 /* ShellScript */,
+				0598738915D75701006FF8D2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -969,7 +939,7 @@
 			);
 			name = Codeine;
 			productName = ClangEdit;
-			productReference = 05480FA8159A0B32005CFBC5 /* ClangEdit.app */;
+			productReference = 05480FA8159A0B32005CFBC5 /* Codeine.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1116,13 +1086,6 @@
 				05841FFA15ACDE67001B1806 /* CEPreferencesLinkerOptionsViewController+NSTableViewDelegate.m in Sources */,
 				0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */,
 				054BEB7315AF815D002D7730 /* CEEditorLayoutManager.m in Sources */,
-				054BEB8315AF9974002D7730 /* CEParserToken.m in Sources */,
-				054BEB8615AF9B41002D7730 /* CEParserTokenUnknown.m in Sources */,
-				054BEB8915AF9B54002D7730 /* CEParserTokenWhitespace.m in Sources */,
-				054BEB8C15AF9B60002D7730 /* CEParserTokenKeyword.m in Sources */,
-				054BEB8F15AF9B6C002D7730 /* CEParserTokenComment.m in Sources */,
-				054BEB9215AF9B76002D7730 /* CEParserTokenString.m in Sources */,
-				054BEB9515AF9B80002D7730 /* CEParserTokenPredefined.m in Sources */,
 				0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */,
 				0517226C15B1ABD3004D5AF5 /* CEWindowController+Private.m in Sources */,
 				052CEA4315B1E21900E0BC0F /* CEInfoWindowController+Private.m in Sources */,
