@@ -18,6 +18,9 @@
 		0517226515B1A5A7004D5AF5 /* CEInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */; };
 		0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226815B1A792004D5AF5 /* CEInfoWindowController.m */; };
 		0517226C15B1ABD3004D5AF5 /* CEWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */; };
+		0518BA8515D85FB600349932 /* ClangKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0518BA3F15D8203000349932 /* ClangKit.framework */; };
+		0518BA8615D85FB900349932 /* ClangKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0518BA3F15D8203000349932 /* ClangKit.framework */; };
+		0518BAA015D8617000349932 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0518BA9F15D8617000349932 /* README.md */; };
 		051F2E0A159A12B10027DD4F /* CEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E09159A12B10027DD4F /* CEPreferences.m */; };
 		051F2E0D159A12D20027DD4F /* CEPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */; };
 		051F2E10159A12DB0027DD4F /* CEAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */; };
@@ -158,6 +161,13 @@
 			remoteGlobalIDString = 0518B9D015D7577D00349932;
 			remoteInfo = ClangKitTest;
 		};
+		0518BA8315D85FB200349932 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0518BA3515D8203000349932 /* ClangKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 059872ED15D74D09006FF8D2;
+			remoteInfo = ClangKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -167,6 +177,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0518BA8615D85FB900349932 /* ClangKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +205,7 @@
 		0517226A15B1ABD3004D5AF5 /* CEWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEWindowController+Private.h"; sourceTree = "<group>"; };
 		0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEWindowController+Private.m"; sourceTree = "<group>"; };
 		0518BA3515D8203000349932 /* ClangKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ClangKit.xcodeproj; path = ClangKit/ClangKit.xcodeproj; sourceTree = "<group>"; };
+		0518BA9F15D8617000349932 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		051F2E08159A12B10027DD4F /* CEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferences.h; sourceTree = "<group>"; };
 		051F2E09159A12B10027DD4F /* CEPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferences.m; sourceTree = "<group>"; };
 		051F2E0B159A12D20027DD4F /* CEPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -428,6 +440,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0518BA8515D85FB600349932 /* ClangKit.framework in Frameworks */,
 				05F3174415B254C40000C4CA /* Quartz.framework in Frameworks */,
 				05F3174215B253560000C4CA /* QuickLook.framework in Frameworks */,
 				05480FAD159A0B32005CFBC5 /* Cocoa.framework in Frameworks */,
@@ -606,6 +619,7 @@
 		05480FB2159A0B32005CFBC5 /* Codeine */ = {
 			isa = PBXGroup;
 			children = (
+				0518BA9F15D8617000349932 /* README.md */,
 				05480FC9159A0B98005CFBC5 /* Classes */,
 				05480FCD159A0B98005CFBC5 /* UI */,
 				05480FB3159A0B32005CFBC5 /* Supporting Files */,
@@ -964,6 +978,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0518BA8415D85FB200349932 /* PBXTargetDependency */,
 			);
 			name = Codeine;
 			productName = ClangEdit;
@@ -1053,6 +1068,7 @@
 				05589E3515C5E7D1006ECFB5 /* Licenses in Resources */,
 				05589E3615C5E7D1006ECFB5 /* Templates in Resources */,
 				05589E3715C5E7D1006ECFB5 /* Themes in Resources */,
+				0518BAA015D8617000349932 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1186,6 +1202,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0518BA8415D85FB200349932 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ClangKit;
+			targetProxy = 0518BA8315D85FB200349932 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		050629F515AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib */ = {
