@@ -10,5 +10,7 @@
 @interface CEEditorViewController( Private )
 
 - ( void )updateView;
+- ( void )textDidChange: ( NSNotification * )notification;
+- ( void )highlightSyntax;
 
 @end

@@ -33,6 +33,7 @@
 - ( void )awakeFromNib
 {
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateView ) name: CEPreferencesNotificationValueChanged object: nil ];
+    [ NOTIFICATION_CENTER addObserver: self selector: @selector( textDidChange: ) name: NSTextDidChangeNotification object: _textView ];
     
     _layoutManager = [ CEEditorLayoutManager new ];
     
@@ -71,6 +72,8 @@
             }
             
             _textView.string = document.sourceFile.text;
+            
+            [ self highlightSyntax ];
         }
     }
 }
