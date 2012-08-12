@@ -30,6 +30,7 @@ CESourceFileLineEndings;
     
     CESourceFileLanguage _language;
     NSString           * _text;
+    CKTranslationUnit  * _translationUnit;
     
 @private
     

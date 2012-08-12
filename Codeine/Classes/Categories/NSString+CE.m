@@ -99,7 +99,6 @@
     divider         = ( unit & 0x100 ) ? ( double )1000 : ( double )1024;
     unitKey         = nil;
     unitDefaultName = nil;
-    doubleValue     = 0;
     
     switch( unit )
     {

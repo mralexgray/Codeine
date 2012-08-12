@@ -120,6 +120,7 @@
     marker.representedObject = [ NSNumber numberWithUnsignedInteger: line ];
     
     [ self addMarker: marker ];
+    [ marker release ];
     [ self setNeedsDisplay: YES ];
 }
 

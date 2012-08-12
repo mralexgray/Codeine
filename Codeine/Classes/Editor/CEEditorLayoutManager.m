@@ -59,13 +59,10 @@
     unichar         c;
     NSRect          rect;
     NSColor       * color;
-    CGFloat         size;
     NSRect          glyphRect;
-    NSFont        * font;
     
     if( _showInvisibles )
     {
-        font  = [ NSFont fontWithName: [ [ CEPreferences sharedInstance ] fontName ] size: [ [ CEPreferences sharedInstance ] fontSize ] ];
         color = [ [ CEPreferences sharedInstance ] invisibleColor ];
         text  = [ [ self textStorage ] string ];
         
@@ -74,7 +71,6 @@
         if( text.length > 0 )
         {
             length = NSMaxRange( range );
-            size   = ( CGFloat )0;
             
             for( i = range.location; i < length; i++ )
             {
@@ -87,10 +83,8 @@
                     if( CGFLOAT_ZERO( rect.origin.x ) && i > 0 )
                     {
                         {
-                            unichar previousChar;
                             NSRect  previousGlyphRect;
                             
-                            previousChar      = [ text characterAtIndex: i - 1 ];
                             previousGlyphRect = [ self boundingRectForGlyphRange: NSMakeRange( i - 1, 1 ) inTextContainer: [ self.textContainers objectAtIndex: 0 ] ];
                             
                             if( CGFLOAT_EQUAL( previousGlyphRect.origin.y, rect.origin.y ) )
