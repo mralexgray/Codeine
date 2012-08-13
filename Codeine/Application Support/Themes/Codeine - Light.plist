@@ -23,20 +23,20 @@
 	<key>Selection</key>
 	<dict>
 		<key>R</key>
-		<integer>198</integer>
+		<integer>187</integer>
 		<key>G</key>
-		<integer>208</integer>
+		<integer>197</integer>
 		<key>B</key>
-		<integer>220</integer>
+		<integer>211</integer>
 	</dict>
 	<key>CurrentLine</key>
 	<dict>
 		<key>R</key>
-		<integer>255</integer>
+		<integer>245</integer>
 		<key>G</key>
-		<integer>255</integer>
+		<integer>245</integer>
 		<key>B</key>
-		<integer>240</integer>
+		<integer>245</integer>
 	</dict>
 	<key>Invisible</key>
 	<dict>
@@ -50,31 +50,31 @@
 	<key>Keyword</key>
 	<dict>
 		<key>R</key>
-		<integer>0</integer>
+		<integer>170</integer>
 		<key>G</key>
-		<integer>127</integer>
+		<integer>13</integer>
 		<key>B</key>
-		<integer>255</integer>
+		<integer>145</integer>
 	</dict>
-	<key>Comment</key>
+	<key>Preprocessor</key>
 	<dict>
 		<key>R</key>
-		<integer>127</integer>
+		<integer>170</integer>
 		<key>G</key>
-		<integer>127</integer>
+		<integer>13</integer>
 		<key>B</key>
-		<integer>127</integer>
-	</dict>
-	<key>String</key>
-	<dict>
-		<key>R</key>
-		<integer>255</integer>
-		<key>G</key>
-		<integer>127</integer>
-		<key>B</key>
-		<integer>127</integer>
+		<integer>145</integer>
 	</dict>
 	<key>Predefined</key>
+	<dict>
+		<key>R</key>
+		<integer>0</integer>
+		<key>G</key>
+		<integer>50</integer>
+		<key>B</key>
+		<integer>127</integer>
+	</dict>
+	<key>Project</key>
 	<dict>
 		<key>R</key>
 		<integer>127</integer>
@@ -86,11 +86,29 @@
 	<key>Number</key>
 	<dict>
 		<key>R</key>
-		<integer>0</integer>
+		<integer>51</integer>
+		<key>G</key>
+		<integer>102</integer>
+		<key>B</key>
+		<integer>153</integer>
+	</dict>
+	<key>String</key>
+	<dict>
+		<key>R</key>
+		<integer>255</integer>
 		<key>G</key>
 		<integer>127</integer>
 		<key>B</key>
-		<integer>255</integer>
+		<integer>127</integer>
+	</dict>
+	<key>Comment</key>
+	<dict>
+		<key>R</key>
+		<integer>127</integer>
+		<key>G</key>
+		<integer>127</integer>
+		<key>B</key>
+		<integer>127</integer>
 	</dict>
 </dict>
 </plist>

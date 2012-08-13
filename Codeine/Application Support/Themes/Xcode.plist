@@ -23,29 +23,29 @@
 	<key>Selection</key>
 	<dict>
 		<key>R</key>
-		<integer>198</integer>
+		<integer>187</integer>
 		<key>G</key>
-		<integer>208</integer>
+		<integer>197</integer>
 		<key>B</key>
-		<integer>220</integer>
+		<integer>210</integer>
 	</dict>
 	<key>CurrentLine</key>
 	<dict>
 		<key>R</key>
-		<integer>255</integer>
+		<integer>245</integer>
 		<key>G</key>
-		<integer>255</integer>
+		<integer>245</integer>
 		<key>B</key>
-		<integer>240</integer>
+		<integer>245</integer>
 	</dict>
 	<key>Invisible</key>
 	<dict>
 		<key>R</key>
-		<integer>200</integer>
+		<integer>127</integer>
 		<key>G</key>
-		<integer>200</integer>
+		<integer>127</integer>
 		<key>B</key>
-		<integer>200</integer>
+		<integer>127</integer>
 	</dict>
 	<key>Keyword</key>
 	<dict>
@@ -56,14 +56,41 @@
 		<key>B</key>
 		<integer>145</integer>
 	</dict>
-	<key>Comment</key>
+	<key>Preprocessor</key>
 	<dict>
 		<key>R</key>
-		<integer>0</integer>
+		<integer>100</integer>
 		<key>G</key>
-		<integer>116</integer>
+		<integer>56</integer>
 		<key>B</key>
+		<integer>32</integer>
+	</dict>
+	<key>Predefined</key>
+	<dict>
+		<key>R</key>
+		<integer>92</integer>
+		<key>G</key>
+		<integer>38</integer>
+		<key>B</key>
+		<integer>153</integer>
+	</dict>
+	<key>Project</key>
+	<dict>
+		<key>R</key>
+		<integer>63</integer>
+		<key>G</key>
+		<integer>110</integer>
+		<key>B</key>
+		<integer>116</integer>
+	</dict>
+	<key>Number</key>
+	<dict>
+		<key>R</key>
+		<integer>28</integer>
+		<key>G</key>
 		<integer>0</integer>
+		<key>B</key>
+		<integer>207</integer>
 	</dict>
 	<key>String</key>
 	<dict>
@@ -74,23 +101,14 @@
 		<key>B</key>
 		<integer>22</integer>
 	</dict>
-	<key>Predefined</key>
+	<key>Comment</key>
 	<dict>
 		<key>R</key>
-		<integer>63</integer>
+		<integer>0</integer>
 		<key>G</key>
-		<integer>106</integer>
-		<key>B</key>
 		<integer>116</integer>
-	</dict>
-	<key>Number</key>
-	<dict>
-		<key>R</key>
-		<integer>170</integer>
-		<key>G</key>
-		<integer>13</integer>
 		<key>B</key>
-		<integer>145</integer>
+		<integer>0</integer>
 	</dict>
 </dict>
 </plist>

@@ -243,6 +243,8 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     self.commentColor       = theme.commentColor;
     self.stringColor        = theme.stringColor;
     self.predefinedColor    = theme.predefinedColor;
+    self.projectColor       = theme.projectColor;
+    self.preprocessorColor  = theme.preprocessorColor;
     self.numberColor        = theme.numberColor;
 }
 
@@ -715,10 +717,14 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     theme.backgroundColor    = self.backgroundColor;
     theme.selectionColor     = self.selectionColor;
     theme.currentLineColor   = self.currentLineColor;
+    theme.invisibleColor     = self.invisibleColor;
     theme.keywordColor       = self.keywordColor;
     theme.commentColor       = self.commentColor;
     theme.stringColor        = self.stringColor;
     theme.predefinedColor    = self.predefinedColor;
+    theme.projectColor       = self.projectColor;
+    theme.preprocessorColor  = self.preprocessorColor;
+    theme.numberColor        = self.numberColor;
     
     return theme;
 }

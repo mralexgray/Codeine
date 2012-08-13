@@ -19,6 +19,8 @@
     NSColor  * _commentColor;
     NSColor  * _stringColor;
     NSColor  * _predefinedColor;
+    NSColor  * _projectColor;
+    NSColor  * _preprocessorColor;
     NSColor  * _numberColor;
     
 @private
@@ -36,6 +38,8 @@
 @property( atomic, readwrite, copy ) NSColor  * commentColor;
 @property( atomic, readwrite, copy ) NSColor  * stringColor;
 @property( atomic, readwrite, copy ) NSColor  * predefinedColor;
+@property( atomic, readwrite, copy ) NSColor  * projectColor;
+@property( atomic, readwrite, copy ) NSColor  * preprocessorColor;
 @property( atomic, readwrite, copy ) NSColor  * numberColor;
 
 + ( NSArray * )defaultColorThemes;

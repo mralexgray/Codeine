@@ -20,6 +20,8 @@
 @synthesize commentColor        = _commentColor;
 @synthesize stringColor         = _stringColor;
 @synthesize predefinedColor     = _predefinedColor;
+@synthesize projectColor        = _projectColor;
+@synthesize preprocessorColor   = _preprocessorColor;
 @synthesize numberColor         = _numberColor;
 
 + ( NSArray * )defaultColorThemes
@@ -66,16 +68,18 @@
         name        = [ [ path lastPathComponent ] stringByDeletingPathExtension ];
         theme       = [ self colorThemeWithName: name ];
         
-        [ theme setColorFromDictionary: themeDict name: @"Foreground"  selector: @selector( setForegroundColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Background"  selector: @selector( setBackgroundColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Selection"   selector: @selector( setSelectionColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"CurrentLine" selector: @selector( setCurrentLineColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Invisible"   selector: @selector( setInvisibleColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Keyword"     selector: @selector( setKeywordColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Comment"     selector: @selector( setCommentColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"String"      selector: @selector( setStringColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Predefined"  selector: @selector( setPredefinedColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Number"      selector: @selector( setNumberColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Foreground"   selector: @selector( setForegroundColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Background"   selector: @selector( setBackgroundColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Selection"    selector: @selector( setSelectionColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"CurrentLine"  selector: @selector( setCurrentLineColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Invisible"    selector: @selector( setInvisibleColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Keyword"      selector: @selector( setKeywordColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Comment"      selector: @selector( setCommentColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"String"       selector: @selector( setStringColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Predefined"   selector: @selector( setPredefinedColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Project"      selector: @selector( setProjectColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Preprocessor" selector: @selector( setPreprocessorColor: ) ];
+        [ theme setColorFromDictionary: themeDict name: @"Number"       selector: @selector( setNumberColor: ) ];
         
         [ themes addObject: theme ];
     }
@@ -128,6 +132,8 @@
     RELEASE_IVAR( _commentColor );
     RELEASE_IVAR( _stringColor );
     RELEASE_IVAR( _predefinedColor );
+    RELEASE_IVAR( _projectColor );
+    RELEASE_IVAR( _preprocessorColor );
     RELEASE_IVAR( _numberColor );
     
     [ super dealloc ];
