@@ -46,6 +46,7 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _path );
+    RELEASE_IVAR( _prefix );
     RELEASE_IVAR( _file );
     
     [ super dealloc ];
