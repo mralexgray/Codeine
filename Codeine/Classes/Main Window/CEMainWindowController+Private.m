@@ -33,6 +33,7 @@
     NSDateComponents * dateComponents;
     CEDocument       * document;
     NSString         * text;
+    NSString         * userName;
     
     if
     (
@@ -86,8 +87,15 @@
         license         = [ _languageWindowController.licensePopUp.licenseText stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceAndNewlineCharacterSet ] ];
         dateComponents  = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
         text            = [ text stringByReplacingOccurrencesOfString: @"${LICENSE}" withString: license ];
-        text            = [ text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: [ [ CEPreferences sharedInstance ] userName ] ];
-        text            = [ text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
+        userName        = [ [ CEPreferences sharedInstance ] userName ];
+        
+        if( [ [ [ CEPreferences sharedInstance ] userEmail ] length ] > 0 )
+        {
+            userName = [ NSString stringWithFormat: @"%@ <%@>", userName, [ [ CEPreferences sharedInstance ] userEmail ] ];
+        }
+        
+        text = [ text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: userName ];
+        text = [ text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
     }
     
     document.sourceFile.text = text;

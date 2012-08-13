@@ -38,6 +38,7 @@ NSString * const CEPreferencesKeyTextEncoding               = @"TextEncoding";
 NSString * const CEPreferencesKeyDefaultLanguage            = @"DefaultLanguage";
 NSString * const CEPreferencesKeyDefaultLicense             = @"DefaultLicense";
 NSString * const CEPreferencesKeyUserName                   = @"UserName";
+NSString * const CEPreferencesKeyUserEmail                  = @"UserEmail";
 NSString * const CEPreferencesKeyLineEndings                = @"LineEndings";
 NSString * const CEPreferencesKeyShowInvisibles             = @"ShowInvisibles";
 NSString * const CEPreferencesKeyAutoExpandTabs             = @"AutoExpandTabs";
@@ -605,6 +606,14 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( NSString * )userEmail
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS objectForKey: CEPreferencesKeyUserEmail ];
+    }
+}
+
 - ( CESourceFileLineEndings )lineEndings
 {
     @synchronized( self )
@@ -922,6 +931,17 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyUserName );
+    }
+}
+
+- ( void )setUserEmail: ( NSString * )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: value forKey: CEPreferencesKeyUserEmail ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyUserEmail );
     }
 }
 
