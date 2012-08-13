@@ -37,8 +37,9 @@ CESourceFileLineEndings;
     RESERVED_IVARS( CESourceFile , 5 );
 }
 
-@property( atomic, readonly )        CESourceFileLanguage language;
+@property( atomic, readonly        ) CESourceFileLanguage language;
 @property( atomic, readwrite, copy ) NSString           * text;
+@property( atomic, readonly        ) CKTranslationUnit  * translationUnit;
 
 + ( id )sourceFileWithLanguage: ( CESourceFileLanguage )language;
 + ( id )sourceFileWithLanguage: ( CESourceFileLanguage )language fromFile: ( NSString * )path;

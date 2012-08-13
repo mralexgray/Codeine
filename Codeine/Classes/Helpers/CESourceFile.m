@@ -10,8 +10,8 @@
 
 @implementation CESourceFile
 
-@synthesize language = _language;
-@synthesize text     = _text;
+@synthesize language        = _language;
+@synthesize translationUnit = _translationUnit;
 
 + ( id )sourceFileWithLanguage: ( CESourceFileLanguage )language
 {
@@ -47,7 +47,7 @@
             
             if( data != nil )
             {
-                _text = [ [ NSString alloc ] initWithData: data encoding: [ [ CEPreferences sharedInstance ] textEncoding ] ];
+                self.text = [ [ [ NSString alloc ] initWithData: data encoding: [ [ CEPreferences sharedInstance ] textEncoding ] ] autorelease ];
             }
         }
     }
@@ -57,9 +57,62 @@
 
 - ( void )dealloc
 {
-    [ _text release ];
+    RELEASE_IVAR( _text );
+    RELEASE_IVAR( _translationUnit );
     
     [ super dealloc ];
+}
+
+- ( NSString * )text
+{
+    @synchronized( self )
+    {
+        return _text;
+    }
+}
+
+- ( void )setText: ( NSString * )text
+{
+    CKLanguage language;
+    
+    @synchronized( self )
+    {
+        RELEASE_IVAR( _text );
+        
+        _text = [ text copy ];
+        
+        if( _translationUnit == nil )
+        {
+            if( _language == CESourceFileLanguageC )
+            {
+                language = CKLanguageC;
+            }
+            else if( _language == CESourceFileLanguageCPP )
+            {
+                language = CKLanguageCPP;
+            }
+            else if( _language == CESourceFileLanguageObjC )
+            {
+                language = CKLanguageObjC;
+            }
+            else if( _language == CESourceFileLanguageObjCPP )
+            {
+                language = CKLanguageObjCPP;
+            }
+            else
+            {
+                language = CKLanguageNone;
+            }
+            
+            _translationUnit = [ [ CKTranslationUnit alloc ] initWithText: _text language: language ];
+        }
+        else
+        {
+            _translationUnit.text = _text;
+        }
+        
+        [ _translationUnit reparse ];
+    }
 }
 
 @end
