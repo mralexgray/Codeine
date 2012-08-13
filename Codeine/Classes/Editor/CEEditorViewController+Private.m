@@ -85,13 +85,18 @@
     [ self highlightSyntax ];
 }
 
+- ( void )updateText
+{
+    _document.sourceFile.text = _textView.string;
+    
+    [ self performSelectorOnMainThread: @selector( highlightSyntax ) withObject: nil waitUntilDone: NO ];
+}
+
 - ( void )textDidChange: ( NSNotification * )notification
 {
     ( void )notification;
     
-    _document.sourceFile.text = _textView.string;
-    
-    [ self highlightSyntax ];
+    [ NSThread detachNewThreadSelector: @selector( updateText ) toTarget: self withObject: nil ];
 }
 
 - ( void )highlightSyntax
@@ -113,6 +118,8 @@
     foregroundColor = [ [ CEPreferences sharedInstance ] foregroundColor ];
     
     tokens = _document.sourceFile.translationUnit.tokens;
+    
+    [_textView.textStorage beginEditing ];
     
     for( token in tokens )
     {
@@ -149,8 +156,12 @@
         @catch( NSException * e )
         {
             ( void )e;
+            
+            break;
         }
     }
+    
+    [ _textView.textStorage endEditing ];
 }
 
 @end

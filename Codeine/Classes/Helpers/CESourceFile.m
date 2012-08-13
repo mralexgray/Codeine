@@ -77,9 +77,12 @@
     
     @synchronized( self )
     {
-        RELEASE_IVAR( _text );
-        
-        _text = [ text copy ];
+        if( text != _text )
+        {
+            RELEASE_IVAR( _text );
+            
+            _text = [ text retain ];
+        }
         
         if( _translationUnit == nil )
         {
@@ -110,8 +113,6 @@
         {
             _translationUnit.text = _text;
         }
-        
-        [ _translationUnit reparse ];
     }
 }
 
