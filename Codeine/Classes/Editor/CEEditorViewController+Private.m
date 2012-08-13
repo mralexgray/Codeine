@@ -132,7 +132,14 @@
             }
             else if( token.kind == CKTokenKindLiteral )
             {
-                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: stringColor range: token.range ];
+                if( [ token.spelling characterAtIndex: 0 ] == '"' || [ token.spelling characterAtIndex: 0 ] == '\'' )
+                {
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: stringColor range: token.range ];
+                }
+                else
+                {
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: numberColor range: token.range ];
+                }
             }
             else
             {
