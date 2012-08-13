@@ -28,6 +28,8 @@ NSString * const CEPreferencesKeyCommentColor               = @"CommentColor";
 NSString * const CEPreferencesKeyStringColor                = @"StringColor";
 NSString * const CEPreferencesKeyPredefinedColor            = @"PredefinedColor";
 NSString * const CEPreferencesKeyNumberColor                = @"NumberColor";
+NSString * const CEPreferencesKeyProjectColor               = @"ProjectColor";
+NSString * const CEPreferencesKeyPreprocessorColor          = @"PreprocessorColor";
 NSString * const CEPreferencesKeyWarningFlags               = @"WarningFlags";
 NSString * const CEPreferencesKeyWarningFlagsPresetStrict   = @"WarningFlagsPresetStrict";
 NSString * const CEPreferencesKeyWarningFlagsPresetNormal   = @"WarningFlagsPresetNormal";
@@ -527,6 +529,22 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( NSColor * )projectColor
+{
+    @synchronized( self )
+    {
+        return [ self colorForKey: CEPreferencesKeyProjectColor ];
+    }
+}
+
+- ( NSColor * )preprocessorColor
+{
+    @synchronized( self )
+    {
+        return [ self colorForKey: CEPreferencesKeyPreprocessorColor ];
+    }
+}
+
 - ( NSDictionary * )warningFlags
 {
     @synchronized( self )
@@ -885,6 +903,28 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyNumberColor );
+    }
+}
+
+- ( void )setProjectColor: ( NSColor * )value
+{
+    @synchronized( self )
+    {
+        [ self setColor: value forKey: CEPreferencesKeyProjectColor ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyProjectColor );
+    }
+}
+
+- ( void )setPreprocessorColor: ( NSColor * )value
+{
+    @synchronized( self )
+    {
+        [ self setColor: value forKey: CEPreferencesKeyPreprocessorColor ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyPreprocessorColor );
     }
 }
 

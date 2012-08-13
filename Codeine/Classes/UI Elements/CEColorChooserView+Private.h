@@ -5,10 +5,10 @@
  
 /* $Id$ */
 
-#import "CEPreferencesFontsAndColorsOptionsViewController.h"
+#import "CEColorChooserView.h"
 
-@interface CEPreferencesFontsAndColorsOptionsViewController( Private )
+@interface CEColorChooserView( Private )
 
-- ( void )updateView;
+- ( void )changeColor: ( id )sender;
 
 @end

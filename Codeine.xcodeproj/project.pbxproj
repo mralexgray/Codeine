@@ -66,6 +66,8 @@
 		05589E3515C5E7D1006ECFB5 /* Licenses in Resources */ = {isa = PBXBuildFile; fileRef = 05589E3215C5E7D1006ECFB5 /* Licenses */; };
 		05589E3615C5E7D1006ECFB5 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 05589E3315C5E7D1006ECFB5 /* Templates */; };
 		05589E3715C5E7D1006ECFB5 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 05589E3415C5E7D1006ECFB5 /* Themes */; };
+		0561B53F15D99936005DD16F /* CEColorChooserView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561B53E15D99936005DD16F /* CEColorChooserView+Private.m */; };
+		0561B54215D999FC005DD16F /* CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561B54115D999FC005DD16F /* CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.m */; };
 		0563E04715A8A7B400BA5828 /* CEFilesViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */; };
 		0563E04A15A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04915A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.m */; };
 		0563E04D15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E04C15A8A7CE00BA5828 /* CEFilesViewController+NSOutlineViewDelegate.m */; };
@@ -107,6 +109,9 @@
 		059C9B3315A9044F00AEF506 /* CEFilesOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C9B3215A9044F00AEF506 /* CEFilesOutlineView.m */; };
 		05A1DFBD15BC6A26007F9560 /* CEEditorTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A1DFBC15BC6A26007F9560 /* CEEditorTextView.m */; };
 		05A1DFCB15BC78FF007F9560 /* CEEditorMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A1DFCA15BC78FE007F9560 /* CEEditorMarker.m */; };
+		05A73DC515D97CB500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A73DC415D97CB500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.m */; };
+		05A73DC815D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A73DC715D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.m */; };
+		05A73DCB15D97EEC00AB75F4 /* CEColorChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A73DCA15D97EEC00AB75F4 /* CEColorChooserView.m */; };
 		05B2CB2415C36E44009B4014 /* CEFileDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B2CB2215C36E44009B4014 /* CEFileDetailsView.xib */; };
 		05B2CB2915C370A2009B4014 /* CEFileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2CB2815C370A2009B4014 /* CEFileDetailsViewController.m */; };
 		05B2CB2C15C57629009B4014 /* CEMainWindowController+NSOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2CB2B15C57629009B4014 /* CEMainWindowController+NSOpenSavePanelDelegate.m */; };
@@ -292,6 +297,11 @@
 		05589E3215C5E7D1006ECFB5 /* Licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Licenses; sourceTree = "<group>"; };
 		05589E3315C5E7D1006ECFB5 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		05589E3415C5E7D1006ECFB5 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
+		0561B53C15D99801005DD16F /* CEColorChooserViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEColorChooserViewDelegate.h; sourceTree = "<group>"; };
+		0561B53D15D99936005DD16F /* CEColorChooserView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEColorChooserView+Private.h"; sourceTree = "<group>"; };
+		0561B53E15D99936005DD16F /* CEColorChooserView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEColorChooserView+Private.m"; sourceTree = "<group>"; };
+		0561B54015D999FC005DD16F /* CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.h"; sourceTree = "<group>"; };
+		0561B54115D999FC005DD16F /* CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.m"; sourceTree = "<group>"; };
 		0563E04515A8A7B400BA5828 /* CEFilesViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+Private.h"; sourceTree = "<group>"; };
 		0563E04615A8A7B400BA5828 /* CEFilesViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFilesViewController+Private.m"; sourceTree = "<group>"; };
 		0563E04815A8A7C100BA5828 /* CEFilesViewController+NSOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFilesViewController+NSOutlineViewDataSource.h"; sourceTree = "<group>"; };
@@ -370,6 +380,12 @@
 		05A1DFBC15BC6A26007F9560 /* CEEditorTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorTextView.m; sourceTree = "<group>"; };
 		05A1DFC915BC78FE007F9560 /* CEEditorMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorMarker.h; sourceTree = "<group>"; };
 		05A1DFCA15BC78FE007F9560 /* CEEditorMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorMarker.m; sourceTree = "<group>"; };
+		05A73DC315D97CB500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.h"; sourceTree = "<group>"; };
+		05A73DC415D97CB500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.m"; sourceTree = "<group>"; };
+		05A73DC615D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.h"; sourceTree = "<group>"; };
+		05A73DC715D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.m"; sourceTree = "<group>"; };
+		05A73DC915D97EEC00AB75F4 /* CEColorChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorChooserView.h; sourceTree = "<group>"; };
+		05A73DCA15D97EEC00AB75F4 /* CEColorChooserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorChooserView.m; sourceTree = "<group>"; };
 		05B2CB2315C36E44009B4014 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEFileDetailsView.xib; sourceTree = "<group>"; };
 		05B2CB2715C370A2009B4014 /* CEFileDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileDetailsViewController.h; sourceTree = "<group>"; };
 		05B2CB2815C370A2009B4014 /* CEFileDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileDetailsViewController.m; sourceTree = "<group>"; };
@@ -782,6 +798,12 @@
 		057F5852159D3BE100C84780 /* Fonts And Colors */ = {
 			isa = PBXGroup;
 			children = (
+				05A73DC615D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.h */,
+				05A73DC715D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.m */,
+				05A73DC315D97CB500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.h */,
+				05A73DC415D97CB500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.m */,
+				0561B54015D999FC005DD16F /* CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.h */,
+				0561B54115D999FC005DD16F /* CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.m */,
 				057F5853159D3BE100C84780 /* CEPreferencesFontsAndColorsOptionsViewController+Private.h */,
 				057F5854159D3BE100C84780 /* CEPreferencesFontsAndColorsOptionsViewController+Private.m */,
 				057F5855159D3BE100C84780 /* CEPreferencesFontsAndColorsOptionsViewController.h */,
@@ -949,6 +971,11 @@
 				05DA002615BDB841001FDB95 /* CEWindowBadge.m */,
 				053F60E715BF51530069C870 /* CEHUDView.h */,
 				053F60E815BF51530069C870 /* CEHUDView.m */,
+				05A73DC915D97EEC00AB75F4 /* CEColorChooserView.h */,
+				05A73DCA15D97EEC00AB75F4 /* CEColorChooserView.m */,
+				0561B53D15D99936005DD16F /* CEColorChooserView+Private.h */,
+				0561B53E15D99936005DD16F /* CEColorChooserView+Private.m */,
+				0561B53C15D99801005DD16F /* CEColorChooserViewDelegate.h */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -1198,6 +1225,11 @@
 				05C0CC6315C59D8400CA715F /* CEEditorLayoutManager+Private.m in Sources */,
 				05589E2E15C5E4D9006ECFB5 /* CELicensePopUpButton.m in Sources */,
 				05589E3115C5E4E5006ECFB5 /* CELicensePopUpButton+Private.m in Sources */,
+				05A73DC515D97CB500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.m in Sources */,
+				05A73DC815D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.m in Sources */,
+				05A73DCB15D97EEC00AB75F4 /* CEColorChooserView.m in Sources */,
+				0561B53F15D99936005DD16F /* CEColorChooserView+Private.m in Sources */,
+				0561B54215D999FC005DD16F /* CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

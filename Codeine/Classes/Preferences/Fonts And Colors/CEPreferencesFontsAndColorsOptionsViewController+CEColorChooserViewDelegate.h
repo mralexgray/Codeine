@@ -6,9 +6,10 @@
 /* $Id$ */
 
 #import "CEPreferencesFontsAndColorsOptionsViewController.h"
+#import "CEColorChooserViewDelegate.h"
 
-@interface CEPreferencesFontsAndColorsOptionsViewController( Private )
+@interface CEPreferencesFontsAndColorsOptionsViewController( CEColorChooserViewDelegate ) < CEColorChooserViewDelegate >
 
-- ( void )updateView;
+
 
 @end

@@ -7,8 +7,8 @@
 
 #import "CEPreferencesFontsAndColorsOptionsViewController.h"
 
-@interface CEPreferencesFontsAndColorsOptionsViewController( Private )
+@interface CEPreferencesFontsAndColorsOptionsViewController( NSTableViewDelegate ) < NSTableViewDelegate >
 
-- ( void )updateView;
+
 
 @end

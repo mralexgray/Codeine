@@ -7,40 +7,27 @@
 
 #import "CEPreferencesFontsAndColorsOptionsViewController.h"
 #import "CEPreferencesFontsAndColorsOptionsViewController+Private.h"
+#import "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.h"
+#import "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.h"
 #import "CEPreferences.h"
 #import "CEColorTheme.h"
 
 @implementation CEPreferencesFontsAndColorsOptionsViewController
 
 @synthesize fontTextField               = _fontTextField;
-@synthesize generalForegroundColorWell  = _generalForegroundColorWell;
-@synthesize generalBackgroundColorWell  = _generalBackgroundColorWell;
-@synthesize generalSelectionColorWell   = _generalSelectionColorWell;
-@synthesize generalCurrentLineColorWell = _generalCurrentLineColorWell;
-@synthesize generalInvisibleColorWell   = _generalInvisibleColorWell;
-@synthesize sourceKeywordColorWell      = _sourceKeywordColorWell;
-@synthesize sourceCommentColorWell      = _sourceCommentColorWell;
-@synthesize sourceStringColorWell       = _sourceStringColorWell;
-@synthesize sourcePredefinedColorWell   = _sourcePredefinedColorWell;
-@synthesize sourceNumberColorWell       = _sourceNumberColorWell;
 @synthesize colorThemesPopUp            = _colorThemesPopUp;
+@synthesize tableView                   = _tableView;
 
 - ( void )dealloc
 {
     [ NOTIFICATION_CENTER removeObserver: self ];
     
+    _tableView.delegate   = nil;
+    _tableView.dataSource = nil;
+    
     RELEASE_IVAR( _fontTextField );
-    RELEASE_IVAR( _generalForegroundColorWell );
-    RELEASE_IVAR( _generalBackgroundColorWell );
-    RELEASE_IVAR( _generalSelectionColorWell );
-    RELEASE_IVAR( _generalCurrentLineColorWell );
-    RELEASE_IVAR( _generalInvisibleColorWell );
-    RELEASE_IVAR( _sourceKeywordColorWell );
-    RELEASE_IVAR( _sourceCommentColorWell );
-    RELEASE_IVAR( _sourceStringColorWell );
-    RELEASE_IVAR( _sourcePredefinedColorWell );
-    RELEASE_IVAR( _sourceNumberColorWell );
     RELEASE_IVAR( _colorThemesPopUp );
+    RELEASE_IVAR( _tableView );
     
     [ super dealloc ];
 }
@@ -48,28 +35,6 @@
 - ( void )awakeFromNib
 {
     [ self updateView ];
-    
-    [ _generalForegroundColorWell   setTarget: self ];
-    [ _generalBackgroundColorWell   setTarget: self ];
-    [ _generalSelectionColorWell    setTarget: self ];
-    [ _generalCurrentLineColorWell  setTarget: self ];
-    [ _generalInvisibleColorWell    setTarget: self ];
-    [ _sourceKeywordColorWell       setTarget: self ];
-    [ _sourceCommentColorWell       setTarget: self ];
-    [ _sourceStringColorWell        setTarget: self ];
-    [ _sourcePredefinedColorWell    setTarget: self ];
-    [ _sourceNumberColorWell        setTarget: self ];
-    
-    [ _generalForegroundColorWell   setAction: @selector( updateColor: ) ];
-    [ _generalBackgroundColorWell   setAction: @selector( updateColor: ) ];
-    [ _generalSelectionColorWell    setAction: @selector( updateColor: ) ];
-    [ _generalCurrentLineColorWell  setAction: @selector( updateColor: ) ];
-    [ _generalInvisibleColorWell    setAction: @selector( updateColor: ) ];
-    [ _sourceKeywordColorWell       setAction: @selector( updateColor: ) ];
-    [ _sourceCommentColorWell       setAction: @selector( updateColor: ) ];
-    [ _sourceStringColorWell        setAction: @selector( updateColor: ) ];
-    [ _sourcePredefinedColorWell    setAction: @selector( updateColor: ) ];
-    [ _sourceNumberColorWell        setAction: @selector( updateColor: ) ];
     
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateView ) name: CEPreferencesNotificationValueChanged object: nil ];
     
@@ -88,6 +53,9 @@
             item.representedObject = theme;
         }
     }
+    
+    _tableView.delegate   = self;
+    _tableView.dataSource = self;
 }
 
 - ( IBAction )chooseFont: ( id )sender
