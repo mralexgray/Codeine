@@ -32,6 +32,7 @@
     NSString         * template;
     NSDateComponents * dateComponents;
     CEDocument       * document;
+    NSString         * text;
     
     if
     (
@@ -73,21 +74,24 @@
             break;
     }
     
-    document                 = [ CEDocument documentWithLanguage: _languageWindowController.language ];
-    document.sourceFile.text = [ NSString stringWithContentsOfFile: template encoding: NSUTF8StringEncoding error: NULL ];
+    document = [ CEDocument documentWithLanguage: _languageWindowController.language ];
+    text     = [ NSString stringWithContentsOfFile: template encoding: NSUTF8StringEncoding error: NULL ];
     
-    if( document.sourceFile.text == nil )
+    if( text == nil )
     {
-        document.sourceFile.text = @"";
+        text = @"";
+    }
+    else
+    {
+        license         = [ _languageWindowController.licensePopUp.licenseText stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceAndNewlineCharacterSet ] ];
+        dateComponents  = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
+        text            = [ text stringByReplacingOccurrencesOfString: @"${LICENSE}" withString: license ];
+        text            = [ text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: [ [ CEPreferences sharedInstance ] userName ] ];
+        text            = [ text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
     }
     
-    license                  = [ _languageWindowController.licensePopUp.licenseText stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceAndNewlineCharacterSet ] ];
-    dateComponents           = [ [ NSCalendar currentCalendar ] components: NSYearCalendarUnit fromDate: [ NSDate date ] ];
-    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${LICENSE}" withString: license ];
-    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${USER_NAME}" withString: [ [ CEPreferences sharedInstance ] userName ] ];
-    document.sourceFile.text = [ document.sourceFile.text stringByReplacingOccurrencesOfString: @"${YEAR}" withString: [ NSString stringWithFormat: @"%li", dateComponents.year ] ];
-    
-    self.activeDocument = document;
+    document.sourceFile.text = text;
+    self.activeDocument      = document;
     
     RELEASE_IVAR( _languageWindowController );
 }
