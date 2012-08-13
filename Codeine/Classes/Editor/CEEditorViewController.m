@@ -7,6 +7,7 @@
 
 #import "CEEditorViewController.h"
 #import "CEEditorViewController+Private.h"
+#import "CEEditorViewController+NSTextViewDelegate.h"
 #import "CEPreferences.h"
 #import "CEMainWindowController.h"
 #import "CESourceFile.h"
@@ -35,7 +36,8 @@
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateView ) name: CEPreferencesNotificationValueChanged object: nil ];
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( textDidChange: ) name: NSTextDidChangeNotification object: _textView ];
     
-    _layoutManager = [ CEEditorLayoutManager new ];
+    _textView.delegate  = self;
+    _layoutManager      = [ CEEditorLayoutManager new ];
     
     [ _layoutManager setTextStorage: _textView.textStorage ];
     [ _textView.textContainer replaceLayoutManager: _layoutManager ];
