@@ -118,6 +118,20 @@
     predefinedColor = [ [ CEPreferences sharedInstance ] predefinedColor ];
     foregroundColor = [ [ CEPreferences sharedInstance ] foregroundColor ];
     
+    if
+    (
+           _document.sourceFile.language != CESourceFileLanguageC
+        && _document.sourceFile.language != CESourceFileLanguageCPP
+        && _document.sourceFile.language != CESourceFileLanguageObjC
+        && _document.sourceFile.language != CESourceFileLanguageObjCPP
+        && _document.sourceFile.language != CESourceFileLanguageHeader
+    )
+    {
+        [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: foregroundColor range: NSMakeRange( 0, _textView.textStorage.length ) ];
+        
+        return;
+    }
+    
     tokens = _document.sourceFile.translationUnit.tokens;
     
     [_textView.textStorage beginEditing ];

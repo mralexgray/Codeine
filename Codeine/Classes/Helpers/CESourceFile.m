@@ -102,6 +102,10 @@
             {
                 language = CKLanguageObjCPP;
             }
+            else if( _language == CESourceFileLanguageHeader )
+            {
+                language = CKLanguageObjCPP;
+            }
             else
             {
                 language = CKLanguageNone;
