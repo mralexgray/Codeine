@@ -50,20 +50,20 @@
 	<key>Keyword</key>
 	<dict>
 		<key>R</key>
-		<integer>170</integer>
+		<integer>0</integer>
 		<key>G</key>
-		<integer>13</integer>
+		<integer>127</integer>
 		<key>B</key>
-		<integer>145</integer>
+		<integer>255</integer>
 	</dict>
 	<key>Preprocessor</key>
 	<dict>
 		<key>R</key>
-		<integer>170</integer>
+		<integer>0</integer>
 		<key>G</key>
-		<integer>13</integer>
+		<integer>127</integer>
 		<key>B</key>
-		<integer>145</integer>
+		<integer>255</integer>
 	</dict>
 	<key>Predefined</key>
 	<dict>

@@ -33,6 +33,8 @@
 "NotRegistered"                             = "Not registered - Click here";
 "NoEditor"                                  = "No file to display";
 "NoConsole"                                 = "Console not available";
+"ResetThemeAlertTitle"                      = "Reset color themes";
+"ResetThemeAlertText"                       = "Are you sure you want to reset to color themes to the factory defaults? All custom themes will also be deleted.";
 "ColorLabelBackground"                      = "Text background";
 "ColorLabelForeground"                      = "Text foreground";
 "ColorLabelSelection"                       = "Selection highlight";

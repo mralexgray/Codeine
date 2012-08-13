@@ -94,22 +94,13 @@
 
 - ( IBAction )restoreDefaults: ( id )sender
 {
-    NSArray    * items;
-    NSMenuItem * item;
+    NSAlert * alert;
     
-    items = [ _colorThemesPopUp itemArray ];
+    ( void )sender;
     
-    for( item in items )
-    {
-        if( [ item.representedObject isKindOfClass: [ CEColorTheme class ] ] == YES )
-        {
-            [ _colorThemesPopUp removeItemWithTitle: item.title ];
-        }
-    }
+    alert = [ NSAlert alertWithMessageText: L10N( "ResetThemeAlertTitle" ) defaultButton: L10N( "OK" ) alternateButton: L10N( "Cancel" ) otherButton: nil informativeTextWithFormat: L10N( "ResetThemeAlertText" ) ];
     
-    [ [ CEApplicationDelegate sharedInstance ] resetColorThemes: sender ];
-    [ self getColorThemes ];
-    [ [ CEPreferences sharedInstance ] setColorsFromColorTheme: [ CEColorTheme defaultColorThemeWithName: @"Codeine - Dark" ] ];
+    [ alert beginSheetModalForWindow: self.view.window modalDelegate: self didEndSelector: @selector( resetAlertDidEnd:returnCode:contextInfo: ) contextInfo: nil ];
 }
 
 - ( IBAction )saveTheme: ( id )sender
