@@ -21,7 +21,7 @@
 	<key>ShowPageGuide</key>
 	<true/>
 	<key>ShowTabStops</key>
-	<false/>
+	<true/>
 	<key>PageGuideWidth</key>
 	<integer>80</integer>
 	<key>FirstLaunch</key>
