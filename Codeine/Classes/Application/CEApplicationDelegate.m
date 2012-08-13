@@ -264,4 +264,16 @@
     return YES;
 }
 
+- ( IBAction )resetColorThemes: ( id )sender
+{
+    NSString * path;
+    
+    ( void )sender;
+    
+    path = [ [ FILE_MANAGER applicationSupportDirectory ] stringByAppendingPathComponent: @"Themes" ];
+
+    [ FILE_MANAGER removeItemAtPath: path error: NULL ];
+    [ self installApplicationSupportFiles ];
+}
+
 @end

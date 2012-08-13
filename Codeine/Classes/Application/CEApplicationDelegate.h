@@ -38,5 +38,6 @@
 - ( IBAction )toggleLineNumbers: ( id )sender;
 - ( IBAction )toggleSoftWrap: ( id )sender;
 - ( IBAction )toggleInvisibleCharacters: ( id )sender;
+- ( IBAction )resetColorThemes: ( id )sender;
 
 @end

@@ -10,5 +10,6 @@
 @interface CEPreferencesFontsAndColorsOptionsViewController( Private )
 
 - ( void )updateView;
+- ( void )getColorThemes;
 
 @end

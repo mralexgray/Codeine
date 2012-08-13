@@ -26,5 +26,7 @@
 
 - ( IBAction )chooseFont: ( id )sender;
 - ( IBAction )chooseColorTheme: ( id )sender;
+- ( IBAction )restoreDefaults: ( id )sender;
+- ( IBAction )saveTheme: ( id )sender;
 
 @end

@@ -11,6 +11,7 @@
 #import "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDelegate.h"
 #import "CEPreferences.h"
 #import "CEColorTheme.h"
+#import "CEApplicationDelegate.h"
 
 @implementation CEPreferencesFontsAndColorsOptionsViewController
 
@@ -35,24 +36,8 @@
 - ( void )awakeFromNib
 {
     [ self updateView ];
-    
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateView ) name: CEPreferencesNotificationValueChanged object: nil ];
-    
-    {
-        NSArray      * themes;
-        CEColorTheme * theme;
-        NSMenuItem   * item;
-        
-        themes = [ CEColorTheme defaultColorThemes ];
-        
-        for( theme in themes )
-        {
-            [ _colorThemesPopUp addItemWithTitle: theme.name ];
-            
-            item                   = [ _colorThemesPopUp itemWithTitle: theme.name ];
-            item.representedObject = theme;
-        }
-    }
+    [ self getColorThemes ];
     
     _tableView.delegate   = self;
     _tableView.dataSource = self;
@@ -105,6 +90,31 @@
     }
     
     [ [ CEPreferences sharedInstance ] setColorsFromColorTheme: theme ];
+}
+
+- ( IBAction )restoreDefaults: ( id )sender
+{
+    NSArray    * items;
+    NSMenuItem * item;
+    
+    items = [ _colorThemesPopUp itemArray ];
+    
+    for( item in items )
+    {
+        if( [ item.representedObject isKindOfClass: [ CEColorTheme class ] ] == YES )
+        {
+            [ _colorThemesPopUp removeItemWithTitle: item.title ];
+        }
+    }
+    
+    [ [ CEApplicationDelegate sharedInstance ] resetColorThemes: sender ];
+    [ self getColorThemes ];
+    [ [ CEPreferences sharedInstance ] setColorsFromColorTheme: [ CEColorTheme defaultColorThemeWithName: @"Codeine - Dark" ] ];
+}
+
+- ( IBAction )saveTheme: ( id )sender
+{
+    ( void )sender;
 }
 
 @end
