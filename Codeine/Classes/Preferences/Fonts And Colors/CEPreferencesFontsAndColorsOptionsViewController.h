@@ -11,9 +11,10 @@
 {
 @protected
     
-    NSTextField   * _fontTextField;
-    NSPopUpButton * _colorThemesPopUp;
-    NSTableView   * _tableView;
+    NSTextField    * _fontTextField;
+    NSPopUpButton  * _colorThemesPopUp;
+    NSTableView    * _tableView;
+    NSMutableArray * _colorChooserViews;
     
 @private
     

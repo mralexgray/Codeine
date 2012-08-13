@@ -29,6 +29,7 @@
     RELEASE_IVAR( _fontTextField );
     RELEASE_IVAR( _colorThemesPopUp );
     RELEASE_IVAR( _tableView );
+    RELEASE_IVAR( _colorChooserViews );
     
     [ super dealloc ];
 }
