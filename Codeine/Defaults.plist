@@ -4,6 +4,8 @@
 <dict>
 	<key>ShowInvisibles</key>
 	<false/>
+	<key>ShowSpaces</key>
+	<true/>
 	<key>AutoExpandTabs</key>
 	<true/>
 	<key>AutoIndent</key>
@@ -19,7 +21,7 @@
 	<key>ShowPageGuide</key>
 	<true/>
 	<key>ShowTabStops</key>
-	<true/>
+	<false/>
 	<key>PageGuideWidth</key>
 	<integer>80</integer>
 	<key>FirstLaunch</key>

@@ -11,6 +11,7 @@
     
     NSTextView * _textView;
     BOOL         _showInvisibles;
+    BOOL         _showSpaces;
     CGSize       _glyphSize;
     CGFloat      _firstGlyphLeftMargin;
     
@@ -20,6 +21,7 @@
 }
 
 @property( atomic, readwrite, assign ) BOOL    showInvisibles;
+@property( atomic, readwrite, assign ) BOOL    showSpaces;
 @property( atomic, readonly          ) CGSize  glyphSize;
 @property( atomic, readonly          ) CGFloat firstGlyphLeftMargin;
 

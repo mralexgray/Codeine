@@ -41,6 +41,7 @@ NSString * const CEPreferencesKeyUserName                   = @"UserName";
 NSString * const CEPreferencesKeyUserEmail                  = @"UserEmail";
 NSString * const CEPreferencesKeyLineEndings                = @"LineEndings";
 NSString * const CEPreferencesKeyShowInvisibles             = @"ShowInvisibles";
+NSString * const CEPreferencesKeyShowSpaces                 = @"ShowSpaces";
 NSString * const CEPreferencesKeyAutoExpandTabs             = @"AutoExpandTabs";
 NSString * const CEPreferencesKeyAutoIndent                 = @"AutoIndent";
 NSString * const CEPreferencesKeySoftWrap                   = @"SoftWrap";
@@ -630,6 +631,14 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( BOOL )showSpaces
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyShowSpaces ];
+    }
+}
+
 - ( BOOL )autoExpandTabs
 {
     @synchronized( self )
@@ -964,6 +973,17 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowInvisibles );
+    }
+}
+
+- ( void )setShowSpaces: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowSpaces ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowSpaces );
     }
 }
 

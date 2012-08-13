@@ -12,6 +12,7 @@
 @implementation CEEditorLayoutManager
 
 @synthesize showInvisibles = _showInvisibles;
+@synthesize showSpaces     = _showSpaces;
 
 - ( id )init
 {
@@ -125,7 +126,7 @@
                     
                     glyphRect = NSInsetRect( glyphRect, ( CGFloat )1, ( CGFloat )1 );
                     
-                    if( c == ' ' )
+                    if( c == ' ' && _showSpaces == YES )
                     {
                         glyphRect = NSInsetRect( glyphRect, ( CGFloat )0.5, ( CGFloat )0.5 );
                         

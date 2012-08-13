@@ -21,6 +21,7 @@
     NSMutableParagraphStyle * paragraphStyle;
     
     _layoutManager.showInvisibles = [ [ CEPreferences sharedInstance ] showInvisibles ];
+    _layoutManager.showSpaces     = [ [ CEPreferences sharedInstance ] showSpaces ];
     
     font = [ NSFont fontWithName: [ [ CEPreferences sharedInstance ] fontName ] size: [ [ CEPreferences sharedInstance ] fontSize ] ];
     
