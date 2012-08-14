@@ -11,6 +11,7 @@
 #import "CEEditorRulerView.h"
 #import "CEDocument.h"
 #import "CESourceFile.h"
+#import "CESyntaxHighlighter.h"
 
 @implementation CEEditorViewController( Private )
 
@@ -82,6 +83,8 @@
 
                             }
     ];
+    
+    [ _highlighter highlight ];
 }
 
 @end
