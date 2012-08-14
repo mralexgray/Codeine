@@ -20,6 +20,19 @@ CEOptimizationLevel;
 
 typedef enum
 {
+    CETokenTypeText                     = 0x00,
+    CETokenTypeKeyword                  = 0x01,
+    CETokenTypePreprocessor             = 0x02,
+    CETokenTypePredefined               = 0x03,
+    CETokenTypeProject                  = 0x04,
+    CETokenTypeString                   = 0x05,
+    CETokenTypeNumber                   = 0x06,
+    CETokenTypeComment                  = 0x07
+}
+CETokenType;
+
+typedef enum
+{
     CEVirtualKeyReturn                  = 0x24,
     CEVirtualKeyTab                     = 0x30,
     CEVirtualKeySpace                   = 0x31,

@@ -9,6 +9,7 @@
 
 @interface CESyntaxHighlighter( Private )
 
-
+- ( void )updateText;
+- ( void )textDidChange: ( NSNotification * )notification;
 
 @end

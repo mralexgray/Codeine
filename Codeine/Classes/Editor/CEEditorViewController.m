@@ -80,6 +80,8 @@
             [ _highlighter startHighlighting ];
             
             _textView.string = document.sourceFile.text;
+            
+            [ _highlighter highlight ];
         }
     }
 }

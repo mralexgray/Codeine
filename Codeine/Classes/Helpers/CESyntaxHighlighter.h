@@ -13,6 +13,7 @@
     
     NSTextView   * _textView;
     CESourceFile * _sourceFile;
+    NSLock       * _lock;
     
 @private
     
@@ -20,8 +21,8 @@
 }
 
 - ( id )initWithTextView: ( NSTextView * )textView sourceFile: ( CESourceFile * )sourceFile;
-- ( void )highlight;
 - ( void )startHighlighting;
 - ( void )stopHighlighting;
+- ( void )highlight;
 
 @end
