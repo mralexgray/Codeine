@@ -79,7 +79,7 @@
 										<array class="NSMutableArray" key="NSTextContainers">
 											<reference ref="216990251"/>
 										</array>
-										<int key="NSLMFlags">38</int>
+										<int key="NSLMFlags">166</int>
 										<nil key="NSDelegate"/>
 									</object>
 									<reference key="NSTextView" ref="93961992"/>
@@ -87,7 +87,7 @@
 									<int key="NSTCFlags">1</int>
 								</object>
 								<object class="NSTextViewSharedData" key="NSSharedData">
-									<int key="NSFlags">67112807</int>
+									<int key="NSFlags">3427</int>
 									<int key="NSTextCheckingTypes">0</int>
 									<nil key="NSMarkedAttributes"/>
 									<object class="NSColor" key="NSBackgroundColor" id="873553702">
