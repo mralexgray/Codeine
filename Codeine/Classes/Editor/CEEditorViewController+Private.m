@@ -102,21 +102,26 @@
 
 - ( void )highlightSyntax
 {
-    NSArray * tokens;
-    CKToken * token;
-    NSColor * commentColor;
-    NSColor * keywordColor;
-    NSColor * numberColor;
-    NSColor * stringColor;
-    NSColor * predefinedColor;
-    NSColor * foregroundColor;
+    NSArray     * tokens;
+    CKToken     * token;
+    CETokenType   tokenType;
+    NSColor     * commentColor;
+    NSColor     * keywordColor;
+    NSColor     * numberColor;
+    NSColor     * stringColor;
+    NSColor     * predefinedColor;
+    NSColor     * projectColor;
+    NSColor     * preprocessorColor;
+    NSColor     * foregroundColor;
     
-    commentColor    = [ [ CEPreferences sharedInstance ] commentColor ];
-    keywordColor    = [ [ CEPreferences sharedInstance ] keywordColor ];
-    numberColor     = [ [ CEPreferences sharedInstance ] numberColor ];
-    stringColor     = [ [ CEPreferences sharedInstance ] stringColor ];
-    predefinedColor = [ [ CEPreferences sharedInstance ] predefinedColor ];
-    foregroundColor = [ [ CEPreferences sharedInstance ] foregroundColor ];
+    commentColor        = [ [ CEPreferences sharedInstance ] commentColor ];
+    keywordColor        = [ [ CEPreferences sharedInstance ] keywordColor ];
+    numberColor         = [ [ CEPreferences sharedInstance ] numberColor ];
+    stringColor         = [ [ CEPreferences sharedInstance ] stringColor ];
+    predefinedColor     = [ [ CEPreferences sharedInstance ] predefinedColor ];
+    projectColor        = [ [ CEPreferences sharedInstance ] projectColor ];
+    preprocessorColor   = [ [ CEPreferences sharedInstance ] preprocessorColor ];
+    foregroundColor     = [ [ CEPreferences sharedInstance ] foregroundColor ];
     
     if
     (
@@ -140,32 +145,54 @@
     {
         @try
         {
-            if( token.kind == CKTokenKindComment )
+            tokenType = [ self tokenTypeForToken: token ];
+            
+            switch( tokenType )
             {
-                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: commentColor range: token.range ];
-            }
-            else if( token.kind == CKTokenKindIdentifier )
-            {
-                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: predefinedColor range: token.range ];
-            }
-            else if( token.kind == CKTokenKindKeyword )
-            {
-                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: keywordColor range: token.range ];
-            }
-            else if( token.kind == CKTokenKindLiteral )
-            {
-                if( [ token.spelling characterAtIndex: 0 ] == '"' || [ token.spelling characterAtIndex: 0 ] == '\'' )
-                {
-                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: stringColor range: token.range ];
-                }
-                else
-                {
+                case CETokenTypeComment:
+                    
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: commentColor range: token.range ];
+                    break;
+                    
+                case CETokenTypeKeyword:
+                    
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: keywordColor range: token.range ];
+                    break;
+                    
+                case CETokenTypeNumber:
+                    
                     [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: numberColor range: token.range ];
-                }
-            }
-            else
-            {
-                [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: foregroundColor range: token.range ];
+                    break;
+                    
+                case CETokenTypePredefined:
+                    
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: predefinedColor range: token.range ];
+                    break;
+                    
+                case CETokenTypePreprocessor:
+                    
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: preprocessorColor range: token.range ];
+                    break;
+                    
+                case CETokenTypeProject:
+                    
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: projectColor range: token.range ];
+                    break;
+                    
+                case CETokenTypeString:
+                    
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: stringColor range: token.range ];
+                    break;
+                    
+                case CETokenTypeText:
+                    
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: foregroundColor range: token.range ];
+                    break;
+                    
+                default:
+                    
+                    [ _textView.textStorage addAttribute: NSForegroundColorAttributeName value: foregroundColor range: token.range ];
+                    break;
             }
         }
         @catch( NSException * e )
@@ -177,6 +204,51 @@
     }
     
     [ _textView.textStorage endEditing ];
+}
+
+- ( CETokenType )tokenTypeForToken: ( CKToken * )token
+{
+    CKCursor * cursor;
+    
+    cursor = token.cursor;
+    
+    if( token.kind == CKTokenKindPunctuation )
+    {
+        return CETokenTypeText;
+    }
+    if( token.kind == CKTokenKindComment )
+    {
+        return CETokenTypeComment;
+    }
+    else if( token.kind == CKTokenKindKeyword )
+    {
+        return CETokenTypeKeyword;
+    }
+    else if( token.kind == CKTokenKindLiteral )
+    {
+             if( cursor.kind == CKCursorKindIntegerLiteral   ) { return CETokenTypeNumber; }
+        else if( cursor.kind == CKCursorKindFloatingLiteral  ) { return CETokenTypeNumber; }
+        else if( cursor.kind == CKCursorKindImaginaryLiteral ) { return CETokenTypeNumber; }
+        else if( cursor.kind == CKCursorKindStringLiteral    ) { return CETokenTypeString; }
+        else if( cursor.kind == CKCursorKindCharacterLiteral ) { return CETokenTypeString; }
+        
+        return CETokenTypeNumber;
+    }
+    
+    if( token.cursor.isDefinition == YES || token.cursor.isDeclaration == YES )
+    {
+        return CETokenTypeText;
+    }
+    else if( token.cursor.definition != nil )
+    {
+        return CETokenTypeProject;
+    }
+    else if( token.cursor.referenced != nil || token.cursor.isStatement )
+    {
+        return CETokenTypePredefined;
+    }
+    
+    return CETokenTypeText;
 }
 
 @end

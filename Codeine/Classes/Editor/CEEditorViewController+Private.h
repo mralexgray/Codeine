@@ -13,5 +13,6 @@
 - ( void )updateText;
 - ( void )textDidChange: ( NSNotification * )notification;
 - ( void )highlightSyntax;
+- ( CETokenType )tokenTypeForToken: ( CKToken * )token;
 
 @end
