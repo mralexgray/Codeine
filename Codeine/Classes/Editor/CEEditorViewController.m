@@ -14,6 +14,7 @@
 #import "CEEditorLayoutManager.h"
 #import "CEEditorRulerView.h"
 #import "CEDocument.h"
+#import "CESyntaxHighlighter.h"
 
 @implementation CEEditorViewController
 
@@ -27,6 +28,7 @@
     RELEASE_IVAR( _layoutManager );
     RELEASE_IVAR( _rulerView );
     RELEASE_IVAR( _document );
+    RELEASE_IVAR( _highlighter );
     
     [ super dealloc ];
 }
@@ -34,7 +36,6 @@
 - ( void )awakeFromNib
 {
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( updateView ) name: CEPreferencesNotificationValueChanged object: nil ];
-    [ NOTIFICATION_CENTER addObserver: self selector: @selector( textDidChange: ) name: NSTextDidChangeNotification object: _textView ];
     
     _textView.delegate  = self;
     _layoutManager      = [ CEEditorLayoutManager new ];
@@ -64,6 +65,7 @@
         if( document != _document )
         {
             RELEASE_IVAR( _document );
+            RELEASE_IVAR( _highlighter );
             
             _document  = [ document retain ];
             controller = ( CEMainWindowController * )self.view.window.windowController;
@@ -73,9 +75,9 @@
                 controller.activeDocument = document;
             }
             
-            _textView.string = document.sourceFile.text;
+            _highlighter = [ [ CESyntaxHighlighter alloc ] initWithTextView: _textView sourceFile: document.sourceFile ];
             
-            [ self highlightSyntax ];
+            _textView.string = document.sourceFile.text;
         }
     }
 }

@@ -5,10 +5,10 @@
  
 /* $Id$ */
 
-#import "CEEditorViewController.h"
+#import "CESyntaxHighlighter+Private.h"
 
-@interface CEEditorViewController( Private )
+@implementation CESyntaxHighlighter( Private )
 
-- ( void )updateView;
+
 
 @end

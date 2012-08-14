@@ -11,6 +11,7 @@
 @class CEEditorLayoutManager;
 @class CEEditorRulerView;
 @class CEDocument;
+@class CESyntaxHighlighter;
 
 @interface CEEditorViewController: CEViewController
 {
@@ -20,6 +21,7 @@
     CEDocument              * _document;
     CEEditorLayoutManager   * _layoutManager;
     CEEditorRulerView       * _rulerView;
+    CESyntaxHighlighter     * _highlighter;
     
 @private
     
