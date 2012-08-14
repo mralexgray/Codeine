@@ -143,6 +143,8 @@
 		05F4793A15B2188800B1D80E /* NSString+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F4793915B2188800B1D80E /* NSString+CE.m */; };
 		05F5152A159A17AE0049A756 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F51528159A17AE0049A756 /* Localizable.strings */; };
 		05F5152E159A19820049A756 /* CEPreferencesWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */; };
+		05F75E2B15DAB65100F26DCD /* CESyntaxHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F75E2A15DAB65100F26DCD /* CESyntaxHighlighter.m */; };
+		05F75E2E15DAB75C00F26DCD /* CESyntaxHighlighter+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F75E2D15DAB75C00F26DCD /* CESyntaxHighlighter+Private.m */; };
 		05F8034F15A72DBA00CD9F0D /* CETextEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */; };
 		05F8035A15A75CED00CD9F0D /* CETextEncodingPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035915A75CED00CD9F0D /* CETextEncodingPopUpButton.m */; };
 		05F8035D15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8035C15A75DDB00CD9F0D /* CETextEncodingPopUpButton+Private.m */; };
@@ -439,6 +441,10 @@
 		05F5152B159A17EB0049A756 /* CEMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEMacros.h; sourceTree = "<group>"; };
 		05F5152C159A19820049A756 /* CEPreferencesWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesWindowController+Private.h"; sourceTree = "<group>"; };
 		05F5152D159A19820049A756 /* CEPreferencesWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesWindowController+Private.m"; sourceTree = "<group>"; };
+		05F75E2915DAB65100F26DCD /* CESyntaxHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CESyntaxHighlighter.h; sourceTree = "<group>"; };
+		05F75E2A15DAB65100F26DCD /* CESyntaxHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CESyntaxHighlighter.m; sourceTree = "<group>"; };
+		05F75E2C15DAB75C00F26DCD /* CESyntaxHighlighter+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CESyntaxHighlighter+Private.h"; sourceTree = "<group>"; };
+		05F75E2D15DAB75C00F26DCD /* CESyntaxHighlighter+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CESyntaxHighlighter+Private.m"; sourceTree = "<group>"; };
 		05F8034D15A72DBA00CD9F0D /* CETextEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETextEncoding.h; sourceTree = "<group>"; };
 		05F8034E15A72DBA00CD9F0D /* CETextEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETextEncoding.m; sourceTree = "<group>"; };
 		05F8035815A75CED00CD9F0D /* CETextEncodingPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETextEncodingPopUpButton.h; sourceTree = "<group>"; };
@@ -921,6 +927,10 @@
 				05420E9A15B5E600008B2294 /* CEDocument.m */,
 				05F3125A15C075660029964B /* CEDocument+Private.h */,
 				05F3125B15C075660029964B /* CEDocument+Private.m */,
+				05F75E2915DAB65100F26DCD /* CESyntaxHighlighter.h */,
+				05F75E2A15DAB65100F26DCD /* CESyntaxHighlighter.m */,
+				05F75E2C15DAB75C00F26DCD /* CESyntaxHighlighter+Private.h */,
+				05F75E2D15DAB75C00F26DCD /* CESyntaxHighlighter+Private.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1236,6 +1246,8 @@
 				0561B53F15D99936005DD16F /* CEColorChooserView+Private.m in Sources */,
 				0561B54215D999FC005DD16F /* CEPreferencesFontsAndColorsOptionsViewController+CEColorChooserViewDelegate.m in Sources */,
 				0561B55B15D9B50A005DD16F /* CEEditorViewController+NSTextViewDelegate.m in Sources */,
+				05F75E2B15DAB65100F26DCD /* CESyntaxHighlighter.m in Sources */,
+				05F75E2E15DAB75C00F26DCD /* CESyntaxHighlighter+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1572,7 +1584,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
