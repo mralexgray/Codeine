@@ -77,6 +77,8 @@
             
             _highlighter = [ [ CESyntaxHighlighter alloc ] initWithTextView: _textView sourceFile: document.sourceFile ];
             
+            [ _highlighter startHighlighting ];
+            
             _textView.string = document.sourceFile.text;
         }
     }
