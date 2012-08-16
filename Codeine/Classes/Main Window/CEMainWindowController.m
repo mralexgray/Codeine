@@ -8,6 +8,7 @@
 #import "CEMainWindowController.h"
 #import "CEMainWindowController+Private.h"
 #import "CEMainWindowController+NSOpenSavePanelDelegate.h"
+#import "CEMainWindowController+NSSplitViewDelegate.h"
 #import "CEEditorViewController.h"
 #import "CEDebugViewController.h"
 #import "CEFilesViewController.h"
@@ -25,10 +26,13 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 
 @implementation CEMainWindowController
 
-@synthesize leftView      = _leftView;
-@synthesize mainView      = _mainView;
-@synthesize bottomView    = _bottomView;
-@synthesize encodingPopUp = _encodingPopUp;
+@synthesize leftView                = _leftView;
+@synthesize mainView                = _mainView;
+@synthesize bottomView              = _bottomView;
+@synthesize encodingPopUp           = _encodingPopUp;
+@synthesize horizontalSplitView     = _horizontalSplitView;
+@synthesize verticalSplitView       = _verticalSplitView;
+@synthesize viewsSegmentedControl   = _viewsSegmentedControl;
 
 - ( id )init
 {
@@ -47,6 +51,8 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 
 - ( void )dealloc
 {
+    [ NOTIFICATION_CENTER removeObserver: self ];
+    
     RELEASE_IVAR( _fileViewController );
     RELEASE_IVAR( _editorViewController );
     RELEASE_IVAR( _debugViewController );
@@ -58,6 +64,9 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     RELEASE_IVAR( _encodingPopUp );
     RELEASE_IVAR( _documents );
     RELEASE_IVAR( _activeDocument );
+    RELEASE_IVAR( _horizontalSplitView );
+    RELEASE_IVAR( _verticalSplitView );
+    RELEASE_IVAR( _viewsSegmentedControl );
     
     [ super dealloc ];
 }
@@ -66,14 +75,9 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 {
     NSUInteger  resizingMask;
     CEHUDView * editorHUD;
-    CEHUDView * consoleHUD;
     
     resizingMask = NSViewWidthSizable
-                 | NSViewHeightSizable
-                 | NSViewMinXMargin
-                 | NSViewMaxXMargin
-                 | NSViewMinYMargin
-                 | NSViewMaxYMargin;
+                 | NSViewHeightSizable;
     
     _editorViewController.view.frame = _mainView.bounds;
     _debugViewController.view.frame  = _bottomView.bounds;
@@ -83,30 +87,39 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     _debugViewController.view.autoresizingMask  = resizingMask;
     _fileViewController.view.autoresizingMask   = resizingMask;
     
-    editorHUD  = [ [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ] autorelease ];
-    consoleHUD = [ [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ] autorelease ];
-    
-    editorHUD.title  = L10N( "NoEditor" );
-    consoleHUD.title = L10N( "NoConsole" );
-    
-    [ _mainView   addSubview: editorHUD ];
-    [ _bottomView addSubview: consoleHUD ];
-    
-    [ editorHUD centerInSuperview ];
-    [ consoleHUD centerInSuperview ];
-    
+    editorHUD                   = [ [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ] autorelease ];
+    editorHUD.title             = L10N( "NoEditor" );
     editorHUD.autoresizingMask  = NSViewMinXMargin
                                 | NSViewMaxXMargin
                                 | NSViewMinYMargin
                                 | NSViewMaxYMargin;
-    consoleHUD.autoresizingMask = NSViewMinXMargin
-                                | NSViewMaxXMargin
-                                | NSViewMinYMargin
-                                | NSViewMaxYMargin;
     
-    [ _leftView addSubview: _fileViewController.view ];
+    [ _mainView addSubview: editorHUD ];
+    [ editorHUD centerInSuperview ];
+    
+    _fileViewController.view.frame  = _leftView.bounds;
+    _debugViewController.view.frame = _bottomView.bounds;
+    
+    [ _leftView addSubview:   _fileViewController.view ];
+    [ _bottomView addSubview: _debugViewController.view ];
     
     [ self.window setContentBorderThickness: ( CGFloat )29 forEdge: NSMinYEdge ];
+    
+    [ _viewsSegmentedControl setImage: [ NSImage imageNamed: @"ShowFiles-On" ]    forSegment: 0 ];
+    [ _viewsSegmentedControl setImage: [ NSImage imageNamed: @"ShowDebugger-On" ] forSegment: 1 ];
+    
+    if( [ [ CEPreferences sharedInstance ] fileBrowserHidden ] == YES )
+    {
+        [ self toggleFileBrowser: nil ];
+    }
+    
+    if( [ [ CEPreferences sharedInstance ] debugAreaHidden ] == YES )
+    {
+        [ self toggleDebugArea: nil ];
+    }
+    
+    _horizontalSplitView.delegate = self;
+    _verticalSplitView.delegate   = self;
     
     {
         NSRect          badgeRect;
@@ -139,6 +152,15 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 - ( void )showWindow: ( id )sender
 {
     [ super showWindow: sender ];
+    
+    if( _fileBrowserHidden == NO )
+    {
+        [ _horizontalSplitView setPosition: [ [ CEPreferences sharedInstance ] fileBrowserWidth ] ofDividerAtIndex: 0 ];
+    }
+    if( _debugAreaHidden == NO )
+    {
+        [ _verticalSplitView setPosition: _verticalSplitView.frame.size.height - [ [ CEPreferences sharedInstance ] debugAreaHeight ]  ofDividerAtIndex: 0 ];
+    }
     
     if( _documents.count == 0 )
     {
@@ -181,14 +203,10 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
             RELEASE_IVAR( _activeDocument );
             
             [ _editorViewController.view removeFromSuperview ];
-            [ _debugViewController.view  removeFromSuperview ];
             
             _editorViewController.view.frame = _mainView.bounds;
-            _debugViewController.view.frame  = _bottomView.bounds;
-            _fileViewController.view.frame   = _leftView.bounds;
             
-            [ _mainView   addSubview: _editorViewController.view ];
-            [ _bottomView addSubview: _debugViewController.view ];
+            [ _mainView addSubview: _editorViewController.view ];
             
             found = NO;
             i     = 0;
@@ -212,17 +230,6 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                 if( _editorViewController.document != document )
                 {
                     _editorViewController.document = document;
-                }
-                
-                if
-                (
-                       _activeDocument.sourceFile.language != CESourceFileLanguageC
-                    && _activeDocument.sourceFile.language != CESourceFileLanguageCPP
-                    && _activeDocument.sourceFile.language != CESourceFileLanguageObjC
-                    && _activeDocument.sourceFile.language != CESourceFileLanguageObjCPP
-                )
-                {
-                    [ _debugViewController.view  removeFromSuperview ];
                 }
                 
                 if( found == NO )
@@ -251,7 +258,6 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                 _fileDetailsViewController.file = document.file;
                 
                 [ _editorViewController.view removeFromSuperview ];
-                [ _debugViewController.view  removeFromSuperview ];
                 
                 [ _mainView addSubview: _fileDetailsViewController.view ];
             }
@@ -322,6 +328,107 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     {
         return [ NSArray arrayWithArray: _documents ];
     }
+}
+
+- ( IBAction )toggleFileBrowser: ( id )sender
+{
+    CGRect frame;
+    
+    ( void )sender;
+    
+    if( _fileBrowserHidden == NO )
+    {
+        frame              = _leftView.frame;
+        frame.size.width   = ( CGFloat )0;
+        _fileBrowserHidden = YES;
+        _leftView.frame    = frame;
+        
+        [ _viewsSegmentedControl setImage: [ NSImage imageNamed: @"ShowFiles" ] forSegment: 0 ];
+    }
+    else
+    {
+        [ _horizontalSplitView setPosition: [ [ CEPreferences sharedInstance ] fileBrowserWidth ] ofDividerAtIndex: 0 ];
+        
+        _fileBrowserHidden = NO;
+        
+        [ _viewsSegmentedControl setImage: [ NSImage imageNamed: @"ShowFiles-On" ] forSegment: 0 ];
+    }
+    
+    [ [ CEPreferences sharedInstance ] setFileBrowserHidden: _fileBrowserHidden ];
+}
+
+- ( IBAction )toggleDebugArea: ( id )sender
+{
+    CGRect frame;
+    
+    ( void )sender;
+    
+    if( _debugAreaHidden == NO )
+    {
+        frame             = _bottomView.frame;
+        frame.size.height = ( CGFloat )0;
+        _debugAreaHidden  = YES;
+        _bottomView.frame = frame;
+        
+        [ _verticalSplitView setDividerStyle: NSSplitViewDividerStyleThin ];
+        [ _viewsSegmentedControl setImage: [ NSImage imageNamed: @"ShowDebugger" ] forSegment: 1 ];
+    }
+    else
+    {
+        [ _verticalSplitView setDividerStyle: NSSplitViewDividerStylePaneSplitter ];
+        [ _verticalSplitView setPosition: _verticalSplitView.frame.size.height - [ [ CEPreferences sharedInstance ] debugAreaHeight ] ofDividerAtIndex: 0 ];
+        
+        _debugAreaHidden = NO;
+        
+        [ _viewsSegmentedControl setImage: [ NSImage imageNamed: @"ShowDebugger-On" ] forSegment: 1 ];
+    }
+    
+    [ [ CEPreferences sharedInstance ] setDebugAreaHidden: _debugAreaHidden ];
+}
+
+- ( IBAction )toggleViews: ( id )sender
+{
+    if( _viewsSegmentedControl.selectedSegment == 0 )
+    {
+        [ self toggleFileBrowser: sender ];
+    }
+    else if( _viewsSegmentedControl.selectedSegment == 1 )
+    {
+        [ self toggleDebugArea: sender ];
+    }
+}
+
+- ( IBAction )toggleLineNumbers: ( id )sender
+{
+    BOOL value;
+    
+    ( void )sender;
+    
+    value = [ [ CEPreferences sharedInstance ] showLineNumbers ];
+    
+    [ [ CEPreferences sharedInstance ] setShowLineNumbers: ( value == YES ) ? NO : YES ];
+}
+
+- ( IBAction )toggleSoftWrap: ( id )sender
+{
+    BOOL value;
+    
+    ( void )sender;
+    
+    value = [ [ CEPreferences sharedInstance ] softWrap ];
+    
+    [ [ CEPreferences sharedInstance ] setSoftWrap: ( value == YES ) ? NO : YES ];
+}
+
+- ( IBAction )toggleInvisibleCharacters: ( id )sender
+{
+    BOOL value;
+    
+    ( void )sender;
+    
+    value = [ [ CEPreferences sharedInstance ] showInvisibles ];
+    
+    [ [ CEPreferences sharedInstance ] setShowInvisibles: ( value == YES ) ? NO : YES ];
 }
 
 @end

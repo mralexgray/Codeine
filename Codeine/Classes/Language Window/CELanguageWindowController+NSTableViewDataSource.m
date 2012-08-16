@@ -14,7 +14,7 @@
 {
     if( tableView == _languagesTableView )
     {
-        return 4;
+        return 5;
     }
     else if( tableView == _recentFilesTableView )
     {
@@ -48,6 +48,10 @@
                     
                     return [ WORKSPACE iconForFileType: @"mm" ];
                     
+                case 4:
+                    
+                    return [ WORKSPACE iconForFileType: @"h" ];
+                    
                 default:
                     
                     return nil;
@@ -72,6 +76,10 @@
                 case 3:
                     
                     return [ NSNumber numberWithInteger: CESourceFileLanguageObjCPP ];
+                    
+                case 4:
+                    
+                    return [ NSNumber numberWithInteger: CESourceFileLanguageHeader ];
                     
                 default:
                     

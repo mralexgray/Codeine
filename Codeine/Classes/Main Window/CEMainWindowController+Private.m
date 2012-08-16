@@ -66,8 +66,12 @@
             template = [ templates stringByAppendingPathComponent: @"Objective-C++.txt" ];
             break;
             
-        case CESourceFileLanguageC:
         case CESourceFileLanguageHeader:
+            
+            template = [ templates stringByAppendingPathComponent: @"Header.txt" ];
+            break;
+            
+        case CESourceFileLanguageC:
         case CESourceFileLanguageNone:
         default:
             

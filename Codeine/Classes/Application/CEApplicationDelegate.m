@@ -153,39 +153,6 @@
     }
 }
 
-- ( IBAction )toggleLineNumbers: ( id )sender
-{
-    BOOL value;
-    
-    ( void )sender;
-    
-    value = [ [ CEPreferences sharedInstance ] showLineNumbers ];
-    
-    [ [ CEPreferences sharedInstance ] setShowLineNumbers: ( value == YES ) ? NO : YES ];
-}
-
-- ( IBAction )toggleSoftWrap: ( id )sender
-{
-    BOOL value;
-    
-    ( void )sender;
-    
-    value = [ [ CEPreferences sharedInstance ] softWrap ];
-    
-    [ [ CEPreferences sharedInstance ] setSoftWrap: ( value == YES ) ? NO : YES ];
-}
-
-- ( IBAction )toggleInvisibleCharacters: ( id )sender
-{
-    BOOL value;
-    
-    ( void )sender;
-    
-    value = [ [ CEPreferences sharedInstance ] showInvisibles ];
-    
-    [ [ CEPreferences sharedInstance ] setShowInvisibles: ( value == YES ) ? NO : YES ];
-}
-
 - ( IBAction )openDocument: ( id )sender
 {
             NSOpenPanel            * panel;

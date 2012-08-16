@@ -7,18 +7,20 @@
 
 #import "CEViewController.h"
 
+@class CEVerticalTabView;
+
 @interface CEDebugViewController: CEViewController
 {
 @protected
     
-    NSTextView * _textView;
+    CEVerticalTabView * _tabView;
     
 @private
     
     RESERVED_IVARS( CEDebugViewController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSTextView * textView;
+@property( nonatomic, readwrite, retain ) IBOutlet CEVerticalTabView * tabView;
 
 
 

@@ -146,6 +146,11 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
                 _language = CESourceFileLanguageObjCPP;
                 break;
                 
+            case 4:
+                
+                _language = CESourceFileLanguageHeader;
+                break;
+                
             default:
                 
                 _language = CESourceFileLanguageNone;

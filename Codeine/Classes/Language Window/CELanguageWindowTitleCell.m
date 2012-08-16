@@ -54,6 +54,11 @@
             break;
             
         case CESourceFileLanguageHeader:
+            
+            languageName = L10N( "LanguageHeader" );
+            
+            break;
+            
         case CESourceFileLanguageNone:
         default:
             

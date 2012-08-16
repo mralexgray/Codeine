@@ -32,18 +32,26 @@ FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
     NSPopUpButton               * _encodingPopUp;
     NSMutableArray              * _documents;
     CEDocument                  * _activeDocument;
+    NSSplitView                 * _horizontalSplitView;
+    NSSplitView                 * _verticalSplitView;
+    BOOL                          _fileBrowserHidden;
+    BOOL                          _debugAreaHidden;
+    NSSegmentedControl          * _viewsSegmentedControl;
     
 @private
     
     RESERVED_IVARS( CEMainWindowController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSView        * leftView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSView        * mainView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSView        * bottomView;
-@property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton * encodingPopUp;
-@property( nonatomic, readonly          )          NSArray       * documents;
-@property( nonatomic, readwrite, retain )          CEDocument    * activeDocument;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView               * leftView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView               * mainView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSView               * bottomView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSPopUpButton        * encodingPopUp;
+@property( nonatomic, readonly          )          NSArray              * documents;
+@property( nonatomic, readwrite, retain )          CEDocument           * activeDocument;
+@property( nonatomic, readwrite, retain ) IBOutlet NSSplitView          * horizontalSplitView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSSplitView          * verticalSplitView;
+@property( nonatomic, readwrite, retain ) IBOutlet NSSegmentedControl   * viewsSegmentedControl;
 
 - ( IBAction )addBookmark: ( id )sender;
 - ( IBAction )removeBookmark: ( id )sender;
@@ -51,5 +59,11 @@ FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
 - ( IBAction )openDocument: ( id )sender;
 - ( IBAction )newDocument: ( id )sender;
 - ( IBAction )saveDocument: ( id )sender;
+- ( IBAction )toggleFileBrowser: ( id )sender;
+- ( IBAction )toggleDebugArea: ( id )sender;
+- ( IBAction )toggleViews: ( id )sender;
+- ( IBAction )toggleLineNumbers: ( id )sender;
+- ( IBAction )toggleSoftWrap: ( id )sender;
+- ( IBAction )toggleInvisibleCharacters: ( id )sender;
 
 @end

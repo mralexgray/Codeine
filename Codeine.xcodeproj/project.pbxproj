@@ -76,6 +76,14 @@
 		0563E08415A8BBA700BA5828 /* CEFilesViewItemSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E08315A8BBA700BA5828 /* CEFilesViewItemSection.m */; };
 		0563E08715A8BBBB00BA5828 /* CEFilesViewItemDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E08615A8BBBA00BA5828 /* CEFilesViewItemDocument.m */; };
 		0563E08A15A8BBC700BA5828 /* CEFilesViewItemFS.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563E08915A8BBC600BA5828 /* CEFilesViewItemFS.m */; };
+		05667FB815DC6606008A3C01 /* CEVerticalTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05667FB715DC6606008A3C01 /* CEVerticalTabView.m */; };
+		05667FBF15DC69AA008A3C01 /* CEVerticalTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 05667FBE15DC69AA008A3C01 /* CEVerticalTabBar.m */; };
+		05667FC315DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05667FC215DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.m */; };
+		05667FE815DD1488008A3C01 /* CEMainWindowController+NSSplitViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05667FE715DD1488008A3C01 /* CEMainWindowController+NSSplitViewDelegate.m */; };
+		05667FED15DD3540008A3C01 /* ShowDebugger-On.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FE915DD3540008A3C01 /* ShowDebugger-On.png */; };
+		05667FEE15DD3540008A3C01 /* ShowDebugger.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FEA15DD3540008A3C01 /* ShowDebugger.png */; };
+		05667FEF15DD3540008A3C01 /* ShowFiles-On.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FEB15DD3540008A3C01 /* ShowFiles-On.png */; };
+		05667FF015DD3540008A3C01 /* ShowFiles.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FEC15DD3540008A3C01 /* ShowFiles.png */; };
 		0566D9A4159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A2159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib */; };
 		0566D9A6159A33C70060FF7D /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A5159A33C70060FF7D /* Defaults.plist */; };
 		0566D9A9159A40E70060FF7D /* CEPreferences+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566D9A8159A40E70060FF7D /* CEPreferences+Private.m */; };
@@ -321,6 +329,19 @@
 		0563E08615A8BBBA00BA5828 /* CEFilesViewItemDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFilesViewItemDocument.m; sourceTree = "<group>"; };
 		0563E08815A8BBC600BA5828 /* CEFilesViewItemFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFilesViewItemFS.h; sourceTree = "<group>"; };
 		0563E08915A8BBC600BA5828 /* CEFilesViewItemFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFilesViewItemFS.m; sourceTree = "<group>"; };
+		05667FB615DC6606008A3C01 /* CEVerticalTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEVerticalTabView.h; sourceTree = "<group>"; };
+		05667FB715DC6606008A3C01 /* CEVerticalTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEVerticalTabView.m; sourceTree = "<group>"; };
+		05667FBD15DC69AA008A3C01 /* CEVerticalTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEVerticalTabBar.h; sourceTree = "<group>"; };
+		05667FBE15DC69AA008A3C01 /* CEVerticalTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEVerticalTabBar.m; sourceTree = "<group>"; };
+		05667FC015DC6E0E008A3C01 /* CEVerticalTabBarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEVerticalTabBarDelegate.h; sourceTree = "<group>"; };
+		05667FC115DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEVerticalTabView+CEVerticalTabBarDelegate.h"; sourceTree = "<group>"; };
+		05667FC215DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEVerticalTabView+CEVerticalTabBarDelegate.m"; sourceTree = "<group>"; };
+		05667FE615DD1488008A3C01 /* CEMainWindowController+NSSplitViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEMainWindowController+NSSplitViewDelegate.h"; sourceTree = "<group>"; };
+		05667FE715DD1488008A3C01 /* CEMainWindowController+NSSplitViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEMainWindowController+NSSplitViewDelegate.m"; sourceTree = "<group>"; };
+		05667FE915DD3540008A3C01 /* ShowDebugger-On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShowDebugger-On.png"; sourceTree = "<group>"; };
+		05667FEA15DD3540008A3C01 /* ShowDebugger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShowDebugger.png; sourceTree = "<group>"; };
+		05667FEB15DD3540008A3C01 /* ShowFiles-On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShowFiles-On.png"; sourceTree = "<group>"; };
+		05667FEC15DD3540008A3C01 /* ShowFiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShowFiles.png; sourceTree = "<group>"; };
 		0566D9A3159A31060060FF7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesFontsAndColorsOptionsView.xib; sourceTree = "<group>"; };
 		0566D9A5159A33C70060FF7D /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		0566D9A7159A40E70060FF7D /* CEPreferences+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferences+Private.h"; sourceTree = "<group>"; };
@@ -742,6 +763,8 @@
 				052FD019159DF97D0045C9ED /* CEMainWindowController+Private.m */,
 				05B2CB2A15C57629009B4014 /* CEMainWindowController+NSOpenSavePanelDelegate.h */,
 				05B2CB2B15C57629009B4014 /* CEMainWindowController+NSOpenSavePanelDelegate.m */,
+				05667FE615DD1488008A3C01 /* CEMainWindowController+NSSplitViewDelegate.h */,
+				05667FE715DD1488008A3C01 /* CEMainWindowController+NSSplitViewDelegate.m */,
 			);
 			path = "Main Window";
 			sourceTree = "<group>";
@@ -954,6 +977,10 @@
 		05F3172815B22B010000C4CA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				05667FE915DD3540008A3C01 /* ShowDebugger-On.png */,
+				05667FEA15DD3540008A3C01 /* ShowDebugger.png */,
+				05667FEB15DD3540008A3C01 /* ShowFiles-On.png */,
+				05667FEC15DD3540008A3C01 /* ShowFiles.png */,
 				05E566DF15B834FA001314B1 /* Unicorn.png */,
 				05E566E015B834FA001314B1 /* Unicorn@2x.png */,
 			);
@@ -991,6 +1018,13 @@
 				0561B53D15D99936005DD16F /* CEColorChooserView+Private.h */,
 				0561B53E15D99936005DD16F /* CEColorChooserView+Private.m */,
 				0561B53C15D99801005DD16F /* CEColorChooserViewDelegate.h */,
+				05667FB615DC6606008A3C01 /* CEVerticalTabView.h */,
+				05667FB715DC6606008A3C01 /* CEVerticalTabView.m */,
+				05667FC115DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.h */,
+				05667FC215DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.m */,
+				05667FBD15DC69AA008A3C01 /* CEVerticalTabBar.h */,
+				05667FBE15DC69AA008A3C01 /* CEVerticalTabBar.m */,
+				05667FC015DC6E0E008A3C01 /* CEVerticalTabBarDelegate.h */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -1111,6 +1145,10 @@
 				05589E3615C5E7D1006ECFB5 /* Templates in Resources */,
 				05589E3715C5E7D1006ECFB5 /* Themes in Resources */,
 				0518BAA015D8617000349932 /* README.md in Resources */,
+				05667FED15DD3540008A3C01 /* ShowDebugger-On.png in Resources */,
+				05667FEE15DD3540008A3C01 /* ShowDebugger.png in Resources */,
+				05667FEF15DD3540008A3C01 /* ShowFiles-On.png in Resources */,
+				05667FF015DD3540008A3C01 /* ShowFiles.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1248,6 +1286,10 @@
 				0561B55B15D9B50A005DD16F /* CEEditorViewController+NSTextViewDelegate.m in Sources */,
 				05F75E2B15DAB65100F26DCD /* CESyntaxHighlighter.m in Sources */,
 				05F75E2E15DAB75C00F26DCD /* CESyntaxHighlighter+Private.m in Sources */,
+				05667FB815DC6606008A3C01 /* CEVerticalTabView.m in Sources */,
+				05667FBF15DC69AA008A3C01 /* CEVerticalTabBar.m in Sources */,
+				05667FC315DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.m in Sources */,
+				05667FE815DD1488008A3C01 /* CEMainWindowController+NSSplitViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,6 +30,7 @@
 "LanguageCPP"                               = "C++ source file";
 "LanguageObjC"                              = "Objective-C source file";
 "LanguageObjCPP"                            = "Objective-C++ source file";
+"LanguageHeader"                            = "Header file";
 "NotRegistered"                             = "Not registered - Click here";
 "NoEditor"                                  = "No file to display";
 "NoConsole"                                 = "Console not available";

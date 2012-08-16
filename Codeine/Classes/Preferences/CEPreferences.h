@@ -50,6 +50,10 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyBookmarks;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyLinkerObjects;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyObjCLoadAll;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyOptimizationLevel;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyFileBrowserHidden;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyDebugAreaHidden;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyFileBrowserWidth;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyDebugAreaHeight;
 
 @class CEColorTheme;
 @class CELinkerObject;
@@ -106,6 +110,10 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyOptimizationLevel;
 @property( atomic, readonly          ) NSArray                * linkerObjects;
 @property( atomic, readwrite, assign ) BOOL                     objCLoadAll;
 @property( atomic, readwrite, assign ) CEOptimizationLevel      optimizationLevel;
+@property( atomic, readwrite, assign ) BOOL                     fileBrowserHidden;
+@property( atomic, readwrite, assign ) BOOL                     debugAreaHidden;
+@property( atomic, readwrite, assign ) CGFloat                  fileBrowserWidth;
+@property( atomic, readwrite, assign ) CGFloat                  debugAreaHeight;
 
 + ( CEPreferences * )sharedInstance;
 

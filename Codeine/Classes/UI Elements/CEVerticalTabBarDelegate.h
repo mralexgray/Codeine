@@ -5,10 +5,12 @@
  
 /* $Id$ */
 
-#import "CEDebugViewController.h"
+@class CEVerticalTabBar;
 
-@interface CEDebugViewController( Private )
+@protocol CEVerticalTabBarDelegate < NSObject >
 
+@optional
 
+- ( void )verticalTabBar: ( CEVerticalTabBar * )tabBar didSelectItemAtIndex: ( NSUInteger )index;
 
 @end

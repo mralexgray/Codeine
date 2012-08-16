@@ -142,6 +142,9 @@
                 return [ WORKSPACE iconForFileType: @"mm" ];
                 
             case CESourceFileLanguageHeader:
+                
+                return [ WORKSPACE iconForFileType: @"h" ];
+                
             case CESourceFileLanguageNone:
             default:
                 

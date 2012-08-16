@@ -47,6 +47,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
 {
     NSColor      * color1;
     NSColor      * color2;
+    NSColor      * color3;
     NSGradient   * gradient;
     
     [ [ NSColor clearColor ] setFill ];
@@ -72,9 +73,11 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     
     color1   = [ NSColor colorWithDeviceWhite: ( CGFloat )0.95 alpha: ( CGFloat )1 ];
     color2   = [ NSColor colorWithDeviceWhite: ( CGFloat )0.80 alpha: ( CGFloat )1 ];
+    color3   = [ NSColor colorWithDeviceWhite: ( CGFloat )0.85 alpha: ( CGFloat )1 ];
     color1   = [ color1 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     color2   = [ color2 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
-    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
+    color3   = [ color3 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
+    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color3, ( CGFloat )0, color1, ( CGFloat )0.10, color2, ( CGFloat )1, nil ];
     
     [ gradient drawInRect: rect angle: ( CGFloat )0 ];
     [ gradient release ];

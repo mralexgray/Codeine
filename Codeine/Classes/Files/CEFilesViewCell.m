@@ -125,42 +125,45 @@ static void __exit( void )
                         rect.size.width   = rect.size.height;
                     }
                     
-                    labelColor = [ labelColor colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
-                    
-                    [ labelColor getHue: &h saturation: &s brightness: &b alpha: NULL ];
-                    
-                    if( APPLICATION.isActive == YES )
+                    if( rect.size.width > 10 )
                     {
-                        labelColor  = [ NSColor colorWithDeviceHue: h saturation: s brightness: b alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
-                    }
-                    else
-                    {
-                        labelColor  = [ NSColor colorWithDeviceHue: ( CGFloat )0 saturation: ( CGFloat )0 brightness: ( CGFloat )0.75 alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
-                    }
-                    
-                    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:    [ NSColor whiteColor ], ( CGFloat )0.0,
+                        labelColor = [ labelColor colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
+                        
+                        [ labelColor getHue: &h saturation: &s brightness: &b alpha: NULL ];
+                        
+                        if( APPLICATION.isActive == YES )
+                        {
+                            labelColor  = [ NSColor colorWithDeviceHue: h saturation: s brightness: b alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
+                        }
+                        else
+                        {
+                            labelColor  = [ NSColor colorWithDeviceHue: ( CGFloat )0 saturation: ( CGFloat )0 brightness: ( CGFloat )0.75 alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
+                        }
+                        
+                        gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:   [ NSColor whiteColor ], ( CGFloat )0.0,
                                                                                         labelColor,             ( CGFloat )1.0,
                                                                                         nil
-                               ];
-                    
-                    [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
-                    
-                    [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
-                    [ gradient release ];
-                    
-                    gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
-                                                      endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
-                               ];
-                    
-                    rect.origin.x    += ( CGFloat )0.25;
-                    rect.origin.y    += ( CGFloat )0.25;
-                    rect.size.width  -= ( CGFloat )0.5;
-                    rect.size.height -= ( CGFloat )0.5;
-                    
-                    [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ] ];
-                    [ path setWindingRule: NSEvenOddWindingRule ];
-                    [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
-                    [ gradient release ];
+                                   ];
+                        
+                        [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
+                        
+                        [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
+                        [ gradient release ];
+                        
+                        gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
+                                                          endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
+                                   ];
+                        
+                        rect.origin.x    += ( CGFloat )0.25;
+                        rect.origin.y    += ( CGFloat )0.25;
+                        rect.size.width  -= ( CGFloat )0.5;
+                        rect.size.height -= ( CGFloat )0.5;
+                        
+                        [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ] ];
+                        [ path setWindingRule: NSEvenOddWindingRule ];
+                        [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
+                        [ gradient release ];
+                    }
                 }
             }
         }

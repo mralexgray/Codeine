@@ -5,23 +5,11 @@
  
 /* $Id$ */
 
-#import "CEDebugViewController.h"
-#import "CEDebugViewController+Private.h"
-#import "CEPreferences.h"
 #import "CEVerticalTabView.h"
+#import "CEVerticalTabBarDelegate.h"
 
-@implementation CEDebugViewController
+@interface CEVerticalTabView( CEVerticalTabBarDelegate ) < CEVerticalTabBarDelegate >
 
-@synthesize tabView = _tabView;
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _tabView );
-    
-    [ super dealloc ];
-}
-
-- ( void )awakeFromNib
-{}
 
 @end

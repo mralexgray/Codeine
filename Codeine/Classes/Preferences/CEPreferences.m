@@ -57,6 +57,10 @@ NSString * const CEPreferencesKeyBookmarks                  = @"Bookmarks";
 NSString * const CEPreferencesKeyLinkerObjects              = @"LinkerObjects";
 NSString * const CEPreferencesKeyObjCLoadAll                = @"ObjCLoadAll";
 NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLevel";
+NSString * const CEPreferencesKeyFileBrowserHidden          = @"FileBrowserHidden";
+NSString * const CEPreferencesKeyDebugAreaHidden            = @"DebugAreaHidden";
+NSString * const CEPreferencesKeyFileBrowserWidth           = @"FileBrowserWidth";
+NSString * const CEPreferencesKeyDebugAreaHeight            = @"DebugAreaHeight";
 
 @implementation CEPreferences
 
@@ -777,6 +781,38 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
     }
 }
 
+- ( BOOL )fileBrowserHidden
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyFileBrowserHidden ];
+    }
+}
+
+- ( BOOL )debugAreaHidden
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyDebugAreaHidden ];
+    }
+}
+
+- ( CGFloat )fileBrowserWidth
+{
+    @synchronized( self )
+    {
+        return ( CGFloat )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyFileBrowserWidth ] doubleValue ];
+    }
+}
+
+- ( CGFloat )debugAreaHeight
+{
+    @synchronized( self )
+    {
+        return ( CGFloat )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyDebugAreaHeight ] doubleValue ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -1140,6 +1176,50 @@ NSString * const CEPreferencesKeyOptimizationLevel          = @"OptimizationLeve
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyOptimizationLevel );
+    }
+}
+
+- ( void )setFileBrowserHidden: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyFileBrowserHidden ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFileBrowserHidden );
+    }
+}
+
+- ( void )setDebugAreaHidden: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyDebugAreaHidden ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDebugAreaHidden );
+    }
+}
+
+- ( void )setFileBrowserWidth: ( CGFloat )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithDouble: ( double )value ] forKey: CEPreferencesKeyFileBrowserWidth ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFileBrowserWidth );
+    }
+}
+
+- ( void )setDebugAreaHeight: ( CGFloat )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithDouble: ( double )value ] forKey: CEPreferencesKeyDebugAreaHeight ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDebugAreaHeight );
     }
 }
 

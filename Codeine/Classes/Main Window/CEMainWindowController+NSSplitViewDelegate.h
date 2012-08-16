@@ -5,9 +5,9 @@
  
 /* $Id$ */
 
-#import "CEDebugViewController.h"
+#import "CEMainWindowController.h"
 
-@interface CEDebugViewController( Private )
+@interface CEMainWindowController( NSSplitViewDelegate ) < NSSplitViewDelegate >
 
 
 

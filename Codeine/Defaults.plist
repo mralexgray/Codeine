@@ -19,9 +19,9 @@
 	<key>ShowLineNumbers</key>
 	<true/>
 	<key>ShowPageGuide</key>
-	<true/>
+	<false/>
 	<key>ShowTabStops</key>
-	<true/>
+	<false/>
 	<key>PageGuideWidth</key>
 	<integer>80</integer>
 	<key>FirstLaunch</key>
@@ -734,5 +734,13 @@
 	<true/>
 	<key>OptimizationLevel</key>
 	<integer>4</integer>
+	<key>FileBrowserHidden</key>
+	<false/>
+	<key>DebugAreaHidden</key>
+	<true/>
+	<key>FileBrowserWidth</key>
+	<integer>250</integer>
+	<key>DebugAreaHeight</key>
+	<integer>200</integer>
 </dict>
 </plist>
