@@ -50,6 +50,7 @@ NSString * const CEPreferencesKeySoftWrap                   = @"SoftWrap";
 NSString * const CEPreferencesKeyShowLineNumbers            = @"ShowLineNumbers";
 NSString * const CEPreferencesKeyShowPageGuide              = @"ShowPageGuide";
 NSString * const CEPreferencesKeyShowTabStops               = @"ShowTabStops";
+NSString * const CEPreferencesKeyHighlightCurrentLine       = @"HighlightCurrentLine";
 NSString * const CEPreferencesKeyColorThemes                = @"ColorThemes";
 NSString * const CEPreferencesKeyTreatWarningsAsErrors      = @"TreatWarningsAsErrors";
 NSString * const CEPreferencesKeyShowHiddenFiles            = @"ShowHiddenFiles";
@@ -711,6 +712,14 @@ NSString * const CEPreferencesKeyDebugAreaHeight            = @"DebugAreaHeight"
     }
 }
 
+- ( BOOL )highlightCurrentLine
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyHighlightCurrentLine ];
+    }
+}
+
 - ( CEColorTheme * )currentColorTheme
 {
     CEColorTheme * theme;
@@ -1132,6 +1141,17 @@ NSString * const CEPreferencesKeyDebugAreaHeight            = @"DebugAreaHeight"
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowTabStops );
+    }
+}
+
+- ( void )setHighlightCurrentLine: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyHighlightCurrentLine ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyHighlightCurrentLine );
     }
 }
 

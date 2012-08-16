@@ -22,8 +22,8 @@
 	<false/>
 	<key>ShowTabStops</key>
 	<false/>
-	<key>PageGuideWidth</key>
-	<integer>80</integer>
+	<key>HighlightCurrentLine</key>
+	<true/>
 	<key>FirstLaunch</key>
 	<true/>
 	<key>TextEncoding</key>

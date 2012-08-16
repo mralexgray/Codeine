@@ -57,7 +57,7 @@
         [ self drawTabStopsInRect: rect ];
     }
     
-    if( 1 )
+    if( [ [ CEPreferences sharedInstance ] highlightCurrentLine ] == YES )
     {
         [ self drawCurrentLineHighlight: rect ];
     }
