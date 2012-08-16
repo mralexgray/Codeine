@@ -36,7 +36,7 @@
     }
     else if( splitView == _verticalSplitView )
     {
-        return _verticalSplitView.frame.size.height - ( CGFloat )100;
+        return _verticalSplitView.frame.size.height - ( CGFloat )150;
     }
     
     return proposedMax;

@@ -172,6 +172,11 @@
     selection = self.selectedRange;
     text      = self.textStorage.string;
     
+    if( selection.length > 0 )
+    {
+        return;
+    }
+    
     if( selection.location <= text.length )
     {
         lineRange = [ text lineRangeForRange: NSMakeRange( selection.location, 0 ) ];

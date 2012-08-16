@@ -18,9 +18,11 @@ CEVerticalTabBarPosition;
 {
 @protected
     
-    NSMutableArray                * _titles;
     NSMutableArray                * _icons;
     CEVerticalTabBarPosition        _position;
+    NSMutableArray                * _trackingAreas;
+    NSInteger                       _trackingIndex;
+    NSUInteger                      _selectedIndex;
     id < CEVerticalTabBarDelegate > _delegate;
     
 @private
@@ -31,7 +33,7 @@ CEVerticalTabBarPosition;
 @property( atomic, readwrite, assign ) CEVerticalTabBarPosition        position;
 @property( atomic, readwrite, assign ) id < CEVerticalTabBarDelegate > delegate;
 
-- ( void )addItemWithTitle: ( NSString * )title icon: ( NSImage * )icon;
+- ( void )addItem: ( NSImage * )icon;
 - ( void )removeItemAtIndex: ( NSUInteger )index;
 
 @end

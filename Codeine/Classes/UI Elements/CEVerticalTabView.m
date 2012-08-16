@@ -109,10 +109,15 @@
     }
 }
 
-- ( void )addView: ( NSView * )view title: ( NSString * )title icon: ( NSImage * )icon
+- ( void )addView: ( NSView * )view icon: ( NSImage * )icon
 {
     [ _views addObject: view ];
-    [ _tabBar addItemWithTitle: title icon: icon ];
+    [ _tabBar addItem: icon ];
+    
+    if( _views.count == 1 )
+    {
+        [ self verticalTabBar: _tabBar didSelectItemAtIndex: 0 ];
+    }
 }
 
 - ( void )removeViewAtIndex: ( NSUInteger )index

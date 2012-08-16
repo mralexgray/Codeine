@@ -25,7 +25,7 @@
 @property( atomic, readwrite, assign ) CGFloat                  tabBarWidth;
 @property( atomic, readwrite, assign ) CEVerticalTabBarPosition tabBarPosition;
 
-- ( void )addView: ( NSView * )view title: ( NSString * )title icon: ( NSImage * )icon;
+- ( void )addView: ( NSView * )view icon: ( NSImage * )icon;
 - ( void )removeViewAtIndex: ( NSUInteger )index;
 - ( void )removeView: ( NSView * )view;
 

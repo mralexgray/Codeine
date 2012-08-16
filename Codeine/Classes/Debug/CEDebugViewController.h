@@ -8,12 +8,16 @@
 #import "CEViewController.h"
 
 @class CEVerticalTabView;
+@class CEConsoleViewController;
+@class CEDiagnosticsViewController;
 
 @interface CEDebugViewController: CEViewController
 {
 @protected
     
-    CEVerticalTabView * _tabView;
+    CEVerticalTabView           * _tabView;
+    CEConsoleViewController     * _consoleViewController;
+    CEDiagnosticsViewController * _diagnosticsViewController;
     
 @private
     

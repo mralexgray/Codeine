@@ -99,8 +99,6 @@
         
         i++;
         
-        tokenType = CETokenTypeText;
-        
         if( preprocessorLine != token.line )
         {
             inInclude = NO;

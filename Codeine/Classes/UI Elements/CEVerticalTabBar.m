@@ -6,6 +6,7 @@
 /* $Id$ */
 
 #import "CEVerticalTabBar.h"
+#import "CEVerticalTabBar+Private.h"
 
 @implementation CEVerticalTabBar
 
@@ -15,8 +16,8 @@
 {
     if( ( self = [ super initWithFrame: frame ] ) )
     {
-        _titles = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
-        _icons  = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+        _icons         = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+        _trackingIndex = NSNotFound;
     }
     
     return self;
@@ -24,8 +25,8 @@
 
 - ( void )dealloc
 {
-    RELEASE_IVAR( _titles );
     RELEASE_IVAR( _icons );
+    RELEASE_IVAR( _trackingAreas);
     
     [ super dealloc ];
 }
@@ -35,6 +36,9 @@
     NSColor      * color1;
     NSColor      * color2;
     NSGradient   * gradient;
+    NSInteger      i;
+    
+    rect.size.width += 1;
     
     [ [ NSColor windowFrameColor ] setFill ];
     
@@ -50,20 +54,54 @@
     
     [ gradient drawInRect: rect angle: ( CGFloat )0 ];
     [ gradient release ];
+    
+    {
+        NSImage * icon;
+        NSRect    iconRect;
+        
+        iconRect = NSMakeRect( ( CGFloat )0, rect.size.height - rect.size.width, rect.size.width, rect.size.width );
+        i        = 0;
+        
+        for( icon in _icons )
+        {
+            if( ( NSUInteger )i == _selectedIndex )
+            {
+                [ [ NSColor darkGrayColor ] setFill ];
+                
+                NSRectFill( iconRect );
+            }
+            
+            icon = ( _trackingIndex == i ) ? icon : [ icon grayscaleImage ];
+            
+            iconRect.origin.y -= ( CGFloat )2.5;
+            
+            [ icon drawInRect: NSInsetRect( iconRect, ( CGFloat )5, ( CGFloat )5 ) fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1 ];
+            
+            iconRect.origin.y -= rect.size.width - ( CGFloat )5;
+            
+            i++;
+        }
+    }
 }
 
-- ( void )addItemWithTitle: ( NSString * )title icon: ( NSImage * )icon
+- ( void )setFrame: ( NSRect )frame
 {
-    [ _titles addObject: title ];
-    [ _icons  addObject: icon ];
+    [ super setFrame: frame ];
+    [ self setTrackingAreas ];
+}
+
+- ( void )addItem: ( NSImage * )icon
+{
+    [ _icons addObject: icon ];
+    [ self setTrackingAreas ];
 }
 
 - ( void )removeItemAtIndex: ( NSUInteger )index
 {
     @try
     {
-        [ _titles removeObjectAtIndex: index ];
-        [ _icons  removeObjectAtIndex: index ];
+        [ _icons removeObjectAtIndex: index ];
+        [ self setTrackingAreas ];
     }
     @catch( NSException * e )
     {
@@ -87,6 +125,59 @@
         
         [ self setNeedsDisplay: YES ];
     }
+}
+
+- ( void )mouseEntered: ( NSEvent * )event
+{
+    NSDictionary * data;
+    NSNumber     * index;
+    
+    data  = event.userData;
+    index = [ data objectForKey: @"Index" ];
+    
+    if( data == nil || index == nil )
+    {
+        _trackingIndex = NSNotFound;
+    }
+    else
+    {
+        _trackingIndex = [ index integerValue ];
+    }
+    
+    [ self setNeedsDisplay: YES ];
+}
+
+- ( void )mouseExited: ( NSEvent * )event
+{
+    NSDictionary * data;
+    NSNumber     * index;
+    
+    data  = event.userData;
+    index = [ data objectForKey: @"Index" ];
+    
+    if( data == nil || index == nil || _trackingIndex == [ index integerValue ] )
+    {
+        _trackingIndex = NSNotFound;
+    }
+    
+    [ self setNeedsDisplay: YES ];
+}
+
+- ( void )mouseDown: ( NSEvent * )event
+{
+    ( void )event;
+    
+    if( _trackingIndex != NSNotFound )
+    {
+        _selectedIndex = ( NSUInteger )_trackingIndex;
+        
+        if( _delegate != nil && [ _delegate respondsToSelector: @selector( verticalTabBar:didSelectItemAtIndex: ) ] )
+        {
+            [ _delegate verticalTabBar: self didSelectItemAtIndex: _selectedIndex ];
+        }
+    }
+    
+    [ self setNeedsDisplay: YES ];
 }
 
 @end

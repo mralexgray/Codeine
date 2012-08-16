@@ -11,8 +11,28 @@
 
 - ( void )verticalTabBar: ( CEVerticalTabBar * )tabBar didSelectItemAtIndex: ( NSUInteger )index
 {
+    NSView * view;
+    
     ( void )tabBar;
-    ( void )index;
+    
+    for( view in _contentView.subviews )
+    {
+        [ view removeFromSuperview ];
+    }
+    
+    @try
+    {
+        view                  = [ _views objectAtIndex: index ];
+        view.frame            = _contentView.bounds;
+        view.autoresizingMask = NSViewWidthSizable
+                              | NSViewHeightSizable;
+        
+        [ _contentView addSubview: view ];
+    }
+    @catch( NSException * e )
+    {
+        ( void )e;
+    }
 }
 
 @end

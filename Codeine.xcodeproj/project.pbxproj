@@ -84,6 +84,19 @@
 		05667FEE15DD3540008A3C01 /* ShowDebugger.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FEA15DD3540008A3C01 /* ShowDebugger.png */; };
 		05667FEF15DD3540008A3C01 /* ShowFiles-On.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FEB15DD3540008A3C01 /* ShowFiles-On.png */; };
 		05667FF015DD3540008A3C01 /* ShowFiles.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FEC15DD3540008A3C01 /* ShowFiles.png */; };
+		05667FF915DD4B0B008A3C01 /* ShowDebugger-On@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FF515DD4B0A008A3C01 /* ShowDebugger-On@2x.png */; };
+		05667FFA15DD4B0B008A3C01 /* ShowDebugger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FF615DD4B0A008A3C01 /* ShowDebugger@2x.png */; };
+		05667FFB15DD4B0B008A3C01 /* ShowFiles-On@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FF715DD4B0B008A3C01 /* ShowFiles-On@2x.png */; };
+		05667FFC15DD4B0B008A3C01 /* ShowFiles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05667FF815DD4B0B008A3C01 /* ShowFiles@2x.png */; };
+		0566800415DD556A008A3C01 /* Console.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0566800015DD5569008A3C01 /* Console.icns */; };
+		0566800615DD556A008A3C01 /* Diagnostics.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0566800215DD5569008A3C01 /* Diagnostics.icns */; };
+		0566800915DD565C008A3C01 /* CEVerticalTabBar+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566800815DD565C008A3C01 /* CEVerticalTabBar+Private.m */; };
+		0566800E15DD6236008A3C01 /* CEConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566800D15DD6236008A3C01 /* CEConsoleViewController.m */; };
+		0566801115DD6243008A3C01 /* CEConsoleViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566801015DD6243008A3C01 /* CEConsoleViewController+Private.m */; };
+		0566801415DD6254008A3C01 /* CEDiagnosticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566801315DD6254008A3C01 /* CEDiagnosticsViewController.m */; };
+		0566801715DD6261008A3C01 /* CEDiagnosticsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566801615DD6261008A3C01 /* CEDiagnosticsViewController+Private.m */; };
+		0566801A15DD63CA008A3C01 /* CEConsoleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0566801815DD63CA008A3C01 /* CEConsoleView.xib */; };
+		0566801C15DD63D7008A3C01 /* CEDiagnosticsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0566801B15DD63D7008A3C01 /* CEDiagnosticsView.xib */; };
 		0566D9A4159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A2159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib */; };
 		0566D9A6159A33C70060FF7D /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0566D9A5159A33C70060FF7D /* Defaults.plist */; };
 		0566D9A9159A40E70060FF7D /* CEPreferences+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566D9A8159A40E70060FF7D /* CEPreferences+Private.m */; };
@@ -342,6 +355,24 @@
 		05667FEA15DD3540008A3C01 /* ShowDebugger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShowDebugger.png; sourceTree = "<group>"; };
 		05667FEB15DD3540008A3C01 /* ShowFiles-On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShowFiles-On.png"; sourceTree = "<group>"; };
 		05667FEC15DD3540008A3C01 /* ShowFiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShowFiles.png; sourceTree = "<group>"; };
+		05667FF515DD4B0A008A3C01 /* ShowDebugger-On@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShowDebugger-On@2x.png"; sourceTree = "<group>"; };
+		05667FF615DD4B0A008A3C01 /* ShowDebugger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShowDebugger@2x.png"; sourceTree = "<group>"; };
+		05667FF715DD4B0B008A3C01 /* ShowFiles-On@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShowFiles-On@2x.png"; sourceTree = "<group>"; };
+		05667FF815DD4B0B008A3C01 /* ShowFiles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShowFiles@2x.png"; sourceTree = "<group>"; };
+		0566800015DD5569008A3C01 /* Console.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Console.icns; sourceTree = "<group>"; };
+		0566800215DD5569008A3C01 /* Diagnostics.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Diagnostics.icns; sourceTree = "<group>"; };
+		0566800715DD565C008A3C01 /* CEVerticalTabBar+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEVerticalTabBar+Private.h"; sourceTree = "<group>"; };
+		0566800815DD565C008A3C01 /* CEVerticalTabBar+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEVerticalTabBar+Private.m"; sourceTree = "<group>"; };
+		0566800C15DD6236008A3C01 /* CEConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEConsoleViewController.h; sourceTree = "<group>"; };
+		0566800D15DD6236008A3C01 /* CEConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEConsoleViewController.m; sourceTree = "<group>"; };
+		0566800F15DD6243008A3C01 /* CEConsoleViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEConsoleViewController+Private.h"; sourceTree = "<group>"; };
+		0566801015DD6243008A3C01 /* CEConsoleViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEConsoleViewController+Private.m"; sourceTree = "<group>"; };
+		0566801215DD6254008A3C01 /* CEDiagnosticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDiagnosticsViewController.h; sourceTree = "<group>"; };
+		0566801315DD6254008A3C01 /* CEDiagnosticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDiagnosticsViewController.m; sourceTree = "<group>"; };
+		0566801515DD6261008A3C01 /* CEDiagnosticsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDiagnosticsViewController+Private.h"; sourceTree = "<group>"; };
+		0566801615DD6261008A3C01 /* CEDiagnosticsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEDiagnosticsViewController+Private.m"; sourceTree = "<group>"; };
+		0566801915DD63CA008A3C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEConsoleView.xib; sourceTree = "<group>"; };
+		0566801B15DD63D7008A3C01 /* CEDiagnosticsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CEDiagnosticsView.xib; sourceTree = "<group>"; };
 		0566D9A3159A31060060FF7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesFontsAndColorsOptionsView.xib; sourceTree = "<group>"; };
 		0566D9A5159A33C70060FF7D /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		0566D9A7159A40E70060FF7D /* CEPreferences+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferences+Private.h"; sourceTree = "<group>"; };
@@ -704,6 +735,8 @@
 				05480FCA159A0B98005CFBC5 /* Application */,
 				05480FDD159A0CE5005CFBC5 /* Base */,
 				057F5862159D40A200C84780 /* Debug */,
+				0566800A15DD6206008A3C01 /* Console */,
+				0566800B15DD6208008A3C01 /* Diagnostics */,
 				057F5863159D40A200C84780 /* Editor */,
 				057F5864159D40A300C84780 /* Files */,
 				05B2CB2615C37081009B4014 /* File Details */,
@@ -750,6 +783,8 @@
 				0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */,
 				05FFD9EA15BDDEE5001EA4A3 /* CERegistrationWindow.xib */,
 				05B2CB2215C36E44009B4014 /* CEFileDetailsView.xib */,
+				0566801815DD63CA008A3C01 /* CEConsoleView.xib */,
+				0566801B15DD63D7008A3C01 /* CEDiagnosticsView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -784,6 +819,28 @@
 				05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		0566800A15DD6206008A3C01 /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				0566800C15DD6236008A3C01 /* CEConsoleViewController.h */,
+				0566800D15DD6236008A3C01 /* CEConsoleViewController.m */,
+				0566800F15DD6243008A3C01 /* CEConsoleViewController+Private.h */,
+				0566801015DD6243008A3C01 /* CEConsoleViewController+Private.m */,
+			);
+			path = Console;
+			sourceTree = "<group>";
+		};
+		0566800B15DD6208008A3C01 /* Diagnostics */ = {
+			isa = PBXGroup;
+			children = (
+				0566801215DD6254008A3C01 /* CEDiagnosticsViewController.h */,
+				0566801315DD6254008A3C01 /* CEDiagnosticsViewController.m */,
+				0566801515DD6261008A3C01 /* CEDiagnosticsViewController+Private.h */,
+				0566801615DD6261008A3C01 /* CEDiagnosticsViewController+Private.m */,
+			);
+			path = Diagnostics;
 			sourceTree = "<group>";
 		};
 		057F5845159D3BE000C84780 /* Compiler */ = {
@@ -977,6 +1034,12 @@
 		05F3172815B22B010000C4CA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0566800015DD5569008A3C01 /* Console.icns */,
+				0566800215DD5569008A3C01 /* Diagnostics.icns */,
+				05667FF515DD4B0A008A3C01 /* ShowDebugger-On@2x.png */,
+				05667FF615DD4B0A008A3C01 /* ShowDebugger@2x.png */,
+				05667FF715DD4B0B008A3C01 /* ShowFiles-On@2x.png */,
+				05667FF815DD4B0B008A3C01 /* ShowFiles@2x.png */,
 				05667FE915DD3540008A3C01 /* ShowDebugger-On.png */,
 				05667FEA15DD3540008A3C01 /* ShowDebugger.png */,
 				05667FEB15DD3540008A3C01 /* ShowFiles-On.png */,
@@ -1024,6 +1087,8 @@
 				05667FC215DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.m */,
 				05667FBD15DC69AA008A3C01 /* CEVerticalTabBar.h */,
 				05667FBE15DC69AA008A3C01 /* CEVerticalTabBar.m */,
+				0566800715DD565C008A3C01 /* CEVerticalTabBar+Private.h */,
+				0566800815DD565C008A3C01 /* CEVerticalTabBar+Private.m */,
 				05667FC015DC6E0E008A3C01 /* CEVerticalTabBarDelegate.h */,
 			);
 			path = "UI Elements";
@@ -1149,6 +1214,14 @@
 				05667FEE15DD3540008A3C01 /* ShowDebugger.png in Resources */,
 				05667FEF15DD3540008A3C01 /* ShowFiles-On.png in Resources */,
 				05667FF015DD3540008A3C01 /* ShowFiles.png in Resources */,
+				05667FF915DD4B0B008A3C01 /* ShowDebugger-On@2x.png in Resources */,
+				05667FFA15DD4B0B008A3C01 /* ShowDebugger@2x.png in Resources */,
+				05667FFB15DD4B0B008A3C01 /* ShowFiles-On@2x.png in Resources */,
+				05667FFC15DD4B0B008A3C01 /* ShowFiles@2x.png in Resources */,
+				0566800415DD556A008A3C01 /* Console.icns in Resources */,
+				0566800615DD556A008A3C01 /* Diagnostics.icns in Resources */,
+				0566801A15DD63CA008A3C01 /* CEConsoleView.xib in Resources */,
+				0566801C15DD63D7008A3C01 /* CEDiagnosticsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,6 +1363,11 @@
 				05667FBF15DC69AA008A3C01 /* CEVerticalTabBar.m in Sources */,
 				05667FC315DC6F04008A3C01 /* CEVerticalTabView+CEVerticalTabBarDelegate.m in Sources */,
 				05667FE815DD1488008A3C01 /* CEMainWindowController+NSSplitViewDelegate.m in Sources */,
+				0566800915DD565C008A3C01 /* CEVerticalTabBar+Private.m in Sources */,
+				0566800E15DD6236008A3C01 /* CEConsoleViewController.m in Sources */,
+				0566801115DD6243008A3C01 /* CEConsoleViewController+Private.m in Sources */,
+				0566801415DD6254008A3C01 /* CEDiagnosticsViewController.m in Sources */,
+				0566801715DD6261008A3C01 /* CEDiagnosticsViewController+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1382,6 +1460,14 @@
 				05480FDB159A0CD5005CFBC5 /* en */,
 			);
 			name = CEMainWindow.xib;
+			sourceTree = "<group>";
+		};
+		0566801815DD63CA008A3C01 /* CEConsoleView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0566801915DD63CA008A3C01 /* en */,
+			);
+			name = CEConsoleView.xib;
 			sourceTree = "<group>";
 		};
 		0566D9A2159A31060060FF7D /* CEPreferencesFontsAndColorsOptionsView.xib */ = {
