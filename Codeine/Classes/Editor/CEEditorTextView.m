@@ -11,6 +11,33 @@
 
 @implementation CEEditorTextView
 
+- ( id )initWithFrame:(NSRect)frameRect
+{
+    if( ( self = [ super initWithFrame: frameRect ] ) )
+    {
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( selectionDidChange: ) name: NSTextViewDidChangeSelectionNotification object: self ];
+    }
+    
+    return self;
+}
+
+- ( id )initWithCoder:(NSCoder *)coder
+{
+    if( ( self = [ super initWithCoder: coder ] ) )
+    {
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( selectionDidChange: ) name: NSTextViewDidChangeSelectionNotification object: self ];
+    }
+    
+    return self;
+}
+
+- ( void )dealloc
+{
+    [ NOTIFICATION_CENTER removeObserver: self ];
+    
+    [ super dealloc ];
+}
+
 - ( void )drawRect: ( NSRect )rect
 {
     [ super drawRect: rect ];
@@ -29,6 +56,12 @@
     {
         [ self drawTabStopsInRect: rect ];
     }
+    
+    if( 1 )
+    {
+        [ self drawCurrentLineHighlight: rect ];
+    }
 }
+
 
 @end

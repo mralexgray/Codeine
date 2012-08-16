@@ -125,4 +125,68 @@
     }
 }
 
+- ( NSRect )drawRectForRange: ( NSRange )range
+{
+    NSString  * text;
+    NSRange     startRange;
+    NSRange     endRange;
+    NSUInteger  end;
+    NSRange     glyphRange;
+    NSRect      boundingRect;
+    CGFloat     y;
+    CGFloat     w;
+    CGFloat     h;
+    
+    text       = self.textStorage.string;
+    startRange = [ text lineRangeForRange: NSMakeRange( range.location, 0 ) ];
+    end        = NSMaxRange( range ) - 1;
+    
+    if( end >= text.length )
+    {
+        return NSZeroRect;
+    }
+    
+    if( end < range.location )
+    {
+        end = range.location;
+    }
+    
+    endRange     = [ text lineRangeForRange: NSMakeRange( end, 0 ) ];
+    glyphRange   = [ self.layoutManager glyphRangeForCharacterRange: NSMakeRange( startRange.location, ( NSMaxRange( endRange ) - startRange.location ) - 1 ) actualCharacterRange: NULL ];
+    boundingRect = [ self.layoutManager boundingRectForGlyphRange: glyphRange inTextContainer: self.textContainer ];
+    y            = boundingRect.origin.y;
+    w            = self.bounds.size.width;
+    h            = boundingRect.size.height;
+    
+    return NSOffsetRect( NSMakeRect( ( CGFloat )0, y, w, h ), self.textContainerOrigin.x, self.textContainerOrigin.y );
+}
+
+- ( void )drawCurrentLineHighlight: ( NSRect )rect
+{
+    NSString * text;
+    NSRange    selection;
+    NSRange    lineRange;
+    
+    ( void )rect;
+    
+    selection = self.selectedRange;
+    text      = self.textStorage.string;
+    
+    if( selection.location <= text.length )
+    {
+        lineRange = [ text lineRangeForRange: NSMakeRange( selection.location, 0 ) ];
+        
+        [ [ [ CEPreferences sharedInstance ] currentLineColor ] setFill ];
+        
+        NSRectFill( [ self drawRectForRange: lineRange ] );
+    }
+}
+
+- ( void )selectionDidChange: ( NSNotification * )notification
+{
+    ( void )notification;
+    
+    [ self setNeedsDisplay: YES ];
+}
+
 @end
