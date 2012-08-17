@@ -50,7 +50,7 @@
     color2   = [ NSColor colorWithDeviceWhite: ( CGFloat )0.75 alpha: ( CGFloat )1 ];
     color1   = [ color1 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     color2   = [ color2 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
-    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color2, ( CGFloat )0, color1, ( CGFloat )0.05, color1, ( CGFloat )0.95, color2, ( CGFloat )1, nil ];
+    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color2, ( CGFloat )0, color1, ( CGFloat )0.1, color1, ( CGFloat )0.9, color2, ( CGFloat )1, nil ];
     
     [ gradient drawInRect: rect angle: ( CGFloat )0 ];
     [ gradient release ];
@@ -122,6 +122,21 @@
     @synchronized( self )
     {
         _position = position;
+        
+        [ self setNeedsDisplay: YES ];
+    }
+}
+
+- ( void )selectItemAtIndex: ( NSUInteger )index
+{
+    if( index < _icons.count )
+    {
+        _selectedIndex = index;
+        
+        if( _delegate != nil && [ _delegate respondsToSelector: @selector( verticalTabBar:didSelectItemAtIndex: ) ] )
+        {
+            [ _delegate verticalTabBar: self didSelectItemAtIndex: _selectedIndex ];
+        }
         
         [ self setNeedsDisplay: YES ];
     }

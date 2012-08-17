@@ -742,5 +742,7 @@
 	<integer>250</integer>
 	<key>DebugAreaHeight</key>
 	<integer>200</integer>
+	<key>DebugAreaSelectedIndex</key>
+	<integer>0</integer>
 </dict>
 </plist>

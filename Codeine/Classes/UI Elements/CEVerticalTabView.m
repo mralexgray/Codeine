@@ -11,6 +11,8 @@
 
 @implementation CEVerticalTabView
 
+@synthesize delegate = _delegate;
+
 - ( id )initWithFrame: ( NSRect )frame
 {
     if( ( self = [ super initWithFrame: frame ] ) )
@@ -143,6 +145,11 @@
     {
         [ self removeViewAtIndex: index ];
     }
+}
+
+- ( void )selectViewAtIndex: ( NSUInteger )index
+{
+    [ _tabBar selectItemAtIndex: index ];
 }
 
 @end

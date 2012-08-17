@@ -28,6 +28,11 @@
                               | NSViewHeightSizable;
         
         [ _contentView addSubview: view ];
+        
+        if( _delegate != nil && [ _delegate respondsToSelector: @selector( verticalTabView:didSelectViewAtIndex: ) ] )
+        {
+            [ _delegate verticalTabView: self didSelectViewAtIndex: index ];
+        }
     }
     @catch( NSException * e )
     {

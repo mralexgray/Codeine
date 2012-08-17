@@ -9,6 +9,6 @@
 
 @interface CEDiagnosticsViewController( Private )
 
-
+- ( void )applicationStateDidChange: ( NSNotification * )notification;
 
 @end

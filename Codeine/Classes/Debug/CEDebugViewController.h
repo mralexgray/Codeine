@@ -10,6 +10,7 @@
 @class CEVerticalTabView;
 @class CEConsoleViewController;
 @class CEDiagnosticsViewController;
+@class CEDocument;
 
 @interface CEDebugViewController: CEViewController
 {
@@ -18,6 +19,7 @@
     CEVerticalTabView           * _tabView;
     CEConsoleViewController     * _consoleViewController;
     CEDiagnosticsViewController * _diagnosticsViewController;
+    CEDocument                  * _document;
     
 @private
     
@@ -25,7 +27,6 @@
 }
 
 @property( nonatomic, readwrite, retain ) IBOutlet CEVerticalTabView * tabView;
-
-
+@property( atomic, readwrite, retain )             CEDocument        * document;
 
 @end

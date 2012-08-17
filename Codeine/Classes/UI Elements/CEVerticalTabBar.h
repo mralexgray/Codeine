@@ -35,5 +35,6 @@ CEVerticalTabBarPosition;
 
 - ( void )addItem: ( NSImage * )icon;
 - ( void )removeItemAtIndex: ( NSUInteger )index;
+- ( void )selectItemAtIndex: ( NSUInteger )index;
 
 @end

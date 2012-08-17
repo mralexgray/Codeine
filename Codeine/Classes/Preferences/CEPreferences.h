@@ -55,6 +55,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyFileBrowserHidden;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyDebugAreaHidden;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyFileBrowserWidth;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyDebugAreaHeight;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeyDebugAreaSelectedIndex;
 
 @class CEColorTheme;
 @class CELinkerObject;
@@ -116,6 +117,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyDebugAreaHeight;
 @property( atomic, readwrite, assign ) BOOL                     debugAreaHidden;
 @property( atomic, readwrite, assign ) CGFloat                  fileBrowserWidth;
 @property( atomic, readwrite, assign ) CGFloat                  debugAreaHeight;
+@property( atomic, readwrite, assign ) NSUInteger               debugAreaSelectedIndex;
 
 + ( CEPreferences * )sharedInstance;
 

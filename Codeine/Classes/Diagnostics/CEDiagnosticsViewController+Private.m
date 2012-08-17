@@ -9,6 +9,11 @@
 
 @implementation CEDiagnosticsViewController( Private )
 
-
+- ( void )applicationStateDidChange: ( NSNotification * )notification
+{
+    ( void )notification;
+    
+    [ self.view setNeedsDisplay: YES ];
+}
 
 @end

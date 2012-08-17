@@ -55,7 +55,7 @@
             (
                 ( CGFloat )0,
                 ( CGFloat )2,
-                ( frame.size.height - ( CGFloat )4 ) * ( CGFloat )1.75,
+                frame.size.height - ( CGFloat )4,
                 frame.size.height - ( CGFloat )4
             );
             

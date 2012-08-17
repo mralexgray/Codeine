@@ -48,6 +48,7 @@
 "ColorLabelString"                          = "Strings and characters";
 "ColorLabelProject"                         = "Project symbols";
 "ColorLabelPreprocessor"                    = "Preprocessor";
+"DiagnosticMessage"                         = "Line %lu: %@";
 "CEStringDataSizeTypeBytes"                 = "bytes";
 "CEStringDataSizeTypeKiloBytes"             = "KB";
 "CEStringDataSizeTypeMegaBytes"             = "MB";

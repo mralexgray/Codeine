@@ -223,6 +223,8 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
                 i++;
             }
             
+            _debugViewController.document = document;
+            
             if( document.sourceFile.text != nil )
             {
                 _activeDocument = [ document retain ];

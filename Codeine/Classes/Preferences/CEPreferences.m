@@ -62,6 +62,7 @@ NSString * const CEPreferencesKeyFileBrowserHidden          = @"FileBrowserHidde
 NSString * const CEPreferencesKeyDebugAreaHidden            = @"DebugAreaHidden";
 NSString * const CEPreferencesKeyFileBrowserWidth           = @"FileBrowserWidth";
 NSString * const CEPreferencesKeyDebugAreaHeight            = @"DebugAreaHeight";
+NSString * const CEPreferencesKeyDebugAreaSelectedIndex     = @"DebugAreaSelectedIndex";
 
 @implementation CEPreferences
 
@@ -822,6 +823,14 @@ NSString * const CEPreferencesKeyDebugAreaHeight            = @"DebugAreaHeight"
     }
 }
 
+- ( NSUInteger )debugAreaSelectedIndex
+{
+    @synchronized( self )
+    {
+        return [ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyDebugAreaSelectedIndex ] unsignedIntegerValue ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -1240,6 +1249,17 @@ NSString * const CEPreferencesKeyDebugAreaHeight            = @"DebugAreaHeight"
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDebugAreaHeight );
+    }
+}
+
+- ( void )setDebugAreaSelectedIndex: ( NSUInteger )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyDebugAreaSelectedIndex ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDebugAreaSelectedIndex );
     }
 }
 
