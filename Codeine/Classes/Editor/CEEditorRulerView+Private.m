@@ -17,6 +17,13 @@
     [ self setNeedsDisplay: YES ];
 }
 
+- ( void )textViewSelectionDidChange: ( NSNotification * )notification
+{
+    ( void )notification;
+    
+    [ self setNeedsDisplay: YES ];
+}
+
 - ( void )applicationStateDidChange: ( NSNotification * )notification
 {
     ( void )notification;
@@ -180,6 +187,28 @@
     }
     
     return nil;
+}
+
+- ( NSMutableDictionary * )textAttributes
+{
+    NSFont                  * font;
+    NSMutableParagraphStyle * paragraphStyle;
+    
+    if( _attributes == nil )
+    {
+        _attributes      = [ [ NSMutableDictionary alloc ] initWithCapacity: 10 ];
+        font             = [ NSFont systemFontOfSize: ( CGFloat )8 ];
+        paragraphStyle   = [ [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ] autorelease ];
+        
+        [ paragraphStyle setAlignment: NSRightTextAlignment ];
+        
+        [ _attributes setObject: font                   forKey: NSFontAttributeName ];
+        [ _attributes setObject: [ NSColor grayColor ]  forKey: NSForegroundColorAttributeName ];
+        [ _attributes setObject: [ NSColor clearColor ] forKey: NSBackgroundColorAttributeName ];
+        [ _attributes setObject: paragraphStyle         forKey: NSParagraphStyleAttributeName ];
+    }
+    
+    return [ [ _attributes mutableCopy ] autorelease ];
 }
 
 @end

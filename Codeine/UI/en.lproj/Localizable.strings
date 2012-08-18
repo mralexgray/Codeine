@@ -49,6 +49,14 @@
 "ColorLabelProject"                         = "Project symbols";
 "ColorLabelPreprocessor"                    = "Preprocessor";
 "DiagnosticMessage"                         = "Line %lu: %@";
+"DiagnosticMessageFixItPopover"             = "%@: %@";
+"DiagnosticLine"                            = "Line: %lu";
+"DiagnosticColumn"                          = "Column: %lu";
+"DiagnosticSeverityFatal"                   = "Fatal error";
+"DiagnosticSeverityError"                   = "Error";
+"DiagnosticSeverityWarning"                 = "Warning";
+"DiagnosticSeverityNotice"                  = "Notice";
+"DiagnosticSeverityIgnored"                 = "Ignored";
 "CEStringDataSizeTypeBytes"                 = "bytes";
 "CEStringDataSizeTypeKiloBytes"             = "KB";
 "CEStringDataSizeTypeMegaBytes"             = "MB";

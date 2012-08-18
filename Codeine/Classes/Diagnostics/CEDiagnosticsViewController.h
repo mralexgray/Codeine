@@ -18,8 +18,10 @@ FOUNDATION_EXPORT NSString * const CEDiagnosticsViewControllerTableColumnIdentif
 {
 @protected
     
-    NSTableView * _tableView;
-    CEDocument  * _document;
+    NSTableView     * _tableView;
+    CEDocument      * _document;
+    NSTextView      * _textView;
+    NSMutableArray  * _diagnostics;
     
 @private
     
@@ -28,5 +30,6 @@ FOUNDATION_EXPORT NSString * const CEDiagnosticsViewControllerTableColumnIdentif
 
 @property( nonatomic, readwrite, retain ) IBOutlet NSTableView * tableView;
 @property( atomic, readwrite, retain )             CEDocument  * document;
+@property( atomic, readwrite, retain )             NSTextView  * textView;
 
 @end

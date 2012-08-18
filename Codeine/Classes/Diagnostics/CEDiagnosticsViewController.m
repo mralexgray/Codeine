@@ -28,6 +28,7 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     
     RELEASE_IVAR( _tableView );
     RELEASE_IVAR( _document );
+    RELEASE_IVAR( _diagnostics );
     
     [ super dealloc ];
 }
@@ -39,6 +40,8 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidBecomeActiveNotification object: APPLICATION ];
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidResignActiveNotification object: APPLICATION ];
+    
+    _diagnostics = [ [ NSMutableArray alloc ] initWithCapacity: 25 ];
 }
 
 - ( CEDocument * )document
@@ -61,8 +64,35 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
             
             _document = [ document retain ];
             
+            [ self getDiagnostics ];
+            
             [ _document.sourceFile.translationUnit addObserver: self forKeyPath: @"text" options: NSKeyValueObservingOptionNew context: nil ];
             [ _tableView reloadData ];
+        }
+    }
+}
+
+- ( NSTextView * )textView
+{
+    @synchronized( self )
+    {
+        return _textView;
+    }
+}
+
+- ( void )setTextView: ( NSTextView * )textView
+{
+    @synchronized( self )
+    {
+        if( _textView != textView )
+        {
+            [ NOTIFICATION_CENTER removeObserver: self name: NSTextViewDidChangeSelectionNotification object: _textView ];
+            
+            RELEASE_IVAR( _textView );
+            
+            _textView = [ textView retain ];
+            
+            [ NOTIFICATION_CENTER addObserver: self selector: @selector( textViewSelectionDidChange: ) name: NSTextViewDidChangeSelectionNotification object: _textView ];
         }
     }
 }
@@ -76,6 +106,7 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     
     if( object == _document.sourceFile.translationUnit && [ keyPath isEqualToString: @"text" ] )
     {
+        [ self getDiagnostics ];
         [ _tableView reloadData ];
     }
 }

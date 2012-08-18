@@ -11,6 +11,8 @@
 		050541D215DED45D00697329 /* CEDiagnosticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541D115DED45D00697329 /* CEDiagnosticsCell.m */; };
 		050541D515DED58F00697329 /* CEDiagnosticWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541D415DED58F00697329 /* CEDiagnosticWrapper.m */; };
 		050541D815DEFB2900697329 /* CEDiagnosticsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541D715DEFB2900697329 /* CEDiagnosticsTableView.m */; };
+		050541DF15DF15FC00697329 /* CEFixItViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541DE15DF15FC00697329 /* CEFixItViewController.m */; };
+		050541E215DF16F800697329 /* CEFixItView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050541E015DF16F800697329 /* CEFixItView.xib */; };
 		050629E815AB62E300DA6EE6 /* CEFilesViewItemBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */; };
 		050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */; };
 		050629F415AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629F315AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m */; };
@@ -231,6 +233,9 @@
 		050541D415DED58F00697329 /* CEDiagnosticWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDiagnosticWrapper.m; sourceTree = "<group>"; };
 		050541D615DEFB2900697329 /* CEDiagnosticsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDiagnosticsTableView.h; sourceTree = "<group>"; };
 		050541D715DEFB2900697329 /* CEDiagnosticsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDiagnosticsTableView.m; sourceTree = "<group>"; };
+		050541DD15DF15FC00697329 /* CEFixItViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFixItViewController.h; sourceTree = "<group>"; };
+		050541DE15DF15FC00697329 /* CEFixItViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFixItViewController.m; sourceTree = "<group>"; };
+		050541E115DF16F800697329 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEFixItView.xib; sourceTree = "<group>"; };
 		050629E615AB62E300DA6EE6 /* CEFilesViewItemBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFilesViewItemBookmark.h; sourceTree = "<group>"; };
 		050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFilesViewItemBookmark.m; sourceTree = "<group>"; };
 		050629EC15AB780B00DA6EE6 /* CEColorTheme+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEColorTheme+Private.h"; sourceTree = "<group>"; };
@@ -554,6 +559,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050541DC15DF15CF00697329 /* FixIt */ = {
+			isa = PBXGroup;
+			children = (
+				050541DD15DF15FC00697329 /* CEFixItViewController.h */,
+				050541DE15DF15FC00697329 /* CEFixItViewController.m */,
+			);
+			path = FixIt;
+			sourceTree = "<group>";
+		};
 		050629F115AB880300DA6EE6 /* Linker */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,6 +778,7 @@
 				057F5862159D40A200C84780 /* Debug */,
 				0566800A15DD6206008A3C01 /* Console */,
 				0566800B15DD6208008A3C01 /* Diagnostics */,
+				050541DC15DF15CF00697329 /* FixIt */,
 				057F5863159D40A200C84780 /* Editor */,
 				057F5864159D40A300C84780 /* Files */,
 				05B2CB2615C37081009B4014 /* File Details */,
@@ -812,6 +827,7 @@
 				05B2CB2215C36E44009B4014 /* CEFileDetailsView.xib */,
 				0566801815DD63CA008A3C01 /* CEConsoleView.xib */,
 				05189BD715DDCC2A001B8044 /* CEDiagnosticsView.xib */,
+				050541E015DF16F800697329 /* CEFixItView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1270,6 +1286,7 @@
 				05189BDF15DDCC3C001B8044 /* Fatal.icns in Resources */,
 				05189BE015DDCC3C001B8044 /* Notice.icns in Resources */,
 				05189BE115DDCC3C001B8044 /* Warning.icns in Resources */,
+				050541E215DF16F800697329 /* CEFixItView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1422,6 +1439,7 @@
 				050541D215DED45D00697329 /* CEDiagnosticsCell.m in Sources */,
 				050541D515DED58F00697329 /* CEDiagnosticWrapper.m in Sources */,
 				050541D815DEFB2900697329 /* CEDiagnosticsTableView.m in Sources */,
+				050541DF15DF15FC00697329 /* CEFixItViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1436,6 +1454,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		050541E015DF16F800697329 /* CEFixItView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				050541E115DF16F800697329 /* en */,
+			);
+			name = CEFixItView.xib;
+			sourceTree = "<group>";
+		};
 		050629F515AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

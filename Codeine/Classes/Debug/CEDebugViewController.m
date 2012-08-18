@@ -16,7 +16,9 @@
 
 @implementation CEDebugViewController
 
-@synthesize tabView  = _tabView;
+@synthesize tabView                   = _tabView;
+@synthesize consoleViewController     = _consoleViewController;
+@synthesize diagnosticsViewController = _diagnosticsViewController;
 
 - ( void )dealloc
 {

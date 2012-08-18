@@ -21,6 +21,7 @@
 #import "CEApplicationDelegate.h"
 #import "CEHUDView.h"
 #import "CEDocument.h"
+#import "CEDiagnosticsViewController.h"
 
 NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 
@@ -147,6 +148,8 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
         
         [ badge release ];
     }
+    
+    _debugViewController.diagnosticsViewController.textView = _editorViewController.textView;
 }
 
 - ( void )showWindow: ( id )sender

@@ -9,10 +9,14 @@
 #import "CEEditorRulerView+Private.h"
 #import "CEEditorMarker.h"
 #import "CEPreferences.h"
+#import "CEDocument.h"
+#import "CESourceFile.h"
 
 NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
 
 @implementation CEEditorRulerView
+
+@synthesize document = _document;
 
 - ( void )dealloc
 {
@@ -20,6 +24,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     
     RELEASE_IVAR( _textView );
     RELEASE_IVAR( _linesRect );
+    RELEASE_IVAR( _document );
     
     [ super dealloc ];
 }
@@ -29,7 +34,6 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     NSException * e;
     
     [ super setClientView: view ];
-    [ NOTIFICATION_CENTER removeObserver: self name: NSTextStorageDidProcessEditingNotification object: _textView.textStorage ];
     
     if( view != nil && [ view isKindOfClass: [ NSTextView class ] ] == NO )
     {
@@ -38,9 +42,19 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         @throw e;
     }
     
-    _textView = ( NSTextView * )[ view retain ];
+    if( view != nil && view != _textView )
+    {
+        [ NOTIFICATION_CENTER removeObserver: self name: NSTextViewDidChangeSelectionNotification   object: _textView ];
+        [ NOTIFICATION_CENTER removeObserver: self name: NSTextStorageDidProcessEditingNotification object: _textView.textStorage ];
+
+        RELEASE_IVAR( _textView );
+        
+        _textView = ( NSTextView * )[ view retain ];
+        
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( textViewSelectionDidChange: )   name: NSTextViewDidChangeSelectionNotification   object: _textView ];
+        [ NOTIFICATION_CENTER addObserver: self selector: @selector( textStorageDidProcessEditing: ) name: NSTextStorageDidProcessEditingNotification object: _textView.textStorage ];
+    }
     
-    [ NOTIFICATION_CENTER addObserver: self selector: @selector( textStorageDidProcessEditing: ) name: NSTextStorageDidProcessEditingNotification object: _textView.textStorage ];
 }
 
 - ( void )drawRect: ( NSRect )rect
@@ -90,8 +104,6 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     NSString                * text;
     NSTextContainer         * textContainer;
     NSMutableDictionary     * attributes;
-    NSMutableParagraphStyle * paragraphStyle;
-    NSFont                  * font;
     NSRange                   range;
     NSUInteger                start;
     NSUInteger                end;
@@ -105,6 +117,10 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     NSRect                    visibleRect;
     NSRange                   lineRange;
     CEEditorMarker          * marker;
+    NSArray                 * diagnostics;
+    CKDiagnostic            * diagnostic;
+    NSImage                 * image;
+    NSRect                    imageRect;
     
     if( _textView == nil )
     {
@@ -122,19 +138,9 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     
     selectedRange   = NSMakeRange( NSNotFound, 0 );
     textContainer   = [ _textView.layoutManager.textContainers objectAtIndex: 0 ];
-    attributes      = [ NSMutableDictionary dictionaryWithCapacity: 10 ];
-    font            = [ NSFont systemFontOfSize: ( CGFloat )8 ];
-    paragraphStyle  = [ [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ] autorelease ];
-    
-    [ paragraphStyle setAlignment: NSRightTextAlignment ];
-    
-    [ attributes setObject: font                   forKey: NSFontAttributeName ];
-    [ attributes setObject: [ NSColor grayColor ]  forKey: NSForegroundColorAttributeName ];
-    [ attributes setObject: [ NSColor clearColor ] forKey: NSBackgroundColorAttributeName ];
-    [ attributes setObject: paragraphStyle         forKey: NSParagraphStyleAttributeName ];
-    
-    visibleRect = [ [ [ self scrollView ] contentView ] bounds ];
-    glyphRange  = [ _textView.layoutManager glyphRangeForBoundingRect: visibleRect inTextContainer: textContainer ];
+    attributes      = [self textAttributes ];
+    visibleRect     = [ [ [ self scrollView ] contentView ] bounds ];
+    glyphRange      = [ _textView.layoutManager glyphRangeForBoundingRect: visibleRect inTextContainer: textContainer ];
     
     if( text.length == 0 )
     {
@@ -155,6 +161,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     }
     
     range.location = glyphRange.location;
+    diagnostics    = [ _document.sourceFile.translationUnit.diagnostics retain ];
     
     while( range.location + range.length <= text.length )
     {
@@ -186,6 +193,47 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
             [ attributes setObject: [ NSColor grayColor ] forKey: NSForegroundColorAttributeName ];
         }
         
+        for( diagnostic in diagnostics )
+        {
+            if( diagnostic.line == line + 1 )
+            {
+                lineRange = [ text lineRangeForRange: NSMakeRange( _textView.selectedRange.location, 0 ) ];
+                
+                if( diagnostic.range.location >= lineRange.location && diagnostic.range.location <= lineRange.location + lineRange.length )
+                {
+                    continue;
+                }
+                
+                if( diagnostic.severity == CKDiagnosticSeverityFatal || diagnostic.severity == CKDiagnosticSeverityError )
+                {
+                    image = [ NSImage imageNamed: @"Error" ];
+                }
+                else if( diagnostic.severity == CKDiagnosticSeverityWarning )
+                {
+                    image = [ NSImage imageNamed: @"Warning" ];
+                }
+                else if( diagnostic.severity == CKDiagnosticSeverityNote )
+                {
+                    image = [ NSImage imageNamed: @"Notice" ];
+                }
+                else
+                {
+                    image = nil;
+                }
+                
+                if( image != nil )
+                {
+                    imageRect            = lineRect;
+                    imageRect.origin.x  += ( CGFloat )2;
+                    imageRect.size.width = imageRect.size.height;
+                    
+                    [ image drawInRect: imageRect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: ( CGFloat )1 respectFlipped: YES hints: nil ];
+                }
+                
+                break;
+            }
+        }
+        
         [ [ NSString stringWithFormat: @"%lu", line + 1 ] drawInRect: lineRect withAttributes: attributes ];
         [ self setRect: rectArray[ 0 ] forLine: line ];
         
@@ -193,6 +241,41 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         
         line++;
     }
+    
+    [ diagnostics release ];
+}
+
+- ( CGFloat )requiredThickness
+{
+    NSUInteger        lines;
+    NSUInteger        digits;
+    NSUInteger        i;
+    NSMutableString * string;
+    NSSize            size;
+    NSUInteger        width;
+    
+    lines  = _textView.numberOfHardLines;
+    
+    if( lines > 0 )
+    {
+        digits = ( NSUInteger )log10( lines ) + 1;
+    }
+    else
+    {
+        digits = 1;
+    }
+    
+    string = [ NSMutableString string ];
+    
+    for( i = 0; i < digits; i++ )
+    {
+        [ string appendString: @"X" ];
+    }
+    
+    size  = [ string sizeWithAttributes: [ self textAttributes ] ];
+    width = ( NSUInteger )MAX( 20, size.width + 10 + size.height + 4 );
+    
+    return ( CGFloat )width;
 }
 
 - ( void )mouseDown: ( NSEvent * )e

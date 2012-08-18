@@ -53,6 +53,11 @@
         icon  = [ NSImage imageNamed: @"Notice" ];
     }
     
+    if( self.isHighlighted == YES )
+    {
+        color = [ NSColor colorForControlTint: NSGraphiteControlTint ];
+    }
+    
     color = [ color colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     
     [ color getHue: &h saturation: &s brightness: &b alpha: NULL ];
@@ -71,7 +76,10 @@
     
     if( self.isHighlighted == YES )
     {
-        gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:   [ NSColor colorForControlTint: NSBlueControlTint ], ( CGFloat )0, nil ];
+        gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:   color,  ( CGFloat )0.0,
+                                                                        color,  ( CGFloat )1.0,
+                                                                        nil
+                   ];
     }
     else
     {

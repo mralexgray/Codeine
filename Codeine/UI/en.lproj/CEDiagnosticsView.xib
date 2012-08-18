@@ -118,7 +118,7 @@
 									</object>
 								</array>
 								<double key="NSIntercellSpacingWidth">5</double>
-								<double key="NSIntercellSpacingHeight">1</double>
+								<double key="NSIntercellSpacingHeight">2</double>
 								<object class="NSColor" key="NSBackgroundColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
@@ -190,7 +190,7 @@
 				<reference key="NSVScroller" ref="589355569"/>
 				<reference key="NSHScroller" ref="665687595"/>
 				<reference key="NSContentView" ref="757757031"/>
-				<bytes key="NSScrollAmts">QSAAAEEgAABB0AAAQdAAAA</bytes>
+				<bytes key="NSScrollAmts">QSAAAEEgAABB2AAAQdgAAA</bytes>
 				<double key="NSMinMagnification">0.25</double>
 				<double key="NSMaxMagnification">4</double>
 				<double key="NSMagnification">1</double>

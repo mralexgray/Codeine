@@ -26,7 +26,9 @@
     RESERVED_IVARS( CEDebugViewController , 5 );
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet CEVerticalTabView * tabView;
-@property( atomic, readwrite, retain )             CEDocument        * document;
+@property( nonatomic, readwrite, retain ) IBOutlet CEVerticalTabView           * tabView;
+@property(    atomic, readwrite, retain )          CEDocument                  * document;
+@property(    atomic, readonly          )          CEConsoleViewController     * consoleViewController;
+@property(    atomic, readonly          )          CEDiagnosticsViewController * diagnosticsViewController;
 
 @end

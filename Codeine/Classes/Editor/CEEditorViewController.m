@@ -68,8 +68,9 @@
             RELEASE_IVAR( _document );
             RELEASE_IVAR( _highlighter );
             
-            _document  = [ document retain ];
-            controller = ( CEMainWindowController * )self.view.window.windowController;
+            _document           = [ document retain ];
+            _rulerView.document = _document;
+            controller          = ( CEMainWindowController * )self.view.window.windowController;
             
             if( controller.activeDocument != document )
             {

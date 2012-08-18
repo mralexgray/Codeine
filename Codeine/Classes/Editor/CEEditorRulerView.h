@@ -8,6 +8,7 @@
 FOUNDATION_EXPORT NSString * const CEEditorRulerViewException;
 
 @class CEEditorMarker;
+@class CEDocument;
 
 @interface CEEditorRulerView: NSRulerView
 {
@@ -15,6 +16,8 @@ FOUNDATION_EXPORT NSString * const CEEditorRulerViewException;
     
     NSTextView          * _textView;
     NSMutableDictionary * _linesRect;
+    CEDocument          * _document;
+    NSMutableDictionary * _attributes;
     BOOL                  _hasApplicationObserver;
     
 @private
@@ -22,6 +25,6 @@ FOUNDATION_EXPORT NSString * const CEEditorRulerViewException;
     RESERVED_IVARS( CEEditorRulerView, 5 );
 }
 
-
+@property( atomic, readwrite, retain ) CEDocument * document;
 
 @end

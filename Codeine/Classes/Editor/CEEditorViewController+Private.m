@@ -42,14 +42,15 @@
     {
         if( _rulerView == nil )
         {
-            _rulerView = [ CEEditorRulerView new ];
+            _rulerView          = [ CEEditorRulerView new ];
+            _rulerView.document = _document;
         }
         
         [ [ _textView enclosingScrollView ] setVerticalRulerView: _rulerView ];
         [ [ _textView enclosingScrollView ] setHasHorizontalRuler: NO ];
         [ [ _textView enclosingScrollView ] setHasVerticalRuler: YES ];
         [ [ _textView enclosingScrollView ] setRulersVisible: YES ];
-        
+    
         [ _rulerView setScrollView: [ _textView enclosingScrollView ] ];
         [ _rulerView setClientView: _textView ];
     }

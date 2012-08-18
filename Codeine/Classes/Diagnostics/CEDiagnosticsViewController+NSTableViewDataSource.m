@@ -16,7 +16,7 @@
 {
     ( void )tableView;
     
-    return ( NSInteger )( _document.sourceFile.translationUnit.diagnostics.count );
+    return ( NSInteger )( _diagnostics.count );
 }
 
 - ( id )tableView: ( NSTableView * )tableView objectValueForTableColumn: ( NSTableColumn * )tableColumn row: ( NSInteger )row
@@ -29,7 +29,7 @@
     
     @try
     {
-        diagnostic = [ _document.sourceFile.translationUnit.diagnostics objectAtIndex: ( NSUInteger )row ];
+        diagnostic = [ _diagnostics objectAtIndex: ( NSUInteger )row ];
     }
     @catch( NSException * e )
     {
