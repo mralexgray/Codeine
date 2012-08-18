@@ -14,7 +14,6 @@
 {
     CKDiagnostic          * diagnostic;
     CEFixItViewController * controller;
-    NSPopover             * popover;
     NSRect                  cellFrame;
     
     ( void )notification;
@@ -29,15 +28,9 @@
         cellFrame           = [ _tableView frameOfCellAtColumn: 0 row: _tableView.selectedRow ];
         diagnostic          = [ _diagnostics objectAtIndex: ( NSUInteger )( _tableView.selectedRow ) ];
         controller          = [ [ CEFixItViewController alloc ] initWithDiagnostic: diagnostic ];
-        popover             = [ NSPopover new ];
-        popover.behavior    = NSPopoverBehaviorTransient;
         controller.textView = _textView;
         
-        popover.contentViewController = controller;
-        
-        [ popover showRelativeToRect: cellFrame ofView: _tableView preferredEdge: NSMinYEdge ];
-        
-        [ popover    autorelease ];
+        [ controller openInPopoverRelativeToRect: cellFrame ofView: _tableView preferredEdge: NSMinYEdge ];
         [ controller autorelease ];
     }
     @catch( NSException * e )

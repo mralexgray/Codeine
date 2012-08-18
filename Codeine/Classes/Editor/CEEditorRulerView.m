@@ -11,6 +11,7 @@
 #import "CEPreferences.h"
 #import "CEDocument.h"
 #import "CESourceFile.h"
+#import "CEFixItViewController.h"
 
 NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
 
@@ -280,9 +281,13 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
 
 - ( void )mouseDown: ( NSEvent * )e
 {
-	NSPoint    location;
-    NSUInteger line;
-    NSRect     visibleRect;
+	NSPoint                 location;
+    NSUInteger              line;
+    NSRect                  visibleRect;
+    NSArray               * diagnostics;
+    CKDiagnostic          * diagnostic;
+    BOOL                    hasDiagnostic;
+    CEFixItViewController * controller;
 	
 	location    = [ self convertPoint: e.locationInWindow fromView: nil ];
     visibleRect = [ [ [ self scrollView ] contentView ] bounds ];
@@ -294,7 +299,30 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         return;
     }
     
-    if( [ self markerForLine: line ] == nil )
+    hasDiagnostic = NO;
+    diagnostic    = nil;
+    diagnostics   = [ _document.sourceFile.translationUnit.diagnostics retain ];
+    
+    for( diagnostic in diagnostics )
+    {
+        if( diagnostic.line - 1 == line )
+        {
+            hasDiagnostic = YES;
+            break;
+        }
+    }
+    
+    [ diagnostics release ];
+    
+    
+    if( hasDiagnostic == YES )
+    {
+        controller = [ [ CEFixItViewController alloc ] initWithDiagnostic: diagnostic ];
+        
+        [ controller openInPopoverRelativeToRect: NSMakeRect( location.x, location.y, self.frame.size.width, ( CGFloat )1 ) ofView: self preferredEdge: NSMaxYEdge ];
+        [ controller autorelease ];
+    }
+    else if( [ self markerForLine: line ] == nil )
     {
         [ self addMarkerForLine: line ];
     }
