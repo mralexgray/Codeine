@@ -48,6 +48,13 @@
     frame       = [ self frameOfCellAtColumn: column row: row ];
     delegate    = nil;
     
+    if( row == NSNotFound )
+    {
+        [ super mouseDown: e ];
+        
+        return;
+    }
+    
     point.x = point.x - frame.origin.x;
     point.y = point.y - frame.origin.y;
     
