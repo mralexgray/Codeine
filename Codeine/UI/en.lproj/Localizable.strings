@@ -48,10 +48,7 @@
 "ColorLabelString"                          = "Strings and characters";
 "ColorLabelProject"                         = "Project symbols";
 "ColorLabelPreprocessor"                    = "Preprocessor";
-"DiagnosticMessage"                         = "Line %lu: %@";
-"DiagnosticMessageFixItPopover"             = "%@: %@";
-"DiagnosticLine"                            = "Line: %lu";
-"DiagnosticColumn"                          = "Column: %lu";
+"DiagnosticMessage"                         = "%@ - Line %lu: %@";
 "DiagnosticSeverityFatal"                   = "Fatal error";
 "DiagnosticSeverityError"                   = "Error";
 "DiagnosticSeverityWarning"                 = "Warning";

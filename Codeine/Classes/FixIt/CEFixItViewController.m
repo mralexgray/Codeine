@@ -10,11 +10,8 @@
 @implementation CEFixItViewController
 
 @synthesize textView          = _textView;
-@synthesize lineTextField     = _lineTextField;
-@synthesize columnTextField   = _columnTextField;
 @synthesize messageTextField  = _messageTextField;
 @synthesize iconView          = _iconView;
-@synthesize button            = _button;
 
 - ( id )initWithDiagnostic: ( CKDiagnostic * )diagnostic
 {
@@ -30,11 +27,8 @@
 {
     RELEASE_IVAR( _diagnostic );
     RELEASE_IVAR( _textView );
-    RELEASE_IVAR( _lineTextField );
-    RELEASE_IVAR( _columnTextField );
     RELEASE_IVAR( _messageTextField );
     RELEASE_IVAR( _iconView );
-    RELEASE_IVAR( _button );
     
     [ super dealloc ];
 }
@@ -44,12 +38,7 @@
     NSString * severity;
     NSRect     frame;
     
-    [ _lineTextField     setStringValue: @"" ];
-    [ _columnTextField   setStringValue: @"" ];
-    [ _messageTextField  setStringValue: @"" ];
-    
-    [ _lineTextField   setStringValue: [ NSString stringWithFormat: L10N( "DiagnosticLine" ),   _diagnostic.line ] ];
-    [ _columnTextField setStringValue: [ NSString stringWithFormat: L10N( "DiagnosticColumn" ), _diagnostic.column ] ];
+    [ _messageTextField setStringValue: @"" ];
     
     severity = nil;
     
@@ -84,29 +73,12 @@
         [ _iconView setImage: [ NSImage imageNamed: @"Notice" ] ];
     }
     
-    [ _messageTextField setStringValue: [ NSString stringWithFormat: L10N( "DiagnosticMessageFixItPopover" ), severity, _diagnostic.spelling ] ];
+    [ _messageTextField setStringValue: [ NSString stringWithFormat: L10N( "DiagnosticMessage" ), severity, _diagnostic.line, _diagnostic.spelling ] ];
     [ _messageTextField sizeToFit ];
     
-    frame = self.view.frame;
-    
-    if( _messageTextField.frame.size.width < 400 )
-    {
-        frame.size.width = ( CGFloat )400;
-    }
-    else
-    {
-        frame.size.width = _messageTextField.frame.origin.x + _messageTextField.frame.size.width + ( CGFloat )20;
-    }
-    
-    if( _diagnostic.fixIts.count == 0 )
-    {
-        [ _button setEnabled: NO ];
-        [ _button removeFromSuperview ];
-        
-        frame.size.height -= _button.frame.size.height;
-    }
-    
-    self.view.frame = frame;
+    frame            = self.view.frame;
+    frame.size.width = _messageTextField.frame.origin.x + _messageTextField.frame.size.width + ( CGFloat )20;
+    self.view.frame  = frame;
 }
 
 - ( IBAction )fix: ( id )sender

@@ -33,7 +33,32 @@
 
 - ( NSString * )description
 {
-    return [ NSString stringWithFormat: L10N( "DiagnosticMessage" ), _diagnostic.line, _diagnostic.spelling ];
+    NSString * severity;
+    
+    severity = nil;
+    
+    if( _diagnostic.severity == CKDiagnosticSeverityFatal )
+    {
+        severity = L10N( "DiagnosticSeverityFatal" );
+    }
+    else if( _diagnostic.severity == CKDiagnosticSeverityError )
+    {
+        severity = L10N( "DiagnosticSeverityError" );
+    }
+    else if( _diagnostic.severity == CKDiagnosticSeverityWarning )
+    {
+        severity = L10N( "DiagnosticSeverityWarning" );
+    }
+    else if( _diagnostic.severity == CKDiagnosticSeverityFatal )
+    {
+        severity = L10N( "DiagnosticSeverityNotice" );
+    }
+    else if( _diagnostic.severity == CKDiagnosticSeverityIgnored )
+    {
+        severity = L10N( "DiagnosticSeverityIgnored" );
+    }
+    
+    return [ NSString stringWithFormat: L10N( "DiagnosticMessage" ), severity, _diagnostic.line, _diagnostic.spelling ];
 }
 
 @end
