@@ -9,6 +9,7 @@
 #import "CEDiagnosticsViewController+Private.h"
 #import "CEDiagnosticsViewController+NSTableViewDataSource.h"
 #import "CEDiagnosticsViewController+NSTableViewDelegate.h"
+#import "CEDiagnosticsViewController+CETableViewDelegate.h"
 #import "CEMainWindowController.h"
 #import "CEDocument.h"
 #import "CESourceFile.h"

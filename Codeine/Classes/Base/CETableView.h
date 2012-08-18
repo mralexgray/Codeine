@@ -5,9 +5,9 @@
  
 /* $Id$ */
 
-#import "CETableView.h"
+#import "CETableViewDelegate.h"
 
-@interface CEDiagnosticsTableView: CETableView
+@interface CETableView: NSTableView
 {
 @protected
     
@@ -15,7 +15,7 @@
     
 @private
     
-    RESERVED_IVARS( CEDiagnosticsTableView, 5 );
+    RESERVED_IVARS( CETableView, 5 );
 }
 
 

@@ -13,6 +13,8 @@
 		050541D815DEFB2900697329 /* CEDiagnosticsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541D715DEFB2900697329 /* CEDiagnosticsTableView.m */; };
 		050541DF15DF15FC00697329 /* CEFixItViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541DE15DF15FC00697329 /* CEFixItViewController.m */; };
 		050541E215DF16F800697329 /* CEFixItView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050541E015DF16F800697329 /* CEFixItView.xib */; };
+		050541FA15DFF2F800697329 /* CETableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541F915DFF2F800697329 /* CETableView.m */; };
+		050541FE15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541FD15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m */; };
 		050629E815AB62E300DA6EE6 /* CEFilesViewItemBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */; };
 		050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */; };
 		050629F415AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629F315AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m */; };
@@ -236,6 +238,11 @@
 		050541DD15DF15FC00697329 /* CEFixItViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFixItViewController.h; sourceTree = "<group>"; };
 		050541DE15DF15FC00697329 /* CEFixItViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFixItViewController.m; sourceTree = "<group>"; };
 		050541E115DF16F800697329 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEFixItView.xib; sourceTree = "<group>"; };
+		050541F815DFF2F800697329 /* CETableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETableView.h; sourceTree = "<group>"; };
+		050541F915DFF2F800697329 /* CETableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETableView.m; sourceTree = "<group>"; };
+		050541FB15DFF32B00697329 /* CETableViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETableViewDelegate.h; sourceTree = "<group>"; };
+		050541FC15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDiagnosticsViewController+CETableViewDelegate.h"; sourceTree = "<group>"; };
+		050541FD15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEDiagnosticsViewController+CETableViewDelegate.m"; sourceTree = "<group>"; };
 		050629E615AB62E300DA6EE6 /* CEFilesViewItemBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFilesViewItemBookmark.h; sourceTree = "<group>"; };
 		050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFilesViewItemBookmark.m; sourceTree = "<group>"; };
 		050629EC15AB780B00DA6EE6 /* CEColorTheme+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEColorTheme+Private.h"; sourceTree = "<group>"; };
@@ -860,6 +867,9 @@
 				05DD2907159F1E5D008E228F /* CEOrderedDictionary.m */,
 				05DD2909159F24AB008E228F /* CEMutableOrderedDictionary.h */,
 				05DD290A159F24AB008E228F /* CEMutableOrderedDictionary.m */,
+				050541F815DFF2F800697329 /* CETableView.h */,
+				050541F915DFF2F800697329 /* CETableView.m */,
+				050541FB15DFF32B00697329 /* CETableViewDelegate.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -884,6 +894,8 @@
 				0566801615DD6261008A3C01 /* CEDiagnosticsViewController+Private.m */,
 				05189BD115DDBD42001B8044 /* CEDiagnosticsViewController+NSTableViewDelegate.h */,
 				05189BD215DDBD42001B8044 /* CEDiagnosticsViewController+NSTableViewDelegate.m */,
+				050541FC15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.h */,
+				050541FD15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m */,
 				05189BD415DDBD5E001B8044 /* CEDiagnosticsViewController+NSTableViewDataSource.h */,
 				05189BD515DDBD5E001B8044 /* CEDiagnosticsViewController+NSTableViewDataSource.m */,
 				050541D015DED45D00697329 /* CEDiagnosticsCell.h */,
@@ -1440,6 +1452,8 @@
 				050541D515DED58F00697329 /* CEDiagnosticWrapper.m in Sources */,
 				050541D815DEFB2900697329 /* CEDiagnosticsTableView.m in Sources */,
 				050541DF15DF15FC00697329 /* CEFixItViewController.m in Sources */,
+				050541FA15DFF2F800697329 /* CETableView.m in Sources */,
+				050541FE15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

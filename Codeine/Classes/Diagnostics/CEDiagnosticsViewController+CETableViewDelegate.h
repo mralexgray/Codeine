@@ -6,12 +6,10 @@
 /* $Id$ */
 
 #import "CEDiagnosticsViewController.h"
+#import "CETableViewDelegate.h"
 
-@interface CEDiagnosticsViewController( Private )
+@interface CEDiagnosticsViewController( CETableViewDelegate ) < CETableViewDelegate >
 
-- ( void )applicationStateDidChange: ( NSNotification * )notification;
-- ( void )getDiagnostics;
-- ( void )textViewSelectionDidChange: ( NSNotification * )notification;
-- ( void )showPopover;
+
 
 @end
