@@ -8,6 +8,7 @@
 #import "CEEditorViewController.h"
 #import "CEEditorViewController+Private.h"
 #import "CEEditorViewController+NSTextViewDelegate.h"
+#import "CEEditorViewController+CEEditorTextViewDelegate.h"
 #import "CEPreferences.h"
 #import "CEMainWindowController.h"
 #import "CESourceFile.h"
@@ -30,6 +31,7 @@
     RELEASE_IVAR( _document );
     RELEASE_IVAR( _highlighter );
     RELEASE_IVAR( _rulerView );
+    RELEASE_IVAR( _codeCompletionViewController );
     
     [ super dealloc ];
 }

@@ -13,6 +13,7 @@
 #import "CEMainWindowController.h"
 #import "CEDocument.h"
 #import "CESourceFile.h"
+#import "CEHUDView.h"
 
 NSString * const CEDiagnosticsViewControllerTableColumnIdentifierIcon       = @"Icon";
 NSString * const CEDiagnosticsViewControllerTableColumnIdentifierLine       = @"Line";
@@ -30,6 +31,7 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     RELEASE_IVAR( _tableView );
     RELEASE_IVAR( _document );
     RELEASE_IVAR( _diagnostics );
+    RELEASE_IVAR( _hud );
     
     [ super dealloc ];
 }
@@ -43,6 +45,16 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidResignActiveNotification object: APPLICATION ];
     
     _diagnostics = [ [ NSMutableArray alloc ] initWithCapacity: 25 ];
+    
+    _hud                   = [ [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ] autorelease ];
+    _hud.title             = L10N( "NoError" );
+    _hud.autoresizingMask  = NSViewMinXMargin
+                                | NSViewMaxXMargin
+                                | NSViewMinYMargin
+                                | NSViewMaxYMargin;
+    
+    [ self.view addSubview: _hud ];
+    [ _hud centerInSuperview ];
 }
 
 - ( CEDocument * )document

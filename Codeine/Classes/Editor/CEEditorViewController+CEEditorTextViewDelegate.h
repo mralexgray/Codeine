@@ -6,12 +6,10 @@
 /* $Id$ */
 
 #import "CEEditorViewController.h"
+#import "CEEditorTextViewDelegate.h"
 
-@interface CEEditorViewController( Private )
+@interface CEEditorViewController( CEEditorTextViewDelegate ) < CEEditorTextViewDelegate >
 
-- ( void )updateView;
-- ( void )selectionDidChange: ( NSNotification * )notification;
-- ( void )showAutoCompletion;
-- ( void )showAutoCompletionDelayed: ( BOOL )delayed;
+
 
 @end

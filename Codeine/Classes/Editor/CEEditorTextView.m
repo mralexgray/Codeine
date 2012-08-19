@@ -8,6 +8,7 @@
 #import "CEEditorTextView.h"
 #import "CEEditorTextView+Private.h"
 #import "CEPreferences.h"
+#import "CEEditorTextViewDelegate.h"
 
 @implementation CEEditorTextView
 
@@ -63,5 +64,22 @@
     }
 }
 
+- ( void )complete: ( id )sender
+{
+    id < CEEditorTextViewDelegate > delegate;
+    
+    delegate = ( id < CEEditorTextViewDelegate > )( self.delegate );
+    
+    if( [ delegate conformsToProtocol: @protocol( CEEditorTextViewDelegate ) ] )
+    {
+        if( [ delegate respondsToSelector: @selector( textView:complete: ) ] )
+        {
+            if( [ delegate textView: self complete: sender ] == NO )
+            {
+                [ super complete: sender ];
+            }
+        }
+    }
+}
 
 @end

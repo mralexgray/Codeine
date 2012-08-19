@@ -54,6 +54,7 @@
 "DiagnosticSeverityWarning"                 = "Warning";
 "DiagnosticSeverityNotice"                  = "Notice";
 "DiagnosticSeverityIgnored"                 = "Ignored";
+"NoError"                                   = "No error found";
 "CEStringDataSizeTypeBytes"                 = "bytes";
 "CEStringDataSizeTypeKiloBytes"             = "KB";
 "CEStringDataSizeTypeMegaBytes"             = "MB";

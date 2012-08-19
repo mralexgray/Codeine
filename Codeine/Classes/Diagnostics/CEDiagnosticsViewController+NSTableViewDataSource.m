@@ -14,9 +14,22 @@
 
 - ( NSInteger )numberOfRowsInTableView: ( NSTableView * )tableView
 {
+    NSInteger count;
+    
     ( void )tableView;
     
-    return ( NSInteger )( _diagnostics.count );
+    count = ( NSInteger )( _diagnostics.count );
+    
+    if( count == 0 )
+    {
+        [ _hud setAlphaValue: ( CGFloat )1 ];
+    }
+    else
+    {
+        [ _hud setAlphaValue: ( CGFloat )0 ];
+    }
+    
+    return count;
 }
 
 - ( id )tableView: ( NSTableView * )tableView objectValueForTableColumn: ( NSTableColumn * )tableColumn row: ( NSInteger )row

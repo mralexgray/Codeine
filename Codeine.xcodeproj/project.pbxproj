@@ -15,6 +15,10 @@
 		050541E215DF16F800697329 /* CEFixItView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050541E015DF16F800697329 /* CEFixItView.xib */; };
 		050541FA15DFF2F800697329 /* CETableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541F915DFF2F800697329 /* CETableView.m */; };
 		050541FE15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 050541FD15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m */; };
+		050544BE15E06DDC00697329 /* CECodeCompletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050544BD15E06DDC00697329 /* CECodeCompletionViewController.m */; };
+		050544C115E06DEF00697329 /* CECodeCompletionViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 050544C015E06DEF00697329 /* CECodeCompletionViewController+Private.m */; };
+		050544C415E06E0300697329 /* CECodeCompletionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050544C215E06E0300697329 /* CECodeCompletionView.xib */; };
+		050544C815E07B6100697329 /* CEEditorViewController+CEEditorTextViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 050544C715E07B6000697329 /* CEEditorViewController+CEEditorTextViewDelegate.m */; };
 		050629E815AB62E300DA6EE6 /* CEFilesViewItemBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */; };
 		050629EE15AB780B00DA6EE6 /* CEColorTheme+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629ED15AB780B00DA6EE6 /* CEColorTheme+Private.m */; };
 		050629F415AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050629F315AB880400DA6EE6 /* CEPreferencesLinkerOptionsViewController.m */; };
@@ -243,6 +247,14 @@
 		050541FB15DFF32B00697329 /* CETableViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETableViewDelegate.h; sourceTree = "<group>"; };
 		050541FC15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDiagnosticsViewController+CETableViewDelegate.h"; sourceTree = "<group>"; };
 		050541FD15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEDiagnosticsViewController+CETableViewDelegate.m"; sourceTree = "<group>"; };
+		050544BC15E06DDC00697329 /* CECodeCompletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECodeCompletionViewController.h; sourceTree = "<group>"; };
+		050544BD15E06DDC00697329 /* CECodeCompletionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECodeCompletionViewController.m; sourceTree = "<group>"; };
+		050544BF15E06DEF00697329 /* CECodeCompletionViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CECodeCompletionViewController+Private.h"; sourceTree = "<group>"; };
+		050544C015E06DEF00697329 /* CECodeCompletionViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CECodeCompletionViewController+Private.m"; sourceTree = "<group>"; };
+		050544C315E06E0300697329 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CECodeCompletionView.xib; sourceTree = "<group>"; };
+		050544C515E0799B00697329 /* CEEditorTextViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEEditorTextViewDelegate.h; sourceTree = "<group>"; };
+		050544C615E07B5F00697329 /* CEEditorViewController+CEEditorTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEEditorViewController+CEEditorTextViewDelegate.h"; sourceTree = "<group>"; };
+		050544C715E07B6000697329 /* CEEditorViewController+CEEditorTextViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEEditorViewController+CEEditorTextViewDelegate.m"; sourceTree = "<group>"; };
 		050629E615AB62E300DA6EE6 /* CEFilesViewItemBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFilesViewItemBookmark.h; sourceTree = "<group>"; };
 		050629E715AB62E300DA6EE6 /* CEFilesViewItemBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFilesViewItemBookmark.m; sourceTree = "<group>"; };
 		050629EC15AB780B00DA6EE6 /* CEColorTheme+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEColorTheme+Private.h"; sourceTree = "<group>"; };
@@ -578,6 +590,10 @@
 		050544BB15E06CED00697329 /* Code Completion */ = {
 			isa = PBXGroup;
 			children = (
+				050544BC15E06DDC00697329 /* CECodeCompletionViewController.h */,
+				050544BD15E06DDC00697329 /* CECodeCompletionViewController.m */,
+				050544BF15E06DEF00697329 /* CECodeCompletionViewController+Private.h */,
+				050544C015E06DEF00697329 /* CECodeCompletionViewController+Private.m */,
 			);
 			path = "Code Completion";
 			sourceTree = "<group>";
@@ -843,6 +859,7 @@
 				0566801815DD63CA008A3C01 /* CEConsoleView.xib */,
 				05189BD715DDCC2A001B8044 /* CEDiagnosticsView.xib */,
 				050541E015DF16F800697329 /* CEFixItView.xib */,
+				050544C215E06E0300697329 /* CECodeCompletionView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1007,6 +1024,8 @@
 				05C0CC6215C59D8400CA715F /* CEEditorLayoutManager+Private.m */,
 				0561B55915D9B50A005DD16F /* CEEditorViewController+NSTextViewDelegate.h */,
 				0561B55A15D9B50A005DD16F /* CEEditorViewController+NSTextViewDelegate.m */,
+				050544C615E07B5F00697329 /* CEEditorViewController+CEEditorTextViewDelegate.h */,
+				050544C715E07B6000697329 /* CEEditorViewController+CEEditorTextViewDelegate.m */,
 				054BEB7115AF815D002D7730 /* CEEditorLayoutManager.h */,
 				054BEB7215AF815D002D7730 /* CEEditorLayoutManager.m */,
 				056B9E5F15B8777200B72186 /* CEEditorRulerView+Private.h */,
@@ -1017,6 +1036,7 @@
 				053F60D715BF25CB0069C870 /* CEEditorTextView+Private.m */,
 				05A1DFBB15BC6A26007F9560 /* CEEditorTextView.h */,
 				05A1DFBC15BC6A26007F9560 /* CEEditorTextView.m */,
+				050544C515E0799B00697329 /* CEEditorTextViewDelegate.h */,
 				05A1DFC915BC78FE007F9560 /* CEEditorMarker.h */,
 				05A1DFCA15BC78FE007F9560 /* CEEditorMarker.m */,
 			);
@@ -1307,6 +1327,7 @@
 				05189BE015DDCC3C001B8044 /* Notice.icns in Resources */,
 				05189BE115DDCC3C001B8044 /* Warning.icns in Resources */,
 				050541E215DF16F800697329 /* CEFixItView.xib in Resources */,
+				050544C415E06E0300697329 /* CECodeCompletionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,6 +1483,9 @@
 				050541DF15DF15FC00697329 /* CEFixItViewController.m in Sources */,
 				050541FA15DFF2F800697329 /* CETableView.m in Sources */,
 				050541FE15DFF37D00697329 /* CEDiagnosticsViewController+CETableViewDelegate.m in Sources */,
+				050544BE15E06DDC00697329 /* CECodeCompletionViewController.m in Sources */,
+				050544C115E06DEF00697329 /* CECodeCompletionViewController+Private.m in Sources */,
+				050544C815E07B6100697329 /* CEEditorViewController+CEEditorTextViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1482,6 +1506,14 @@
 				050541E115DF16F800697329 /* en */,
 			);
 			name = CEFixItView.xib;
+			sourceTree = "<group>";
+		};
+		050544C215E06E0300697329 /* CECodeCompletionView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				050544C315E06E0300697329 /* en */,
+			);
+			name = CECodeCompletionView.xib;
 			sourceTree = "<group>";
 		};
 		050629F515AB882F00DA6EE6 /* CEPreferencesLinkerOptionsView.xib */ = {

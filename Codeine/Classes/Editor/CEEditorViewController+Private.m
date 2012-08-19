@@ -12,6 +12,7 @@
 #import "CEDocument.h"
 #import "CESourceFile.h"
 #import "CESyntaxHighlighter.h"
+#import "CECodeCompletionViewController.h"
 
 @implementation CEEditorViewController( Private )
 
@@ -89,12 +90,27 @@
 
 - ( void )selectionDidChange: ( NSNotification * )notification
 {
+    ( void )notification;
+    
+    [ self showAutoCompletionDelayed: YES ];
+}
+
+- ( void )showAutoCompletion
+{
+    [ self showAutoCompletionDelayed: NO ];
+}
+
+- ( void )showAutoCompletionDelayed: ( BOOL )delayed
+{
     NSUInteger           line;
     NSUInteger           column;
     NSArray            * results;
-    CKCompletionResult * result;
+    NSRect               rect;
     
-    ( void )notification;
+    [ _codeCompletionViewController cancelOpening ];
+    [ _codeCompletionViewController closePopover ];
+    
+    RELEASE_IVAR( _codeCompletionViewController );
     
     line   = ( NSUInteger )( _textView.currentLine );
     column = ( NSUInteger )( _textView.currentColumn );
@@ -104,17 +120,17 @@
         return;
     }
     
-    NSLog( @"Line:   %lu", line );
-    NSLog( @"Column: %lu", column );
-    
     results = [ _document.sourceFile.translationUnit completionResultsForLine: line column: column ];
     
-    for( result in results )
+    if( results.count > 0 || delayed == NO )
     {
-        NSLog( @"%@", result.chunks );
+        _codeCompletionViewController = [ [ CECodeCompletionViewController alloc ] initWithCompletionResults: results ];
+        
+        rect            = [ _textView.layoutManager boundingRectForGlyphRange: _textView.selectedRange inTextContainer: _textView.textContainer ];
+        rect.size.width = ( CGFloat )1;
+        
+        [ _codeCompletionViewController openInPopoverRelativeToRect: rect ofView: _textView preferredEdge: NSMaxYEdge delay: delayed ];
     }
-    
-    NSLog( @"\n\n" );
 }
 
 @end

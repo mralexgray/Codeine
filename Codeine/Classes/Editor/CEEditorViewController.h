@@ -12,16 +12,18 @@
 @class CEEditorRulerView;
 @class CEDocument;
 @class CESyntaxHighlighter;
+@class CECodeCompletionViewController;
 
 @interface CEEditorViewController: CEViewController
 {
 @protected
     
-    NSTextView              * _textView;
-    CEDocument              * _document;
-    CEEditorLayoutManager   * _layoutManager;
-    CEEditorRulerView       * _rulerView;
-    CESyntaxHighlighter     * _highlighter;
+    NSTextView                      * _textView;
+    CEDocument                      * _document;
+    CEEditorLayoutManager           * _layoutManager;
+    CEEditorRulerView               * _rulerView;
+    CESyntaxHighlighter             * _highlighter;
+    CECodeCompletionViewController  * _codeCompletionViewController;
     
 @private
     

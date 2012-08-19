@@ -5,13 +5,10 @@
  
 /* $Id$ */
 
-#import "CEEditorViewController.h"
+#import "CECodeCompletionViewController+Private.h"
 
-@interface CEEditorViewController( Private )
+@implementation CECodeCompletionViewController( Private )
 
-- ( void )updateView;
-- ( void )selectionDidChange: ( NSNotification * )notification;
-- ( void )showAutoCompletion;
-- ( void )showAutoCompletionDelayed: ( BOOL )delayed;
+
 
 @end
