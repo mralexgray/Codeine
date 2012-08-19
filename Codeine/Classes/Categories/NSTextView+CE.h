@@ -11,5 +11,7 @@
 - ( NSUInteger )numberOfSoftLines;
 - ( void )enableSoftWrap;
 - ( void )disableSoftWrap;
+- ( NSInteger )currentLine;
+- ( NSInteger )currentColumn;
 
 @end

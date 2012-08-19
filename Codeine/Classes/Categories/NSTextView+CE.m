@@ -60,4 +60,61 @@
     [ self setHorizontallyResizable: YES ];
 }
 
+- ( NSInteger )currentLine
+{
+            NSRange    range;
+            NSRange    lineRange;
+            NSString * text;
+    __block BOOL       found;
+    __block NSInteger  line;
+    
+    text  = self.textStorage.string;
+    range = self.selectedRange;
+    found = NO;
+    line  = 0;
+    
+    if( range.length == 0 )
+    {
+        lineRange = [ text lineRangeForRange: range ];
+        
+        [ text  enumerateSubstringsInRange: NSMakeRange( 0, text.length )
+                options:                    NSStringEnumerationByLines
+                usingBlock:                 ^( NSString * substring, NSRange substringRange, NSRange enclosingRange, BOOL * stop )
+                {
+                    ( void )substring;
+                    ( void )enclosingRange;
+                    
+                    if( substringRange.location == lineRange.location )
+                    {
+                        *( stop ) = YES;
+                        found     = YES;
+                    }
+                    
+                    line++;
+                }
+        ];
+    }
+    
+    return ( found == YES ) ? line : NSNotFound;
+}
+
+- ( NSInteger )currentColumn
+{
+    NSRange    range;
+    NSRange    lineRange;
+    NSString * text;
+    
+    text  = self.textStorage.string;
+    range = self.selectedRange;
+    
+    if( range.length == 0 )
+    {
+        lineRange = [ text lineRangeForRange: range ];
+        
+        return ( NSInteger )( ( range.location - lineRange.location ) + 1 );
+    }
+    
+    return NSNotFound;
+}
+
 @end
