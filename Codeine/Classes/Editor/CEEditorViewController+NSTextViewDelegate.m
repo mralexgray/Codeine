@@ -12,25 +12,38 @@
 
 - ( BOOL )textView: ( NSTextView * )textView doCommandBySelector: ( SEL )sel
 {
-    NSRange           range;
-    NSUInteger        spaces;
-    NSUInteger        i;
-    NSMutableString * text;
-    
     if( sel == @selector( insertTab: ) && [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES )
     {
-        range  = textView.selectedRange;
-        spaces = range.location % 4;
-        text   = [ NSMutableString string ];
-        
-        for( i = 4; i > spaces; i-- )
         {
-            [ text appendString: @" " ];
+            NSInteger         column;
+            NSUInteger        spaces;
+            NSUInteger        i;
+            NSMutableString * text;
+            
+            column = [ textView currentColumn ];
+            
+            if( column == NSNotFound )
+            {
+                return NO;
+            }
+            
+            column = column - 1;
+            spaces = column % 4;
+            text   = [ NSMutableString string ];
+            
+            for( i = 4; i > spaces; i-- )
+            {
+                [ text appendString: @" " ];
+            }
+            
+            [ _textView insertText: text ];
+            
+            return YES;
         }
-        
-        [ _textView insertText: text ];
-        
-        return YES;
+    }
+    else if( sel == @selector( insertNewline: ) && [ [ CEPreferences sharedInstance ] autoIndent ] == YES )
+    {
+        NSLog( @"OK" );
     }
     
     return NO;
