@@ -10,5 +10,6 @@
 @interface CEEditorViewController( Private )
 
 - ( void )updateView;
+- ( void )selectionDidChange: ( NSNotification * )notification;
 
 @end

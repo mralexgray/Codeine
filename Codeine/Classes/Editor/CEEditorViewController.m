@@ -46,6 +46,7 @@
     [ _layoutManager addTextContainer: _textView.textContainer ];
     [ _textView.textContainer setLayoutManager: _layoutManager ];
     
+    [ NOTIFICATION_CENTER addObserver: self selector: @selector( selectionDidChange: ) name: NSTextViewDidChangeSelectionNotification object: _textView ];
     [ self updateView ];
 }
 

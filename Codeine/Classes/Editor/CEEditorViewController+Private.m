@@ -87,4 +87,34 @@
     [ _highlighter highlight ];
 }
 
+- ( void )selectionDidChange: ( NSNotification * )notification
+{
+    NSUInteger           line;
+    NSUInteger           column;
+    NSArray            * results;
+    CKCompletionResult * result;
+    
+    ( void )notification;
+    
+    line   = ( NSUInteger )( _textView.currentLine );
+    column = ( NSUInteger )( _textView.currentColumn );
+    
+    if( line == NSNotFound || column == NSNotFound )
+    {
+        return;
+    }
+    
+    NSLog( @"Line:   %lu", line );
+    NSLog( @"Column: %lu", column );
+    
+    results = [ _document.sourceFile.translationUnit completionResultsForLine: line column: column ];
+    
+    for( result in results )
+    {
+        NSLog( @"%@", result.chunks );
+    }
+    
+    NSLog( @"\n\n" );
+}
+
 @end
