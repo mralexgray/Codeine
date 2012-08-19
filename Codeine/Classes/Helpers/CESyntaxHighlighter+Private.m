@@ -25,6 +25,7 @@
         _sourceFile.text = _textView.textStorage.string;
         
         [ _sourceFile.translationUnit tokens ];
+        [ _sourceFile.translationUnit diagnostics ];
         
         dispatch_async
         (

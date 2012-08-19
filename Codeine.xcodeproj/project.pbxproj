@@ -575,6 +575,13 @@
 			path = FixIt;
 			sourceTree = "<group>";
 		};
+		050544BB15E06CED00697329 /* Code Completion */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Code Completion";
+			sourceTree = "<group>";
+		};
 		050629F115AB880300DA6EE6 /* Linker */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,6 +794,7 @@
 				0566800B15DD6208008A3C01 /* Diagnostics */,
 				050541DC15DF15CF00697329 /* FixIt */,
 				057F5863159D40A200C84780 /* Editor */,
+				050544BB15E06CED00697329 /* Code Completion */,
 				057F5864159D40A300C84780 /* Files */,
 				05B2CB2615C37081009B4014 /* File Details */,
 				0517226615B1A765004D5AF5 /* Info Window */,
