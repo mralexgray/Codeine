@@ -76,6 +76,7 @@ NSString * const CEPreferencesKeyIndentAfterParenthesis		= @"IndentAfterParenthe
 NSString * const CEPreferencesKeyInsertClosingBrace			= @"InsertClosingBrace";
 NSString * const CEPreferencesKeyInsertClosingBracket		= @"InsertClosingBracket";
 NSString * const CEPreferencesKeyInsertClosingParenteshis	= @"InsertClosingParenteshis";
+NSString * const CEPreferencesKeySuggestDelay               = @"SuggestDelay";
 
 @implementation CEPreferences
 
@@ -948,6 +949,14 @@ NSString * const CEPreferencesKeyInsertClosingParenteshis	= @"InsertClosingParen
     }
 }
 
+- ( CGFloat )suggestDelay
+{
+    @synchronized( self )
+    {
+        return ( CGFloat )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeySuggestDelay ] doubleValue ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -1520,6 +1529,17 @@ NSString * const CEPreferencesKeyInsertClosingParenteshis	= @"InsertClosingParen
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyInsertClosingParenteshis );
+    }
+}
+
+- ( void )setSuggestDelay: ( CGFloat )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithDouble: ( double )value ] forKey: CEPreferencesKeySuggestDelay ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySuggestDelay );
     }
 }
 

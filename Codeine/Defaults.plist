@@ -32,6 +32,8 @@
 	<true/>
 	<key>SuggestWithEscape</key>
 	<true/>
+	<key>SuggestDelay</key>
+	<real>1.5</real>
 	<key>IndentSoloBrace</key>
 	<true/>
 	<key>IndentSoloBracket</key>

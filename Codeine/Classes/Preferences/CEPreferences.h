@@ -69,6 +69,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyIndentAfterParenthesis;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyInsertClosingBrace;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyInsertClosingBracket;
 FOUNDATION_EXPORT NSString * const CEPreferencesKeyInsertClosingParenteshis;
+FOUNDATION_EXPORT NSString * const CEPreferencesKeySuggestDelay;
 
 @class CEColorTheme;
 @class CELinkerObject;
@@ -144,6 +145,7 @@ FOUNDATION_EXPORT NSString * const CEPreferencesKeyInsertClosingParenteshis;
 @property( atomic, readwrite, assign ) BOOL                     insertClosingBrace;
 @property( atomic, readwrite, assign ) BOOL                     insertClosingBracket;
 @property( atomic, readwrite, assign ) BOOL                     insertClosingParenteshis;
+@property( atomic, readwrite, assign ) CGFloat                  suggestDelay;
 
 + ( CEPreferences * )sharedInstance;
 

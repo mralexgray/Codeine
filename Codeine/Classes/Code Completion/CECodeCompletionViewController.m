@@ -9,7 +9,7 @@
 #import "CECodeCompletionViewController+Private.h"
 #import "CECodeCompletionViewController+NSTableViewDelegate.h"
 #import "CECodeCompletionViewController+NSTableViewDataSource.h"
-#import "CEBackgroundView.h"
+#import "CEPreferences.h"
 
 @implementation CECodeCompletionViewController
 
@@ -68,7 +68,7 @@
         
         dispatch_after
         (
-            dispatch_time( DISPATCH_TIME_NOW, NSEC_PER_SEC ),
+            dispatch_time( DISPATCH_TIME_NOW, ( int64_t )( [ [ CEPreferences sharedInstance ] suggestDelay ] * ( CGFloat )1000 ) * ( int64_t )NSEC_PER_MSEC ),
             dispatch_get_main_queue(),
             open
         );
