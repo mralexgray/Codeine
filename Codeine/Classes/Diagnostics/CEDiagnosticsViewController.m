@@ -33,6 +33,7 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
 	
     [ _hud removeFromSuperview ];
     [ _document.sourceFile.translationUnit removeObserver: self forKeyPath: @"text" ];
+    [ self.view removeObserver: self forKeyPath: @"frame" ];
     
     RELEASE_IVAR( _tableView );
     RELEASE_IVAR( _document );
@@ -52,15 +53,17 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     
     _diagnostics = [ [ NSMutableArray alloc ] initWithCapacity: 25 ];
     
-    _hud                   = [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ];
+    _hud                   = [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 0, 0, 200, 50 ) ];
     _hud.title             = L10N( "NoError" );
     _hud.autoresizingMask  = NSViewMinXMargin
-                                | NSViewMaxXMargin
-                                | NSViewMinYMargin
-                                | NSViewMaxYMargin;
+                           | NSViewMaxXMargin
+                           | NSViewMinYMargin
+                           | NSViewMaxYMargin;
     
     [ self.view addSubview: _hud ];
     [ _hud centerInSuperview ];
+    
+    [ self.view addObserver: self forKeyPath: @"frame" options: NSKeyValueObservingOptionNew context: nil ];
 }
 
 - ( CEDocument * )document
@@ -118,8 +121,6 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
 
 - ( void )observeValueForKeyPath: ( NSString * )keyPath ofObject: ( id )object change: ( NSDictionary * )change context: ( void * )context
 {
-    ( void )keyPath;
-    ( void )object;
     ( void )change;
     ( void )context;
     
@@ -127,6 +128,10 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     {
         [ self getDiagnostics ];
         [ _tableView reloadData ];
+    }
+    else if( object == self.view && [ keyPath isEqualToString: @"frame" ] )
+    {
+        [ _hud centerInSuperview ];
     }
 }
 
