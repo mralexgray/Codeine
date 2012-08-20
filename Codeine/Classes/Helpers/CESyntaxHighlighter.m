@@ -117,6 +117,10 @@
             
             tokenType = CETokenTypeString;
         }
+        else if( cursor.isPreprocessing && cursor.kind == CKCursorKindMacroExpansion && cursor.kind == CKCursorKindMacroInstantiation )
+        {
+            tokenType = CETokenTypePreprocessor;
+        }
         else if( cursor.isPreprocessing || token.line == preprocessorLine )
         {
             preprocessorLine = token.line;
@@ -166,6 +170,10 @@
                 tokenType = CETokenTypeString;
             }
             else if( cursor.kind == CKCursorKindCharacterLiteral )
+            {
+                tokenType = CETokenTypeString;
+            }
+            else if( [ token.spelling characterAtIndex: 0 ] == '"' || [ token.spelling characterAtIndex: 0 ] == '\'' )
             {
                 tokenType = CETokenTypeString;
             }
