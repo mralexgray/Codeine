@@ -26,6 +26,11 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
 
 - ( void )dealloc
 {
+	[ NOTIFICATION_CENTER removeObserver: self ];
+	
+    _tableView.delegate   = nil;
+    _tableView.dataSource = nil;
+	
     [ _hud removeFromSuperview ];
     [ _document.sourceFile.translationUnit removeObserver: self forKeyPath: @"text" ];
     
