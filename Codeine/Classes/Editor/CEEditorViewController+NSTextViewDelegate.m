@@ -43,7 +43,56 @@
     }
     else if( sel == @selector( insertNewline: ) && [ [ CEPreferences sharedInstance ] autoIndent ] == YES )
     {
-        NSLog( @"OK" );
+        {
+            NSRange           range;
+            NSString        * text;
+            NSMutableString * indent;
+            NSUInteger        i;
+            UniChar           c;
+            UniChar           lastChar;
+            
+            text        = textView.textStorage.string;
+            range       = textView.selectedRange;
+            range       = [ text lineRangeForRange: range ];
+            text        = [ text substringWithRange: range ];
+            indent      = [ NSMutableString string ];
+            lastChar    = [ text characterAtIndex: text.length - 1 ];
+            
+            for( i = 0; i < text.length; i++ )
+            {
+                c = [ text characterAtIndex: i ];
+                
+                if( c == ' ' )
+                {
+                    [ indent appendString: @" " ];
+                }
+                else if( c == '\t' )
+                {
+                    [ indent appendString: @" " ];
+                }
+                else
+                {
+                    if( c == '{' || lastChar == '{' )
+                    {
+                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? @"    " : @"\t" ];
+                    }
+                    else if( c == '[' || lastChar == '[' )
+                    {
+                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? @"    " : @"\t" ];
+                    }
+                    else if( c == '(' || lastChar == '(' )
+                    {
+                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? @"    " : @"\t" ];
+                    }
+                    
+                    break;
+                }
+            }
+            
+            [ textView insertText: [ NSString stringWithFormat: @"\n%@", indent ] ];
+            
+            return YES;
+        }
     }
     
     return NO;
