@@ -100,9 +100,14 @@
 
 - ( NSInteger )currentColumn
 {
-    NSRange    range;
-    NSRange    lineRange;
-    NSString * text;
+    NSRange      range;
+    NSRange      lineRange;
+    NSString   * text;
+    UniChar      c;
+    NSUInteger   length;
+    NSUInteger   i;
+    NSUInteger   mod;
+    NSInteger    column;
     
     text  = self.textStorage.string;
     range = self.selectedRange;
@@ -110,8 +115,26 @@
     if( range.length == 0 )
     {
         lineRange = [ text lineRangeForRange: range ];
+        text      = [ text substringWithRange: NSMakeRange( lineRange.location, range.location - lineRange.location ) ];
+        length    = text.length;
+        column    = 1;
         
-        return ( NSInteger )( ( range.location - lineRange.location ) + 1 );
+        for( i = 0; i < length; i++ )
+        {
+            c = [ text characterAtIndex: i ];
+            
+            if( c == '\t' )
+            {
+                mod     = column % 4;
+                column += ( mod == 0 ) ? 1 : 4 - ( ( column % 4 ) - 1 );
+            }
+            else
+            {
+                column++;
+            }
+        }
+        
+        return column;
     }
     
     return NSNotFound;
