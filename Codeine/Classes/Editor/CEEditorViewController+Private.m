@@ -102,35 +102,52 @@
 
 - ( void )showAutoCompletionDelayed: ( BOOL )delayed
 {
-    NSUInteger           line;
-    NSUInteger           column;
-    NSArray            * results;
-    NSRect               rect;
-    
-    [ _codeCompletionViewController cancelOpening ];
-    [ _codeCompletionViewController closePopover ];
-    
-    RELEASE_IVAR( _codeCompletionViewController );
-    
-    line   = ( NSUInteger )( _textView.currentLine );
-    column = ( NSUInteger )( _textView.currentColumn );
-    
-    if( line == NSNotFound || column == NSNotFound )
-    {
-        return;
-    }
-    
-    results = [ _document.sourceFile.translationUnit completionResultsForLine: line column: column ];
-    
-    if( results.count > 0 || delayed == NO )
-    {
-        _codeCompletionViewController = [ [ CECodeCompletionViewController alloc ] initWithCompletionResults: results ];
-        
-        rect            = [ _textView.layoutManager boundingRectForGlyphRange: _textView.selectedRange inTextContainer: _textView.textContainer ];
-        rect.size.width = ( CGFloat )1;
-        
-        [ _codeCompletionViewController openInPopoverRelativeToRect: rect ofView: _textView preferredEdge: NSMaxYEdge delay: delayed ];
-    }
+    dispatch_async
+    (
+        dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0 ),
+        ^( void )
+        {
+            @synchronized( self )
+            {
+                NSUInteger           line;
+                NSUInteger           column;
+                NSArray            * results;
+                NSRect               rect;
+                
+                [ _codeCompletionViewController cancelOpening ];
+                [ _codeCompletionViewController closePopover ];
+                
+                RELEASE_IVAR( _codeCompletionViewController );
+                
+                line   = ( NSUInteger )( _textView.currentLine );
+                column = ( NSUInteger )( _textView.currentColumn );
+                
+                if( line == NSNotFound || column == NSNotFound )
+                {
+                    return;
+                }
+                
+                results = [ _document.sourceFile.translationUnit completionResultsForLine: line column: column ];
+                
+                if( results.count > 0 || delayed == NO )
+                {
+                    _codeCompletionViewController = [ [ CECodeCompletionViewController alloc ] initWithCompletionResults: results ];
+                    
+                    rect            = [ _textView.layoutManager boundingRectForGlyphRange: _textView.selectedRange inTextContainer: _textView.textContainer ];
+                    rect.size.width = ( CGFloat )1;
+                    
+                    dispatch_sync
+                    (
+                        dispatch_get_main_queue(),
+                        ^( void )
+                        {
+                            [ _codeCompletionViewController openInPopoverRelativeToRect: rect ofView: _textView preferredEdge: NSMaxYEdge delay: delayed ];
+                        }
+                    );
+                }
+            }
+        }
+    );
 }
 
 @end

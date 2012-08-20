@@ -6,11 +6,15 @@
 /* $Id$ */
 
 #import "CECodeCompletionViewController.h"
+#import "CECodeCompletionViewController+Private.h"
+#import "CECodeCompletionViewController+NSTableViewDelegate.h"
+#import "CECodeCompletionViewController+NSTableViewDataSource.h"
 #import "CEBackgroundView.h"
 
 @implementation CECodeCompletionViewController
 
 @synthesize isOpening = _isOpening;
+@synthesize tableView = _tableView;
 
 - ( id )initWithCompletionResults: ( NSArray * )results
 {
@@ -24,9 +28,19 @@
 
 - ( void )dealloc
 {
+    _tableView.delegate   = nil;
+    _tableView.dataSource = nil;
+    
     RELEASE_IVAR( _results );
+    RELEASE_IVAR( _tableView );
     
     [ super dealloc ];
+}
+
+- ( void )awakeFromNib
+{
+    _tableView.delegate   = self;
+    _tableView.dataSource = self;
 }
 
 - ( void )openInPopoverRelativeToRect: ( NSRect )rect ofView: ( NSView * )view preferredEdge: ( NSRectEdge )edge delay: ( BOOL )delay
