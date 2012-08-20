@@ -61,6 +61,8 @@
 		052FD029159E09AF0045C9ED /* CEApplicationDelegate+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD028159E09AF0045C9ED /* CEApplicationDelegate+Private.m */; };
 		052FD03A159E0E460045C9ED /* NSFileManager+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 052FD039159E0E460045C9ED /* NSFileManager+CE.m */; };
 		05348FF315B40590004D4355 /* CEColorLabelMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */; };
+		0535EBDF15E164650058D3A9 /* CECodeCompletionViewController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0535EBDE15E164650058D3A9 /* CECodeCompletionViewController+NSTableViewDelegate.m */; };
+		0535EBE215E164700058D3A9 /* CECodeCompletionViewController+NSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0535EBE115E164700058D3A9 /* CECodeCompletionViewController+NSTableViewDataSource.m */; };
 		0539897C15B898C500D66EBC /* NSTextView+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0539897B15B898C500D66EBC /* NSTextView+CE.m */; };
 		053F60CC15BF17D20069C870 /* CEWindowBadge+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60CB15BF17D20069C870 /* CEWindowBadge+Private.m */; };
 		053F60D415BF1B3F0069C870 /* CEFilesOutlineView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60D315BF1B3F0069C870 /* CEFilesOutlineView+Private.m */; };
@@ -323,6 +325,10 @@
 		052FD039159E0E460045C9ED /* NSFileManager+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CE.m"; sourceTree = "<group>"; };
 		05348FF115B40590004D4355 /* CEColorLabelMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorLabelMenuItem.h; sourceTree = "<group>"; };
 		05348FF215B40590004D4355 /* CEColorLabelMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorLabelMenuItem.m; sourceTree = "<group>"; };
+		0535EBDD15E164650058D3A9 /* CECodeCompletionViewController+NSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CECodeCompletionViewController+NSTableViewDelegate.h"; sourceTree = "<group>"; };
+		0535EBDE15E164650058D3A9 /* CECodeCompletionViewController+NSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CECodeCompletionViewController+NSTableViewDelegate.m"; sourceTree = "<group>"; };
+		0535EBE015E164700058D3A9 /* CECodeCompletionViewController+NSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CECodeCompletionViewController+NSTableViewDataSource.h"; sourceTree = "<group>"; };
+		0535EBE115E164700058D3A9 /* CECodeCompletionViewController+NSTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CECodeCompletionViewController+NSTableViewDataSource.m"; sourceTree = "<group>"; };
 		0539897A15B898C500D66EBC /* NSTextView+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+CE.h"; sourceTree = "<group>"; };
 		0539897B15B898C500D66EBC /* NSTextView+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+CE.m"; sourceTree = "<group>"; };
 		053F60CA15BF17D20069C870 /* CEWindowBadge+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEWindowBadge+Private.h"; sourceTree = "<group>"; };
@@ -594,6 +600,10 @@
 				050544BD15E06DDC00697329 /* CECodeCompletionViewController.m */,
 				050544BF15E06DEF00697329 /* CECodeCompletionViewController+Private.h */,
 				050544C015E06DEF00697329 /* CECodeCompletionViewController+Private.m */,
+				0535EBDD15E164650058D3A9 /* CECodeCompletionViewController+NSTableViewDelegate.h */,
+				0535EBDE15E164650058D3A9 /* CECodeCompletionViewController+NSTableViewDelegate.m */,
+				0535EBE015E164700058D3A9 /* CECodeCompletionViewController+NSTableViewDataSource.h */,
+				0535EBE115E164700058D3A9 /* CECodeCompletionViewController+NSTableViewDataSource.m */,
 			);
 			path = "Code Completion";
 			sourceTree = "<group>";
@@ -1486,6 +1496,8 @@
 				050544BE15E06DDC00697329 /* CECodeCompletionViewController.m in Sources */,
 				050544C115E06DEF00697329 /* CECodeCompletionViewController+Private.m in Sources */,
 				050544C815E07B6100697329 /* CEEditorViewController+CEEditorTextViewDelegate.m in Sources */,
+				0535EBDF15E164650058D3A9 /* CECodeCompletionViewController+NSTableViewDelegate.m in Sources */,
+				0535EBE215E164700058D3A9 /* CECodeCompletionViewController+NSTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
