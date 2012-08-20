@@ -63,6 +63,19 @@ NSString * const CEPreferencesKeyDebugAreaHidden            = @"DebugAreaHidden"
 NSString * const CEPreferencesKeyFileBrowserWidth           = @"FileBrowserWidth";
 NSString * const CEPreferencesKeyDebugAreaHeight            = @"DebugAreaHeight";
 NSString * const CEPreferencesKeyDebugAreaSelectedIndex     = @"DebugAreaSelectedIndex";
+NSString * const CEPreferencesKeyTabWidth					= @"TabWidth";
+NSString * const CEPreferencesKeyPageGuideColumn			= @"PageGuideColumn";
+NSString * const CEPreferencesKeySuggestWhileTyping			= @"SuggestWhileTyping";
+NSString * const CEPreferencesKeySuggestWithEscape			= @"SuggestWithEscape";
+NSString * const CEPreferencesKeyIndentSoloBrace			= @"IndentSoloBrace";
+NSString * const CEPreferencesKeyIndentSoloBracket			= @"IndentSoloBracket";
+NSString * const CEPreferencesKeyIndentSoloParenthesis		= @"IndentSoloParenthesis";
+NSString * const CEPreferencesKeyIndentAfterBrace			= @"IndentAfterBrace";
+NSString * const CEPreferencesKeyIndentAfterBracket			= @"IndentAfterBracket";
+NSString * const CEPreferencesKeyIndentAfterParenthesis		= @"IndentAfterParenthesis";
+NSString * const CEPreferencesKeyInsertClosingBrace			= @"InsertClosingBrace";
+NSString * const CEPreferencesKeyInsertClosingBracket		= @"InsertClosingBracket";
+NSString * const CEPreferencesKeyInsertClosingParenteshis	= @"InsertClosingParenteshis";
 
 @implementation CEPreferences
 
@@ -831,6 +844,110 @@ NSString * const CEPreferencesKeyDebugAreaSelectedIndex     = @"DebugAreaSelecte
     }
 }
 
+- ( NSUInteger )tabWidth
+{
+    @synchronized( self )
+    {
+        return [ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyTabWidth ] unsignedIntegerValue ];
+    }
+}
+
+- ( NSUInteger )pageGuideColumn
+{
+    @synchronized( self )
+    {
+        return [ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyPageGuideColumn ] unsignedIntegerValue ];
+    }
+}
+
+- ( BOOL )suggestWhileTyping
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeySuggestWhileTyping ];
+    }
+}
+
+- ( BOOL )suggestWithEscape
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeySuggestWithEscape ];
+    }
+}
+
+- ( BOOL )indentSoloBrace
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyIndentSoloBrace ];
+    }
+}
+
+- ( BOOL )indentSoloBracket
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyIndentSoloBracket ];
+    }
+}
+
+- ( BOOL )indentSoloParenthesis
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyIndentSoloParenthesis ];
+    }
+}
+
+- ( BOOL )indentAfterBrace
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyIndentAfterBrace ];
+    }
+}
+
+- ( BOOL )indentAfterBracket
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyIndentAfterBracket ];
+    }
+}
+
+- ( BOOL )indentAfterParenthesis
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyIndentAfterParenthesis ];
+    }
+}
+
+- ( BOOL )insertClosingBrace
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyInsertClosingBrace ];
+    }
+}
+
+- ( BOOL )insertClosingBracket
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyInsertClosingBracket ];
+    }
+}
+
+- ( BOOL )insertClosingParenteshis
+{
+    @synchronized( self )
+    {
+        return [ DEFAULTS boolForKey: CEPreferencesKeyInsertClosingParenteshis ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -1260,6 +1377,149 @@ NSString * const CEPreferencesKeyDebugAreaSelectedIndex     = @"DebugAreaSelecte
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDebugAreaSelectedIndex );
+    }
+}
+
+- ( void )setTabWidth: ( NSUInteger )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyTabWidth ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyTabWidth );
+    }
+}
+
+- ( void )setPageGuideColumn: ( NSUInteger )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyPageGuideColumn ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyPageGuideColumn );
+    }
+}
+
+- ( void )setSuggestWhileTyping: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeySuggestWhileTyping ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySuggestWhileTyping );
+    }
+}
+
+- ( void )setSuggestWithEscape: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeySuggestWithEscape ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySuggestWithEscape );
+    }
+}
+
+- ( void )setIndentSoloBrace: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentSoloBrace ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentSoloBrace );
+    }
+}
+
+- ( void )setIndentSoloBracket: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentSoloBracket ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentSoloBracket );
+    }
+}
+
+- ( void )setIndentSoloParenthesis: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentSoloParenthesis ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentSoloParenthesis );
+    }
+}
+
+- ( void )setIndentAfterBrace: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentAfterBrace ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentAfterBrace );
+    }
+}
+
+- ( void )setIndentAfterBracket: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentAfterBracket ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentAfterBracket );
+    }
+}
+
+- ( void )setIndentAfterParenthesis: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentAfterParenthesis ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentAfterParenthesis );
+    }
+}
+
+- ( void )setInsertClosingBrace: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyInsertClosingBrace ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyInsertClosingBrace );
+    }
+}
+
+- ( void )setInsertClosingBracket: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyInsertClosingBracket ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyInsertClosingBracket );
+    }
+}
+
+- ( void )setInsertClosingParenteshis: ( BOOL )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyInsertClosingParenteshis ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyInsertClosingParenteshis );
     }
 }
 
