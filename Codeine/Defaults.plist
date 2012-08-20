@@ -8,6 +8,8 @@
 	<true/>
 	<key>AutoExpandTabs</key>
 	<true/>
+	<key>TabWidth</key>
+	<integer>4</integer>
 	<key>AutoIndent</key>
 	<true/>
 	<key>SoftWrap</key>
@@ -20,9 +22,33 @@
 	<true/>
 	<key>ShowPageGuide</key>
 	<false/>
+	<key>PageGuideColumn</key>
+	<integer>80</integer>
 	<key>ShowTabStops</key>
 	<false/>
 	<key>HighlightCurrentLine</key>
+	<true/>
+	<key>SuggestWhileTyping</key>
+	<true/>
+	<key>SuggestWithEscape</key>
+	<true/>
+	<key>IndentSoloBrace</key>
+	<true/>
+	<key>IndentSoloBracket</key>
+	<true/>
+	<key>IndentSoloParenthesis</key>
+	<true/>
+	<key>IndentAfterBrace</key>
+	<true/>
+	<key>IndentAfterBracket</key>
+	<true/>
+	<key>IndentAfterParenthesis</key>
+	<true/>
+	<key>InsertClosingBrace</key>
+	<true/>
+	<key>InsertClosingBracket</key>
+	<true/>
+	<key>InsertClosingParenteshis</key>
 	<true/>
 	<key>FirstLaunch</key>
 	<true/>
@@ -40,8 +66,6 @@
 	<string></string>
 	<key>TreatWarningsAsErrors</key>
 	<true/>
-	<key>ShowHiddenFiles</key>
-	<false/>
 	<key>WarningFlags</key>
 	<dict/>
 	<key>WarningFlagsPresetStrict</key>
