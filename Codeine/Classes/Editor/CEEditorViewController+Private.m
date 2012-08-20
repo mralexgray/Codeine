@@ -66,7 +66,7 @@
     paragraphStyle = [ [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ] autorelease ];
     
     [ paragraphStyle setTabStops: [ NSArray array ] ];
-    [ paragraphStyle setDefaultTabInterval: ( ( CEEditorLayoutManager * )( _textView.layoutManager ) ).glyphSize.width * ( CGFloat )4 ];
+    [ paragraphStyle setDefaultTabInterval: ( ( CEEditorLayoutManager * )( _textView.layoutManager ) ).glyphSize.width * ( CGFloat )[ [ CEPreferences sharedInstance ] tabWidth ] ];
     
     [ _textView setDefaultParagraphStyle: paragraphStyle ];
     

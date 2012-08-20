@@ -42,7 +42,7 @@
     }
     
     lineRect            = rect;
-    lineRect.origin.x   = margin + ( size.width * ( CGFloat )80 );
+    lineRect.origin.x   = margin + ( size.width * ( CGFloat )[ [ CEPreferences sharedInstance ] pageGuideColumn ] );
     lineRect.size.width = ( CGFloat )1;
     
     [ color setFill ];
@@ -78,6 +78,9 @@
     NSRect      lineRect;
     NSColor   * color;
     NSColor   * backgroundColor;
+	NSUInteger  tabWidth;
+	NSUInteger  pageGuideColumn;
+	BOOL        showPageGuide;
     
     margin = [ ( CEEditorLayoutManager * )( self.layoutManager ) firstGlyphLeftMargin ];
     size   = [ ( CEEditorLayoutManager * )( self.layoutManager ) glyphSize ];
@@ -98,11 +101,14 @@
         color = [ NSColor colorWithDeviceHue: h saturation: s brightness: b - ( CGFloat )0.035 alpha: 1 ];
     }
     
-    tabRect = NSMakeRect
+	pageGuideColumn	= [ [ CEPreferences sharedInstance ] pageGuideColumn ];
+	showPageGuide	= [ [ CEPreferences sharedInstance ] showPageGuide ];
+	tabWidth		= [ [ CEPreferences sharedInstance ] tabWidth ];
+    tabRect			= NSMakeRect
     (
         margin,
         0,
-        size.width * ( CGFloat )4,
+        size.width * ( CGFloat )tabWidth,
         size.height
     );
     
@@ -112,7 +118,7 @@
     
     while( tabRect.origin.x < rect.size.width )
     {
-        if( count != 20 || [ [ CEPreferences sharedInstance ] showPageGuide ] == NO )
+        if( count != pageGuideColumn || showPageGuide == NO )
         {
             lineRect = NSMakeRect( tabRect.origin.x, rect.origin.y, ( CGFloat )1, rect.size.height );
             
@@ -121,7 +127,7 @@
         
         tabRect.origin.x += tabRect.size.width;
         
-        count++;
+        count += tabWidth;
     }
 }
 

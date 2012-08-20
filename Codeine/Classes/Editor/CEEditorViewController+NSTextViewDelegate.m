@@ -19,8 +19,10 @@
             NSUInteger        spaces;
             NSUInteger        i;
             NSMutableString * text;
+			NSUInteger        tabWidth;
             
-            column = [ textView currentColumn ];
+			tabWidth = [ [ CEPreferences sharedInstance ] tabWidth ];
+            column   = [ textView currentColumn ];
             
             if( column == NSNotFound )
             {
@@ -28,10 +30,10 @@
             }
             
             column = column - 1;
-            spaces = column % 4;
+            spaces = ( NSUInteger )column % tabWidth;
             text   = [ NSMutableString string ];
             
-            for( i = 4; i > spaces; i-- )
+            for( i = tabWidth; i > spaces; i-- )
             {
                 [ text appendString: @" " ];
             }
@@ -50,6 +52,7 @@
             NSUInteger        i;
             UniChar           c;
             UniChar           lastChar;
+			NSMutableString	* spaces;
             
             text        = textView.textStorage.string;
             range       = textView.selectedRange;
@@ -57,6 +60,12 @@
             text        = [ text substringWithRange: range ];
             indent      = [ NSMutableString string ];
             lastChar    = [ text characterAtIndex: text.length - 1 ];
+            spaces      = [ NSMutableString string ];
+            
+            for( i = 0; i < [ [ CEPreferences sharedInstance ] tabWidth ]; i++ )
+            {
+                [ spaces appendString: @" " ];
+            }
             
             for( i = 0; i < text.length; i++ )
             {
@@ -74,15 +83,15 @@
                 {
                     if( c == '{' || lastChar == '{' )
                     {
-                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? @"    " : @"\t" ];
+                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? spaces : @"\t" ];
                     }
                     else if( c == '[' || lastChar == '[' )
                     {
-                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? @"    " : @"\t" ];
+                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? spaces : @"\t" ];
                     }
                     else if( c == '(' || lastChar == '(' )
                     {
-                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? @"    " : @"\t" ];
+                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? spaces : @"\t" ];
                     }
                     
                     break;
