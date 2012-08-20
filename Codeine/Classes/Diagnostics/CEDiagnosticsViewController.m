@@ -26,6 +26,7 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
 
 - ( void )dealloc
 {
+    [ _hud removeFromSuperview ];
     [ _document.sourceFile.translationUnit removeObserver: self forKeyPath: @"text" ];
     
     RELEASE_IVAR( _tableView );
@@ -46,7 +47,7 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     
     _diagnostics = [ [ NSMutableArray alloc ] initWithCapacity: 25 ];
     
-    _hud                   = [ [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ] autorelease ];
+    _hud                   = [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ];
     _hud.title             = L10N( "NoError" );
     _hud.autoresizingMask  = NSViewMinXMargin
                                 | NSViewMaxXMargin
