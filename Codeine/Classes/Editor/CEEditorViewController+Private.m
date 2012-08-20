@@ -102,6 +102,10 @@
 
 - ( void )showAutoCompletionDelayed: ( BOOL )delayed
 {
+    __block NSRect rect;
+    
+    rect = [ _textView.layoutManager boundingRectForGlyphRange: _textView.selectedRange inTextContainer: _textView.textContainer ];
+    
     dispatch_async
     (
         dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0 ),
@@ -112,7 +116,6 @@
                 NSUInteger           line;
                 NSUInteger           column;
                 NSArray            * results;
-                NSRect               rect;
                 
                 [ _codeCompletionViewController cancelOpening ];
                 [ _codeCompletionViewController closePopover ];
@@ -133,7 +136,6 @@
                 {
                     _codeCompletionViewController = [ [ CECodeCompletionViewController alloc ] initWithCompletionResults: results ];
                     
-                    rect            = [ _textView.layoutManager boundingRectForGlyphRange: _textView.selectedRange inTextContainer: _textView.textContainer ];
                     rect.size.width = ( CGFloat )1;
                     
                     dispatch_sync
