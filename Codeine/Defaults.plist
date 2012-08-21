@@ -726,6 +726,8 @@
 		<integer>5</integer>
 		<key>hpp</key>
 		<integer>5</integer>
+		<key>pch</key>
+		<integer>5</integer>
 	</dict>
 	<key>Bookmarks</key>
 	<array/>
