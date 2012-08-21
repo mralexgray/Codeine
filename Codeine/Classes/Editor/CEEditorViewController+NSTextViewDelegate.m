@@ -18,10 +18,35 @@
             NSInteger         column;
             NSUInteger        spaces;
             NSUInteger        i;
-            NSMutableString * text;
-			NSUInteger        tabWidth;
+            NSMutableString * indent;
+            NSString        * text;
+            NSUInteger        tabWidth;
+            NSRange           range;
+            NSRange           lineRange;
+            UniChar           c;
+            NSUInteger        location;
             
-			tabWidth = [ [ CEPreferences sharedInstance ] tabWidth ];
+            range       = textView.selectedRange;
+            text        = textView.textStorage.string;
+            lineRange   = [ text lineRangeForRange: range ];
+            text        = [ text substringWithRange: NSMakeRange( range.location, lineRange.length - ( range.location - lineRange.location ) ) ];
+            location    = 0;
+            
+            for( i = 0; i < text.length; i++ )
+            {
+                c = [ text characterAtIndex: i ];
+                
+                if( c != ' ' )
+                {
+                    break;
+                }
+                
+                location++;
+            }
+            
+            textView.selectedRange = NSMakeRange( range.location + location, 0 );
+            
+            tabWidth = [ [ CEPreferences sharedInstance ] tabWidth ];
             column   = [ textView currentColumn ];
             
             if( column == NSNotFound )
@@ -29,16 +54,26 @@
                 return NO;
             }
             
+            indent = [ NSMutableString string ];
             column = column - 1;
             spaces = ( NSUInteger )column % tabWidth;
-            text   = [ NSMutableString string ];
             
             for( i = tabWidth; i > spaces; i-- )
             {
-                [ text appendString: @" " ];
+                [ indent appendString: @" " ];
             }
             
-            [ _textView insertText: text ];
+            if( range.length > 0 )
+            {
+                if( [ textView shouldChangeTextInRange: range replacementString: @"" ] == NO )
+                {
+                    return NO;
+                }
+                
+                [ textView replaceCharactersInRange: range withString: @"" ];
+            }
+            
+            [ _textView insertText: indent ];
             
             return YES;
         }
@@ -52,7 +87,7 @@
             NSUInteger        i;
             UniChar           c;
             UniChar           lastChar;
-			NSMutableString	* spaces;
+            NSMutableString	* spaces;
             
             text        = textView.textStorage.string;
             range       = textView.selectedRange;
@@ -99,6 +134,77 @@
             }
             
             [ textView insertText: [ NSString stringWithFormat: @"\n%@", indent ] ];
+            
+            return YES;
+        }
+    }
+    else if( sel == @selector( deleteBackward: ) )
+    {
+        {
+            static BOOL isDeleting = NO;
+            
+            NSRange    range;
+            NSRange    lineRange;
+            NSString * text;
+            NSUInteger i;
+            NSUInteger mod;
+            NSUInteger tabWidth;
+            UniChar    c;
+            NSUInteger charIndex;
+            
+            if( isDeleting == YES )
+            {
+                return NO;
+            }
+            
+            isDeleting  = YES;
+            range       = textView.selectedRange;
+            text        = textView.textStorage.string;
+            
+            if( range.location == 0 || range.length > 0 )
+            {
+                isDeleting = NO;
+                
+                return NO;
+            }
+            
+            if( range.location > 0 )
+            {
+                c = [ text characterAtIndex: range.location - 1 ];
+                
+                if( c != ' ' )
+                {
+                    isDeleting = NO;
+                    
+                    return NO;
+                }
+            }
+            
+            lineRange   = [ text lineRangeForRange: range ];
+            tabWidth    = [ [ CEPreferences sharedInstance ] tabWidth ];
+            mod         = ( range.location - lineRange.location ) % tabWidth;
+            mod         = ( mod == 0 ) ? 4 : mod;
+            
+            for( i = 0; i < mod; i++ )
+            {
+                charIndex = ( range.location - 1 ) - i;
+                
+                c = [ text characterAtIndex: charIndex ];
+                
+                if( c != ' ' )
+                {
+                    break;
+                }
+                
+                [ textView doCommandBySelector: sel ];
+                
+                if( charIndex == 0 )
+                {
+                    break;
+                }
+            }
+            
+            isDeleting = NO;
             
             return YES;
         }
