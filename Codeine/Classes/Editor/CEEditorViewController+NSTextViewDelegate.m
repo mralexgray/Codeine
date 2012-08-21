@@ -81,55 +81,101 @@
     else if( sel == @selector( insertNewline: ) && [ [ CEPreferences sharedInstance ] autoIndent ] == YES )
     {
         {
-            NSRange           range;
-            NSString        * text;
-            NSMutableString * indent;
-            NSUInteger        i;
-            UniChar           c;
-            UniChar           lastChar;
-            NSMutableString	* spaces;
+            NSRange             range;
+            NSRange             lineRange;
+            NSString          * text;
+            NSInteger           i;
+            UniChar             c;
+            BOOL                shouldIndent;
+            NSUInteger          columns;
+            NSUInteger          tabWidth;
+            NSMutableString   * indent;
+            NSUInteger          mod;
             
-            text        = textView.textStorage.string;
-            range       = textView.selectedRange;
-            range       = [ text lineRangeForRange: range ];
-            text        = [ text substringWithRange: range ];
-            indent      = [ NSMutableString string ];
-            lastChar    = [ text characterAtIndex: text.length - 1 ];
-            spaces      = [ NSMutableString string ];
-            
-            for( i = 0; i < [ [ CEPreferences sharedInstance ] tabWidth ]; i++ )
+            if( [ [ CEPreferences sharedInstance ] autoIndent ] == NO )
             {
-                [ spaces appendString: @" " ];
+                return NO;
             }
             
-            for( i = 0; i < text.length; i++ )
+            text            = textView.textStorage.string;
+            range           = textView.selectedRange;
+            lineRange       = [ text lineRangeForRange: range ];
+            text            = [ text substringWithRange: NSMakeRange( lineRange.location, range.location - lineRange.location ) ];
+            shouldIndent    = NO;
+            tabWidth        = [ [ CEPreferences sharedInstance ] tabWidth ];
+            
+            for( i = ( NSInteger )text.length - 1; i >= 0; i-- )
             {
-                c = [ text characterAtIndex: i ];
+                c = [ text characterAtIndex: ( NSUInteger )i ];
+                
+                if( c == ' ' || c == '\t' )
+                {
+                    continue;
+                }
+                else if( c == '{' )
+                {
+                    shouldIndent = ( [ [ CEPreferences sharedInstance ] indentAfterBrace ] ) ? YES : NO;
+                    
+                    break;
+                }
+                else if( c == '[' )
+                {
+                    shouldIndent = ( [ [ CEPreferences sharedInstance ] indentAfterBracket ] ) ? YES : NO;
+                    
+                    break;
+                }
+                else if( c == '(' )
+                {
+                    shouldIndent = ( [ [ CEPreferences sharedInstance ] indentAfterParenthesis ] ) ? YES : NO;
+                    
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            
+            columns = 0;
+            indent  = [ NSMutableString string ];
+            
+            for( i = 0; i < ( NSInteger )text.length; i++ )
+            {
+                c = [ text characterAtIndex: ( NSUInteger )i ];
                 
                 if( c == ' ' )
                 {
                     [ indent appendString: @" " ];
+                    
+                    columns += 1;
                 }
                 else if( c == '\t' )
                 {
-                    [ indent appendString: @" " ];
+                    [ indent appendString: @"\t" ];
+                    
+                    columns += tabWidth;
                 }
                 else
                 {
-                    if( c == '{' || lastChar == '{' )
-                    {
-                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? spaces : @"\t" ];
-                    }
-                    else if( c == '[' || lastChar == '[' )
-                    {
-                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? spaces : @"\t" ];
-                    }
-                    else if( c == '(' || lastChar == '(' )
-                    {
-                        [ indent appendString: ( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES ) ? spaces : @"\t" ];
-                    }
-                    
                     break;
+                }
+            }
+            
+            if( shouldIndent == YES )
+            {
+                mod = indent.length % tabWidth;
+                mod = ( mod == 0 ) ? tabWidth : tabWidth - mod;
+                
+                if( [ [ CEPreferences sharedInstance ] autoExpandTabs ] == YES )
+                {
+                    for( i = 0; i < ( NSInteger )mod; i++ )
+                    {
+                        [ indent appendString: @" " ];
+                    }
+                }
+                else
+                {
+                    [ indent appendString: @"\t" ];
                 }
             }
             
