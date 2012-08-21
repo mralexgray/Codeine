@@ -229,7 +229,7 @@
             lineRange   = [ text lineRangeForRange: range ];
             tabWidth    = [ [ CEPreferences sharedInstance ] tabWidth ];
             mod         = ( range.location - lineRange.location ) % tabWidth;
-            mod         = ( mod == 0 ) ? 4 : mod;
+            mod         = ( mod == 0 ) ? tabWidth : mod;
             
             for( i = 0; i < mod; i++ )
             {
