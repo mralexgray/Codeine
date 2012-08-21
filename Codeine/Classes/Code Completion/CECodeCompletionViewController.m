@@ -54,7 +54,7 @@
     
     open = ^( void )
     {
-        if( _cancel == NO )
+        if( _cancel == NO && self.view.window != nil )
         {
             [ super openInPopoverRelativeToRect: rect ofView: view preferredEdge: edge ];
         }
