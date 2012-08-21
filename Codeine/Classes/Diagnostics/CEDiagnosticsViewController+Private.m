@@ -1,4 +1,4 @@
-/*******************************************************************************
+    /*******************************************************************************
  * Copyright (c) 2012, Jean-David Gadina <macmade@eosgarden.com>
  * All rights reserved
  ******************************************************************************/
@@ -40,11 +40,18 @@
     {
         if( text != nil )
         {
-            lineRange = [ text lineRangeForRange: NSMakeRange( _textView.selectedRange.location, 0 ) ];
-            
-            if( diagnostic.range.location >= lineRange.location && diagnostic.range.location <= lineRange.location + lineRange.length )
+            @try
             {
-                continue;
+                lineRange = [ text lineRangeForRange: NSMakeRange( _textView.selectedRange.location, 0 ) ];
+                
+                if( diagnostic.range.location >= lineRange.location && diagnostic.range.location <= lineRange.location + lineRange.length )
+                {
+                    continue;
+                }
+            }
+            @catch ( NSException * e )
+            {
+                ( void )e;
             }
         }
         
