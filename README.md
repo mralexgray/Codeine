@@ -1,42 +1,24 @@
-ClangKit
-========
+Codeine
+=======
 
 About
 -----
 
-ClangKit provides an Objective-C frontend to LibClang. 
-Source tokenization, diagnostics and fix-its are actually implemented.
+Codeine is a new code editor for Mac, allowing editing, building, running and debugging C, C++ and Objective-C code.
 
-ClangKit is intended to be used as a private framework, in an application's bundle.  
-Possible applications includes:
+While not an IDE (yet), Codeine aims to evolve to support complex application projects.
 
- * Source code syntax highlighting
- * Source code tokenization
- * Source code diagnostics
- * Source code static analysis
-
-### Language support
-
-The project actually supports parsing C, C++, Objective-C and Objective-C++ source code.
-
-### iOS note
-
-The project is not yet compatible with iOS, but everything should be fine, as LibClang is actually compiled as a static library.
-
-Documentation
--------------
-
-Documentation can be found at: http://xs-labs.com/en/projects/clang-kit/documentation/
+Codeine uses the latest technologies in source code compilation to provide users with the best environment to build and run software on the Mac platform.
 
 Project home
 ------------
 
-Project home can be found at: http://xs-labs.com/en/projects/clang-kit/
+Project home can be found at: http://xs-labs.com/en/projects/codeine/
 
 License
 -------
 
-ClangKit is released under the terms of the Boost Software License - Version 1.0.
+Codeine is released under the terms of the BSD license.
 
 Repository Infos
 ----------------
