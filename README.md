@@ -13,7 +13,7 @@ Codeine uses the latest technologies in source code compilation to provide users
 Project home
 ------------
 
-Project home can be found at: http://xs-labs.com/en/projects/codeine/
+Project home can be found at: http://www.xs-labs.com/en/projects/codeine/
 
 License
 -------
