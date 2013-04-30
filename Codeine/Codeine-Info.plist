@@ -46,23 +46,23 @@
 				<string>com.apple.xcode.yacc-source</string>
 				<string>com.apple.xcode.zsh-script</string>
 				<string>com.apple.xml-property-list</string>
-				<string>com.eosgarden.codeine.actionscript-source</string>
-				<string>com.eosgarden.codeine.erb-source</string>
-				<string>com.eosgarden.codeine.ini-configuration</string>
-				<string>com.eosgarden.codeine.javascript-source</string>
-				<string>com.eosgarden.codeine.json-source</string>
-				<string>com.eosgarden.codeine.jsp-source</string>
-				<string>com.eosgarden.codeine.lasso-source</string>
-				<string>com.eosgarden.codeine.lua-source</string>
-				<string>com.eosgarden.codeine.setext-source</string>
-				<string>com.eosgarden.codeine.sql-source</string>
-				<string>com.eosgarden.codeine.tcl-source</string>
-				<string>com.eosgarden.codeine.tex-source</string>
-				<string>com.eosgarden.codeine.vbscript-source</string>
-				<string>com.eosgarden.codeine.vectorscript-source</string>
-				<string>com.eosgarden.codeine.verilog-hdl-source</string>
-				<string>com.eosgarden.codeine.vhdl-source</string>
-				<string>com.eosgarden.codeine.yaml-source</string>
+				<string>com.xs-labs.codeine.actionscript-source</string>
+				<string>com.xs-labs.codeine.erb-source</string>
+				<string>com.xs-labs.codeine.ini-configuration</string>
+				<string>com.xs-labs.codeine.javascript-source</string>
+				<string>com.xs-labs.codeine.json-source</string>
+				<string>com.xs-labs.codeine.jsp-source</string>
+				<string>com.xs-labs.codeine.lasso-source</string>
+				<string>com.xs-labs.codeine.lua-source</string>
+				<string>com.xs-labs.codeine.setext-source</string>
+				<string>com.xs-labs.codeine.sql-source</string>
+				<string>com.xs-labs.codeine.tcl-source</string>
+				<string>com.xs-labs.codeine.tex-source</string>
+				<string>com.xs-labs.codeine.vbscript-source</string>
+				<string>com.xs-labs.codeine.vectorscript-source</string>
+				<string>com.xs-labs.codeine.verilog-hdl-source</string>
+				<string>com.xs-labs.codeine.vhdl-source</string>
+				<string>com.xs-labs.codeine.yaml-source</string>
 				<string>com.netscape.javascript-source</string>
 				<string>com.sun.java-source</string>
 				<string>com.sun.java-web-start</string>
@@ -113,7 +113,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Application.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.eosgarden.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.xs-labs.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -125,13 +125,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0a1423a</string>
+	<string>ed4e83d</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012 eosgarden. All rights reserved.</string>
+	<string>Copyright © 2012 XS-Labs. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>CEMainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -146,17 +146,17 @@
 			<key>UTTypeDescription</key>
 			<string>Codeine Document</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.document-object</string>
+			<string>com.xs-labs.codeine.document-object</string>
 		</dict>
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>com.eosgarden.codeine.document-object</string>
+				<string>com.xs-labs.codeine.document-object</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>Codeine Text Document</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.textdocument-object</string>
+			<string>com.xs-labs.codeine.textdocument-object</string>
 		</dict>
 		<dict>
 			<key>UTTypeConformsTo</key>
@@ -168,7 +168,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.actionscript-source</string>
+			<string>com.xs-labs.codeine.actionscript-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -187,7 +187,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.ini-configuration</string>
+			<string>com.xs-labs.codeine.ini-configuration</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -207,7 +207,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.json-source</string>
+			<string>com.xs-labs.codeine.json-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -226,7 +226,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.jsp-source</string>
+			<string>com.xs-labs.codeine.jsp-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -245,7 +245,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.javascript-source</string>
+			<string>com.xs-labs.codeine.javascript-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -264,7 +264,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.lasso-source</string>
+			<string>com.xs-labs.codeine.lasso-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -283,7 +283,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.lua-source</string>
+			<string>com.xs-labs.codeine.lua-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -324,7 +324,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.erb-source</string>
+			<string>com.xs-labs.codeine.erb-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -344,7 +344,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.sql-source</string>
+			<string>com.xs-labs.codeine.sql-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -368,7 +368,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.setext-source</string>
+			<string>com.xs-labs.codeine.setext-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -389,7 +389,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.tcl-source</string>
+			<string>com.xs-labs.codeine.tcl-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -408,7 +408,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.tex-source</string>
+			<string>com.xs-labs.codeine.tex-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -428,7 +428,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.vbscript-source</string>
+			<string>com.xs-labs.codeine.vbscript-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -447,7 +447,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.vhdl-source</string>
+			<string>com.xs-labs.codeine.vhdl-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -467,7 +467,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.verilog-hdl-source</string>
+			<string>com.xs-labs.codeine.verilog-hdl-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -487,7 +487,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.vectorscript-source</string>
+			<string>com.xs-labs.codeine.vectorscript-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -507,7 +507,7 @@
 			<key>UTTypeIconFile</key>
 			<string>CodeineTextDocument.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.eosgarden.codeine.yaml-source</string>
+			<string>com.xs-labs.codeine.yaml-source</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

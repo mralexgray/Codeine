@@ -44,6 +44,7 @@
 		051F2E10159A12DB0027DD4F /* CEAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */; };
 		051F2E13159A13270027DD4F /* CEAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051F2E11159A13270027DD4F /* CEAboutWindow.xib */; };
 		051F2E16159A13320027DD4F /* CEPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051F2E14159A13320027DD4F /* CEPreferencesWindow.xib */; };
+		0529BC9715EA68220088B727 /* CEUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0529BC9615EA68220088B727 /* CEUUID.m */; };
 		052B91CF15A61F1800F82759 /* CEPreferencesFileTypesOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B91CE15A61F1800F82759 /* CEPreferencesFileTypesOptionsViewController+Private.m */; };
 		052B91D315A61F2500F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B91D215A61F2400F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.m */; };
 		052B91D615A61F3100F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B91D515A61F3000F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDataSource.m */; };
@@ -72,6 +73,7 @@
 		053F60EC15BF56820069C870 /* NSView+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 053F60EB15BF56820069C870 /* NSView+CE.m */; };
 		05420E9B15B5E600008B2294 /* CEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420E9A15B5E600008B2294 /* CEDocument.m */; };
 		05420EBC15B5EA2E008B2294 /* CELanguageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420EBB15B5EA2E008B2294 /* CELanguageWindowController.m */; };
+		05457362166F74AA00B8A79B /* CEInfoWindowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05457361166F74A900B8A79B /* CEInfoWindowCell.m */; };
 		05480FAD159A0B32005CFBC5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05480FAC159A0B32005CFBC5 /* Cocoa.framework */; };
 		05480FB7159A0B32005CFBC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05480FB5159A0B32005CFBC5 /* InfoPlist.strings */; };
 		05480FB9159A0B32005CFBC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FB8159A0B32005CFBC5 /* main.m */; };
@@ -294,6 +296,8 @@
 		051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEAboutWindowController.m; sourceTree = "<group>"; };
 		051F2E12159A13270027DD4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEAboutWindow.xib; sourceTree = "<group>"; };
 		051F2E15159A13320027DD4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesWindow.xib; sourceTree = "<group>"; };
+		0529BC9515EA68220088B727 /* CEUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEUUID.h; sourceTree = "<group>"; };
+		0529BC9615EA68220088B727 /* CEUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEUUID.m; sourceTree = "<group>"; };
 		052B91CD15A61F1800F82759 /* CEPreferencesFileTypesOptionsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesFileTypesOptionsViewController+Private.h"; sourceTree = "<group>"; };
 		052B91CE15A61F1800F82759 /* CEPreferencesFileTypesOptionsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesFileTypesOptionsViewController+Private.m"; sourceTree = "<group>"; };
 		052B91D115A61F2400F82759 /* CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesFileTypesOptionsViewController+NSTableViewDelegate.h"; sourceTree = "<group>"; };
@@ -347,6 +351,8 @@
 		05420E9A15B5E600008B2294 /* CEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDocument.m; sourceTree = "<group>"; };
 		05420EBA15B5EA2E008B2294 /* CELanguageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELanguageWindowController.h; sourceTree = "<group>"; };
 		05420EBB15B5EA2E008B2294 /* CELanguageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELanguageWindowController.m; sourceTree = "<group>"; };
+		05457360166F74A900B8A79B /* CEInfoWindowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEInfoWindowCell.h; sourceTree = "<group>"; };
+		05457361166F74A900B8A79B /* CEInfoWindowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInfoWindowCell.m; sourceTree = "<group>"; };
 		05480FA8159A0B32005CFBC5 /* Codeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Codeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05480FAC159A0B32005CFBC5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05480FAF159A0B32005CFBC5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -640,6 +646,8 @@
 				052CEA5215B1F39A00E0BC0F /* CEInfoWindowOutlineView.m */,
 				052CEA5415B1F3A900E0BC0F /* CEInfoWindowView.h */,
 				052CEA5515B1F3A900E0BC0F /* CEInfoWindowView.m */,
+				05457360166F74A900B8A79B /* CEInfoWindowCell.h */,
+				05457361166F74A900B8A79B /* CEInfoWindowCell.m */,
 			);
 			path = "Info Window";
 			sourceTree = "<group>";
@@ -1116,6 +1124,8 @@
 				05F75E2A15DAB65100F26DCD /* CESyntaxHighlighter.m */,
 				05F75E2C15DAB75C00F26DCD /* CESyntaxHighlighter+Private.h */,
 				05F75E2D15DAB75C00F26DCD /* CESyntaxHighlighter+Private.m */,
+				0529BC9515EA68220088B727 /* CEUUID.h */,
+				0529BC9615EA68220088B727 /* CEUUID.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1498,6 +1508,8 @@
 				050544C815E07B6100697329 /* CEEditorViewController+CEEditorTextViewDelegate.m in Sources */,
 				0535EBDF15E164650058D3A9 /* CECodeCompletionViewController+NSTableViewDelegate.m in Sources */,
 				0535EBE215E164700058D3A9 /* CECodeCompletionViewController+NSTableViewDataSource.m in Sources */,
+				0529BC9715EA68220088B727 /* CEUUID.m in Sources */,
+				05457362166F74AA00B8A79B /* CEInfoWindowCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
