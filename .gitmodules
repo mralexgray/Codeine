@@ -1,3 +1,0 @@
-[submodule "ClangKit"]
-	path = ClangKit
-	url = ssh://github@github.com:macmade/ClangKit.git
