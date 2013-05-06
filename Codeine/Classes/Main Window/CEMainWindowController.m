@@ -154,7 +154,7 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
         badge                  = [ [ CEWindowBadge alloc ] initWithFrame: badgeRect ];
         badge.autoresizingMask = NSViewMaxXMargin | NSViewMinYMargin;
         
-        [ badge setTitle: [ NSString stringWithFormat: @"Beta version - %lX", ( unsigned long )[ [ BUNDLE objectForInfoDictionaryKey: NSBundleInfoKeyCFBundleVersion ] integerValue ] ] ];
+        [ badge setTitle: [ NSString stringWithFormat: @"Beta version - %lu", ( unsigned long )[ [ BUNDLE objectForInfoDictionaryKey: NSBundleInfoKeyCFBundleVersion ] integerValue ] ] ];
         
         [ ( ( NSView * )self.window.contentView ).superview addSubview: badge ];
         
