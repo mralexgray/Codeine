@@ -57,6 +57,7 @@
 - ( IBAction )showPreferencesWindow: ( id )sender;
 - ( IBAction )showAboutWindow: ( id )sender;
 - ( IBAction )showAlternateAboutWindow: ( id )sender;
+- ( IBAction )checkForUpdates: ( id )sender;
 - ( IBAction )showRegistrationWindow: ( id )sender;
 - ( IBAction )newWindow: ( id )sender;
 - ( IBAction )resetColorThemes: ( id )sender;

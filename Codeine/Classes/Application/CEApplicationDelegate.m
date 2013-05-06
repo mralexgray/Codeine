@@ -40,6 +40,11 @@
 #import "CEDocument.h"
 #import "CERegistrationWindowController.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-method-return-type"
+#import <Sparkle/Sparkle.h>
+#pragma clang diagnostic pop
+
 @implementation CEApplicationDelegate
 
 @synthesize activeMainWindowController = _activeMainWindowController;
@@ -91,6 +96,16 @@
     {
         [ self newWindow: nil ];
     }
+    
+    dispatch_after
+    (
+        dispatch_time( DISPATCH_TIME_NOW, ( int64_t )( 5 * NSEC_PER_SEC ) ),
+        dispatch_get_main_queue(),
+        ^( void )
+        {
+            [ [ SUUpdater sharedUpdater ] checkForUpdatesInBackground ];
+        }
+    );
 }
 
 - ( void )applicationWillTerminate: ( NSNotification * )notification
@@ -134,6 +149,11 @@
     [ _alternateAboutWindowController.window center ];
     [ _alternateAboutWindowController showWindow: sender ];
     [ _alternateAboutWindowController.window makeKeyAndOrderFront: sender ];
+}
+
+- ( IBAction )checkForUpdates: ( id )sender
+{
+    [ [ SUUpdater sharedUpdater ] checkForUpdates: sender ];
 }
 
 - ( IBAction )showRegistrationWindow: ( id )sender

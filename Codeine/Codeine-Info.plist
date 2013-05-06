@@ -125,7 +125,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3c52046</string>
+	<string>db33dae</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
@@ -136,6 +136,8 @@
 	<string>CEMainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUFeedURL</key>
+	<string>http://www.xs-labs.com/downloads/updates/codeine/sparkle.xml</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>

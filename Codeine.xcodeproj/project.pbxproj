@@ -133,6 +133,8 @@
 		05749F4B15B74B8200E2C5E0 /* CELanguageWindowController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05749F4A15B74B8200E2C5E0 /* CELanguageWindowController+NSTableViewDelegate.m */; };
 		05749F4E15B752F200E2C5E0 /* CELanguageWindowTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05749F4D15B752F200E2C5E0 /* CELanguageWindowTitleCell.m */; };
 		05749F5115B7576200E2C5E0 /* CELanguageWindowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05749F5015B7576100E2C5E0 /* CELanguageWindowTableView.m */; };
+		057601A217385C5900C67831 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 057601A117385C5900C67831 /* Sparkle.framework */; };
+		057601A417385C9700C67831 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 057601A117385C5900C67831 /* Sparkle.framework */; };
 		0576BEFA15B4C4E40097B660 /* CEColorLabelMenuItem+CEColorLabelViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0576BEF915B4C4E40097B660 /* CEColorLabelMenuItem+CEColorLabelViewDelegate.m */; };
 		057F585A159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F5847159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.m */; };
 		057F585B159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F5849159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDelegate.m */; };
@@ -229,6 +231,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0518BA8615D85FB900349932 /* ClangKit.framework in CopyFiles */,
+				057601A417385C9700C67831 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +465,7 @@
 		05749F4D15B752F200E2C5E0 /* CELanguageWindowTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELanguageWindowTitleCell.m; sourceTree = "<group>"; };
 		05749F4F15B7576100E2C5E0 /* CELanguageWindowTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELanguageWindowTableView.h; sourceTree = "<group>"; };
 		05749F5015B7576100E2C5E0 /* CELanguageWindowTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELanguageWindowTableView.m; sourceTree = "<group>"; };
+		057601A117385C5900C67831 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		0576BEF815B4C4E40097B660 /* CEColorLabelMenuItem+CEColorLabelViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEColorLabelMenuItem+CEColorLabelViewDelegate.h"; sourceTree = "<group>"; };
 		0576BEF915B4C4E40097B660 /* CEColorLabelMenuItem+CEColorLabelViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEColorLabelMenuItem+CEColorLabelViewDelegate.m"; sourceTree = "<group>"; };
 		057F5846159D3BE100C84780 /* CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+NSTableViewDataSource.h"; sourceTree = "<group>"; };
@@ -584,6 +588,7 @@
 				05F3174415B254C40000C4CA /* Quartz.framework in Frameworks */,
 				05F3174215B253560000C4CA /* QuickLook.framework in Frameworks */,
 				05480FAD159A0B32005CFBC5 /* Cocoa.framework in Frameworks */,
+				057601A217385C5900C67831 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +753,7 @@
 			children = (
 				0518BA3515D8203000349932 /* ClangKit.xcodeproj */,
 				05480FB2159A0B32005CFBC5 /* Codeine */,
+				057601A017385C5900C67831 /* Third-Party */,
 				05480FAB159A0B32005CFBC5 /* Frameworks */,
 				05480FA9159A0B32005CFBC5 /* Products */,
 			);
@@ -950,6 +956,14 @@
 			);
 			path = Diagnostics;
 			sourceTree = "<group>";
+		};
+		057601A017385C5900C67831 /* Third-Party */ = {
+			isa = PBXGroup;
+			children = (
+				057601A117385C5900C67831 /* Sparkle.framework */,
+			);
+			path = "Third-Party";
+			sourceTree = SOURCE_ROOT;
 		};
 		057F5845159D3BE000C84780 /* Compiler */ = {
 			isa = PBXGroup;
@@ -1254,7 +1268,7 @@
 			attributes = {
 				CLASSPREFIX = CE;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = eosgarden;
+				ORGANIZATIONNAME = "XS-Labs";
 			};
 			buildConfigurationList = 05480FA2159A0B32005CFBC5 /* Build configuration list for PBXProject "Codeine" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1823,6 +1837,10 @@
 		0517226215B0F289004D5AF5 /* Release - AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Third-Party\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Codeine/Codeine-Prefix.pch";
 				INFOPLIST_FILE = "Codeine/Codeine-Info.plist";
@@ -2018,6 +2036,10 @@
 		05480FC7159A0B33005CFBC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Third-Party\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Codeine/Codeine-Prefix.pch";
 				INFOPLIST_FILE = "Codeine/Codeine-Info.plist";
@@ -2029,6 +2051,10 @@
 		05480FC8159A0B33005CFBC5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Third-Party\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Codeine/Codeine-Prefix.pch";
 				INFOPLIST_FILE = "Codeine/Codeine-Info.plist";
