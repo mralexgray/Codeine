@@ -1,3 +1,6 @@
 [submodule "ClangKit"]
 	path = ClangKit
 	url = https://github.com/macmade/ClangKit
+[submodule "Sparkle"]
+	path = Sparkle
+	url = https://github.com/andymatuschak/Sparkle.git
