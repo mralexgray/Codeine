@@ -1379,7 +1379,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nplist=\"Codeine/Codeine-Info.plist\"\nrev=$(git log --pretty=format:'%h' -n 1)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $rev\" \"$plist\"";
+			shellScript = "#!/bin/bash\nplist=\"Codeine/Codeine-Info.plist\"\nrev=$((0x`git log --pretty=format:'%h' -n 1`))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $rev\" \"$plist\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
