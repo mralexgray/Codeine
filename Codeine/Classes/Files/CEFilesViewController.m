@@ -77,17 +77,7 @@
     _openDocumentsItem  = [ [ CEFilesViewItem alloc ] initWithType: CEFilesViewItemTypeSection name: CEFilesViewOpenDocumentsItemName ];
     
     [ _rootItems addObject: _openDocumentsItem ];
-    
-    #ifdef APPSTORE
-        
-        /* iCloud files (maybe...) */
-        
-    #else
-        
-        [ _rootItems addObject: [ CEFilesViewItem placesItem ] ];
-        
-    #endif
-    
+    [ _rootItems addObject: [ CEFilesViewItem placesItem ] ];
     [ _rootItems addObject: [ CEFilesViewItem bookmarksItems ] ];
     
     [ self setNextResponder: _outlineView.nextResponder ];
