@@ -152,18 +152,6 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
         
         badgeRect              = NSMakeRect( self.window.frame.size.width - 230, self.window.frame.size.height - 20, 200, 20 );
         badge                  = [ [ CEWindowBadge alloc ] initWithFrame: badgeRect ];
-        badge.autoresizingMask = NSViewMinXMargin | NSViewMinYMargin;
-        
-        [ badge setTitle: L10N( "NotRegistered" ) ];
-        [ badge setTarget: [ CEApplicationDelegate sharedInstance ] ];
-        [ badge setAction: @selector( showRegistrationWindow: ) ];
-        
-        [ ( ( NSView * )self.window.contentView ).superview addSubview: badge ];
-        
-        [ badge release ];
-        
-        badgeRect              = NSMakeRect( 70, self.window.frame.size.height - 20, 150, 20 );
-        badge                  = [ [ CEWindowBadge alloc ] initWithFrame: badgeRect ];
         badge.autoresizingMask = NSViewMaxXMargin | NSViewMinYMargin;
         
         [ badge setTitle: [ NSString stringWithFormat: @"Beta version - %@", [ [ BUNDLE objectForInfoDictionaryKey: NSBundleInfoKeyCFBundleVersion ] uppercaseString ] ] ];
