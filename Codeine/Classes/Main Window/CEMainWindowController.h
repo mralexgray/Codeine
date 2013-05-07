@@ -61,6 +61,7 @@ FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
     BOOL                          _fileBrowserHidden;
     BOOL                          _debugAreaHidden;
     NSSegmentedControl          * _viewsSegmentedControl;
+    BOOL                          _fullScreen;
     
 @private
     
@@ -76,6 +77,7 @@ FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
 @property( nonatomic, readwrite, retain ) IBOutlet NSSplitView          * horizontalSplitView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSSplitView          * verticalSplitView;
 @property( nonatomic, readwrite, retain ) IBOutlet NSSegmentedControl   * viewsSegmentedControl;
+@property( nonatomic, readonly          )          BOOL                   fullScreen;
 
 - ( IBAction )addBookmark: ( id )sender;
 - ( IBAction )removeBookmark: ( id )sender;
@@ -89,5 +91,8 @@ FOUNDATION_EXPORT NSString * const CEMainWindowControllerDocumentsArrayKey;
 - ( IBAction )toggleLineNumbers: ( id )sender;
 - ( IBAction )toggleSoftWrap: ( id )sender;
 - ( IBAction )toggleInvisibleCharacters: ( id )sender;
+- ( IBAction )toggleFullScreenMode: ( id )sender;
+- ( IBAction )enterFullScreenMode: ( id )sender;
+- ( IBAction )exitFullScreenMode: ( id )sender;
 
 @end

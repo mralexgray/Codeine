@@ -58,6 +58,7 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 @synthesize horizontalSplitView     = _horizontalSplitView;
 @synthesize verticalSplitView       = _verticalSplitView;
 @synthesize viewsSegmentedControl   = _viewsSegmentedControl;
+@synthesize fullScreen              = _fullScreen;
 
 - ( id )init
 {
@@ -151,6 +152,8 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     {
         self.window.collectionBehavior &= ~NSWindowCollectionBehaviorFullScreenPrimary;
     }
+    
+    _fullScreen = ( self.window.styleMask & NSFullScreenWindowMask ) ? YES : NO;
     
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( preferencesDidChange: ) name: CEPreferencesNotificationValueChanged object: nil ];
     
@@ -457,6 +460,72 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     value = [ [ CEPreferences sharedInstance ] showInvisibles ];
     
     [ [ CEPreferences sharedInstance ] setShowInvisibles: ( value == YES ) ? NO : YES ];
+}
+
+- ( IBAction )toggleFullScreenMode: ( id )sender
+{
+    if( _fullScreen == NO )
+    {
+        [ self enterFullScreenMode: sender ];
+    }
+    else
+    {
+        [ self exitFullScreenMode: sender ];
+    }
+}
+
+- ( IBAction )enterFullScreenMode: ( id )sender
+{
+    NSView       * view;
+    NSInteger      value;
+    NSDictionary * options;
+    
+    ( void )sender;
+    
+    if( _fullScreen == YES )
+    {
+        return;
+    }
+    
+    _fullScreen = YES;
+    
+    if( [ [ CEPreferences sharedInstance ] fullScreenStyle ] == CEPreferencesFullScreenStyleNative )
+    {
+        [ self.window toggleFullScreen: sender ];
+    }
+    else
+    {
+        view    = ( NSView * )( self.window.contentView );
+        value   = NSApplicationPresentationAutoHideMenuBar | NSApplicationPresentationAutoHideDock;
+        options = [ NSDictionary dictionaryWithObject: [ NSNumber numberWithInteger: value ] forKey: NSFullScreenModeApplicationPresentationOptions ];
+        
+        [ view enterFullScreenMode: self.window.screen withOptions: options ];
+    }
+}
+
+- ( IBAction )exitFullScreenMode: ( id )sender
+{
+    NSView * view;
+    
+    ( void )sender;
+    
+    if( _fullScreen == NO )
+    {
+        return;
+    }
+    
+    _fullScreen = NO;
+    
+    if( [ [ CEPreferences sharedInstance ] fullScreenStyle ] == CEPreferencesFullScreenStyleNative )
+    {
+        [ self.window toggleFullScreen: sender ];
+    }
+    else
+    {
+        view = ( NSView * )( self.window.contentView );
+        
+        [ view exitFullScreenModeWithOptions: nil ];
+    }
 }
 
 @end
