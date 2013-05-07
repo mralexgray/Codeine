@@ -2019,6 +2019,7 @@
 		05480FC7159A0B33005CFBC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Codeine/Codeine-Prefix.pch";
 				INFOPLIST_FILE = "Codeine/Codeine-Info.plist";
@@ -2030,6 +2031,7 @@
 		05480FC8159A0B33005CFBC5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Codeine/Codeine-Prefix.pch";
 				INFOPLIST_FILE = "Codeine/Codeine-Info.plist";
