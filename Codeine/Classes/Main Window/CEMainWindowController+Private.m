@@ -132,4 +132,18 @@
     RELEASE_IVAR( _languageWindowController );
 }
 
+- ( void )preferencesDidChange: ( NSNotification * )notification
+{
+    ( void )notification;
+    
+    if( [ [ CEPreferences sharedInstance ] fullScreenStyle ] == CEPreferencesFullScreenStyleNative )
+    {
+        self.window.collectionBehavior |= NSWindowCollectionBehaviorFullScreenPrimary;
+    }
+    else
+    {
+        self.window.collectionBehavior &= ~NSWindowCollectionBehaviorFullScreenPrimary;
+    }
+}
+
 @end

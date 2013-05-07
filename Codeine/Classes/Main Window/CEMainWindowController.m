@@ -143,6 +143,17 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
         [ self toggleDebugArea: nil ];
     }
     
+    if( [ [ CEPreferences sharedInstance ] fullScreenStyle ] == CEPreferencesFullScreenStyleNative )
+    {
+        self.window.collectionBehavior |= NSWindowCollectionBehaviorFullScreenPrimary;
+    }
+    else
+    {
+        self.window.collectionBehavior &= ~NSWindowCollectionBehaviorFullScreenPrimary;
+    }
+    
+    [ NOTIFICATION_CENTER addObserver: self selector: @selector( preferencesDidChange: ) name: CEPreferencesNotificationValueChanged object: nil ];
+    
     _horizontalSplitView.delegate = self;
     _verticalSplitView.delegate   = self;
     
