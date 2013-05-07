@@ -101,6 +101,7 @@ NSString * const CEPreferencesKeyInsertClosingBrace			= @"InsertClosingBrace";
 NSString * const CEPreferencesKeyInsertClosingBracket		= @"InsertClosingBracket";
 NSString * const CEPreferencesKeyInsertClosingParenteshis	= @"InsertClosingParenteshis";
 NSString * const CEPreferencesKeySuggestDelay               = @"SuggestDelay";
+NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle";
 
 @implementation CEPreferences
 
@@ -981,6 +982,14 @@ NSString * const CEPreferencesKeySuggestDelay               = @"SuggestDelay";
     }
 }
 
+- ( CEPreferencesFullScreenStyle )fullScreenStyle
+{
+    @synchronized( self )
+    {
+        return ( CEPreferencesFullScreenStyle )[ ( NSNumber * )[ DEFAULTS objectForKey: CEPreferencesKeyFullScreenStyle ] integerValue ];
+    }
+}
+
 #pragma mark -
 #pragma mark Setters
 
@@ -1564,6 +1573,17 @@ NSString * const CEPreferencesKeySuggestDelay               = @"SuggestDelay";
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySuggestDelay );
+    }
+}
+
+- ( void )setFullScreenStyle: ( CEPreferencesFullScreenStyle )value
+{
+    @synchronized( self )
+    {
+        [ DEFAULTS setObject: [ NSNumber numberWithInteger: value ] forKey: CEPreferencesKeyFullScreenStyle ];
+        [ DEFAULTS synchronize ];
+        
+        __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFullScreenStyle );
     }
 }
 

@@ -772,5 +772,7 @@
 	<integer>200</integer>
 	<key>DebugAreaSelectedIndex</key>
 	<integer>0</integer>
+	<key>FullScreenStyle</key>
+	<integer>0</integer>
 </dict>
 </plist>

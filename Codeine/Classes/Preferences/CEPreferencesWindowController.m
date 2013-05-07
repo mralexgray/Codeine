@@ -37,14 +37,16 @@
 #import "CEPreferencesLinkerOptionsViewController.h"
 #import "CEPreferencesFontsAndColorsOptionsViewController.h"
 #import "CEPreferencesFileTypesOptionsViewController.h"
+#import "CEPreferencesUserInterfaceOptionsViewController.h"
 #import "CESystemIconsHelper.h"
 
 static NSString * const __generalOptionsItemIdentifier          = @"GeneralOptions";
 static NSString * const __editorOptionsItemIdentifier           = @"EditorOptions";
 static NSString * const __compilerOptionsItemIdentifier         = @"CompilerOptions";
 static NSString * const __linkerOptionsItemIdentifier           = @"LinkerOptions";
-static NSString * const __fontsAndColorsOptionsViewController   = @"FontsAndColors";
+static NSString * const __fontsAndColorsOptionsIdentifier       = @"FontsAndColors";
 static NSString * const __fileTypesOptionsItemIdentifier        = @"FileTypesOptions";
+static NSString * const __userInterfaceOptionsItemIdentifier    = @"UserInterfaceOptions";
 
 @implementation CEPreferencesWindowController
 
@@ -60,6 +62,7 @@ static NSString * const __fileTypesOptionsItemIdentifier        = @"FileTypesOpt
     RELEASE_IVAR( _linkerOptionsViewController );
     RELEASE_IVAR( _fontsAndColorsOptionsViewController );
     RELEASE_IVAR( _fileTypesOptionsViewController );
+    RELEASE_IVAR( _userInterfaceOptionsViewController );
     RELEASE_IVAR( _toolbar );
     
     [ super dealloc ];
@@ -78,8 +81,9 @@ static NSString * const __fileTypesOptionsItemIdentifier        = @"FileTypesOpt
         else if( [ [ item itemIdentifier ] isEqualToString: __editorOptionsItemIdentifier         ] ) { [ item setImage: [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconClippingText ] ]; }
         else if( [ [ item itemIdentifier ] isEqualToString: __compilerOptionsItemIdentifier       ] ) { [ item setImage: [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconToolbarAdvanced ] ]; }
         else if( [ [ item itemIdentifier ] isEqualToString: __linkerOptionsItemIdentifier         ] ) { [ item setImage: [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconKEXT ] ]; }
-        else if( [ [ item itemIdentifier ] isEqualToString: __fontsAndColorsOptionsViewController ] ) { [ item setImage: [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconProfileFontAndColor ] ]; }
+        else if( [ [ item itemIdentifier ] isEqualToString: __fontsAndColorsOptionsIdentifier     ] ) { [ item setImage: [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconProfileFontAndColor ] ]; }
         else if( [ [ item itemIdentifier ] isEqualToString: __fileTypesOptionsItemIdentifier      ] ) { [ item setImage: [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconMultipleItemsIcon ] ]; }
+        else if( [ [ item itemIdentifier ] isEqualToString: __userInterfaceOptionsItemIdentifier  ] ) { [ item setImage: [ [ CESystemIconsHelper sharedInstance ] iconNamed: CESystemIconSidebarPrefs ] ]; }
     }
     
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( windowDidClose: ) name: NSWindowWillCloseNotification object: self.window ];
@@ -173,6 +177,21 @@ static NSString * const __fileTypesOptionsItemIdentifier        = @"FileTypesOpt
     }
     
     [ self showView: _fileTypesOptionsViewController.view ];
+}
+
+- ( IBAction )showUserInterfaceOptions: ( id )sender
+{
+    ( void )sender;
+    
+    if( _userInterfaceOptionsViewController == nil )
+    {
+        _userInterfaceOptionsViewController = [ CEPreferencesUserInterfaceOptionsViewController new ];
+        
+        [ _userInterfaceOptionsViewController setNextResponder: self.nextResponder ];
+        [ self setNextResponder: _userInterfaceOptionsViewController ];
+    }
+    
+    [ self showView: _userInterfaceOptionsViewController.view ];
 }
 
 @end

@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12A269</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
-		<string key="IBDocument.AppKitVersion">1187</string>
-		<string key="IBDocument.HIToolboxVersion">624.00</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2549</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSCustomObject</string>
@@ -39,7 +39,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {400, 400}}</string>
+				<string key="NSWindowRect">{{196, 240}, {450, 400}}</string>
 				<int key="NSWTFlags">1618477056</int>
 				<string key="NSWindowTitle">Codeine - Preferences</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -61,6 +61,25 @@
 							</object>
 							<string key="NSToolbarItemLabel">Editor</string>
 							<string key="NSToolbarItemPaletteLabel">Editor</string>
+							<string key="NSToolbarItemToolTip"/>
+							<nil key="NSToolbarItemView"/>
+							<nil key="NSToolbarItemImage"/>
+							<nil key="NSToolbarItemTarget"/>
+							<nil key="NSToolbarItemAction"/>
+							<string key="NSToolbarItemMinSize">{0, 0}</string>
+							<string key="NSToolbarItemMaxSize">{0, 0}</string>
+							<bool key="NSToolbarItemEnabled">YES</bool>
+							<bool key="NSToolbarItemAutovalidates">YES</bool>
+							<int key="NSToolbarItemTag">-1</int>
+							<bool key="NSToolbarIsUserRemovable">YES</bool>
+							<int key="NSToolbarItemVisibilityPriority">0</int>
+						</object>
+						<object class="NSToolbarItem" key="1B4BD48B-EBBA-4292-B6D2-C713E90C3BB4" id="364165912">
+							<object class="NSMutableString" key="NSToolbarItemIdentifier">
+								<characters key="NS.bytes">1B4BD48B-EBBA-4292-B6D2-C713E90C3BB4</characters>
+							</object>
+							<string key="NSToolbarItemLabel">Interface</string>
+							<string key="NSToolbarItemPaletteLabel">Interface</string>
 							<string key="NSToolbarItemToolTip"/>
 							<nil key="NSToolbarItemView"/>
 							<nil key="NSToolbarItemImage"/>
@@ -230,9 +249,10 @@
 							</object>
 						</object>
 					</dictionary>
-					<array key="NSToolbarIBAllowedItems">
+					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
 						<reference ref="629087421"/>
 						<reference ref="118862606"/>
+						<reference ref="364165912"/>
 						<reference ref="618408491"/>
 						<reference ref="160651189"/>
 						<reference ref="188180573"/>
@@ -244,6 +264,7 @@
 						<reference ref="808343549"/>
 						<reference ref="629087421"/>
 						<reference ref="118862606"/>
+						<reference ref="364165912"/>
 						<reference ref="618408491"/>
 						<reference ref="160651189"/>
 						<reference ref="188180573"/>
@@ -254,9 +275,11 @@
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="1006">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
-					<string key="NSFrameSize">{400, 400}</string>
+					<string key="NSFrameSize">{450, 400}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -329,6 +352,14 @@
 					</object>
 					<int key="connectionID">36</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showUserInterfaceOptions:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="364165912"/>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -382,6 +413,7 @@
 							<reference ref="618408491"/>
 							<reference ref="188180573"/>
 							<reference ref="160651189"/>
+							<reference ref="364165912"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -425,6 +457,11 @@
 						<reference key="object" ref="160651189"/>
 						<reference key="parent" ref="1037165967"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">37</int>
+						<reference key="object" ref="364165912"/>
+						<reference key="parent" ref="1037165967"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -453,6 +490,9 @@
 				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="34.designableToolbarItemIdentifier">LinkerOptions</string>
 				<boolean value="YES" key="34.toolbarItem.selectable"/>
+				<string key="37.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="37.designableToolbarItemIdentifier">UserInterfaceOptions</string>
+				<boolean value="YES" key="37.toolbarItem.selectable"/>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -461,7 +501,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">36</int>
+			<int key="maxID">39</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -475,6 +515,7 @@
 						<string key="showFontsAndColorsOptions:">id</string>
 						<string key="showGeneralOptions:">id</string>
 						<string key="showLinkerOptions:">id</string>
+						<string key="showUserInterfaceOptions:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="showCompilerOptions:">
@@ -499,6 +540,10 @@
 						</object>
 						<object class="IBActionInfo" key="showLinkerOptions:">
 							<string key="name">showLinkerOptions:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showUserInterfaceOptions:">
+							<string key="name">showUserInterfaceOptions:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

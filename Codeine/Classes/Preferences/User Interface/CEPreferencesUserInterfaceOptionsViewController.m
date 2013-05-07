@@ -29,42 +29,34 @@
  
 /* $Id$ */
 
-#import "CEWindowController.h"
+#import "CEPreferencesUserInterfaceOptionsViewController.h"
+#import "CEPreferences.h"
 
-@class CEPreferencesGeneralOptionsViewController;
-@class CEPreferencesEditorOptionsViewController;
-@class CEPreferencesCompilerOptionsViewController;
-@class CEPreferencesLinkerOptionsViewController;
-@class CEPreferencesFontsAndColorsOptionsViewController;
-@class CEPreferencesFileTypesOptionsViewController;
-@class CEPreferencesUserInterfaceOptionsViewController;
+@implementation CEPreferencesUserInterfaceOptionsViewController
 
-@interface CEPreferencesWindowController: CEWindowController
+@synthesize fullScreenStyleMatrix = _fullScreenStyleMatrix;
+
+- ( void )dealloc
 {
-@protected
+    RELEASE_IVAR( _fullScreenStyleMatrix );
     
-    CEPreferencesGeneralOptionsViewController           * _generalOptionsViewController;
-    CEPreferencesEditorOptionsViewController            * _editorOptionsViewController;
-    CEPreferencesCompilerOptionsViewController          * _compilerOptionsViewController;
-    CEPreferencesLinkerOptionsViewController            * _linkerOptionsViewController;
-    CEPreferencesFontsAndColorsOptionsViewController    * _fontsAndColorsOptionsViewController;
-    CEPreferencesFileTypesOptionsViewController         * _fileTypesOptionsViewController;
-    CEPreferencesUserInterfaceOptionsViewController     * _userInterfaceOptionsViewController;
-    NSToolbar                                           * _toolbar;
-    
-@private
-    
-    RESERVED_IVARS( CEPreferencesWindowController , 5 );
+    [ super dealloc ];
 }
 
-@property( nonatomic, readwrite, retain ) IBOutlet NSToolbar * toolbar;
+- ( void )awakeFromNib
+{
+    [ _fullScreenStyleMatrix selectCellWithTag: ( NSInteger )[ [ CEPreferences sharedInstance ] fullScreenStyle ] ];
+}
 
-- ( IBAction )showGeneralOptions: ( id )sender;
-- ( IBAction )showEditorOptions: ( id )sender;
-- ( IBAction )showCompilerOptions: ( id )sender;
-- ( IBAction )showLinkerOptions: ( id )sender;
-- ( IBAction )showFontsAndColorsOptions: ( id )sender;
-- ( IBAction )showFileTypesOptions: ( id )sender;
-- ( IBAction )showUserInterfaceOptions: ( id )sender;
+- ( IBAction )setFullScreenStyle: ( id )sender
+{
+    NSButtonCell * cell;
+    
+    ( void )sender;
+    
+    cell = [ _fullScreenStyleMatrix selectedCell ];
+    
+    [ [ CEPreferences sharedInstance ] setFullScreenStyle: ( CEPreferencesFullScreenStyle )cell.tag ];
+}
 
 @end
