@@ -124,6 +124,7 @@
     if( [ controller isKindOfClass: [ CEMainWindowController class ] ] == YES )
     {
         [ _mainWindowControllers removeObject: controller ];
+        [ controller autorelease ];
     }
 }
 
@@ -135,13 +136,9 @@
     window      = [ notification object ];
     controller  = window.windowController;
     
-    if( [ controller isKindOfClass: [ CEMainWindowController class ] ] == YES )
+    if( [ controller isKindOfClass: [ CEMainWindowController class ] ] == YES && controller != _activeMainWindowController )
     {
-        [ controller retain ];
-        
-        RELEASE_IVAR( _activeMainWindowController );
-        
-        _activeMainWindowController = ( CEMainWindowController * )controller;
+        _activeMainWindowController = [ ( CEMainWindowController * )controller retain ];
     }
 }
 

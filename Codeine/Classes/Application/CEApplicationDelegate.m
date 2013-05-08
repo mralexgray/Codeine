@@ -176,7 +176,6 @@
     controller = [ CEMainWindowController new ];
     
     [ _mainWindowControllers addObject: controller ];
-    [ controller autorelease ];
     
     [ controller.window center ];
     [ controller showWindow: sender ];
@@ -232,7 +231,6 @@
             controller.activeDocument   = [ CEDocument documentWithPath: [ panel.URL path ] ];
             
             [ _mainWindowControllers addObject: controller ];
-            [ controller autorelease ];
             
             [ controller.window center ];
             [ controller showWindow: sender ];
@@ -264,7 +262,6 @@
         controller = [ CEMainWindowController new ];
         
         [ _mainWindowControllers addObject: controller ];
-        [ controller autorelease ];
         [ controller.window center ];
     }
     
