@@ -98,6 +98,9 @@
 - ( void )setText: ( NSString * )text
 {
     CKLanguage language;
+    NSArray  * args;
+    NSBundle * bundle;
+    NSString * includes;
     
     @synchronized( self )
     {
@@ -135,7 +138,20 @@
                 language = CKLanguageNone;
             }
             
-            _translationUnit = [ [ CKTranslationUnit alloc ] initWithText: _text language: language ];
+            @try
+            {
+                bundle      = [ NSBundle bundleWithPath: [ BUNDLE pathForResource: @"Clang" ofType: @"bundle" ] ];
+                includes    = [ bundle pathForResource: @"include" ofType: @"" ];
+                args        = [ NSArray arrayWithObjects: @"-I", includes, nil ];
+            }
+            @catch ( NSException * e )
+            {
+                ( void )e;
+                
+                args = nil;
+            }
+            
+            _translationUnit = [ [ CKTranslationUnit alloc ] initWithText: _text language: language args: args ];
         }
         else
         {
