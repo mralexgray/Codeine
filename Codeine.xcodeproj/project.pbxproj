@@ -181,6 +181,7 @@
 		05E566E115B834FA001314B1 /* Unicorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E566DF15B834FA001314B1 /* Unicorn.png */; };
 		05E566E215B834FA001314B1 /* Unicorn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E566E015B834FA001314B1 /* Unicorn@2x.png */; };
 		05E566E515B835B1001314B1 /* CEAlternateAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E566E415B835B1001314B1 /* CEAlternateAboutWindowController.m */; };
+		05EAD42D173C5A8A00B36DD4 /* Clang.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05EAD42C173C5A8A00B36DD4 /* Clang.bundle */; };
 		05EF1969159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */; };
 		05F3125C15C075660029964B /* CEDocument+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F3125B15C075660029964B /* CEDocument+Private.m */; };
 		05F3174215B253560000C4CA /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F3174115B253550000C4CA /* QuickLook.framework */; };
@@ -591,6 +592,7 @@
 		05E566E015B834FA001314B1 /* Unicorn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unicorn@2x.png"; sourceTree = "<group>"; };
 		05E566E315B835B1001314B1 /* CEAlternateAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEAlternateAboutWindowController.h; sourceTree = "<group>"; };
 		05E566E415B835B1001314B1 /* CEAlternateAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEAlternateAboutWindowController.m; sourceTree = "<group>"; };
+		05EAD42C173C5A8A00B36DD4 /* Clang.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Clang.bundle; sourceTree = "<group>"; };
 		05EF1967159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesCompilerOptionsViewController+Private.h"; sourceTree = "<group>"; };
 		05EF1968159F41EF006A8994 /* CEPreferencesCompilerOptionsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesCompilerOptionsViewController+Private.m"; sourceTree = "<group>"; };
 		05F3125A15C075660029964B /* CEDocument+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDocument+Private.h"; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 		05480FB3159A0B32005CFBC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05EAD42C173C5A8A00B36DD4 /* Clang.bundle */,
 				052FD01B159E019C0045C9ED /* Application Support */,
 				0566D9A5159A33C70060FF7D /* Defaults.plist */,
 				05480FB4159A0B32005CFBC5 /* Codeine-Info.plist */,
@@ -1465,6 +1468,7 @@
 				050541E215DF16F800697329 /* CEFixItView.xib in Resources */,
 				050544C415E06E0300697329 /* CECodeCompletionView.xib in Resources */,
 				051129A71739A9B5005C5118 /* CEPreferencesUserInterfaceOptionsView.xib in Resources */,
+				05EAD42D173C5A8A00B36DD4 /* Clang.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
