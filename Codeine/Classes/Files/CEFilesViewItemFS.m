@@ -28,7 +28,6 @@
         
         if( [ FILE_MANAGER fileExistsAtPath: _path isDirectory: &_isDirectory ] == NO )
         {
-            [ self release ];
             
             return nil;
         }
@@ -45,7 +44,6 @@
     RELEASE_IVAR( _prefix );
     RELEASE_IVAR( _file );
     
-    [ super dealloc ];
 }
 
 - ( id )copyWithZone: ( NSZone * )zone
@@ -56,8 +54,6 @@
     
     if( item != nil )
     {
-        [ item->_path   release ];
-        [ item->_prefix release ];
         
         item->_path        = [ _path   copy ];
         item->_prefix      = [ _prefix copy ];

@@ -17,13 +17,13 @@ FOUNDATION_EXPORT NSString* const CELanguageWindowControllerTableColumnIdentifie
   CESourceFileLanguage _language;
   CESourceFileLineEndings _lineEndings;
   CETextEncoding* _encoding;
-  NSPopUpButton* _encodingPopUp;
-  NSMatrix* _lineEndingsMatrix;
-  CEBackgroundView* _contentView;
-  NSImageView* _iconView;
-  NSTableView* _languagesTableView;
-  NSTableView* _recentFilesTableView;
-  CELicensePopUpButton* _licensePopUp;
+  NSPopUpButton* __weak _encodingPopUp;
+  NSMatrix* __weak _lineEndingsMatrix;
+  CEBackgroundView* __weak _contentView;
+  NSImageView* __weak _iconView;
+  NSTableView* __weak _languagesTableView;
+  NSTableView* __weak _recentFilesTableView;
+  CELicensePopUpButton* __weak _licensePopUp;
 
 @private
 
@@ -33,13 +33,13 @@ FOUNDATION_EXPORT NSString* const CELanguageWindowControllerTableColumnIdentifie
 @property (atomic, readonly) CESourceFileLanguage language;
 @property (atomic, readonly) CESourceFileLineEndings lineEndings;
 @property (atomic, readonly) CETextEncoding* encoding;
-@property (nonatomic) IBOutlet NSPopUpButton* encodingPopUp;
-@property (nonatomic) IBOutlet NSMatrix* lineEndingsMatrix;
-@property (nonatomic) IBOutlet CEBackgroundView* contentView;
-@property (nonatomic) IBOutlet NSImageView* iconView;
-@property (nonatomic) IBOutlet NSTableView* languagesTableView;
-@property (nonatomic) IBOutlet NSTableView* recentFilesTableView;
-@property (nonatomic) IBOutlet CELicensePopUpButton* licensePopUp;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* encodingPopUp;
+@property (weak, nonatomic) IBOutlet NSMatrix* lineEndingsMatrix;
+@property (weak, nonatomic) IBOutlet CEBackgroundView* contentView;
+@property (weak, nonatomic) IBOutlet NSImageView* iconView;
+@property (weak, nonatomic) IBOutlet NSTableView* languagesTableView;
+@property (weak, nonatomic) IBOutlet NSTableView* recentFilesTableView;
+@property (weak, nonatomic) IBOutlet CELicensePopUpButton* licensePopUp;
 
 - (IBAction)done:(id)sender;
 - (IBAction)cancel:(id)sender;

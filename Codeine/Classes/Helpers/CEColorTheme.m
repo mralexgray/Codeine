@@ -103,7 +103,7 @@
 
 + ( id )colorThemeWithName: ( NSString * )name
 {
-    return [ [ ( CEColorTheme * )[ self alloc ] initWithName: name ] autorelease ];
+    return [ ( CEColorTheme * )[ self alloc ] initWithName: name ];
 }
 
 - ( id )initWithName: ( NSString * )name
@@ -116,23 +116,5 @@
     return self;
 }
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _name );
-    RELEASE_IVAR( _foregroundColor );
-    RELEASE_IVAR( _backgroundColor );
-    RELEASE_IVAR( _selectionColor );
-    RELEASE_IVAR( _currentLineColor );
-    RELEASE_IVAR( _invisibleColor );
-    RELEASE_IVAR( _keywordColor );
-    RELEASE_IVAR( _commentColor );
-    RELEASE_IVAR( _stringColor );
-    RELEASE_IVAR( _predefinedColor );
-    RELEASE_IVAR( _projectColor );
-    RELEASE_IVAR( _preprocessorColor );
-    RELEASE_IVAR( _numberColor );
-    
-    [ super dealloc ];
-}
 
 @end

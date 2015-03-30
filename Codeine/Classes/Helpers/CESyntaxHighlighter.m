@@ -11,8 +11,8 @@
 {
     if( ( self = [ self init ] ) )
     {
-        _textView   = [ textView retain ];
-        _sourceFile = [ sourceFile retain ];
+        _textView   = textView;
+        _sourceFile = sourceFile;
         _lock       = [ NSLock new ];
     }
     
@@ -27,7 +27,6 @@
     RELEASE_IVAR( _sourceFile );
     RELEASE_IVAR( _lock );
     
-    [ super dealloc ];
 }
 
 - ( void )startHighlighting
@@ -82,7 +81,7 @@
         return;
     }
     
-    tokens = [ _sourceFile.translationUnit.tokens retain ];
+    tokens = _sourceFile.translationUnit.tokens;
     
     i                = 0;
     preprocessorLine = 0;
@@ -239,7 +238,6 @@
         }
     }
     
-    [ tokens release ];
 }
 
 @end

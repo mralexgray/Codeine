@@ -13,7 +13,7 @@ FOUNDATION_EXPORT NSString* const CEPreferencesCompilerOptionsViewControllerColu
 @interface CEPreferencesFileTypesOptionsViewController : CEViewController {
 @protected
 
-  NSTableView* _tableView;
+  NSTableView* __weak _tableView;
   CEMutableOrderedDictionary* _fileTypes;
   CEPreferencesFileTypesAddNewViewController* _addNewController;
 
@@ -22,7 +22,7 @@ FOUNDATION_EXPORT NSString* const CEPreferencesCompilerOptionsViewControllerColu
   RESERVED_IVARS(CEPreferencesFileTypesOptionsViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSTableView* tableView;
+@property (weak, nonatomic) IBOutlet NSTableView* tableView;
 
 - (IBAction)addFileType:(id)sender;
 - (IBAction)removeFileType:(id)sender;

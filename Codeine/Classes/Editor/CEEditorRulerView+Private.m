@@ -123,7 +123,6 @@
     marker.representedObject = [ NSNumber numberWithUnsignedInteger: line ];
     
     [ self addMarker: marker ];
-    [ marker release ];
     [ self setNeedsDisplay: YES ];
 }
 
@@ -194,7 +193,7 @@
     {
         _attributes      = [ [ NSMutableDictionary alloc ] initWithCapacity: 10 ];
         font             = [ NSFont systemFontOfSize: ( CGFloat )8 ];
-        paragraphStyle   = [ [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ] autorelease ];
+        paragraphStyle   = [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ];
         
         [ paragraphStyle setAlignment: NSRightTextAlignment ];
         
@@ -204,7 +203,7 @@
         [ _attributes setObject: paragraphStyle         forKey: NSParagraphStyleAttributeName ];
     }
     
-    return [ [ _attributes mutableCopy ] autorelease ];
+    return [ _attributes mutableCopy ];
 }
 
 @end

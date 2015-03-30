@@ -73,10 +73,9 @@ static struct __textEncoding __encodings[ __NUMBER_OF_TEXT_ENCODINGS ] =
             {
                 encoding         = [ [ CETextEncoding alloc ] init ];
                 encoding->_value = __encodings[ i ].value;
-                encoding->_name  = [ [ NSString stringWithCString: __encodings[ i ].name encoding: NSASCIIStringEncoding ] retain ];
+                encoding->_name  = [ NSString stringWithCString: __encodings[ i ].name encoding: NSASCIIStringEncoding ];
                 
                 [ array addObject: encoding ];
-                [ encoding release ];
                 
                 break;
             }
@@ -100,12 +99,6 @@ static struct __textEncoding __encodings[ __NUMBER_OF_TEXT_ENCODINGS ] =
     return [ NSArray arrayWithArray: array ];
 }
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _name );
-    
-    [ super dealloc ];
-}
 
 - ( NSString * )localizedName
 {

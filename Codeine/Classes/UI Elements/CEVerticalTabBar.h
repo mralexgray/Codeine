@@ -16,7 +16,7 @@ typedef enum {
   NSMutableArray* _trackingAreas;
   NSInteger _trackingIndex;
   NSUInteger _selectedIndex;
-  id<CEVerticalTabBarDelegate> _delegate;
+  id<CEVerticalTabBarDelegate> __unsafe_unretained _delegate;
 
 @private
 
@@ -24,7 +24,7 @@ typedef enum {
 }
 
 @property (atomic, readwrite, assign) CEVerticalTabBarPosition position;
-@property (atomic, readwrite, assign) id<CEVerticalTabBarDelegate> delegate;
+@property (atomic, readwrite, unsafe_unretained) id<CEVerticalTabBarDelegate> delegate;
 
 - (void)addItem:(NSImage*)icon;
 - (void)removeItemAtIndex:(NSUInteger)index;

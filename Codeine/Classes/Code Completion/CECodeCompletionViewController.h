@@ -9,7 +9,7 @@
   NSArray* _results;
   BOOL _cancel;
   BOOL _isOpening;
-  NSTableView* _tableView;
+  NSTableView* __weak _tableView;
 
 @private
 
@@ -17,7 +17,7 @@
 }
 
 @property (atomic, readonly) BOOL isOpening;
-@property (nonatomic) IBOutlet NSTableView* tableView;
+@property (weak, nonatomic) IBOutlet NSTableView* tableView;
 
 - (id)initWithCompletionResults:(NSArray*)results;
 - (void)cancelOpening;

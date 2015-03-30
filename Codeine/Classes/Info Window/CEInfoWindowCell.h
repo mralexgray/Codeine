@@ -7,6 +7,6 @@
   NSView* _view;
 }
 
-@property (atomic, readwrite, retain) NSView* view;
+@property (atomic, readwrite, strong) NSView* view;
 
 @end

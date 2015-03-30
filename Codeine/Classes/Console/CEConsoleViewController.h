@@ -6,13 +6,13 @@
 @interface CEConsoleViewController : CEViewController {
 @protected
 
-  NSTextView* _textView;
+  NSTextView* __unsafe_unretained _textView;
 
 @private
 
   RESERVED_IVARS(CEConsoleViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSTextView* textView;
+@property (unsafe_unretained, nonatomic) IBOutlet NSTextView* textView;
 
 @end

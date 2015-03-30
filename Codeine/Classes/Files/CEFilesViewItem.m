@@ -20,9 +20,6 @@ static CEFilesViewItem * __bookmarksItem     = nil;
 static void __exit( void ) __attribute__( ( destructor ) );
 static void __exit( void )
 {
-    [ __placesItem          release ];
-    [ __openDocumentsItem   release ];
-    [ __bookmarksItem       release ];
 }
 
 @implementation CEFilesViewItem
@@ -39,7 +36,7 @@ static void __exit( void )
 {
     if( __placesItem == nil )
     {
-        __placesItem = [ [ self fileViewItemWithType: CEFilesViewItemTypeSection name: CEFilesViewPlacesItemName ] retain ];
+        __placesItem = [ self fileViewItemWithType: CEFilesViewItemTypeSection name: CEFilesViewPlacesItemName ];
         
         [ __placesItem reload ];
     }
@@ -51,7 +48,7 @@ static void __exit( void )
 {
     if( __bookmarksItem == nil )
     {
-        __bookmarksItem = [ [ self fileViewItemWithType: CEFilesViewItemTypeSection name: CEFilesViewBookmarksItemName ] retain ];
+        __bookmarksItem = [ self fileViewItemWithType: CEFilesViewItemTypeSection name: CEFilesViewBookmarksItemName ];
         
         [ __bookmarksItem reload ];
     }
@@ -61,7 +58,7 @@ static void __exit( void )
 
 + ( id )fileViewItemWithType: ( CEFilesViewItemType )type name: ( NSString * )name
 {
-    return [ [ [ self alloc ] initWithType: type name: name ] autorelease ];
+    return [ [ self alloc ] initWithType: type name: name ];
 }
 
 - ( id )initWithType: ( CEFilesViewItemType )type name: ( NSString * )name
@@ -104,19 +101,14 @@ static void __exit( void )
             break;
     }
     
-    [ self release ];
     
     return item;
 }
 
 - ( void )dealloc
 {
-    RELEASE_IVAR( _name );
-    RELEASE_IVAR( _displayName );
-    RELEASE_IVAR( _representedObject );
     RELEASE_IVAR( _children );
     
-    [ super dealloc ];
 }
 
 - ( id )copyWithZone: ( NSZone * )zone
@@ -127,18 +119,13 @@ static void __exit( void )
     
     if( item != nil )
     {
-        [ item->_displayName        release ];
-        [ item->_icon               release ];
-        [ item->_representedObject  release ];
-        [ item->_children           release ];
-        [ item->_file               release ];
         
         item->_displayName          = [ _displayName copyWithZone: zone ];
         item->_icon                 = [ _icon copyWithZone: zone ];
-        item->_representedObject    = [ _representedObject retain ];
+        item->_representedObject    = _representedObject;
         item->_children             = [ _children copyWithZone: zone ];
         item->_parent               = _parent;
-        item->_file                 = [ _file retain ];
+        item->_file                 = _file;
     }
     
     return item;

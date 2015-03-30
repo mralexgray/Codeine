@@ -7,12 +7,6 @@
 
 @synthesize view = _view;
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _view );
-    
-    [ super dealloc ];
-}
 
 - ( void )drawWithFrame: ( NSRect )cellFrame inView: ( NSView * )controlView
 {

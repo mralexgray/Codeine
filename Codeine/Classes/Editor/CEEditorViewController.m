@@ -23,14 +23,12 @@
     [ NOTIFICATION_CENTER removeObserver: self ];
     [ [ _textView enclosingScrollView ] setVerticalRulerView: nil ];
     
-    RELEASE_IVAR( _textView );
     RELEASE_IVAR( _layoutManager );
     RELEASE_IVAR( _document );
     RELEASE_IVAR( _highlighter );
     RELEASE_IVAR( _rulerView );
     RELEASE_IVAR( _codeCompletionViewController );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib
@@ -68,7 +66,7 @@
             RELEASE_IVAR( _document );
             RELEASE_IVAR( _highlighter );
             
-            _document           = [ document retain ];
+            _document           = document;
             _rulerView.document = _document;
             controller          = ( CEMainWindowController * )self.view.window.windowController;
             

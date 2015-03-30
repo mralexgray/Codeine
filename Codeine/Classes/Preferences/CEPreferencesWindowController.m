@@ -35,9 +35,7 @@ static NSString * const __userInterfaceOptionsItemIdentifier    = @"UserInterfac
     RELEASE_IVAR( _fontsAndColorsOptionsViewController );
     RELEASE_IVAR( _fileTypesOptionsViewController );
     RELEASE_IVAR( _userInterfaceOptionsViewController );
-    RELEASE_IVAR( _toolbar );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib

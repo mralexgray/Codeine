@@ -31,12 +31,10 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     [ _document.sourceFile.translationUnit removeObserver: self forKeyPath: @"text" ];
     [ self.view removeObserver: self forKeyPath: @"frame" ];
     
-    RELEASE_IVAR( _tableView );
     RELEASE_IVAR( _document );
     RELEASE_IVAR( _diagnostics );
     RELEASE_IVAR( _hud );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib
@@ -80,7 +78,7 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
             
             RELEASE_IVAR( _document );
             
-            _document = [ document retain ];
+            _document = document;
             
             [ self getDiagnostics ];
             
@@ -108,7 +106,7 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
             
             RELEASE_IVAR( _textView );
             
-            _textView = [ textView retain ];
+            _textView = textView;
             
             [ NOTIFICATION_CENTER addObserver: self selector: @selector( textViewSelectionDidChange: ) name: NSTextViewDidChangeSelectionNotification object: _textView ];
         }

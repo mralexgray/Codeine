@@ -14,8 +14,8 @@
     NSUInteger        permissions;
     NSString        * humanPermissions;
     
-    _owner      = [ [ _attributes objectForKey: NSFileOwnerAccountName ] retain ];
-    _group      = [ [ _attributes objectForKey: NSFileGroupOwnerAccountName ] retain ];
+    _owner      = [ _attributes objectForKey: NSFileOwnerAccountName ];
+    _group      = [ _attributes objectForKey: NSFileGroupOwnerAccountName ];
     _ownerID    = [ ( NSNumber * )[ _attributes objectForKey: NSFileOwnerAccountID ] unsignedIntegerValue ];
     _groupID    = [ ( NSNumber * )[ _attributes objectForKey: NSFileGroupOwnerAccountID ] unsignedIntegerValue ];
     
@@ -35,7 +35,7 @@
         permissions         = permissions >> 3;
     }
     
-    _humanPermissions = [ humanPermissions retain ];
+    _humanPermissions = humanPermissions;
 }
 
 @end

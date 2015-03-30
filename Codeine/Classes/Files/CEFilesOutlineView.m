@@ -36,7 +36,6 @@
 {
     [ NOTIFICATION_CENTER removeObserver: self ];
     
-    [ super dealloc ];
 }
 
 - ( void )keyDown: ( NSEvent * )e
@@ -213,7 +212,6 @@
             
             [ path appendBezierPathWithRoundedRect: rowRect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
             [ gradient drawInBezierPath: path angle: 90 ];
-            [ gradient release ];
             
             gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.15 ]
                                                       endingColor:      [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.30 ]
@@ -227,7 +225,6 @@
             [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rowRect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ] ];
             [ path setWindingRule: NSEvenOddWindingRule ];
             [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
-            [ gradient release ];
         }
     }
 }

@@ -18,9 +18,9 @@
 }
 
 @property (atomic, readwrite, copy) NSString* title;
-@property (atomic, readwrite, retain) NSColor* backgroundColor;
-@property (atomic, readwrite, retain) NSColor* activeBackgroundColor;
-@property (atomic, readwrite, retain) id target;
+@property (atomic, readwrite, strong) NSColor* backgroundColor;
+@property (atomic, readwrite, strong) NSColor* activeBackgroundColor;
+@property (atomic, readwrite, strong) id target;
 @property (atomic, readwrite, assign) SEL action;
 
 @end

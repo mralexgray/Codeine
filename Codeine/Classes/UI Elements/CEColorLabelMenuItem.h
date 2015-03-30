@@ -14,6 +14,6 @@
   RESERVED_IVARS(CEColorLabelView, 5);
 }
 
-@property (nonatomic) NSColor* selectedColor;
+@property (weak, nonatomic) NSColor* selectedColor;
 
 @end

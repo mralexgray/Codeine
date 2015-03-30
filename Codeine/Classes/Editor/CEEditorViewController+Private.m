@@ -59,7 +59,7 @@
         [ [ _textView enclosingScrollView ] setRulersVisible: NO ];
     }
     
-    paragraphStyle = [ [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ] autorelease ];
+    paragraphStyle = [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ];
     
     [ paragraphStyle setTabStops: [ NSArray array ] ];
     [ paragraphStyle setDefaultTabInterval: ( ( CEEditorLayoutManager * )( _textView.layoutManager ) ).glyphSize.width * ( CGFloat )[ [ CEPreferences sharedInstance ] tabWidth ] ];

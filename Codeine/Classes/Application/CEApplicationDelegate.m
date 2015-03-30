@@ -43,9 +43,7 @@
     RELEASE_IVAR( _preferencesWindowController );
     RELEASE_IVAR( _aboutWindowController );
     RELEASE_IVAR( _alternateAboutWindowController );
-    RELEASE_IVAR( _activeMainWindowController );
     
-    [ super dealloc ];
 }
 
 - ( void )applicationDidFinishLaunching: ( NSNotification * )notification

@@ -41,7 +41,6 @@
     
     [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )5 yRadius: ( CGFloat )5 ];
     [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
-    [ gradient release ];
     
     rect.origin.x    += ( CGFloat )0.30;
     rect.origin.y    += ( CGFloat )0.30;
@@ -56,7 +55,6 @@
     [ path setWindingRule: NSEvenOddWindingRule ];
     [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
     
-    [ gradient release ];
 }
 
 @end

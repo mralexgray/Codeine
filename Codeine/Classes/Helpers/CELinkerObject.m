@@ -74,7 +74,7 @@
 
 + ( id )linkerObjectWithPath: ( NSString * )path type: ( CELinkerObjectType )type language: ( CESourceFileLanguage )language
 {
-    return [ [ [ self alloc ] initWithPath: path type: type language: language ] autorelease ];
+    return [ [ self alloc ] initWithPath: path type: type language: language ];
 }
 
 - ( id )initWithPath: ( NSString * )path type: ( CELinkerObjectType )type
@@ -88,7 +88,6 @@
     {
         if( [ FILE_MANAGER fileExistsAtPath: path ] == NO )
         {
-            [ self release ];
             
             return nil;
         }
@@ -101,12 +100,6 @@
     return self;
 }
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _path );
-    
-    [ super dealloc ];
-}
 
 - ( NSString * )name
 {

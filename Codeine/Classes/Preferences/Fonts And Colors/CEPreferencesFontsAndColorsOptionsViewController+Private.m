@@ -49,7 +49,6 @@
     NSInteger            i;
     CEColorChooserView * view;
     
-    [ _colorChooserViews release ];
     
     numViews           = [ self numberOfRowsInTableView: _tableView ];
     _colorChooserViews = [ [NSMutableArray alloc ] initWithCapacity: ( NSUInteger )numViews ];
@@ -59,7 +58,6 @@
         view = [ [ CEColorChooserView alloc ] initWithFrame: NSZeroRect ];
         
         [ _colorChooserViews addObject: view ];
-        [ view release ];
     }
 }
 

@@ -10,14 +10,6 @@
 @synthesize backgroundView   = _backgroundView;
 @synthesize iconView         = _iconView;
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _versionTextField );
-    RELEASE_IVAR( _backgroundView );
-    RELEASE_IVAR( _iconView );
-    
-    [ super dealloc ];
-}
 
 - ( void )awakeFromNib
 {
@@ -42,7 +34,6 @@
     icon   = [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
     
     [ _iconView setImage: icon ];
-    [ icon release ];
 }
 
 @end

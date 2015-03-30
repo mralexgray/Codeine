@@ -29,11 +29,7 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
     _sharedLibsTableView.dataSource = nil;
     _staticLibsTableView.dataSource = nil;
     
-    RELEASE_IVAR( _frameworksTableView );
-    RELEASE_IVAR( _sharedLibsTableView );
-    RELEASE_IVAR( _staticLibsTableView );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib

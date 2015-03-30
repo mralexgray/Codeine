@@ -32,7 +32,6 @@
 {
     [ NOTIFICATION_CENTER removeObserver: self ];
     
-    [ super dealloc ];
 }
 
 - ( void )drawRect: ( NSRect )rect

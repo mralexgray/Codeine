@@ -6,14 +6,14 @@
 @interface CEPreferencesUserInterfaceOptionsViewController : CEViewController {
 @protected
 
-  NSMatrix* _fullScreenStyleMatrix;
+  NSMatrix* __weak _fullScreenStyleMatrix;
 
 @private
 
   RESERVED_IVARS(CEPreferencesUserInterfaceOptionsViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSMatrix* fullScreenStyleMatrix;
+@property (weak, nonatomic) IBOutlet NSMatrix* fullScreenStyleMatrix;
 
 - (IBAction)setFullScreenStyle:(id)sender;
 

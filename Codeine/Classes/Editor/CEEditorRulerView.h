@@ -20,6 +20,6 @@ FOUNDATION_EXPORT NSString* const CEEditorRulerViewException;
   RESERVED_IVARS(CEEditorRulerView, 5);
 }
 
-@property (atomic, readwrite, retain) CEDocument* document;
+@property (atomic, readwrite, strong) CEDocument* document;
 
 @end

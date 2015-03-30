@@ -21,13 +21,12 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
 {
     if( ( self = [ super initWithFrame: frame ] ) )
     {
-        _colors   = [ [ WORKSPACE fileLabelColors ] retain ];
-        _labels   = [ [ WORKSPACE fileLabels      ] retain ];
+        _colors   = [ WORKSPACE fileLabelColors ];
+        _labels   = [ WORKSPACE fileLabels      ];
         _tracking = [ [ NSMutableArray alloc ] initWithCapacity: _colors.count ];
         
         if( _colors.count != _labels.count )
         {
-            [ self release ];
             
             return nil;
         }
@@ -43,13 +42,12 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
 {
     if( ( self = [ super initWithCoder: coder ] ) )
     {
-        _colors   = [ [ WORKSPACE fileLabelColors ] retain ];
-        _labels   = [ [ WORKSPACE fileLabels      ] retain ];
+        _colors   = [ WORKSPACE fileLabelColors ];
+        _labels   = [ WORKSPACE fileLabels      ];
         _tracking = [ [ NSMutableArray alloc ] initWithCapacity: _colors.count ];
         
         if( _colors.count != _labels.count )
         {
-            [ self release ];
             
             return nil;
         }
@@ -75,7 +73,6 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
     RELEASE_IVAR( _tracking );
     RELEASE_IVAR( _selectedColor );
     
-    [ super dealloc ];
 }
 
 - ( NSColor * )selectedColor
@@ -98,7 +95,7 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
             RELEASE_IVAR( _selectedColor );
             
             _selectedColorIndex = NSNotFound;
-            _selectedColor      = [ color retain ];
+            _selectedColor      = color;
             i                   = 0;
             
             for( availableColor in _colors )
@@ -223,7 +220,6 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
                 
                 [ _tracking addObject: area ];
                 [ self addTrackingArea: area ];
-                [ area release ];
             }
         }
         
@@ -256,7 +252,6 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
                 [ path appendBezierPath: [ NSBezierPath bezierPathWithOvalInRect: NSInsetRect( highlightRect, ( CGFloat )1, ( CGFloat )1 ) ] ];
                 [ path setWindingRule: NSEvenOddWindingRule ];
                 [ gradient drawInBezierPath: path angle: ( CGFloat )-90 ];
-                [ gradient release ];
             }
         }
         
@@ -275,7 +270,6 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
                 [ path appendBezierPath: [ NSBezierPath bezierPathWithOvalInRect: NSInsetRect( dotRect, ( CGFloat )1, ( CGFloat )1 ) ] ];
                 [ path setWindingRule: NSEvenOddWindingRule ];
                 [ gradient drawInBezierPath: path angle: ( CGFloat )-90 ];
-                [ gradient release ];
             }
         }
         
@@ -288,7 +282,6 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
                        ];
             
             [ gradient drawInBezierPath: path angle: ( CGFloat )-90 ];
-            [ gradient release ];
         }
         
 		path     = [ NSBezierPath bezierPathWithOvalInRect: dotRect ];
@@ -299,7 +292,6 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
 		[ path appendBezierPath: [ NSBezierPath bezierPathWithOvalInRect: NSInsetRect( dotRect, ( CGFloat )1, ( CGFloat )1 ) ] ];
 		[ path setWindingRule: NSEvenOddWindingRule ];
         [ gradient drawInBezierPath: path angle: ( CGFloat )-90 ];
-        [ gradient release ];
         
         i++;
     }

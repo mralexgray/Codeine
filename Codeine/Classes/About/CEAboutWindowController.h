@@ -8,17 +8,17 @@
 @interface CEAboutWindowController : CEWindowController {
 @protected
 
-  CEBackgroundView* _backgroundView;
-  NSTextField* _versionTextField;
-  NSImageView* _iconView;
+  CEBackgroundView* __weak _backgroundView;
+  NSTextField* __weak _versionTextField;
+  NSImageView* __weak _iconView;
 
 @private
 
   RESERVED_IVARS(CEAboutWindowController, 5);
 }
 
-@property (nonatomic) IBOutlet CEBackgroundView* backgroundView;
-@property (nonatomic) IBOutlet NSTextField* versionTextField;
-@property (nonatomic) IBOutlet NSImageView* iconView;
+@property (weak, nonatomic) IBOutlet CEBackgroundView* backgroundView;
+@property (weak, nonatomic) IBOutlet NSTextField* versionTextField;
+@property (weak, nonatomic) IBOutlet NSImageView* iconView;
 
 @end

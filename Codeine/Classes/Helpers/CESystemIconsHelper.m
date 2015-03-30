@@ -27,7 +27,7 @@ static NSString            * const  __bundlePath        = @"/System/Library/Core
     
     @synchronized( self )
     {
-        return [ [ self sharedInstance ] retain ];
+        return [ self sharedInstance ];
     }
 }
 
@@ -42,7 +42,7 @@ static NSString            * const  __bundlePath        = @"/System/Library/Core
 {
     if( ( self = [ super init ] ) )
     {
-        _bundle = [ [ NSBundle bundleWithPath: __bundlePath ] retain ];
+        _bundle = [ NSBundle bundleWithPath: __bundlePath ];
     }
     
     return self;
@@ -52,7 +52,6 @@ static NSString            * const  __bundlePath        = @"/System/Library/Core
 {
     RELEASE_IVAR( _bundle );
     
-    [ super dealloc ];
 }
 
 - ( NSImage * )iconNamed: ( NSString * )name
@@ -63,7 +62,7 @@ static NSString            * const  __bundlePath        = @"/System/Library/Core
     path  = [ _bundle pathForImageResource: name ];
     image = [ [ NSImage alloc ] initWithContentsOfFile: path ];
     
-    return [ image autorelease ];
+    return image;
 }
 
 @end

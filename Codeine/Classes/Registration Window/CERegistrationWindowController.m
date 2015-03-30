@@ -6,10 +6,6 @@
 
 @implementation CERegistrationWindowController
 
-- ( void )dealloc
-{
-    [ super dealloc ];
-}
 
 - ( void )awakeFromNib
 {}

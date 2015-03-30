@@ -43,11 +43,8 @@
     [ NOTIFICATION_CENTER removeObserver: self ];
     [ self removeTrackingArea: _trackingArea ];
     
-    RELEASE_IVAR( _title );
     RELEASE_IVAR( _trackingArea );
-    RELEASE_IVAR( _target );
     
-    [ super dealloc ];
 }
 
 - ( void )mouseEntered: ( NSEvent * )event
@@ -131,7 +128,6 @@
     gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
     
     [ gradient drawInBezierPath: path1 angle: ( CGFloat )-90 ];
-    [ gradient release ];
     
     gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
                                       endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
@@ -155,7 +151,6 @@
     [ path2 closePath ];
     
     [ gradient drawInBezierPath: path2 angle: ( CGFloat )90 ];
-    [ gradient release ];
     
     {
         NSMutableDictionary     * attributes;
@@ -163,7 +158,7 @@
         NSFont                  * font;
     
         attributes      = [ NSMutableDictionary dictionaryWithCapacity: 10 ];
-        paragraphStyle  = [ [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ] autorelease ];
+        paragraphStyle  = [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ];
         font            = [ NSFont systemFontOfSize: [ NSFont smallSystemFontSize ] ];
         
         [ paragraphStyle setLineBreakMode: NSLineBreakByTruncatingMiddle ];

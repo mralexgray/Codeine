@@ -33,16 +33,7 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
     _recentFilesTableView.dataSource    = nil;
     _recentFilesTableView.delegate      = nil;
     
-    RELEASE_IVAR( _encodingPopUp );
-    RELEASE_IVAR( _lineEndingsMatrix );
-    RELEASE_IVAR( _encoding );
-    RELEASE_IVAR( _contentView );
-    RELEASE_IVAR( _iconView );
-    RELEASE_IVAR( _languagesTableView );
-    RELEASE_IVAR( _recentFilesTableView );
-    RELEASE_IVAR( _licensePopUp );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib
@@ -60,7 +51,6 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
     icon   = [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
     
     [ _iconView setImage: icon ];
-    [ icon release ];
     
     _contentView.backgroundColor = [ NSColor colorWithDeviceWhite: ( CGFloat )1   alpha: ( CGFloat )0.5 ];
     _contentView.borderColor     = [ NSColor colorWithDeviceWhite: ( CGFloat )0.5 alpha: ( CGFloat )1 ];
@@ -159,7 +149,7 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
     }
     
     _lineEndings = ( CESourceFileLineEndings )[ [ _lineEndingsMatrix selectedCell ] tag ];
-    _encoding    = [ [ [ _encodingPopUp selectedItem ] representedObject ] retain ];
+    _encoding    = [ [ _encodingPopUp selectedItem ] representedObject ];
 
     [ self.window.sheetParent endSheet: self.window returnCode: NSModalResponseOK ];
 }

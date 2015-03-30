@@ -29,7 +29,7 @@ typedef enum {
 }
 
 @property (atomic, readonly) CESourceFileLanguage language;
-@property (atomic, readwrite, retain) NSString* text;
+@property (atomic, readwrite, strong) NSString* text;
 @property (atomic, readonly) CKTranslationUnit* translationUnit;
 
 + (id)sourceFileWithLanguage:(CESourceFileLanguage)language;

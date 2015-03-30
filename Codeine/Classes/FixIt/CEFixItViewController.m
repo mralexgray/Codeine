@@ -13,7 +13,7 @@
 {
     if( ( self = [ self init ] ) )
     {
-        _diagnostic = [ diagnostic retain ];
+        _diagnostic = diagnostic;
     }
     
     return self;
@@ -22,11 +22,7 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _diagnostic );
-    RELEASE_IVAR( _textView );
-    RELEASE_IVAR( _messageTextField );
-    RELEASE_IVAR( _iconView );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib

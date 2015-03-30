@@ -34,7 +34,6 @@ static NSString * const __classSuffix               = @"Controller";
 {
     [ NOTIFICATION_CENTER removeObserver: self ];
     
-    [ super dealloc ];
 }
 
 - ( BOOL )releaseOnWindowClose
@@ -49,14 +48,6 @@ static NSString * const __classSuffix               = @"Controller";
 {
     @synchronized( self )
     {
-        if( release == YES && _releaseOnWindowClose == NO )
-        {
-            [ self retain ];
-        }
-        else if( release == NO &&  _releaseOnWindowClose == YES )
-        {
-            [ self release ];
-        }
             
         _releaseOnWindowClose = release;
     }

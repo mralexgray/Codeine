@@ -13,9 +13,7 @@
 {
     [ NOTIFICATION_CENTER removeObserver: self ];
     
-    RELEASE_IVAR( _textView );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib

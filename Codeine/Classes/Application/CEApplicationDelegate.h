@@ -15,14 +15,14 @@
   CEAboutWindowController* _aboutWindowController;
   CEAlternateAboutWindowController* _alternateAboutWindowController;
   CERegistrationWindowController* _registrationWindowController;
-  CEMainWindowController* _activeMainWindowController;
+  CEMainWindowController* __weak _activeMainWindowController;
 
 @private
 
   RESERVED_IVARS(CEApplicationDelegate, 5);
 }
 
-@property (atomic, readonly) CEMainWindowController* activeMainWindowController;
+@property (weak, atomic, readonly) CEMainWindowController* activeMainWindowController;
 
 + (CEApplicationDelegate*)sharedInstance;
 - (IBAction)showPreferencesWindow:(id)sender;

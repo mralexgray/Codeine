@@ -10,7 +10,6 @@ static CEFilesViewCell * __prototypeCell = nil;
 static void __exit( void ) __attribute__( ( destructor ) );
 static void __exit( void )
 {
-    [ __prototypeCell release ];
 }
 
 @implementation CEFilesViewCell
@@ -144,7 +143,6 @@ static void __exit( void )
                         [ path appendBezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
                         
                         [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
-                        [ gradient release ];
                         
                         gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
                                                           endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
@@ -158,7 +156,6 @@ static void __exit( void )
                         [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: rect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ] ];
                         [ path setWindingRule: NSEvenOddWindingRule ];
                         [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
-                        [ gradient release ];
                     }
                 }
             }
@@ -169,7 +166,7 @@ static void __exit( void )
     icon            = [ item.icon imageWithSize: ( CGFloat )16 ];
     color           = ( self.isHighlighted == YES ) ? [ NSColor alternateSelectedControlTextColor ] : [ NSColor textColor ];
     font            = [ NSFont systemFontOfSize: [ NSFont smallSystemFontSize ] ];
-    paragraphStyle  = [ [ NSMutableParagraphStyle new ] autorelease ];
+    paragraphStyle  = [ NSMutableParagraphStyle new ];
     
     [ paragraphStyle setLineBreakMode: NSLineBreakByTruncatingMiddle ];
     

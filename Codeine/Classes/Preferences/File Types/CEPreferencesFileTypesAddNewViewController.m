@@ -10,14 +10,6 @@
 @synthesize fileExtension   = _fileExtension;
 @synthesize language        = _language;
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _textField );
-    RELEASE_IVAR( _popUpButton );
-    RELEASE_IVAR( _fileExtension );
-    
-    [ super dealloc ];
-}
 
 - ( IBAction )ok: ( id )sender
 {

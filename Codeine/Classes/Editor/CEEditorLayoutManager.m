@@ -25,7 +25,6 @@
 {
     RELEASE_IVAR( _textView );
     
-    [ super dealloc ];
 }
 
 - ( NSSize )glyphSize

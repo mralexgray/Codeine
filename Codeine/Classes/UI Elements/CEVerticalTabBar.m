@@ -24,7 +24,6 @@
     RELEASE_IVAR( _icons );
     RELEASE_IVAR( _trackingAreas);
     
-    [ super dealloc ];
 }
 
 - ( void )drawRect: ( NSRect )rect
@@ -51,7 +50,6 @@
     gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color3, ( CGFloat )0, color1, ( CGFloat )0.10, color2, ( CGFloat )1, nil ];
     
     [ gradient drawInRect: rect angle: ( CGFloat )0 ];
-    [ gradient release ];
     
     {
         NSImage * icon;

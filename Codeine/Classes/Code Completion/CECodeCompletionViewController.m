@@ -16,7 +16,7 @@
 {
     if( ( self = [ self init ] ) )
     {
-        _results = [ results retain ];
+        _results = results;
     }
     
     return self;
@@ -28,9 +28,7 @@
     _tableView.dataSource = nil;
     
     RELEASE_IVAR( _results );
-    RELEASE_IVAR( _tableView );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib

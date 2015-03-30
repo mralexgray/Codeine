@@ -7,8 +7,8 @@
 @interface CEPreferencesFileTypesAddNewViewController : CEWindowController {
 @protected
 
-  NSTextField* _textField;
-  NSPopUpButton* _popUpButton;
+  NSTextField* __weak _textField;
+  NSPopUpButton* __weak _popUpButton;
   NSString* _fileExtension;
   CESourceFileLanguage _language;
 
@@ -17,8 +17,8 @@
   RESERVED_IVARS(CEPreferencesFileTypesAddNewViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSTextField* textField;
-@property (nonatomic) IBOutlet NSPopUpButton* popUpButton;
+@property (weak, nonatomic) IBOutlet NSTextField* textField;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* popUpButton;
 @property (atomic, readonly) NSString* fileExtension;
 @property (atomic, readonly) CESourceFileLanguage language;
 

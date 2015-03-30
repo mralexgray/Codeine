@@ -9,12 +9,12 @@
 @interface CEFilesViewController : CEViewController {
 @protected
 
-  NSOutlineView* _outlineView;
+  NSOutlineView* __weak _outlineView;
   NSMutableArray* _rootItems;
-  NSMenu* _openDocumentMenu;
-  NSMenu* _bookmarkMenu;
-  NSMenu* _fsDirectoryMenu;
-  NSMenu* _fsFileMenu;
+  NSMenu* __weak _openDocumentMenu;
+  NSMenu* __weak _bookmarkMenu;
+  NSMenu* __weak _fsDirectoryMenu;
+  NSMenu* __weak _fsFileMenu;
   CEFilesViewItem* _quickLookItem;
   CEMainWindowController* _mainWindowController;
   CEFilesViewItem* _openDocumentsItem;
@@ -24,12 +24,12 @@
   RESERVED_IVARS(CEFilesViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSOutlineView* outlineView;
-@property (nonatomic) IBOutlet NSMenu* openDocumentMenu;
-@property (nonatomic) IBOutlet NSMenu* bookmarkMenu;
-@property (nonatomic) IBOutlet NSMenu* fsDirectoryMenu;
-@property (nonatomic) IBOutlet NSMenu* fsFileMenu;
-@property (atomic, readwrite, assign) CEMainWindowController* mainWindowController;
+@property (weak, nonatomic) IBOutlet NSOutlineView* outlineView;
+@property (weak, nonatomic) IBOutlet NSMenu* openDocumentMenu;
+@property (weak, nonatomic) IBOutlet NSMenu* bookmarkMenu;
+@property (weak, nonatomic) IBOutlet NSMenu* fsDirectoryMenu;
+@property (weak, nonatomic) IBOutlet NSMenu* fsFileMenu;
+@property (atomic, readwrite, weak) CEMainWindowController* mainWindowController;
 
 - (IBAction)addBookmark:(id)sender;
 - (IBAction)removeBookmark:(id)sender;

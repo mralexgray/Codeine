@@ -42,7 +42,6 @@
     RELEASE_IVAR( _view );
     RELEASE_IVAR( _selectedColor );
     
-    [ super dealloc ];
 }
 
 - ( NSColor * )selectedColor
@@ -61,7 +60,7 @@
         {
             RELEASE_IVAR( _selectedColor );
             
-            _selectedColor      = [ color retain ];
+            _selectedColor      = color;
             _view.selectedColor = _selectedColor;
         }
     }

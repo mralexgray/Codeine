@@ -8,7 +8,7 @@
   NSColor* _borderColor;
 }
 
-@property (atomic, readwrite, retain) NSColor* backgroundColor;
-@property (atomic, readwrite, retain) NSColor* borderColor;
+@property (atomic, readwrite, strong) NSColor* backgroundColor;
+@property (atomic, readwrite, strong) NSColor* borderColor;
 
 @end

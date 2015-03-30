@@ -37,9 +37,7 @@ static NSString * const __classSuffix               = @"Controller";
         [ _popover close ];
     }
     
-    RELEASE_IVAR( _popover );
     
-    [ super dealloc ];
 }
 
 - ( void )openInPopoverRelativeToRect: ( NSRect )rect ofView: ( NSView * )view preferredEdge: ( NSRectEdge )edge

@@ -21,16 +21,7 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _file );
-    RELEASE_IVAR( _iconView );
-    RELEASE_IVAR( _nameTextField );
-    RELEASE_IVAR( _kindTextField );
-    RELEASE_IVAR( _sizeTextField );
-    RELEASE_IVAR( _creationDateTextField );
-    RELEASE_IVAR( _modificationDateTextField );
-    RELEASE_IVAR( _lastOpenedDateTextField );
-    RELEASE_IVAR( _openButton );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib
@@ -52,11 +43,9 @@
     {
         if( file != _file )
         {
-            [ _document release ];
-            [ _file     release ];
             
-            _file     = [ file retain ];
-            _document = [ [ CEDocument documentWithPath: _file.path ] retain ];
+            _file     = file;
+            _document = [ CEDocument documentWithPath: _file.path ];
             
             [ self view ];
             

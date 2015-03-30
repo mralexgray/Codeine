@@ -11,19 +11,19 @@ FOUNDATION_EXPORT NSString* const CEPreferencesCompilerOptionsViewControllerTabl
 @interface CEPreferencesCompilerOptionsViewController : CEViewController {
 @protected
 
-  NSTableView* _tableView;
+  NSTableView* __weak _tableView;
   CEMutableOrderedDictionary* _flags;
-  NSPopUpButton* _warningsPresetPopUp;
-  NSPopUpButton* _optimizationLevelPopUp;
+  NSPopUpButton* __weak _warningsPresetPopUp;
+  NSPopUpButton* __weak _optimizationLevelPopUp;
 
 @private
 
   RESERVED_IVARS(CEPreferencesCompilerOptionsViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSTableView* tableView;
-@property (nonatomic) IBOutlet NSPopUpButton* warningsPresetPopUp;
-@property (nonatomic) IBOutlet NSPopUpButton* optimizationLevelPopUp;
+@property (weak, nonatomic) IBOutlet NSTableView* tableView;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* warningsPresetPopUp;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* optimizationLevelPopUp;
 
 - (IBAction)selectWarningsPreset:(id)sender;
 - (IBAction)selectOptimizationLevel:(id)sender;

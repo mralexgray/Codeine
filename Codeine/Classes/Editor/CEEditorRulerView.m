@@ -21,9 +21,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     
     RELEASE_IVAR( _textView );
     RELEASE_IVAR( _linesRect );
-    RELEASE_IVAR( _document );
     
-    [ super dealloc ];
 }
 
 - ( void )setClientView: ( NSView * )view
@@ -46,7 +44,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
 
         RELEASE_IVAR( _textView );
         
-        _textView = ( NSTextView * )[ view retain ];
+        _textView = ( NSTextView * )view;
         
         [ NOTIFICATION_CENTER addObserver: self selector: @selector( textViewSelectionDidChange: )   name: NSTextViewDidChangeSelectionNotification   object: _textView ];
         [ NOTIFICATION_CENTER addObserver: self selector: @selector( textStorageDidProcessEditing: ) name: NSTextStorageDidProcessEditingNotification object: _textView.textStorage ];
@@ -91,7 +89,6 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color3, ( CGFloat )0, color1, ( CGFloat )0.10, color2, ( CGFloat )1, nil ];
     
     [ gradient drawInRect: rect angle: ( CGFloat )0 ];
-    [ gradient release ];
     
     [ self drawHashMarksAndLabelsInRect: rect ];
 }
@@ -158,7 +155,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     }
     
     range.location = glyphRange.location;
-    diagnostics    = [ _document.sourceFile.translationUnit.diagnostics retain ];
+    diagnostics    = _document.sourceFile.translationUnit.diagnostics;
     
     while( range.location + range.length <= text.length )
     {
@@ -239,7 +236,6 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         line++;
     }
     
-    [ diagnostics release ];
 }
 
 - ( CGFloat )requiredThickness
@@ -299,7 +295,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     
     hasDiagnostic = NO;
     diagnostic    = nil;
-    diagnostics   = [ _document.sourceFile.translationUnit.diagnostics retain ];
+    diagnostics   = _document.sourceFile.translationUnit.diagnostics;
     
     for( diagnostic in diagnostics )
     {
@@ -310,7 +306,6 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         }
     }
     
-    [ diagnostics release ];
     
     
     if( hasDiagnostic == YES )

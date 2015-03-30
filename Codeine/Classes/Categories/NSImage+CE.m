@@ -32,7 +32,7 @@ __RGBPixel;
             
             [ image addRepresentation: rep ];
             
-            return [ image autorelease ];
+            return image;
         }
     }
     
@@ -43,7 +43,7 @@ __RGBPixel;
     [ self drawInRect: NSMakeRect( ( CGFloat )0, ( CGFloat )0, size , size ) fromRect: NSMakeRect( ( CGFloat )0, ( CGFloat )0, self.size.width, self.size.height ) operation: NSCompositeCopy fraction: ( CGFloat )1 ];
     [ image unlockFocus ];
     
-    return [ image autorelease ];
+    return image;
 }
 
 - ( NSImage * )grayscaleImage
@@ -120,7 +120,7 @@ __RGBPixel;
     
     CGImageRelease( cgImage );
     
-    return [ image autorelease ];
+    return image;
 }
 
 @end

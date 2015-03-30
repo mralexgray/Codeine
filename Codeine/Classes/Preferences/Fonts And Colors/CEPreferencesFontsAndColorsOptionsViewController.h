@@ -6,9 +6,9 @@
 @interface CEPreferencesFontsAndColorsOptionsViewController : CEViewController {
 @protected
 
-  NSTextField* _fontTextField;
-  NSPopUpButton* _colorThemesPopUp;
-  NSTableView* _tableView;
+  NSTextField* __weak _fontTextField;
+  NSPopUpButton* __weak _colorThemesPopUp;
+  NSTableView* __weak _tableView;
   NSMutableArray* _colorChooserViews;
 
 @private
@@ -16,9 +16,9 @@
   RESERVED_IVARS(CEPreferencesFontsAndColorsOptionsViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSTextField* fontTextField;
-@property (nonatomic) IBOutlet NSPopUpButton* colorThemesPopUp;
-@property (nonatomic) IBOutlet NSTableView* tableView;
+@property (weak, nonatomic) IBOutlet NSTextField* fontTextField;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* colorThemesPopUp;
+@property (weak, nonatomic) IBOutlet NSTableView* tableView;
 
 - (IBAction)chooseFont:(id)sender;
 - (IBAction)chooseColorTheme:(id)sender;

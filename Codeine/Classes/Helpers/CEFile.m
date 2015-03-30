@@ -15,12 +15,12 @@
 
 + ( id )fileWithPath: ( NSString * )path
 {
-    return [ [ [ self alloc ] initWithPath: path ] autorelease ];
+    return [ [ self alloc ] initWithPath: path ];
 }
 
 + ( id )fileWithURL: ( NSURL * )url
 {
-    return [ [ [ self alloc ] initWithURL: url ] autorelease ];
+    return [ [ self alloc ] initWithURL: url ];
 }
 
 - ( id )initWithPath: ( NSString * )path
@@ -38,12 +38,11 @@
     
     if( ( self = [ self init ] ) )
     {
-        _url    = [ url retain ];
-        _path   = [ [ _url path ] retain ];
+        _url    = url;
+        _path   = [ _url path ];
         
         if( [ FILE_MANAGER fileExistsAtPath: _path isDirectory: &_isDirectory ] == NO )
         {
-            [ self release ];
             
             return nil;
         }
@@ -53,12 +52,11 @@
         
         if( attributes.count == 0 || error != nil )
         {
-            [ self release ];
             
             return nil;
         }
         
-        _attributes = [ attributes retain ];
+        _attributes = attributes;
         _isPackage  = [ WORKSPACE isFilePackageAtPath: _path ];
         _readable   = [ FILE_MANAGER isReadableFileAtPath: _path ];
         _writable   = [ FILE_MANAGER isWritableFileAtPath: _path ];
@@ -69,8 +67,6 @@
 
 - ( void )dealloc
 {
-    RELEASE_IVAR( _path );
-    RELEASE_IVAR( _url );
     RELEASE_IVAR( _attributes );
     RELEASE_IVAR( _name );
     RELEASE_IVAR( _kind );
@@ -87,7 +83,6 @@
     RELEASE_IVAR( _group );
     RELEASE_IVAR( _humanPermissions );
     
-    [ super dealloc ];
 }
 
 - ( void )refresh
@@ -116,7 +111,7 @@
     
     if( attributes.count > 0 && error == nil )
     {
-        _attributes = [ attributes retain ];
+        _attributes = attributes;
     }
 }
 
@@ -124,7 +119,7 @@
 {
     if( _name == nil )
     {
-        _name = [ [ FILE_MANAGER displayNameAtPath: _path ] retain ];
+        _name = [ FILE_MANAGER displayNameAtPath: _path ];
     }
     
     return _name;
@@ -137,7 +132,7 @@
     if( _kind == nil )
     {
         type  = [ WORKSPACE typeOfFile: _path error: NULL ];
-        _kind = [ [ WORKSPACE localizedDescriptionForType: type ] retain ];
+        _kind = [ WORKSPACE localizedDescriptionForType: type ];
     }
     
     return _kind;
@@ -186,7 +181,7 @@
 {
     if( _size == nil )
     {
-        _size = [ [ NSString stringForDataSizeWithBytes: self.bytes ] retain ];
+        _size = [ NSString stringForDataSizeWithBytes: self.bytes ];
     }
     
     return _size;
@@ -196,7 +191,7 @@
 {
     if( _creationDate == nil )
     {
-        _creationDate = [ [ _attributes objectForKey: NSFileCreationDate ] retain ];
+        _creationDate = [ _attributes objectForKey: NSFileCreationDate ];
     }
     
     return _creationDate;
@@ -206,7 +201,7 @@
 {
     if( _modificationDate == nil )
     {
-        _modificationDate = [ [ _attributes objectForKey: NSFileModificationDate ] retain ];
+        _modificationDate = [ _attributes objectForKey: NSFileModificationDate ];
     }
     
     return _modificationDate;
@@ -235,9 +230,8 @@
         dateFormatter.dateStyle                     = NSDateFormatterLongStyle;
         dateFormatter.timeStyle                     = NSDateFormatterShortStyle;
         
-        _creationTime = [ [ dateFormatter stringFromDate: self.creationDate ] retain ];
+        _creationTime = [ dateFormatter stringFromDate: self.creationDate ];
         
-        [ dateFormatter release ];
     }
     
     return _creationTime;
@@ -254,9 +248,8 @@
         dateFormatter.dateStyle                     = NSDateFormatterLongStyle;
         dateFormatter.timeStyle                     = NSDateFormatterShortStyle;
         
-        _modificationTime = [ [ dateFormatter stringFromDate: self.modificationDate ] retain ];
+        _modificationTime = [ dateFormatter stringFromDate: self.modificationDate ];
         
-        [ dateFormatter release ];
     }
     
     return _modificationTime;
@@ -273,9 +266,8 @@
         dateFormatter.dateStyle                     = NSDateFormatterLongStyle;
         dateFormatter.timeStyle                     = NSDateFormatterShortStyle;
         
-        _lastOpenedTime = [ [ dateFormatter stringFromDate: self.lastOpenedDate ] retain ];
+        _lastOpenedTime = [ dateFormatter stringFromDate: self.lastOpenedDate ];
         
-        [ dateFormatter release ];
     }
     
     return _lastOpenedTime;

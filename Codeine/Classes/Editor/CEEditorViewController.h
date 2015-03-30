@@ -13,7 +13,7 @@
 @interface CEEditorViewController : CEViewController {
 @protected
 
-  NSTextView* _textView;
+  NSTextView* __unsafe_unretained _textView;
   CEDocument* _document;
   CEEditorLayoutManager* _layoutManager;
   CEEditorRulerView* _rulerView;
@@ -25,7 +25,7 @@
   RESERVED_IVARS(CEEditorViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSTextView* textView;
-@property (atomic, readwrite, retain) CEDocument* document;
+@property (unsafe_unretained, nonatomic) IBOutlet NSTextView* textView;
+@property (atomic, readwrite, strong) CEDocument* document;
 
 @end

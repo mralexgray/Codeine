@@ -31,16 +31,10 @@
     _outlineView.delegate   = nil;
     _outlineView.dataSource = nil;
     
-    RELEASE_IVAR( _outlineView );
     RELEASE_IVAR( _rootItems );
-    RELEASE_IVAR( _openDocumentMenu );
-    RELEASE_IVAR( _bookmarkMenu );
-    RELEASE_IVAR( _fsDirectoryMenu );
-    RELEASE_IVAR( _fsFileMenu );
     RELEASE_IVAR( _quickLookItem );
     RELEASE_IVAR( _openDocumentsItem );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib

@@ -88,7 +88,6 @@
     [ path appendBezierPathWithRoundedRect: frame xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
     
     [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
-    [ gradient release ];
     
     gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
                                       endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
@@ -102,7 +101,6 @@
     [ path appendBezierPath: [ NSBezierPath bezierPathWithRoundedRect: frame xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ] ];
     [ path setWindingRule: NSEvenOddWindingRule ];
     [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
-    [ gradient release ];
     
     iconRect = CGRectMake
     (

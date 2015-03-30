@@ -20,18 +20,18 @@ FOUNDATION_EXPORT NSString* const CEMainWindowControllerDocumentsArrayKey;
   CEEditorViewController* _editorViewController;
   CEDebugViewController* _debugViewController;
   CEFileDetailsViewController* _fileDetailsViewController;
-  NSView* _leftView;
-  NSView* _mainView;
-  NSView* _bottomView;
+  NSView* __weak _leftView;
+  NSView* __weak _mainView;
+  NSView* __weak _bottomView;
   CELanguageWindowController* _languageWindowController;
-  NSPopUpButton* _encodingPopUp;
+  NSPopUpButton* __weak _encodingPopUp;
   NSMutableArray* _documents;
   CEDocument* _activeDocument;
-  NSSplitView* _horizontalSplitView;
-  NSSplitView* _verticalSplitView;
+  NSSplitView* __weak _horizontalSplitView;
+  NSSplitView* __weak _verticalSplitView;
   BOOL _fileBrowserHidden;
   BOOL _debugAreaHidden;
-  NSSegmentedControl* _viewsSegmentedControl;
+  NSSegmentedControl* __weak _viewsSegmentedControl;
   BOOL _fullScreen;
 
 @private
@@ -39,15 +39,15 @@ FOUNDATION_EXPORT NSString* const CEMainWindowControllerDocumentsArrayKey;
   RESERVED_IVARS(CEMainWindowController, 5);
 }
 
-@property (nonatomic) IBOutlet NSView* leftView;
-@property (nonatomic) IBOutlet NSView* mainView;
-@property (nonatomic) IBOutlet NSView* bottomView;
-@property (nonatomic) IBOutlet NSPopUpButton* encodingPopUp;
-@property (nonatomic, readonly) NSArray* documents;
-@property (nonatomic) CEDocument* activeDocument;
-@property (nonatomic) IBOutlet NSSplitView* horizontalSplitView;
-@property (nonatomic) IBOutlet NSSplitView* verticalSplitView;
-@property (nonatomic) IBOutlet NSSegmentedControl* viewsSegmentedControl;
+@property (weak, nonatomic) IBOutlet NSView* leftView;
+@property (weak, nonatomic) IBOutlet NSView* mainView;
+@property (weak, nonatomic) IBOutlet NSView* bottomView;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* encodingPopUp;
+@property (weak, nonatomic, readonly) NSArray* documents;
+@property (weak, nonatomic) CEDocument* activeDocument;
+@property (weak, nonatomic) IBOutlet NSSplitView* horizontalSplitView;
+@property (weak, nonatomic) IBOutlet NSSplitView* verticalSplitView;
+@property (weak, nonatomic) IBOutlet NSSegmentedControl* viewsSegmentedControl;
 @property (nonatomic, readonly) BOOL fullScreen;
 
 - (IBAction)addBookmark:(id)sender;

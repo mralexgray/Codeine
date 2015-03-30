@@ -43,7 +43,6 @@
     RELEASE_IVAR( _contentView );
     RELEASE_IVAR( _views );
     
-    [ super dealloc ];
 }
 
 - ( void )setFrame: ( NSRect )frame

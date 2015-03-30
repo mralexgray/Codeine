@@ -8,7 +8,6 @@ static NSString * __applicationSupportDirectory = nil;
 static void __exit( void ) __attribute__( ( destructor ) );
 static void __exit( void )
 {
-    [ __applicationSupportDirectory release ];
 }
 
 @implementation NSFileManager( CE )

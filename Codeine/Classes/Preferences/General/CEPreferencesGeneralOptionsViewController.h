@@ -6,18 +6,18 @@
 @interface CEPreferencesGeneralOptionsViewController : CEViewController {
 @protected
 
-  NSPopUpButton* _languagePopUp;
-  NSPopUpButton* _encodingPopUp;
-  NSMatrix* _lineEndingsMatrix;
+  NSPopUpButton* __weak _languagePopUp;
+  NSPopUpButton* __weak _encodingPopUp;
+  NSMatrix* __weak _lineEndingsMatrix;
 
 @private
 
   RESERVED_IVARS(CEPreferencesGeneralOptionsViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSPopUpButton* languagePopUp;
-@property (nonatomic) IBOutlet NSPopUpButton* encodingPopUp;
-@property (nonatomic) IBOutlet NSMatrix* lineEndingsMatrix;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* languagePopUp;
+@property (weak, nonatomic) IBOutlet NSPopUpButton* encodingPopUp;
+@property (weak, nonatomic) IBOutlet NSMatrix* lineEndingsMatrix;
 
 - (IBAction)setLanguage:(id)sender;
 - (IBAction)setEncoding:(id)sender;

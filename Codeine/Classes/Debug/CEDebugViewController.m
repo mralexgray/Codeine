@@ -18,12 +18,8 @@
 
 - ( void )dealloc
 {
-    RELEASE_IVAR( _tabView );
-    RELEASE_IVAR( _consoleViewController );
-    RELEASE_IVAR( _diagnosticsViewController );
     RELEASE_IVAR( _document );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib
@@ -57,7 +53,7 @@
         {
             RELEASE_IVAR( _document );
             
-            _document                           = [ document retain ];
+            _document                           = document;
             _diagnosticsViewController.document = document;
         }
     }

@@ -12,9 +12,9 @@ FOUNDATION_EXPORT NSString* const CEPreferencesLinkerOptionsViewControllerTableV
 @interface CEPreferencesLinkerOptionsViewController : CEViewController {
 @protected
 
-  NSTableView* _frameworksTableView;
-  NSTableView* _sharedLibsTableView;
-  NSTableView* _staticLibsTableView;
+  NSTableView* __weak _frameworksTableView;
+  NSTableView* __weak _sharedLibsTableView;
+  NSTableView* __weak _staticLibsTableView;
   CELinkerObjectType _openPanelAllowedType;
 
 @private
@@ -22,9 +22,9 @@ FOUNDATION_EXPORT NSString* const CEPreferencesLinkerOptionsViewControllerTableV
   RESERVED_IVARS(CEPreferencesLinkerOptionsViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSTableView* frameworksTableView;
-@property (nonatomic) IBOutlet NSTableView* sharedLibsTableView;
-@property (nonatomic) IBOutlet NSTableView* staticLibsTableView;
+@property (weak, nonatomic) IBOutlet NSTableView* frameworksTableView;
+@property (weak, nonatomic) IBOutlet NSTableView* sharedLibsTableView;
+@property (weak, nonatomic) IBOutlet NSTableView* staticLibsTableView;
 
 - (IBAction)addFramework:(id)sender;
 - (IBAction)removeFramework:(id)sender;

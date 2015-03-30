@@ -9,7 +9,7 @@
 
 + ( id )uuid
 {
-    return [ [ [ self class ] new ] autorelease ];
+    return [ [ self class ] new ];
 }
 
 - ( id )init
@@ -38,9 +38,7 @@
         CFRelease( _uuid );
     }
     
-    RELEASE_IVAR( _string );
     
-    [ super dealloc ];
 }
 
 @end

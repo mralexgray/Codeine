@@ -16,17 +16,17 @@
 
 + ( id )documentWithPath: ( NSString * )path
 {
-    return [ [ [ self alloc ] initWithPath: path ] autorelease ];
+    return [ [ self alloc ] initWithPath: path ];
 }
 
 + ( id )documentWithURL: ( NSURL * )url
 {
-    return [ [ [ self alloc ] initWithURL: url ] autorelease ];
+    return [ [ self alloc ] initWithURL: url ];
 }
 
 + ( id )documentWithLanguage: ( CESourceFileLanguage )language
 {
-    return [ [ [ self alloc ] initWithLanguage: language ] autorelease ];
+    return [ [ self alloc ] initWithLanguage: language ];
 }
 
 - ( id )initWithPath: ( NSString * )path
@@ -50,7 +50,6 @@
     
         if( _file == nil )
         {
-            [ self release ];
             
             return nil;
         }
@@ -73,7 +72,6 @@
         
         if( _sourceFile == nil )
         {
-            [ self release ];
             
             return nil;
         }
@@ -93,7 +91,6 @@
         
         if( _sourceFile == nil )
         {
-            [ self release ];
             
             return nil;
         }
@@ -105,15 +102,6 @@
     return self;
 }
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _file );
-    RELEASE_IVAR( _sourceFile );
-    RELEASE_IVAR( _name );
-    RELEASE_IVAR( _uuid );
-    
-    [ super dealloc ];
-}
 
 - ( NSImage * )icon
 {

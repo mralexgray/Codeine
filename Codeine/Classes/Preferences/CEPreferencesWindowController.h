@@ -21,14 +21,14 @@
   CEPreferencesFontsAndColorsOptionsViewController* _fontsAndColorsOptionsViewController;
   CEPreferencesFileTypesOptionsViewController* _fileTypesOptionsViewController;
   CEPreferencesUserInterfaceOptionsViewController* _userInterfaceOptionsViewController;
-  NSToolbar* _toolbar;
+  NSToolbar* __weak _toolbar;
 
 @private
 
   RESERVED_IVARS(CEPreferencesWindowController, 5);
 }
 
-@property (nonatomic) IBOutlet NSToolbar* toolbar;
+@property (weak, nonatomic) IBOutlet NSToolbar* toolbar;
 
 - (IBAction)showGeneralOptions:(id)sender;
 - (IBAction)showEditorOptions:(id)sender;

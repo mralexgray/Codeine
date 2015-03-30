@@ -30,12 +30,8 @@ NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescri
     _tableView.delegate   = nil;
     _tableView.dataSource = nil;
     
-    RELEASE_IVAR( _tableView );
     RELEASE_IVAR( _flags );
-    RELEASE_IVAR( _warningsPresetPopUp );
-    RELEASE_IVAR( _optimizationLevelPopUp );
     
-    [ super dealloc ];
 }
 
 - ( IBAction )selectWarningsPreset: ( id )sender

@@ -8,12 +8,6 @@
 
 @synthesize fullScreenStyleMatrix = _fullScreenStyleMatrix;
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _fullScreenStyleMatrix );
-    
-    [ super dealloc ];
-}
 
 - ( void )awakeFromNib
 {

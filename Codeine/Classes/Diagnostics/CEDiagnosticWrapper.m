@@ -9,14 +9,14 @@
 
 + ( id )diagnosticWrapperWithDiagnostic: ( CKDiagnostic * )diagnostic
 {
-    return [ [ [ self alloc ] initWithDiagnostic: diagnostic ] autorelease ];
+    return [ [ self alloc ] initWithDiagnostic: diagnostic ];
 }
 
 - ( id )initWithDiagnostic: ( CKDiagnostic * )diagnostic
 {
     if( ( self = [ self init ] ) )
     {
-        _diagnostic = [ diagnostic retain ];
+        _diagnostic = diagnostic;
     }
     
     return self;

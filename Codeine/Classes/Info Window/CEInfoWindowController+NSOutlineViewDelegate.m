@@ -28,7 +28,7 @@
     
     cell.view = item;
     
-    return [ cell autorelease ];
+    return cell;
 }
 
 - ( void )outlineView:(NSOutlineView *)outlineView willDisplayCell: ( id )cell forTableColumn: ( NSTableColumn * )tableColumn item: ( id )item

@@ -110,7 +110,7 @@
     
     if( [ controller isKindOfClass: [ CEMainWindowController class ] ] == YES && controller != _activeMainWindowController )
     {
-        _activeMainWindowController = [ ( CEMainWindowController * )controller retain ];
+        _activeMainWindowController = ( CEMainWindowController * )controller;
     }
 }
 

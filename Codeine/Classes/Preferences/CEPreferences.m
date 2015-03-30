@@ -96,7 +96,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     @synchronized( self )
     {
-        return [ [ self sharedInstance ] retain ];
+        return [ self sharedInstance ];
     }
 }
 
@@ -121,10 +121,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     return self;
 }
 
-- ( void )dealloc
-{
-    [ super dealloc ];
-}
 
 - ( void )enableWarningFlag: ( NSString * )name
 {
@@ -139,7 +135,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
     
-    [ flags release ];
 }
 
 - ( void )disableWarningFlag: ( NSString * )name
@@ -155,7 +150,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
     
-    [ flags release ];
 }
 
 - ( void )addObjCFramework: ( NSString * )name
@@ -174,7 +168,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
     }
     
-    [ frameworks release ];
 }
 
 - ( void )removeObjCFramework: ( NSString * )name
@@ -193,7 +186,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyWarningFlags );
     }
     
-    [ frameworks release ];
 }
 
 - ( void )addFileType: ( CESourceFileLanguage )type forExtension: ( NSString * )extension
@@ -209,7 +201,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         
     __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFileTypes );
     
-    [ types release ];
 }
 
 - ( void )removeFileTypeForExtension: ( NSString * )extension
@@ -228,7 +219,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFileTypes );
     }
     
-    [ types release ];
 }
 
 - ( void )setColorsFromColorTheme: ( CEColorTheme * )theme
@@ -261,7 +251,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyBookmarks );
     }
     
-    [ bookmarks release ];
 }
 
 - ( void )removeBookmark: ( NSString * )path
@@ -278,7 +267,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyBookmarks );
     }
     
-    [ bookmarks release ];
 }
 
 - ( void )addLinkerObject: ( CELinkerObject * )object
@@ -329,7 +317,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLinkerObjects );
     }
     
-    [ objects release ];
 }
 
 - ( void )removeLinkerObject: ( CELinkerObject * )object
@@ -377,7 +364,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLinkerObjects );
     }
     
-    [ objects release ];
 }
 
 - ( void )setLanguage: ( CESourceFileLanguage )language ofLinkerObject: ( CELinkerObject * )object
@@ -428,7 +414,6 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLinkerObjects );
     }
     
-    [ objects release ];
 }
 
 #pragma mark -

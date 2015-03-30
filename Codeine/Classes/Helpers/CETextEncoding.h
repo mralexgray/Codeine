@@ -14,7 +14,7 @@
 
 @property (atomic, readonly) NSStringEncoding encodingValue;
 @property (atomic, readonly) NSString* name;
-@property (atomic, readonly) NSString* localizedName;
+@property (weak, atomic, readonly) NSString* localizedName;
 
 + (NSArray*)availableEncodings;
 

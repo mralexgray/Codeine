@@ -11,14 +11,6 @@
 @synthesize encodingPopUp       = _encodingPopUp;
 @synthesize lineEndingsMatrix   = _lineEndingsMatrix;
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _languagePopUp );
-    RELEASE_IVAR( _encodingPopUp );
-    RELEASE_IVAR( _lineEndingsMatrix );
-    
-    [ super dealloc ];
-}
 
 - ( void )awakeFromNib
 {

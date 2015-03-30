@@ -7,7 +7,7 @@
 
 + ( id )quickLookItemWithPath: ( NSString * )path
 {
-    return [ [ [ self alloc ] initWithPath: path ] autorelease ];
+    return [ [ self alloc ] initWithPath: path ];
 }
 
 - ( id )initWithPath: ( NSString * )path
@@ -16,7 +16,6 @@
     {
         if( [ FILE_MANAGER fileExistsAtPath: path ] == NO )
         {
-            [ self release ];
             
             return nil;
         }
@@ -31,7 +30,6 @@
 {
     RELEASE_IVAR( _path );
     
-    [ super dealloc ];
 }
 
 - ( NSString * )previewItemTitle

@@ -43,7 +43,6 @@
     {
         if( [ FILE_MANAGER fileExistsAtPath: path isDirectory: &_isDirectory ] == NO )
         {
-            [ self release ];
             
             return nil;
         }
@@ -54,12 +53,10 @@
         
         if( _attributes == nil || error != nil )
         {
-            [ self release ];
             
             return nil;
         }
         
-        [ _attributes retain ];
     }
     
     return self;
@@ -70,35 +67,8 @@
     _outlineView.delegate   = nil;
     _outlineView.dataSource = nil;
     
-    RELEASE_IVAR( _path );
     RELEASE_IVAR( _attributes );
-    RELEASE_IVAR( _outlineView );
-    RELEASE_IVAR( _infoView );
-    RELEASE_IVAR( _generalLabelView );
-    RELEASE_IVAR( _iconLabelView );
-    RELEASE_IVAR( _permissionsLabelView );
-    RELEASE_IVAR( _generalView );
-    RELEASE_IVAR( _iconView );
-    RELEASE_IVAR( _permissionsView );
-    RELEASE_IVAR( _smallIconView );
-    RELEASE_IVAR( _largeIconView );
-    RELEASE_IVAR( _infoNameTextField );
-    RELEASE_IVAR( _infoSizeTextField );
-    RELEASE_IVAR( _infoDateTextField );
-    RELEASE_IVAR( _generalKindTextField );
-    RELEASE_IVAR( _generalSizeTextField );
-    RELEASE_IVAR( _generalPathTextField );
-    RELEASE_IVAR( _generalCTimeTextField );
-    RELEASE_IVAR( _permissionsView );
-    RELEASE_IVAR( _generalMTimeTextField );
-    RELEASE_IVAR( _permissionsReadableTextField );
-    RELEASE_IVAR( _permissionsWriteableTextField );
-    RELEASE_IVAR( _permissionsOwnerTextField );
-    RELEASE_IVAR( _permissionsGroupTextField );
-    RELEASE_IVAR( _permissionsOctalTextField );
-    RELEASE_IVAR( _permissionsHumanTextField );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib
@@ -129,7 +99,7 @@
     icon    = [ WORKSPACE iconForFile: _path ];
     rect    = NSMakeRect( ( CGFloat )0, ( CGFloat )0, ( CGFloat )512, ( CGFloat )512 );
     cgImage = [ icon CGImageForProposedRect: &rect context: nil hints: nil ];
-    icon    = [ [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ] autorelease ];
+    icon    = [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
     
     [ _smallIconView setImage: icon ];
     [ _largeIconView setImage: icon ];
@@ -190,7 +160,6 @@
     [ _generalCTimeTextField    setStringValue: [ dateFormatter stringFromDate: [ _attributes objectForKey: NSFileCreationDate ] ] ];
     [ _generalMTimeTextField    setStringValue: [ dateFormatter stringFromDate: [ _attributes objectForKey: NSFileModificationDate ] ] ];
     
-    [ dateFormatter release ];
     
     [ _permissionsReadableTextField  setStringValue: ( [ FILE_MANAGER isReadableFileAtPath: _path ] ) ? L10N( "Yes" ) : L10N( "No" ) ];
     [ _permissionsWriteableTextField setStringValue: ( [ FILE_MANAGER isWritableFileAtPath: _path ] ) ? L10N( "Yes" ) : L10N( "No" ) ];

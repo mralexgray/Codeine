@@ -17,10 +17,10 @@
 }
 
 @property (atomic, readwrite, assign) CGFloat cornerRadius;
-@property (atomic, readwrite, retain) NSColor* backgroundColor1;
-@property (atomic, readwrite, retain) NSColor* backgroundColor2;
-@property (atomic, readwrite, retain) NSColor* textColor;
-@property (atomic, readwrite, retain) NSFont* font;
+@property (atomic, readwrite, strong) NSColor* backgroundColor1;
+@property (atomic, readwrite, strong) NSColor* backgroundColor2;
+@property (atomic, readwrite, strong) NSColor* textColor;
+@property (atomic, readwrite, strong) NSFont* font;
 @property (atomic, readwrite, copy) NSString* title;
 
 @end

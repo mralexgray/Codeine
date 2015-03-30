@@ -37,7 +37,6 @@
         
         [ self addTrackingArea: area ];
         [ _trackingAreas addObject: area ];
-        [ area release ];
     }
 }
 

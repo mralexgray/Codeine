@@ -11,18 +11,6 @@
 @synthesize representedObject   = _representedObject;
 @synthesize delegate            = _delegate;
 
-- ( void )dealloc
-{
-    [ _backgroundColor  release ];
-    [ _foregroundColor  release ];
-    [ _color            release ];
-    [ _title            release ];
-    [ _font             release ];
-    [ _textField        release ];
-    [ _colorWell        release ];
-    
-    [ super dealloc ];
-}
 
 - ( void )drawRect: ( NSRect )rect
 {
@@ -128,7 +116,7 @@
         {
             RELEASE_IVAR( _foregroundColor );
             
-            _foregroundColor = [ foregroundColor retain ];
+            _foregroundColor = foregroundColor;
             
             if( _textField != nil )
             {
@@ -146,7 +134,7 @@
         {
             RELEASE_IVAR( _color );
             
-            _color = [ color retain ];
+            _color = color;
             
             if( _colorWell != nil )
             {
@@ -182,7 +170,7 @@
         {
             RELEASE_IVAR( _font );
             
-            _font = [ font retain ];
+            _font = font;
             
             if( _textField != nil )
             {

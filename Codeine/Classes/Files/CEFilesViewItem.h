@@ -24,7 +24,7 @@ FOUNDATION_EXPORT NSString* const CEFilesViewBookmarksItemName;
 @private
 
   NSMutableArray* _children;
-  CEFilesViewItem* _parent;
+  CEFilesViewItem* __weak _parent;
   id _representedObject;
   NSImage* _icon;
   NSString* _displayName;
@@ -36,12 +36,12 @@ FOUNDATION_EXPORT NSString* const CEFilesViewBookmarksItemName;
 @property (atomic, readonly) NSString* name;
 @property (atomic, readonly) NSString* displayName;
 @property (atomic, readonly) NSImage* icon;
-@property (atomic, readonly) NSArray* children;
+@property (weak, atomic, readonly) NSArray* children;
 @property (atomic, readonly) CEFile* file;
 @property (atomic, readonly) BOOL expandable;
-@property (atomic, readwrite, retain) id representedObject;
+@property (atomic, readwrite, strong) id representedObject;
 @property (atomic, readonly) BOOL isLeaf;
-@property (atomic, readonly) CEFilesViewItem* parent;
+@property (weak, atomic, readonly) CEFilesViewItem* parent;
 
 + (id)placesItem;
 + (id)bookmarksItems;

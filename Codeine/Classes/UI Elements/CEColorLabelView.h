@@ -12,14 +12,14 @@
   NSColor* _selectedColor;
   NSUInteger _trackingColorIndex;
   NSUInteger _selectedColorIndex;
-  id<CEColorLabelViewDelegate> _delegate;
+  id<CEColorLabelViewDelegate> __unsafe_unretained _delegate;
 
 @private
 
   RESERVED_IVARS(CEColorLabelView, 5);
 }
 
-@property (atomic, readwrite, retain) NSColor* selectedColor;
-@property (atomic, readwrite, assign) id<CEColorLabelViewDelegate> delegate;
+@property (atomic, readwrite, strong) NSColor* selectedColor;
+@property (atomic, readwrite, unsafe_unretained) id<CEColorLabelViewDelegate> delegate;
 
 @end

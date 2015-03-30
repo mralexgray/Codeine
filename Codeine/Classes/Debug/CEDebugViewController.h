@@ -11,7 +11,7 @@
 @interface CEDebugViewController : CEViewController {
 @protected
 
-  CEVerticalTabView* _tabView;
+  CEVerticalTabView* __weak _tabView;
   CEConsoleViewController* _consoleViewController;
   CEDiagnosticsViewController* _diagnosticsViewController;
   CEDocument* _document;
@@ -21,8 +21,8 @@
   RESERVED_IVARS(CEDebugViewController, 5);
 }
 
-@property (nonatomic) IBOutlet CEVerticalTabView* tabView;
-@property (atomic, readwrite, retain) CEDocument* document;
+@property (weak, nonatomic) IBOutlet CEVerticalTabView* tabView;
+@property (atomic, readwrite, strong) CEDocument* document;
 @property (atomic, readonly) CEConsoleViewController* consoleViewController;
 @property (atomic, readonly) CEDiagnosticsViewController* diagnosticsViewController;
 

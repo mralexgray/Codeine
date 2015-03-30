@@ -28,7 +28,7 @@
     
     [ _textView setSelectedTextAttributes: selectionAttributes ];
     
-    paragraphStyle = [ [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ] autorelease ];
+    paragraphStyle = [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ];
     
     [ _textView setDefaultParagraphStyle: paragraphStyle ];
     [ _textView.textStorage enumerateAttributesInRange: NSMakeRange( 0, _textView.string.length )

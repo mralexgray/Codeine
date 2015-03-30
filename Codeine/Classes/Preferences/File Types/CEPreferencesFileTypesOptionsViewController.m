@@ -22,10 +22,8 @@ NSString * const CEPreferencesCompilerOptionsViewControllerColumnTypeIdentifier 
     _tableView.delegate    = self;
     _tableView.dataSource  = self;
     
-    RELEASE_IVAR( _tableView );
     RELEASE_IVAR( _fileTypes );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib

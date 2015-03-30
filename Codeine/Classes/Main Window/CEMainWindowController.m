@@ -56,18 +56,10 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     RELEASE_IVAR( _editorViewController );
     RELEASE_IVAR( _debugViewController );
     RELEASE_IVAR( _fileDetailsViewController );
-    RELEASE_IVAR( _leftView );
-    RELEASE_IVAR( _mainView );
-    RELEASE_IVAR( _bottomView );
     RELEASE_IVAR( _languageWindowController );
-    RELEASE_IVAR( _encodingPopUp );
     RELEASE_IVAR( _documents );
     RELEASE_IVAR( _activeDocument );
-    RELEASE_IVAR( _horizontalSplitView );
-    RELEASE_IVAR( _verticalSplitView );
-    RELEASE_IVAR( _viewsSegmentedControl );
     
-    [ super dealloc ];
 }
 
 - ( void )awakeFromNib
@@ -86,7 +78,7 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     _debugViewController.view.autoresizingMask  = resizingMask;
     _fileViewController.view.autoresizingMask   = resizingMask;
     
-    editorHUD                   = [ [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ] autorelease ];
+    editorHUD                   = [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 100, 100, 200, 50 ) ];
     editorHUD.title             = L10N( "NoEditor" );
     editorHUD.autoresizingMask  = NSViewMinXMargin
                                 | NSViewMaxXMargin
@@ -145,7 +137,6 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
         
         [ ( ( NSView * )self.window.contentView ).superview addSubview: badge ];
         
-        [ badge release ];
     }
     
     _debugViewController.diagnosticsViewController.textView = _editorViewController.textView;
@@ -229,7 +220,7 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
             
             if( document.sourceFile.text != nil )
             {
-                _activeDocument = [ document retain ];
+                _activeDocument = document;
                 
                 if( _editorViewController.document != document )
                 {

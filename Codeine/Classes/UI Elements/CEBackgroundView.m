@@ -8,13 +8,6 @@
 @synthesize backgroundColor = _backgroundColor;
 @synthesize borderColor     = _borderColor;
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _backgroundColor );
-    RELEASE_IVAR( _borderColor );
-    
-    [ super dealloc ];
-}
 
 - ( void )drawRect: ( NSRect )rect
 {
@@ -46,7 +39,6 @@
             gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: _borderColor, ( CGFloat )0, nil ];
             
             [ gradient drawInBezierPath: path angle: ( CGFloat )0 ];
-            [ gradient release ];
         }
     }
     

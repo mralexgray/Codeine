@@ -5,14 +5,14 @@
 @protected
 
   CFUUIDRef _uuid;
-  NSString* _string;
+  NSString* __weak _string;
 
 @private
 
   RESERVED_IVARS(CEUUID, 5);
 }
 
-@property (atomic, readonly) NSString* string;
+@property (weak, atomic, readonly) NSString* string;
 
 + (id)uuid;
 

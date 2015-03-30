@@ -14,7 +14,7 @@ FOUNDATION_EXPORT NSString* const CEDiagnosticsViewControllerTableColumnIdentifi
 @interface CEDiagnosticsViewController : CEViewController {
 @protected
 
-  NSTableView* _tableView;
+  NSTableView* __weak _tableView;
   CEDocument* _document;
   NSTextView* _textView;
   NSMutableArray* _diagnostics;
@@ -25,8 +25,8 @@ FOUNDATION_EXPORT NSString* const CEDiagnosticsViewControllerTableColumnIdentifi
   RESERVED_IVARS(CEDiagnosticsViewController, 5);
 }
 
-@property (nonatomic) IBOutlet NSTableView* tableView;
-@property (atomic, readwrite, retain) CEDocument* document;
-@property (atomic, readwrite, retain) NSTextView* textView;
+@property (weak, nonatomic) IBOutlet NSTableView* tableView;
+@property (atomic, readwrite, strong) CEDocument* document;
+@property (atomic, readwrite, strong) NSTextView* textView;
 
 @end

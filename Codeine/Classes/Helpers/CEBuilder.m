@@ -10,25 +10,19 @@
 
 + ( id )builderWithDocument: ( CEDocument * )document
 {
-    return [ [ ( ( CEBuilder * )[ self alloc ] ) initWithDocument: document ] autorelease ];
+    return [ ( ( CEBuilder * )[ self alloc ] ) initWithDocument: document ];
 }
 
 - ( id )initWithDocument: ( CEDocument * )document
 {
     if( ( self = [ self init ] ) )
     {
-        _document = [ document retain ];
+        _document = document;
     }
     
     return self;
 }
 
-- ( void )dealloc
-{
-    RELEASE_IVAR( _document );
-    
-    [ super dealloc ];
-}
 
 - ( BOOL )build: ( NSError ** )error
 {

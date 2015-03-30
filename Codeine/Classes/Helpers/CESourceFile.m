@@ -11,12 +11,12 @@
 
 + ( id )sourceFileWithLanguage: ( CESourceFileLanguage )language
 {
-    return [ [ [ self alloc ] initWithLanguage: language ] autorelease ];
+    return [ [ self alloc ] initWithLanguage: language ];
 }
 
 + ( id )sourceFileWithLanguage: ( CESourceFileLanguage )language fromFile: ( NSString * )path
 {
-    return [ [ [ self alloc ] initWithLanguage: language fromFile: path ] autorelease ];
+    return [ [ self alloc ] initWithLanguage: language fromFile: path ];
 }
 
 - ( id )initWithLanguage: ( CESourceFileLanguage )language
@@ -43,7 +43,7 @@
             
             if( data != nil )
             {
-                self.text = [ [ [ NSString alloc ] initWithData: data encoding: [ [ CEPreferences sharedInstance ] textEncoding ] ] autorelease ];
+                self.text = [ [ NSString alloc ] initWithData: data encoding: [ [ CEPreferences sharedInstance ] textEncoding ] ];
             }
         }
     }
@@ -54,9 +54,7 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _text );
-    RELEASE_IVAR( _translationUnit );
     
-    [ super dealloc ];
 }
 
 - ( NSString * )text
@@ -80,7 +78,7 @@
         {
             RELEASE_IVAR( _text );
             
-            _text = [ text retain ];
+            _text = text;
         }
         
         if( _language == CESourceFileLanguageNone )

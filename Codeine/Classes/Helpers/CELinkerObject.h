@@ -24,8 +24,8 @@ typedef enum {
 @property (atomic, readonly) CELinkerObjectType type;
 @property (atomic, readonly) CESourceFileLanguage language;
 @property (atomic, readonly) NSString* path;
-@property (atomic, readonly) NSString* name;
-@property (atomic, readonly) NSImage* icon;
+@property (weak, atomic, readonly) NSString* name;
+@property (weak, atomic, readonly) NSImage* icon;
 
 + (NSArray*)linkerObjects;
 + (NSArray*)linkerObjectsWithType:(CELinkerObjectType)type;

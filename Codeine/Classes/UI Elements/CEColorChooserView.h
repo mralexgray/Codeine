@@ -13,20 +13,20 @@
   NSString* _title;
   NSTextField* _textField;
   NSColorWell* _colorWell;
-  id _representedObject;
-  id<CEColorChooserViewDelegate> _delegate;
+  id __unsafe_unretained _representedObject;
+  id<CEColorChooserViewDelegate> __unsafe_unretained _delegate;
 
 @private
 
   RESERVED_IVARS(CEColorChooserView, 5);
 }
 
-@property (atomic, readwrite, retain) NSColor* backgroundColor;
-@property (atomic, readwrite, retain) NSColor* foregroundColor;
-@property (atomic, readwrite, retain) NSColor* color;
-@property (atomic, readwrite, retain) NSFont* font;
+@property (atomic, readwrite, strong) NSColor* backgroundColor;
+@property (atomic, readwrite, strong) NSColor* foregroundColor;
+@property (atomic, readwrite, strong) NSColor* color;
+@property (atomic, readwrite, strong) NSFont* font;
 @property (atomic, readwrite, copy) NSString* title;
-@property (atomic, readwrite, assign) id representedObject;
-@property (atomic, readwrite, assign) id<CEColorChooserViewDelegate> delegate;
+@property (atomic, readwrite, unsafe_unretained) id representedObject;
+@property (atomic, readwrite, unsafe_unretained) id<CEColorChooserViewDelegate> delegate;
 
 @end

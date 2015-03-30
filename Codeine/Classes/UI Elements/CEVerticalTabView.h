@@ -12,7 +12,7 @@
   NSView* _contentView;
   NSMutableArray* _views;
   CEVerticalTabBarPosition _tabBarPosition;
-  id<CEVerticalTabViewDelegate> _delegate;
+  id<CEVerticalTabViewDelegate> __unsafe_unretained _delegate;
 
 @private
 
@@ -21,7 +21,7 @@
 
 @property (atomic, readwrite, assign) CGFloat tabBarWidth;
 @property (atomic, readwrite, assign) CEVerticalTabBarPosition tabBarPosition;
-@property (atomic, readwrite, assign) id<CEVerticalTabViewDelegate> delegate;
+@property (atomic, readwrite, unsafe_unretained) id<CEVerticalTabViewDelegate> delegate;
 
 - (void)addView:(NSView*)view icon:(NSImage*)icon;
 - (void)removeViewAtIndex:(NSUInteger)index;
