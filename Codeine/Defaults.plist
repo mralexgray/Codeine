@@ -15,9 +15,9 @@
 	<key>SoftWrap</key>
 	<false/>
 	<key>FontName</key>
-	<string>Menlo</string>
+	<string>UbuntuMono-Bold</string>
 	<key>FontSize</key>
-	<integer>11</integer>
+	<integer>18</integer>
 	<key>ShowLineNumbers</key>
 	<true/>
 	<key>ShowPageGuide</key>

@@ -7,8 +7,8 @@ int main( int argc, char * argv[] )
 {
     @autoreleasepool
     {
-        ( void )argc;
-        ( void )argv;
+
+
         
         NSLog( @"hello, world" );
         
