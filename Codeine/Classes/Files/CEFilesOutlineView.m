@@ -10,7 +10,7 @@
 
 @implementation CEFilesOutlineView
 
-- ( id )initWithCoder: ( NSCoder * )coder
+- ( instancetype )initWithCoder: ( NSCoder * )coder
 {
     if( ( self = [ super initWithCoder: coder ] ) )
     {
@@ -21,7 +21,7 @@
     return self;
 }
 
-- ( id )initWithFrame: ( NSRect )frame
+- ( instancetype )initWithFrame: ( NSRect )frame
 {
     if( ( self = [ super initWithFrame: frame ] ) )
     {
@@ -202,7 +202,8 @@
     {
         if( [ selectedRows containsIndex: row ] )
         {
-            gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
+            gradient =[NSGradient.alloc 
+         initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
             
             rowRect = NSInsetRect( [ self rectOfRow: ( NSInteger )row ] , ( CGFloat )0, ( CGFloat )0 );
             path    = [ NSBezierPath bezierPath ];
@@ -213,7 +214,8 @@
             [ path appendBezierPathWithRoundedRect: rowRect xRadius: ( CGFloat )10 yRadius: ( CGFloat )10 ];
             [ gradient drawInBezierPath: path angle: 90 ];
             
-            gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.15 ]
+            gradient =[NSGradient.alloc 
+         initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.15 ]
                                                       endingColor:      [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.30 ]
                        ];
                                

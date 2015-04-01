@@ -4,17 +4,16 @@
 #ifndef __CE_TYPES_H__
 #define __CE_TYPES_H__
 
-typedef enum
+typedef NS_OPTIONS(unsigned int, CEOptimizationLevel)
 {
     CEOptimizationLevelNone             = 0x00,
     CEOptimizationLevelFast             = 0x01,
     CEOptimizationLevelFaster           = 0x02,
     CEOptimizationLevelFastest          = 0x03,
     CEOptimizationLevelFastestSmallest  = 0x04
-}
-CEOptimizationLevel;
+};
 
-typedef enum
+typedef NS_OPTIONS(unsigned int, CETokenType)
 {
     CETokenTypeText                     = 0x00,
     CETokenTypeKeyword                  = 0x01,
@@ -24,10 +23,9 @@ typedef enum
     CETokenTypeString                   = 0x05,
     CETokenTypeNumber                   = 0x06,
     CETokenTypeComment                  = 0x07
-}
-CETokenType;
+};
 
-typedef enum
+typedef NS_OPTIONS(unsigned int, CEVirtualKey)
 {
     CEVirtualKeyReturn                  = 0x24,
     CEVirtualKeyTab                     = 0x30,
@@ -76,7 +74,6 @@ typedef enum
     CEVirtualKeyRightArrow              = 0x7C,
     CEVirtualKeyDownArrow               = 0x7D,
     CEVirtualKeyUpArrow                 = 0x7E
-}
-CEVirtualKey;
+};
 
 #endif

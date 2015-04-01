@@ -31,8 +31,9 @@
                 NSDictionary    * windowResize;
                 NSViewAnimation * animation;
                 
-                windowResize = [ NSDictionary dictionaryWithObjectsAndKeys: self.window, NSViewAnimationTargetKey, [ NSValue valueWithRect: frame ], NSViewAnimationEndFrameKey, nil ];
-                animation    = [ [ NSViewAnimation alloc ] initWithViewAnimations: [ NSArray arrayWithObjects: windowResize, nil ] ];
+                windowResize = @{NSViewAnimationTargetKey: self.window, NSViewAnimationEndFrameKey: [ NSValue valueWithRect: frame ]};
+                animation    =[NSViewAnimation.alloc 
+         initWithViewAnimations: @[windowResize] ];
                 
                 [ animation setAnimationBlockingMode: NSAnimationBlocking ];
                 [ animation setAnimationCurve: NSAnimationEaseIn ];

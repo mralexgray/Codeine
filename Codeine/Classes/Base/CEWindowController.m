@@ -8,7 +8,7 @@ static NSString * const __classSuffix               = @"Controller";
 
 @implementation CEWindowController
 
-- ( id )init
+- ( instancetype )init
 {
     NSString * className;
     NSString * nibName;

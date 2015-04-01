@@ -72,6 +72,6 @@
 - (NSView *) replaceSubview: (NSView *) aView withViewOfClass: (Class) newViewClass;
 
 /// Returns YES if the window is currently in full-screen.
-- (BOOL) isFullScreen;
+@property (getter=isFullScreen, readonly) BOOL fullScreen;
 
 @end

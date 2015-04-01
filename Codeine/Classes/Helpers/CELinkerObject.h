@@ -3,11 +3,11 @@
 
 #import "CESourceFile.h"
 
-typedef enum {
+typedef NS_OPTIONS(unsigned int, CELinkerObjectType) {
   CELinkerObjectTypeFramework = 0x00,
   CELinkerObjectTypeSharedLibrary = 0x01,
   CELinkerObjectTypeStaticLibrary = 0x02
-} CELinkerObjectType;
+};
 
 @interface CELinkerObject : NSObject {
 @protected
@@ -29,9 +29,9 @@ typedef enum {
 
 + (NSArray*)linkerObjects;
 + (NSArray*)linkerObjectsWithType:(CELinkerObjectType)type;
-+ (id)linkerObjectWithPath:(NSString*)path type:(CELinkerObjectType)type;
-+ (id)linkerObjectWithPath:(NSString*)path type:(CELinkerObjectType)type language:(CESourceFileLanguage)language;
-- (id)initWithPath:(NSString*)path type:(CELinkerObjectType)type;
-- (id)initWithPath:(NSString*)path type:(CELinkerObjectType)type language:(CESourceFileLanguage)language;
++ (instancetype)linkerObjectWithPath:(NSString*)path type:(CELinkerObjectType)type;
++ (instancetype)linkerObjectWithPath:(NSString*)path type:(CELinkerObjectType)type language:(CESourceFileLanguage)language;
+- (instancetype)initWithPath:(NSString*)path type:(CELinkerObjectType)type;
+- (instancetype)initWithPath:(NSString*)path type:(CELinkerObjectType)type language:(CESourceFileLanguage)language;
 
 @end

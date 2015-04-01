@@ -1,16 +1,21 @@
 
 /* $Id$ */
 
-#import <ClangKit/ClangKit.h>
+#import "CEQuickLookItem.h"
 
 @implementation CEQuickLookItem
-
-+ ( id )quickLookItemWithPath: ( NSString * )path
 {
-    return [ [ self alloc ] initWithPath: path ];
+  @protected NSString* _path;
+  @private RESERVED_IVARS(CEQuickLookItem, 5);
 }
 
-- ( id )initWithPath: ( NSString * )path
++ ( instancetype )quickLookItemWithPath: ( NSString * )path
+{
+    return[self.alloc 
+         initWithPath: path ];
+}
+
+- ( instancetype )initWithPath: ( NSString * )path
 {
     if( ( self = [ self init ] ) )
     {
@@ -29,7 +34,6 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _path );
-    [super dealloc];
 }
 
 - ( NSString * )previewItemTitle

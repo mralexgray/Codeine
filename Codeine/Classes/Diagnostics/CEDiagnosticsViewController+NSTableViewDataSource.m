@@ -39,7 +39,7 @@
     
     @try
     {
-        diagnostic = [ _diagnostics objectAtIndex: ( NSUInteger )row ];
+        diagnostic = _diagnostics[( NSUInteger )row];
     }
     @catch( NSException * e )
     {

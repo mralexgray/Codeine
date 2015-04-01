@@ -92,7 +92,7 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
         return;
     }
     
-    [ [ CEPreferences sharedInstance ] removeLinkerObject: [ objects objectAtIndex: ( NSUInteger )row ] ];
+    [ [ CEPreferences sharedInstance ] removeLinkerObject: objects[( NSUInteger )row] ];
     [ _frameworksTableView reloadData ];
 }
 
@@ -109,7 +109,7 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
     panel.prompt                    = L10N( "AddSharedLibrary" );
     panel.allowsMultipleSelection   = NO;
     panel.delegate                  = self;
-    panel.allowedFileTypes          = [ NSArray arrayWithObject: @"dylib" ];
+    panel.allowedFileTypes          = @[@"dylib"];
     
     _openPanelAllowedType = CELinkerObjectTypeSharedLibrary;
     
@@ -147,7 +147,7 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
         return;
     }
     
-    [ [ CEPreferences sharedInstance ] removeLinkerObject: [ objects objectAtIndex: ( NSUInteger )row ] ];
+    [ [ CEPreferences sharedInstance ] removeLinkerObject: objects[( NSUInteger )row] ];
     [ _sharedLibsTableView reloadData ];
 }
 
@@ -164,7 +164,7 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
     panel.prompt                    = L10N( "AddStaticLibrary" );
     panel.allowsMultipleSelection   = NO;
     panel.delegate                  = self;
-    panel.allowedFileTypes          = [ NSArray arrayWithObject: @"a" ];
+    panel.allowedFileTypes          = @[@"a"];
     
     _openPanelAllowedType = CELinkerObjectTypeStaticLibrary;
     
@@ -202,7 +202,7 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
         return;
     }
     
-    [ [ CEPreferences sharedInstance ] removeLinkerObject: [ objects objectAtIndex: ( NSUInteger )row ] ];
+    [ [ CEPreferences sharedInstance ] removeLinkerObject: objects[( NSUInteger )row] ];
     [ _staticLibsTableView reloadData ];
 }
 

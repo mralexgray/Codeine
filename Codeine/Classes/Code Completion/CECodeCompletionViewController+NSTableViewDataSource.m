@@ -22,7 +22,7 @@
     
     @try
     {
-        result = [ _results objectAtIndex: ( NSUInteger )row ];
+        result = _results[( NSUInteger )row];
         
         for( chunk in result.chunks )
         {

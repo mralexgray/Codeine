@@ -7,7 +7,7 @@
 
 @implementation CEColorLabelMenuItem
 
-- ( id )initWithCoder: ( NSCoder * )coder
+- ( instancetype )initWithCoder: ( NSCoder * )coder
 {
     if( ( self = [ super initWithCoder: coder ] ) )
     {
@@ -20,7 +20,7 @@
     return self;
 }
 
-- ( id )initWithTitle: ( NSString * )title action: ( SEL )action keyEquivalent: ( NSString * )charCode
+- ( instancetype )initWithTitle: ( NSString * )title action: ( SEL )action keyEquivalent: ( NSString * )charCode
 {
     if( ( self = [ super initWithTitle: title action: action keyEquivalent: charCode ] ) )
     {

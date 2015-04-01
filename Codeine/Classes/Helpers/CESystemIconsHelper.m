@@ -38,7 +38,7 @@ static NSString            * const  __bundlePath        = @"/System/Library/Core
     return self;
 }
 
-- ( id )init
+- ( instancetype )init
 {
     if( ( self = [ super init ] ) )
     {
@@ -60,7 +60,8 @@ static NSString            * const  __bundlePath        = @"/System/Library/Core
     NSImage  * image;
     
     path  = [ _bundle pathForImageResource: name ];
-    image = [ [ NSImage alloc ] initWithContentsOfFile: path ];
+    image =[NSImage.alloc 
+         initWithContentsOfFile: path ];
     
     return image;
 }

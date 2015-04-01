@@ -8,11 +8,12 @@
 
 @synthesize delegate = _delegate;
 
-- ( id )initWithFrame: ( NSRect )frame
+- ( instancetype )initWithFrame: ( NSRect )frame
 {
     if( ( self = [ super initWithFrame: frame ] ) )
     {
-        _icons         = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+        _icons         =[NSMutableArray.alloc 
+         initWithCapacity: 10 ];
         _trackingIndex = NSNotFound;
     }
     
@@ -47,7 +48,8 @@
     color1   = [ color1 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     color2   = [ color2 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     color3   = [ color3 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
-    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color3, ( CGFloat )0, color1, ( CGFloat )0.10, color2, ( CGFloat )1, nil ];
+    gradient =[NSGradient.alloc 
+         initWithColorsAndLocations: color3, ( CGFloat )0, color1, ( CGFloat )0.10, color2, ( CGFloat )1, nil ];
     
     [ gradient drawInRect: rect angle: ( CGFloat )0 ];
     
@@ -144,7 +146,7 @@
     NSNumber     * index;
     
     data  = event.userData;
-    index = [ data objectForKey: @"Index" ];
+    index = data[@"Index"];
     
     if( data == nil || index == nil )
     {
@@ -164,7 +166,7 @@
     NSNumber     * index;
     
     data  = event.userData;
-    index = [ data objectForKey: @"Index" ];
+    index = data[@"Index"];
     
     if( data == nil || index == nil || _trackingIndex == [ index integerValue ] )
     {

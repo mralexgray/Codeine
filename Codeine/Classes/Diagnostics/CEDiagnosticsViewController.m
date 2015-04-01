@@ -45,9 +45,11 @@ NSString * const CEDiagnosticsViewControllerTableColumnIdentifierMessage    = @"
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidBecomeActiveNotification object: APPLICATION ];
     [ NOTIFICATION_CENTER addObserver: self selector: @selector( applicationStateDidChange: ) name: NSApplicationDidResignActiveNotification object: APPLICATION ];
     
-    _diagnostics = [ [ NSMutableArray alloc ] initWithCapacity: 25 ];
+    _diagnostics =[NSMutableArray.alloc 
+         initWithCapacity: 25 ];
     
-    _hud                   = [ [ CEHUDView alloc ] initWithFrame: NSMakeRect( 0, 0, 200, 50 ) ];
+    _hud                   =[CEHUDView.alloc 
+         initWithFrame: NSMakeRect( 0, 0, 200, 50 ) ];
     _hud.title             = L10N( "NoError" );
     _hud.autoresizingMask  = NSViewMinXMargin
                            | NSViewMaxXMargin

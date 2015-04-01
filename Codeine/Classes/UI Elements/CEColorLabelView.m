@@ -9,7 +9,7 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
 
 @synthesize delegate = _delegate;
 
-- ( id )init
+- ( instancetype )init
 {
     if( ( self = [ self initWithFrame: NSMakeRect( ( CGFloat )0, ( CGFloat )0, ( CGFloat )200, ( CGFloat )50 ) ] ) )
     {}
@@ -17,13 +17,14 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
     return self;
 }
 
-- ( id )initWithFrame: ( NSRect )frame
+- ( instancetype )initWithFrame: ( NSRect )frame
 {
     if( ( self = [ super initWithFrame: frame ] ) )
     {
         _colors   = [ WORKSPACE fileLabelColors ];
         _labels   = [ WORKSPACE fileLabels      ];
-        _tracking = [ [ NSMutableArray alloc ] initWithCapacity: _colors.count ];
+        _tracking =[NSMutableArray.alloc 
+         initWithCapacity: _colors.count ];
         
         if( _colors.count != _labels.count )
         {
@@ -38,13 +39,14 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
     return self;
 }
 
-- ( id )initWithCoder: ( NSCoder * )coder
+- ( instancetype )initWithCoder: ( NSCoder * )coder
 {
     if( ( self = [ super initWithCoder: coder ] ) )
     {
         _colors   = [ WORKSPACE fileLabelColors ];
         _labels   = [ WORKSPACE fileLabels      ];
-        _tracking = [ [ NSMutableArray alloc ] initWithCapacity: _colors.count ];
+        _tracking =[NSMutableArray.alloc 
+         initWithCapacity: _colors.count ];
         
         if( _colors.count != _labels.count )
         {
@@ -123,7 +125,7 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
     NSNumber     * index;
     
     data  = event.userData;
-    index = [ data objectForKey: __trackingKey ];
+    index = data[__trackingKey];
     
     if( index == nil )
     {
@@ -159,7 +161,7 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
         
         if( _delegate != nil && [ _delegate respondsToSelector: @selector( colorLabelView:didSelectColor: ) ] )
         {
-            [ _delegate colorLabelView: self didSelectColor: [ _colors objectAtIndex: _selectedColorIndex ] ];
+            [ _delegate colorLabelView: self didSelectColor: _colors[_selectedColorIndex] ];
         }
     }
 }
@@ -182,13 +184,13 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
     
     font = [ NSFont menuFontOfSize: 14 ];
     
-	[ L10N( "Label" ) drawAtPoint: NSMakePoint( ( CGFloat )20, ( CGFloat )30 ) withAttributes: [ NSDictionary dictionaryWithObject: font forKey: NSFontAttributeName ] ];
+	[ L10N( "Label" ) drawAtPoint: NSMakePoint( ( CGFloat )20, ( CGFloat )30 ) withAttributes: @{NSFontAttributeName: font} ];
     
     i = 0;
     
     for( color in _colors )
     {
-        label = [ _labels objectAtIndex: i ];
+        label = _labels[i];
         
         color = [ color colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
         r     = ( CGFloat )0;
@@ -211,12 +213,13 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
                 NSDictionary        * trackInfo;
                 NSTrackingArea      * area;
                 
-                trackInfo = [ NSDictionary dictionaryWithObject: [ NSNumber numberWithUnsignedInteger: i ] forKey: __trackingKey ];
+                trackInfo = @{__trackingKey: @(i)};
                 options   = NSTrackingEnabledDuringMouseDrag
                           | NSTrackingMouseEnteredAndExited
                           | NSTrackingActiveInActiveApp
                           | NSTrackingActiveAlways;
-                area      = [ [ NSTrackingArea alloc ] initWithRect: colorRect options: options owner: self userInfo: trackInfo ];
+                area      =[NSTrackingArea.alloc 
+         initWithRect: colorRect options: options owner: self userInfo: trackInfo ];
                 
                 [ _tracking addObject: area ];
                 [ self addTrackingArea: area ];
@@ -228,10 +231,8 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
             {
                 NSDictionary * attributes;
                 
-                attributes = [ NSDictionary dictionaryWithObjectsAndKeys:   font,   NSFontAttributeName,
-                                                                            color,  NSForegroundColorAttributeName,
-                                                                            nil
-                             ];
+                attributes = @{NSFontAttributeName: font,
+                                                                            NSForegroundColorAttributeName: color};
                 
                 [ label drawAtPoint: NSMakePoint( ( CGFloat )70, ( CGFloat )30 ) withAttributes: attributes ];
             }
@@ -245,7 +246,8 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
                 highlightRect = NSMakeRect( dotRect.origin.x - 3, dotRect.origin.y - 3, dotRect.size.width + 6, dotRect.size.height + 6 );
                 
                 path     = [ NSBezierPath bezierPathWithOvalInRect: highlightRect ];
-                gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.1 ]
+                gradient =[NSGradient.alloc 
+         initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.1 ]
                                                   endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
                            ];
                            
@@ -263,7 +265,8 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
                 selectedRect = NSMakeRect( dotRect.origin.x - 2, dotRect.origin.y - 2, dotRect.size.width + 4, dotRect.size.height + 4 );
                 
                 path     = [ NSBezierPath bezierPathWithOvalInRect: selectedRect ];
-                gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0.25 alpha: ( CGFloat )0.1 ]
+                gradient =[NSGradient.alloc 
+         initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0.25 alpha: ( CGFloat )0.1 ]
                                                   endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0.25 alpha: ( CGFloat )0.5 ]
                            ];
                 
@@ -276,7 +279,8 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
         if( r > ( CGFloat )0 && b > ( CGFloat )0 && b > ( CGFloat )0 )
         {
             path     = [ NSBezierPath bezierPathWithOvalInRect: dotRect ];
-            gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:   [ NSColor whiteColor ], ( CGFloat )0.0,
+            gradient =[NSGradient.alloc 
+         initWithColorsAndLocations:   [ NSColor whiteColor ], ( CGFloat )0.0,
                                                                             color,                  ( CGFloat )1.0,
                                                                             nil
                        ];
@@ -285,7 +289,8 @@ static NSString * const __trackingKey = @"CEColorLabelViewTrackingKey";
         }
         
 		path     = [ NSBezierPath bezierPathWithOvalInRect: dotRect ];
-		gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.1 ]
+		gradient =[NSGradient.alloc 
+         initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.1 ]
                                           endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
                    ];
         

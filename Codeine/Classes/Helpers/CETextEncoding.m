@@ -71,9 +71,10 @@ static struct __textEncoding __encodings[ __NUMBER_OF_TEXT_ENCODINGS ] =
         {
             if( __encodings[ i ].value == *( encodings ) )
             {
-                encoding         = [ [ CETextEncoding alloc ] init ];
+                encoding         =[CETextEncoding.alloc 
+         init ];
                 encoding->_value = __encodings[ i ].value;
-                encoding->_name  = [ NSString stringWithCString: __encodings[ i ].name encoding: NSASCIIStringEncoding ];
+                encoding->_name  = @(__encodings[ i ].name);
                 
                 [ array addObject: encoding ];
                 

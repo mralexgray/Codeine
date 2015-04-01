@@ -21,10 +21,8 @@
     _textView.textColor           = [ [ CEPreferences sharedInstance ] foregroundColor ];
     _textView.insertionPointColor = [ [ CEPreferences sharedInstance ] foregroundColor ];
     
-    selectionAttributes = [ NSDictionary dictionaryWithObjectsAndKeys:  [ [ CEPreferences sharedInstance ] selectionColor ],  NSBackgroundColorAttributeName,
-                                                                        [ [ CEPreferences sharedInstance ] foregroundColor ], NSForegroundColorAttributeName,
-                                                                        nil
-                          ];
+    selectionAttributes = @{NSBackgroundColorAttributeName: [ [ CEPreferences sharedInstance ] selectionColor ],
+                                                                        NSForegroundColorAttributeName: [ [ CEPreferences sharedInstance ] foregroundColor ]};
     
     [ _textView setSelectedTextAttributes: selectionAttributes ];
     
@@ -41,7 +39,7 @@
                                 
                                 newAttributes = [ NSMutableDictionary dictionaryWithDictionary: attributes ];
                                 
-                                [ newAttributes setObject: paragraphStyle forKey: NSParagraphStyleAttributeName ];
+                                newAttributes[NSParagraphStyleAttributeName] = paragraphStyle;
                                 [ _textView.textStorage setAttributes: newAttributes range: range ];
                             }
     ];

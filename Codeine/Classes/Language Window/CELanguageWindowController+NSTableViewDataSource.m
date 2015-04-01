@@ -59,23 +59,23 @@
             {
                 case 0:
                     
-                    return [ NSNumber numberWithInteger: CESourceFileLanguageC ];
+                    return @(CESourceFileLanguageC);
                     
                 case 1:
                     
-                    return [ NSNumber numberWithInteger: CESourceFileLanguageCPP ];
+                    return @(CESourceFileLanguageCPP);
                     
                 case 2:
                     
-                    return [ NSNumber numberWithInteger: CESourceFileLanguageObjC ];
+                    return @(CESourceFileLanguageObjC);
                     
                 case 3:
                     
-                    return [ NSNumber numberWithInteger: CESourceFileLanguageObjCPP ];
+                    return @(CESourceFileLanguageObjCPP);
                     
                 case 4:
                     
-                    return [ NSNumber numberWithInteger: CESourceFileLanguageHeader ];
+                    return @(CESourceFileLanguageHeader);
                     
                 default:
                     

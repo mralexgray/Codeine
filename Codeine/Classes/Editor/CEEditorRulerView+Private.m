@@ -34,14 +34,15 @@
     
     if( _linesRect == nil )
     {
-        _linesRect = [ [ NSMutableDictionary alloc ] initWithCapacity: 10 ];
+        _linesRect =[NSMutableDictionary.alloc 
+         initWithCapacity: 10 ];
     }
     
-    key   = [ NSNumber numberWithUnsignedInteger: line ];
+    key   = @(line);
     value = [ NSValue valueWithRect: rect ];
     
     [ _linesRect removeObjectForKey: key ];
-    [ _linesRect setObject: value forKey: key ];
+    _linesRect[key] = value;
 }
 
 - ( NSRect )rectForLine: ( NSUInteger )line
@@ -58,7 +59,7 @@
     {
         if( [ key unsignedIntegerValue ] == line )
         {
-            value = [ _linesRect objectForKey: key ];
+            value = _linesRect[key];
             
             return [ value rectValue ];
         }
@@ -80,7 +81,7 @@
     
     for( key in _linesRect )
     {
-        value = [ _linesRect objectForKey: key ];
+        value = _linesRect[key];
         rect  = [ value rectValue ];
         
         if
@@ -120,7 +121,7 @@
     }
     
     marker                   = [ CEEditorMarker new ];
-    marker.representedObject = [ NSNumber numberWithUnsignedInteger: line ];
+    marker.representedObject = @(line);
     
     [ self addMarker: marker ];
     [ self setNeedsDisplay: YES ];
@@ -191,16 +192,17 @@
     
     if( _attributes == nil )
     {
-        _attributes      = [ [ NSMutableDictionary alloc ] initWithCapacity: 10 ];
+        _attributes      =[NSMutableDictionary.alloc 
+         initWithCapacity: 10 ];
         font             = [ NSFont systemFontOfSize: ( CGFloat )8 ];
         paragraphStyle   = [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ];
         
         [ paragraphStyle setAlignment: NSRightTextAlignment ];
         
-        [ _attributes setObject: font                   forKey: NSFontAttributeName ];
-        [ _attributes setObject: [ NSColor grayColor ]  forKey: NSForegroundColorAttributeName ];
-        [ _attributes setObject: [ NSColor clearColor ] forKey: NSBackgroundColorAttributeName ];
-        [ _attributes setObject: paragraphStyle         forKey: NSParagraphStyleAttributeName ];
+        _attributes[NSFontAttributeName] = font;
+        _attributes[NSForegroundColorAttributeName] = [ NSColor grayColor ];
+        _attributes[NSBackgroundColorAttributeName] = [ NSColor clearColor ];
+        _attributes[NSParagraphStyleAttributeName] = paragraphStyle;
     }
     
     return [ _attributes mutableCopy ];

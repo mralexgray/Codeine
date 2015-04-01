@@ -1,9 +1,10 @@
 
 /* $Id$ */
 
+
 @interface NSImage (CE)
 
 - (NSImage*)imageWithSize:(CGFloat)size;
-- (NSImage*)grayscaleImage;
+@property (readonly, copy) NSImage *grayscaleImage;
 
 @end

@@ -9,14 +9,16 @@
 
 @synthesize delegate = _delegate;
 
-- ( id )initWithFrame: ( NSRect )frame
+- ( instancetype )initWithFrame: ( NSRect )frame
 {
     if( ( self = [ super initWithFrame: frame ] ) )
     {
         _tabBarPosition = CEVerticalTabBarPositionLeft;
         _tabBarWidth    = ( CGFloat )64;
-        _tabBar         = [ [ CEVerticalTabBar alloc ] initWithFrame: CGRectMake( 0, 0, _tabBarWidth, frame.size.height ) ];
-        _contentView    = [ [ NSView alloc ] initWithFrame: CGRectMake( _tabBarWidth, 0, frame.size.width - _tabBarWidth, frame.size.height ) ];
+        _tabBar         =[CEVerticalTabBar.alloc 
+         initWithFrame: CGRectMake( 0, 0, _tabBarWidth, frame.size.height ) ];
+        _contentView    =[NSView.alloc 
+         initWithFrame: CGRectMake( _tabBarWidth, 0, frame.size.width - _tabBarWidth, frame.size.height ) ];
         
         _tabBar.autoresizingMask      = NSViewHeightSizable
                                       | NSViewMinYMargin
@@ -30,7 +32,8 @@
         [ self addSubview: _tabBar ];
         [ self addSubview: _contentView ];
         
-        _views = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+        _views =[NSMutableArray.alloc 
+         initWithCapacity: 10 ];
         
     }
     

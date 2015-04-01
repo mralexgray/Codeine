@@ -189,6 +189,7 @@
 		05FFD9EC15BDDEE5001EA4A3 /* CERegistrationWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FFD9EA15BDDEE5001EA4A3 /* CERegistrationWindow.xib */; };
 		05FFD9F015BDDF2A001EA4A3 /* CERegistrationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FFD9EF15BDDF2A001EA4A3 /* CERegistrationWindowController.m */; };
 		7B5DC2731AC906340063D701 /* WAYWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DC2721AC906340063D701 /* WAYWindow.m */; };
+		7BF684511ACCA96D00C06D22 /* NSApplication+CE.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF684501ACCA96D00C06D22 /* NSApplication+CE.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,13 +221,6 @@
 			remoteGlobalIDString = 7B380B8D1AC97C4000285B4E;
 			remoteInfo = ComnpletionTester;
 		};
-		7B380BD21AC9856900285B4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0518BA3515D8203000349932 /* ClangKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7B380B9F1AC97C4100285B4E;
-			remoteInfo = ComnpletionTesterTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -246,9 +240,9 @@
 		0503E8D615B70EAF006FB2F6 /* CEEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEditorViewController.h; sourceTree = "<group>"; };
 		0503E8D715B70EAF006FB2F6 /* CEEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEditorViewController.m; sourceTree = "<group>"; };
 		050541D015DED45D00697329 /* CEDiagnosticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDiagnosticsCell.h; sourceTree = "<group>"; };
-		050541D115DED45D00697329 /* CEDiagnosticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDiagnosticsCell.m; sourceTree = "<group>"; };
+		050541D115DED45D00697329 /* CEDiagnosticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEDiagnosticsCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		050541D315DED58F00697329 /* CEDiagnosticWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDiagnosticWrapper.h; sourceTree = "<group>"; };
-		050541D415DED58F00697329 /* CEDiagnosticWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDiagnosticWrapper.m; sourceTree = "<group>"; };
+		050541D415DED58F00697329 /* CEDiagnosticWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEDiagnosticWrapper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		050541D615DEFB2900697329 /* CEDiagnosticsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDiagnosticsTableView.h; sourceTree = "<group>"; };
 		050541D715DEFB2900697329 /* CEDiagnosticsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDiagnosticsTableView.m; sourceTree = "<group>"; };
 		050541DD15DF15FC00697329 /* CEFixItViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFixItViewController.h; sourceTree = "<group>"; };
@@ -304,7 +298,7 @@
 		051F2E0B159A12D20027DD4F /* CEPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPreferencesWindowController.h; sourceTree = "<group>"; };
 		051F2E0C159A12D20027DD4F /* CEPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPreferencesWindowController.m; sourceTree = "<group>"; };
 		051F2E0E159A12DB0027DD4F /* CEAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEAboutWindowController.h; sourceTree = "<group>"; };
-		051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEAboutWindowController.m; sourceTree = "<group>"; };
+		051F2E0F159A12DB0027DD4F /* CEAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEAboutWindowController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		051F2E12159A13270027DD4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEAboutWindow.xib; sourceTree = "<group>"; };
 		051F2E15159A13320027DD4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEPreferencesWindow.xib; sourceTree = "<group>"; };
 		0529BC9515EA68220088B727 /* CEUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEUUID.h; sourceTree = "<group>"; };
@@ -351,7 +345,7 @@
 		053F60E715BF51530069C870 /* CEHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEHUDView.h; sourceTree = "<group>"; };
 		053F60E815BF51530069C870 /* CEHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEHUDView.m; sourceTree = "<group>"; };
 		05420E9915B5E600008B2294 /* CEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDocument.h; sourceTree = "<group>"; };
-		05420E9A15B5E600008B2294 /* CEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDocument.m; sourceTree = "<group>"; };
+		05420E9A15B5E600008B2294 /* CEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEDocument.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05420EBA15B5EA2E008B2294 /* CELanguageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELanguageWindowController.h; sourceTree = "<group>"; };
 		05420EBB15B5EA2E008B2294 /* CELanguageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELanguageWindowController.m; sourceTree = "<group>"; };
 		05457360166F74A900B8A79B /* CEInfoWindowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEInfoWindowCell.h; sourceTree = "<group>"; };
@@ -362,7 +356,7 @@
 		05480FB8159A0B32005CFBC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05480FBA159A0B32005CFBC5 /* Codeine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Codeine-Prefix.pch"; sourceTree = "<group>"; };
 		05480FCB159A0B98005CFBC5 /* CEApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEApplicationDelegate.h; sourceTree = "<group>"; };
-		05480FCC159A0B98005CFBC5 /* CEApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEApplicationDelegate.m; sourceTree = "<group>"; };
+		05480FCC159A0B98005CFBC5 /* CEApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEApplicationDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05480FCF159A0B98005CFBC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEMainMenu.xib; sourceTree = "<group>"; };
 		05480FD2159A0BF9005CFBC5 /* CEWarnings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEWarnings.h; sourceTree = "<group>"; };
 		05480FD7159A0CC1005CFBC5 /* CEMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMainWindowController.h; sourceTree = "<group>"; };
@@ -428,9 +422,9 @@
 		0566800F15DD6243008A3C01 /* CEConsoleViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEConsoleViewController+Private.h"; sourceTree = "<group>"; };
 		0566801015DD6243008A3C01 /* CEConsoleViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEConsoleViewController+Private.m"; sourceTree = "<group>"; };
 		0566801215DD6254008A3C01 /* CEDiagnosticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDiagnosticsViewController.h; sourceTree = "<group>"; };
-		0566801315DD6254008A3C01 /* CEDiagnosticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDiagnosticsViewController.m; sourceTree = "<group>"; };
+		0566801315DD6254008A3C01 /* CEDiagnosticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEDiagnosticsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0566801515DD6261008A3C01 /* CEDiagnosticsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDiagnosticsViewController+Private.h"; sourceTree = "<group>"; };
-		0566801615DD6261008A3C01 /* CEDiagnosticsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEDiagnosticsViewController+Private.m"; sourceTree = "<group>"; };
+		0566801615DD6261008A3C01 /* CEDiagnosticsViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "CEDiagnosticsViewController+Private.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0566801915DD63CA008A3C01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEConsoleView.xib; sourceTree = "<group>"; };
 		0566801D15DD6E46008A3C01 /* CEVerticalTabViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEVerticalTabViewDelegate.h; sourceTree = "<group>"; };
 		0566801E15DD6EED008A3C01 /* CEDebugViewController+CEVerticalTabViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDebugViewController+CEVerticalTabViewDelegate.h"; sourceTree = "<group>"; };
@@ -448,9 +442,9 @@
 		056D154C15B3158C00F27EB2 /* CEFile+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEFile+Private.h"; sourceTree = "<group>"; };
 		056D154D15B3158C00F27EB2 /* CEFile+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEFile+Private.m"; sourceTree = "<group>"; };
 		056D157015B3709D00F27EB2 /* CEColorLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorLabelView.h; sourceTree = "<group>"; };
-		056D157115B3709D00F27EB2 /* CEColorLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorLabelView.m; sourceTree = "<group>"; };
+		056D157115B3709D00F27EB2 /* CEColorLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEColorLabelView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05749F3F15B742FF00E2C5E0 /* CEBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEBackgroundView.h; sourceTree = "<group>"; };
-		05749F4015B742FF00E2C5E0 /* CEBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEBackgroundView.m; sourceTree = "<group>"; };
+		05749F4015B742FF00E2C5E0 /* CEBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEBackgroundView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05749F4315B74B6600E2C5E0 /* CELanguageWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CELanguageWindowController+Private.h"; sourceTree = "<group>"; };
 		05749F4415B74B6600E2C5E0 /* CELanguageWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CELanguageWindowController+Private.m"; sourceTree = "<group>"; };
 		05749F4615B74B7300E2C5E0 /* CELanguageWindowController+NSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CELanguageWindowController+NSTableViewDataSource.h"; sourceTree = "<group>"; };
@@ -504,7 +498,7 @@
 		05A73DC615D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.h"; sourceTree = "<group>"; };
 		05A73DC715D97CC500AB75F4 /* CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEPreferencesFontsAndColorsOptionsViewController+NSTableViewDataSource.m"; sourceTree = "<group>"; };
 		05A73DC915D97EEC00AB75F4 /* CEColorChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEColorChooserView.h; sourceTree = "<group>"; };
-		05A73DCA15D97EEC00AB75F4 /* CEColorChooserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEColorChooserView.m; sourceTree = "<group>"; };
+		05A73DCA15D97EEC00AB75F4 /* CEColorChooserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEColorChooserView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05B2CB2315C36E44009B4014 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEFileDetailsView.xib; sourceTree = "<group>"; };
 		05B2CB2715C370A2009B4014 /* CEFileDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFileDetailsViewController.h; sourceTree = "<group>"; };
 		05B2CB2815C370A2009B4014 /* CEFileDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFileDetailsViewController.m; sourceTree = "<group>"; };
@@ -567,6 +561,8 @@
 		05FFD9EF15BDDF2A001EA4A3 /* CERegistrationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERegistrationWindowController.m; sourceTree = "<group>"; };
 		7B5DC2711AC906340063D701 /* WAYWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAYWindow.h; path = WAYWindow/WAYWindow/WAYWindow.h; sourceTree = SOURCE_ROOT; };
 		7B5DC2721AC906340063D701 /* WAYWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAYWindow.m; path = WAYWindow/WAYWindow/WAYWindow.m; sourceTree = SOURCE_ROOT; };
+		7BF6844F1ACCA96D00C06D22 /* NSApplication+CE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSApplication+CE.h"; path = "Classes/Categories/NSApplication+CE.h"; sourceTree = "<group>"; };
+		7BF684501ACCA96D00C06D22 /* NSApplication+CE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSApplication+CE.m"; path = "Classes/Categories/NSApplication+CE.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -658,7 +654,6 @@
 				0518BA3F15D8203000349932 /* ClangKit.framework */,
 				0518BA4115D8203000349932 /* ClangKitTest */,
 				7B380BD11AC9856900285B4E /* ComnpletionTester.app */,
-				7B380BD31AC9856900285B4E /* ComnpletionTesterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -729,11 +724,11 @@
 			isa = PBXGroup;
 			children = (
 				0518BA3515D8203000349932 /* ClangKit.xcodeproj */,
+				05480FC9159A0B98005CFBC5 /* Classes */,
 				05480FA9159A0B32005CFBC5 /* Products */,
 				0518BA9F15D8617000349932 /* README.md */,
-				05480FC9159A0B98005CFBC5 /* Classes */,
-				05480FCD159A0B98005CFBC5 /* UI */,
 				05480FB3159A0B32005CFBC5 /* Supporting Files */,
+				05480FCD159A0B98005CFBC5 /* UI */,
 			);
 			sourceTree = "<group>";
 		};
@@ -748,6 +743,8 @@
 		05480FB3159A0B32005CFBC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7BF6844F1ACCA96D00C06D22 /* NSApplication+CE.h */,
+				7BF684501ACCA96D00C06D22 /* NSApplication+CE.m */,
 				05EAD42C173C5A8A00B36DD4 /* Clang.bundle */,
 				052FD01B159E019C0045C9ED /* Application Support */,
 				0566D9A5159A33C70060FF7D /* Defaults.plist */,
@@ -1251,13 +1248,6 @@
 			remoteRef = 7B380BD01AC9856900285B4E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		7B380BD31AC9856900285B4E /* ComnpletionTesterTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ComnpletionTesterTests.xctest;
-			remoteRef = 7B380BD21AC9856900285B4E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1409,6 +1399,7 @@
 				056D157215B3709D00F27EB2 /* CEColorLabelView.m in Sources */,
 				05348FF315B40590004D4355 /* CEColorLabelMenuItem.m in Sources */,
 				0576BEFA15B4C4E40097B660 /* CEColorLabelMenuItem+CEColorLabelViewDelegate.m in Sources */,
+				7BF684511ACCA96D00C06D22 /* NSApplication+CE.m in Sources */,
 				05420E9B15B5E600008B2294 /* CEDocument.m in Sources */,
 				05420EBC15B5EA2E008B2294 /* CELanguageWindowController.m in Sources */,
 				0503E8D815B70EAF006FB2F6 /* CEEditorViewController.m in Sources */,

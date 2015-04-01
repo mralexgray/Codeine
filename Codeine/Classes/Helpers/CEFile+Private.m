@@ -14,12 +14,12 @@
     NSUInteger        permissions;
     NSString        * humanPermissions;
     
-    _owner      = [ _attributes objectForKey: NSFileOwnerAccountName ];
-    _group      = [ _attributes objectForKey: NSFileGroupOwnerAccountName ];
-    _ownerID    = [ ( NSNumber * )[ _attributes objectForKey: NSFileOwnerAccountID ] unsignedIntegerValue ];
-    _groupID    = [ ( NSNumber * )[ _attributes objectForKey: NSFileGroupOwnerAccountID ] unsignedIntegerValue ];
+    _owner      = _attributes[NSFileOwnerAccountName];
+    _group      = _attributes[NSFileGroupOwnerAccountName];
+    _ownerID    = [ ( NSNumber * )_attributes[NSFileOwnerAccountID] unsignedIntegerValue ];
+    _groupID    = [ ( NSNumber * )_attributes[NSFileGroupOwnerAccountID] unsignedIntegerValue ];
     
-    _permissions = [ ( NSNumber * )[ _attributes objectForKey: NSFilePosixPermissions ] unsignedIntegerValue ];
+    _permissions = [ ( NSNumber * )_attributes[NSFilePosixPermissions] unsignedIntegerValue ];
     permissions  = _permissions;
     
     u = permissions / 64;

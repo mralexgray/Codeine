@@ -6,7 +6,7 @@
 
 @implementation CEFilesViewItemSection
 
-- ( id )initWithType: ( CEFilesViewItemType )type name: ( NSString * )name
+- ( instancetype )initWithType: ( CEFilesViewItemType )type name: ( NSString * )name
 {
     if( ( self = [ super initWithType: type name: name ] ) )
     {}
@@ -70,8 +70,8 @@
             NSString       * desktopPath;
             NSString       * documentsPath;
             
-            desktopPath     = [ NSSearchPathForDirectoriesInDomains( NSDesktopDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
-            documentsPath   = [ NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES ) objectAtIndex: 0 ];
+            desktopPath     = NSSearchPathForDirectoriesInDomains( NSDesktopDirectory, NSUserDomainMask, YES )[0];
+            documentsPath   = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES )[0];
             userPath        = NSHomeDirectory();
             rootPath        = @"/";
             

@@ -63,10 +63,10 @@
 @property (readonly) BOOL readable;
 @property (readonly) BOOL writable;
 
-+ (id)fileWithPath:(NSString*)path;
-+ (id)fileWithURL:(NSURL*)url;
-- (id)initWithPath:(NSString*)path;
-- (id)initWithURL:(NSURL*)url;
++ (instancetype)fileWithPath:(NSString*)path;
++ (instancetype)fileWithURL:(NSURL*)url;
+- (instancetype)initWithPath:(NSString*)path;
+- (instancetype)initWithURL:(NSURL*)url;
 - (void)refresh;
 
 @end

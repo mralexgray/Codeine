@@ -54,7 +54,7 @@
         return nil;
     }
     
-    object = [ objects objectAtIndex: ( NSUInteger )row ];
+    object = objects[( NSUInteger )row];
     
     if( [ tableColumn.identifier isEqualToString: CEPreferencesLinkerOptionsViewControllerTableViewColumnIconIdentifier ] )
     {
@@ -70,7 +70,7 @@
     }
     else if( [ tableColumn.identifier isEqualToString: CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguageIdentifier ] )
     {
-        return [ NSNumber numberWithInteger: object.language ];
+        return @(object.language);
     }
     
     return nil;
@@ -99,7 +99,7 @@
     
     @try
     {
-        linkerObject = [ objects objectAtIndex: ( NSUInteger )row ];
+        linkerObject = objects[( NSUInteger )row];
     }
     @catch( NSException * e )
     {

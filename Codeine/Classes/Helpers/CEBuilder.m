@@ -8,12 +8,12 @@
 
 @synthesize document = _document;
 
-+ ( id )builderWithDocument: ( CEDocument * )document
++ ( instancetype )builderWithDocument: ( CEDocument * )document
 {
     return [ ( ( CEBuilder * )[ self alloc ] ) initWithDocument: document ];
 }
 
-- ( id )initWithDocument: ( CEDocument * )document
+- ( instancetype )initWithDocument: ( CEDocument * )document
 {
     if( ( self = [ self init ] ) )
     {

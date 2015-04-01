@@ -1,7 +1,7 @@
 
 /* $Id$ */
 
-typedef enum {
+typedef NS_OPTIONS(unsigned int, CEStringDataSizeType) {
   CEStringDataSizeTypeAuto = 0x000,
   CEStringDataSizeTypeBytes = 0x001,
 
@@ -22,7 +22,7 @@ typedef enum {
   CEStringDataSizeTypeExbiBytes = 0x206,
   CEStringDataSizeTypeZebiBytes = 0x207,
   CEStringDataSizeTypeYobiBytes = 0x208
-} CEStringDataSizeType;
+};
 
 @interface NSString (CE)
 

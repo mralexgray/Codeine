@@ -1,12 +1,12 @@
 
 /* $Id$ */
 
-typedef enum {
+typedef NS_OPTIONS(unsigned int, CEFilesViewItemType) {
   CEFilesViewItemTypeSection = 0x00,
   CEFilesViewItemTypeDocument = 0x01,
   CEFilesViewItemTypeFS = 0x02,
   CEFilesViewItemTypeBookmark = 0x03
-} CEFilesViewItemType;
+};
 
 FOUNDATION_EXPORT NSString* const CEFilesViewOpenDocumentsItemName;
 FOUNDATION_EXPORT NSString* const CEFilesViewPlacesItemName;
@@ -46,7 +46,7 @@ FOUNDATION_EXPORT NSString* const CEFilesViewBookmarksItemName;
 + (id)placesItem;
 + (id)bookmarksItems;
 + (id)fileViewItemWithType:(CEFilesViewItemType)type name:(NSString*)name;
-- (id)initWithType:(CEFilesViewItemType)type name:(NSString*)name;
+- (instancetype)initWithType:(CEFilesViewItemType)type name:(NSString*)name NS_DESIGNATED_INITIALIZER;
 - (void)addChild:(CEFilesViewItem*)child;
 - (void)removeChild:(CEFilesViewItem*)child;
 - (void)removeAllChildren;

@@ -35,7 +35,7 @@
 @synthesize permissionsOctalTextField       = _permissionsOctalTextField;
 @synthesize permissionsHumanTextField       = _permissionsHumanTextField;
 
-- ( id )initWithPath: ( NSString * )path
+- ( instancetype )initWithPath: ( NSString * )path
 {
     NSError * error;
     
@@ -99,12 +99,13 @@
     icon    = [ WORKSPACE iconForFile: _path ];
     rect    = NSMakeRect( ( CGFloat )0, ( CGFloat )0, ( CGFloat )512, ( CGFloat )512 );
     cgImage = [ icon CGImageForProposedRect: &rect context: nil hints: nil ];
-    icon    = [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
+    icon    =[NSImage.alloc 
+         initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
     
     [ _smallIconView setImage: icon ];
     [ _largeIconView setImage: icon ];
     
-    bytes = [ [ _attributes objectForKey: NSFileSize ] unsignedLongLongValue ];
+    bytes = [ _attributes[NSFileSize] unsignedLongLongValue ];
     kind  = [ WORKSPACE localizedDescriptionForType: [ WORKSPACE typeOfFile: _path error: NULL ] ];
     
     [ _infoNameTextField    setStringValue: [ FILE_MANAGER displayNameAtPath: _path ] ];
@@ -134,7 +135,7 @@
         }
     }
     
-    permissions         = [ ( NSNumber * )[ _attributes objectForKey: NSFilePosixPermissions ] unsignedIntegerValue ];
+    permissions         = [ ( NSNumber * )_attributes[NSFilePosixPermissions] unsignedIntegerValue ];
     u                   = permissions / 64;
     g                   = ( permissions - ( 64 * u ) ) / 8;
     o                   = ( permissions - ( 64 * u ) ) - ( 8 * g );
@@ -148,17 +149,17 @@
     
     [ _permissionsHumanTextField setStringValue: humanPermissions ];
     [ _permissionsOctalTextField setStringValue: [ NSString stringWithFormat: @"%03lu", ( u * 100 ) + ( g * 10 ) + o ] ];
-    [ _permissionsOwnerTextField setStringValue: [ _attributes objectForKey: NSFileOwnerAccountName ] ];
-    [ _permissionsGroupTextField setStringValue: [ _attributes objectForKey: NSFileGroupOwnerAccountName ] ];
+    [ _permissionsOwnerTextField setStringValue: _attributes[NSFileOwnerAccountName] ];
+    [ _permissionsGroupTextField setStringValue: _attributes[NSFileGroupOwnerAccountName] ];
     
     dateFormatter                               = [ NSDateFormatter new ];
     dateFormatter.doesRelativeDateFormatting    = YES;
     dateFormatter.dateStyle                     = NSDateFormatterLongStyle;
     dateFormatter.timeStyle                     = NSDateFormatterShortStyle;
     
-    [ _infoDateTextField        setStringValue: [ NSString stringWithFormat: L10N( "Modified" ), [ dateFormatter stringFromDate: [ _attributes objectForKey: NSFileModificationDate ] ] ] ];
-    [ _generalCTimeTextField    setStringValue: [ dateFormatter stringFromDate: [ _attributes objectForKey: NSFileCreationDate ] ] ];
-    [ _generalMTimeTextField    setStringValue: [ dateFormatter stringFromDate: [ _attributes objectForKey: NSFileModificationDate ] ] ];
+    [ _infoDateTextField        setStringValue: [ NSString stringWithFormat: L10N( "Modified" ), [ dateFormatter stringFromDate: _attributes[NSFileModificationDate] ] ] ];
+    [ _generalCTimeTextField    setStringValue: [ dateFormatter stringFromDate: _attributes[NSFileCreationDate] ] ];
+    [ _generalMTimeTextField    setStringValue: [ dateFormatter stringFromDate: _attributes[NSFileModificationDate] ] ];
     
     
     [ _permissionsReadableTextField  setStringValue: ( [ FILE_MANAGER isReadableFileAtPath: _path ] ) ? L10N( "Yes" ) : L10N( "No" ) ];

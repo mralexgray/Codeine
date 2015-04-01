@@ -20,6 +20,6 @@
 @property (weak, nonatomic) IBOutlet NSTextField* messageTextField;
 @property (weak, nonatomic) IBOutlet NSImageView* iconView;
 
-- (id)initWithDiagnostic:(CKDiagnostic*)diagnostic;
+- (instancetype)initWithDiagnostic:(CKDiagnostic*)diagnostic;
 
 @end

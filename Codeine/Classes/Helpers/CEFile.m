@@ -13,17 +13,19 @@
 @synthesize readable    = _readable;
 @synthesize writable    = _writable;
 
-+ ( id )fileWithPath: ( NSString * )path
++ ( instancetype )fileWithPath: ( NSString * )path
 {
-    return [ [ self alloc ] initWithPath: path ];
+    return[self.alloc 
+         initWithPath: path ];
 }
 
-+ ( id )fileWithURL: ( NSURL * )url
++ ( instancetype )fileWithURL: ( NSURL * )url
 {
-    return [ [ self alloc ] initWithURL: url ];
+    return[self.alloc 
+         initWithURL: url ];
 }
 
-- ( id )initWithPath: ( NSString * )path
+- ( instancetype )initWithPath: ( NSString * )path
 {
     if( ( self = [ self initWithURL: [ NSURL fileURLWithPath: path ] ] ) )
     {}
@@ -31,7 +33,7 @@
     return self;
 }
 
-- ( id )initWithURL: ( NSURL * )url
+- ( instancetype )initWithURL: ( NSURL * )url
 {
     NSDictionary * attributes;
     NSError      * error;
@@ -161,7 +163,8 @@
         icon    = [ WORKSPACE iconForFile: _path ];
         rect    = NSMakeRect( ( CGFloat )0, ( CGFloat )0, ( CGFloat )512, ( CGFloat )512 );
         cgImage = [ icon CGImageForProposedRect: &rect context: nil hints: nil ];
-        _icon   = [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
+        _icon   =[NSImage.alloc 
+         initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
     }
     
     return _icon;
@@ -171,7 +174,7 @@
 {
     if( _bytes == 0 )
     {
-        _bytes = [ ( NSNumber * )[ _attributes objectForKey: NSFileSize ] unsignedIntegerValue ];
+        _bytes = [ ( NSNumber * )_attributes[NSFileSize] unsignedIntegerValue ];
     }
     
     return _bytes;
@@ -191,7 +194,7 @@
 {
     if( _creationDate == nil )
     {
-        _creationDate = [ _attributes objectForKey: NSFileCreationDate ];
+        _creationDate = _attributes[NSFileCreationDate];
     }
     
     return _creationDate;
@@ -201,7 +204,7 @@
 {
     if( _modificationDate == nil )
     {
-        _modificationDate = [ _attributes objectForKey: NSFileModificationDate ];
+        _modificationDate = _attributes[NSFileModificationDate];
     }
     
     return _modificationDate;

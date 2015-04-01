@@ -13,9 +13,9 @@
     NSDictionary * colorValues;
     
     colorValues = [ DEFAULTS objectForKey: key ];
-    r           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"R" ] doubleValue ] / ( CGFloat )255 );
-    g           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"G" ] doubleValue ] / ( CGFloat )255 );
-    b           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"B" ] doubleValue ] / ( CGFloat )255 );
+    r           = ( CGFloat )( [ ( NSNumber * )colorValues[@"R"] doubleValue ] / ( CGFloat )255 );
+    g           = ( CGFloat )( [ ( NSNumber * )colorValues[@"G"] doubleValue ] / ( CGFloat )255 );
+    b           = ( CGFloat )( [ ( NSNumber * )colorValues[@"B"] doubleValue ] / ( CGFloat )255 );
     
     return [ NSColor colorWithDeviceRed: r green: g blue: b alpha: ( CGFloat )1 ];
 }
@@ -27,10 +27,10 @@
     CGFloat        b;
     NSDictionary * colorValues;
     
-    colorValues = [ dictionary objectForKey: key ];
-    r           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"R" ] doubleValue ] / ( CGFloat )255 );
-    g           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"G" ] doubleValue ] / ( CGFloat )255 );
-    b           = ( CGFloat )( [ ( NSNumber * )[ colorValues objectForKey: @"B" ] doubleValue ] / ( CGFloat )255 );
+    colorValues = dictionary[key];
+    r           = ( CGFloat )( [ ( NSNumber * )colorValues[@"R"] doubleValue ] / ( CGFloat )255 );
+    g           = ( CGFloat )( [ ( NSNumber * )colorValues[@"G"] doubleValue ] / ( CGFloat )255 );
+    b           = ( CGFloat )( [ ( NSNumber * )colorValues[@"B"] doubleValue ] / ( CGFloat )255 );
     
     return [ NSColor colorWithDeviceRed: r green: g blue: b alpha: ( CGFloat )1 ];
 }
@@ -52,11 +52,9 @@
     
     [ color getRed: &r green: &g blue: &b alpha: &a ];
     
-    colorValues = [ NSDictionary dictionaryWithObjectsAndKeys:  [ NSNumber numberWithDouble: ( double )r * ( double )255 ], @"R",
-                                                                [ NSNumber numberWithDouble: ( double )g * ( double )255 ], @"G",
-                                                                [ NSNumber numberWithDouble: ( double )b * ( double )255 ], @"B",
-                                                                nil
-                  ];
+    colorValues = @{@"R": @(( double )r * ( double )255),
+                                                                @"G": @(( double )g * ( double )255),
+                                                                @"B": @(( double )b * ( double )255)};
     
     [ DEFAULTS setObject: colorValues forKey: key ];
     [ DEFAULTS synchronize ];

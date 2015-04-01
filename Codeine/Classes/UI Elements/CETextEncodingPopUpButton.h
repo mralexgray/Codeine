@@ -11,7 +11,7 @@
   RESERVED_IVARS(CETextEncodingPopUpButton, 5);
 }
 
-- (CETextEncoding*)selectedTextEncoding;
-- (NSStringEncoding)selectedStringEncoding;
+@property (readonly, strong) CETextEncoding *selectedTextEncoding;
+@property (readonly) NSStringEncoding selectedStringEncoding;
 
 @end

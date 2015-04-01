@@ -7,12 +7,12 @@
 
 @synthesize string = _string;
 
-+ ( id )uuid
++ ( instancetype )uuid
 {
     return [ [ self class ] new ];
 }
 
-- ( id )init
+- ( instancetype )init
 {
     CFStringRef str;
     

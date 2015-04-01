@@ -18,7 +18,8 @@ static void __exit( void )
 {
     if( __prototypeCell == nil )
     {
-        __prototypeCell = [ [ self alloc ] init ];
+        __prototypeCell =[self.alloc 
+         init ];
     }
     
     return __prototypeCell;
@@ -135,7 +136,8 @@ static void __exit( void )
                             labelColor  = [ NSColor colorWithDeviceHue: ( CGFloat )0 saturation: ( CGFloat )0 brightness: ( CGFloat )0.75 alpha: ( self.backgroundStyle == NSBackgroundStyleDark ) ? ( CGFloat )1 : ( CGFloat )0.5 ];
                         }
                         
-                        gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:   [ NSColor whiteColor ], ( CGFloat )0.0,
+                        gradient =[NSGradient.alloc 
+         initWithColorsAndLocations:   [ NSColor whiteColor ], ( CGFloat )0.0,
                                                                                         labelColor,             ( CGFloat )1.0,
                                                                                         nil
                                    ];
@@ -144,7 +146,8 @@ static void __exit( void )
                         
                         [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
                         
-                        gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
+                        gradient =[NSGradient.alloc 
+         initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
                                                           endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
                                    ];
                         
@@ -170,11 +173,9 @@ static void __exit( void )
     
     [ paragraphStyle setLineBreakMode: NSLineBreakByTruncatingMiddle ];
     
-    attributes = [ NSDictionary dictionaryWithObjectsAndKeys:   color,          NSForegroundColorAttributeName,
-                                                                font,           NSFontAttributeName,
-                                                                paragraphStyle, NSParagraphStyleAttributeName,
-                                                                nil
-                 ];
+    attributes = @{NSForegroundColorAttributeName: color,
+                                                                NSFontAttributeName: font,
+                                                                NSParagraphStyleAttributeName: paragraphStyle};
     
     textRect = CGRectMake
     (

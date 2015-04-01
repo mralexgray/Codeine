@@ -58,10 +58,11 @@ static void __exit( void )
 
 + ( id )fileViewItemWithType: ( CEFilesViewItemType )type name: ( NSString * )name
 {
-    return [ [ self alloc ] initWithType: type name: name ];
+    return[self.alloc 
+         initWithType: type name: name ];
 }
 
-- ( id )initWithType: ( CEFilesViewItemType )type name: ( NSString * )name
+- ( instancetype )initWithType: ( CEFilesViewItemType )type name: ( NSString * )name
 {
     id item;
     
@@ -72,7 +73,8 @@ static void __exit( void )
             _type        = type;
             _name        = [ name copy ];
             _displayName = [ name copy ];
-            _children    = [ [ NSMutableArray alloc ] initWithCapacity: 100 ];
+            _children    =[NSMutableArray.alloc 
+         initWithCapacity: 100 ];
         }
         
         return self;
@@ -82,22 +84,26 @@ static void __exit( void )
     {
         case CEFilesViewItemTypeSection:
             
-            item = [ [ CEFilesViewItemSection alloc ] initWithType: type name: name ];
+            item =[CEFilesViewItemSection.alloc 
+         initWithType: type name: name ];
             break;
             
         case CEFilesViewItemTypeDocument:
             
-            item = [ [ CEFilesViewItemDocument alloc ] initWithType: type name: name ];
+            item =[CEFilesViewItemDocument.alloc 
+         initWithType: type name: name ];
             break;
             
         case CEFilesViewItemTypeFS:
             
-            item = [ [ CEFilesViewItemFS alloc ] initWithType: type name: name ];
+            item =[CEFilesViewItemFS.alloc 
+         initWithType: type name: name ];
             break;
             
         case CEFilesViewItemTypeBookmark:
             
-            item = [ [ CEFilesViewItemBookmark alloc ] initWithType: type name: name ];
+            item =[CEFilesViewItemBookmark.alloc 
+         initWithType: type name: name ];
             break;
     }
     
@@ -200,7 +206,8 @@ static void __exit( void )
 {
     RELEASE_IVAR( _children );
     
-    _children = [ [ NSMutableArray alloc ] initWithCapacity: 100 ];
+    _children =[NSMutableArray.alloc 
+         initWithCapacity: 100 ];
     
     [ self children ];
 }

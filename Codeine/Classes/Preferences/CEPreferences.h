@@ -68,10 +68,10 @@ FOUNDATION_EXPORT NSString* const CEPreferencesKeyInsertClosingParenteshis;
 FOUNDATION_EXPORT NSString* const CEPreferencesKeySuggestDelay;
 FOUNDATION_EXPORT NSString* const CEPreferencesKeyFullScreenStyle;
 
-typedef enum {
+typedef NS_OPTIONS(unsigned int, CEPreferencesFullScreenStyle) {
   CEPreferencesFullScreenStyleNative = 0x00,
   CEPreferencesFullScreenStyleOldStyle = 0x01
-} CEPreferencesFullScreenStyle;
+};
 
 @class CEColorTheme;
 @class CELinkerObject;

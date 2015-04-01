@@ -18,7 +18,7 @@
     
     @try
     {
-        view                  = [ _views objectAtIndex: index ];
+        view                  = _views[index];
         view.frame            = _contentView.bounds;
         view.autoresizingMask = NSViewWidthSizable
                               | NSViewHeightSizable;

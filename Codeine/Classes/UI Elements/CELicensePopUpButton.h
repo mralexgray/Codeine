@@ -9,7 +9,7 @@
   RESERVED_IVARS(CELicensePopUpButton, 5);
 }
 
-- (NSString*)licenseName;
-- (NSString*)licenseText;
+@property (readonly, copy) NSString *licenseName;
+@property (readonly, copy) NSString *licenseText;
 
 @end

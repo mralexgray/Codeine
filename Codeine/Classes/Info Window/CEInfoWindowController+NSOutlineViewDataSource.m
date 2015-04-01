@@ -100,9 +100,9 @@
 {
 
     
-    if( item == _generalLabelView     ) { return [ NSNumber numberWithInteger: 0 ]; }
-    if( item == _iconLabelView        ) { return [ NSNumber numberWithInteger: 1 ]; }
-    if( item == _permissionsLabelView ) { return [ NSNumber numberWithInteger: 2 ]; }
+    if( item == _generalLabelView     ) { return @0; }
+    if( item == _iconLabelView        ) { return @1; }
+    if( item == _permissionsLabelView ) { return @2; }
     
     return nil;
 }

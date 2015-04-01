@@ -5,7 +5,7 @@
 
 @implementation CEHUDView
 
-- ( id )initWithFrame: ( NSRect )frame
+- ( instancetype )initWithFrame: ( NSRect )frame
 {
     CGFloat h;
     CGFloat s;
@@ -173,7 +173,8 @@
     NSSize                    size;
     
     path     = [ NSBezierPath bezierPath ];
-    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: _backgroundColor1, ( CGFloat )0, _backgroundColor2, ( CGFloat )1, nil ];
+    gradient =[NSGradient.alloc 
+         initWithColorsAndLocations: _backgroundColor1, ( CGFloat )0, _backgroundColor2, ( CGFloat )1, nil ];
     
     [ path appendBezierPathWithRoundedRect: rect xRadius: _cornerRadius yRadius: _cornerRadius ];
     [ gradient drawInBezierPath: path angle: ( CGFloat )-90 ];
@@ -183,10 +184,10 @@
     [ paragraphStyle setAlignment: NSCenterTextAlignment ];
     [ paragraphStyle setLineBreakMode: NSLineBreakByTruncatingMiddle ];
     
-    [ attributes setObject: _textColor              forKey: NSForegroundColorAttributeName ];
-    [ attributes setObject: [ NSColor clearColor ]  forKey: NSBackgroundColorAttributeName ];
-    [ attributes setObject: paragraphStyle          forKey: NSParagraphStyleAttributeName ];
-    [ attributes setObject: _font                   forKey: NSFontAttributeName ];
+    attributes[NSForegroundColorAttributeName] = _textColor;
+    attributes[NSBackgroundColorAttributeName] = [ NSColor clearColor ];
+    attributes[NSParagraphStyleAttributeName] = paragraphStyle;
+    attributes[NSFontAttributeName] = _font;
     
     size              = [ _title sizeWithAttributes: attributes ];
     rect.size.height -= ( rect.size.height - size.height ) / ( CGFloat )2;

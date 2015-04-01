@@ -75,7 +75,8 @@
                 controller.activeDocument = document;
             }
             
-            _highlighter = [ [ CESyntaxHighlighter alloc ] initWithTextView: _textView sourceFile: document.sourceFile ];
+            _highlighter =[CESyntaxHighlighter.alloc 
+         initWithTextView: _textView sourceFile: document.sourceFile ];
             
             [ _highlighter startHighlighting ];
             

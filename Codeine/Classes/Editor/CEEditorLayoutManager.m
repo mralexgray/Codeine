@@ -10,12 +10,13 @@
 @synthesize showInvisibles = _showInvisibles;
 @synthesize showSpaces     = _showSpaces;
 
-- ( id )init
+- ( instancetype )init
 {
     if( ( self = [ super init ] ) )
     {
         [ self setAllowsNonContiguousLayout: YES ];
-        _textView = [ [ NSTextView alloc ] initWithFrame: CGRectMake( ( CGFloat )0, ( CGFloat )0, ( CGFloat )800, ( CGFloat )600 ) ];
+        _textView =[NSTextView.alloc 
+         initWithFrame: CGRectMake( ( CGFloat )0, ( CGFloat )0, ( CGFloat )800, ( CGFloat )600 ) ];
     }
     
     return self;
@@ -74,14 +75,14 @@
                 
                 if( c == '\t' || c == '\n' || c == ' ' )
                 {
-                    rect = [ self boundingRectForGlyphRange: NSMakeRange( i, 1 ) inTextContainer: [ self.textContainers objectAtIndex: 0 ] ];
+                    rect = [ self boundingRectForGlyphRange: NSMakeRange( i, 1 ) inTextContainer: (self.textContainers)[0] ];
                     
                     if( CGFLOAT_ZERO( rect.origin.x ) && i > 0 )
                     {
                         {
                             NSRect  previousGlyphRect;
                             
-                            previousGlyphRect = [ self boundingRectForGlyphRange: NSMakeRange( i - 1, 1 ) inTextContainer: [ self.textContainers objectAtIndex: 0 ] ];
+                            previousGlyphRect = [ self boundingRectForGlyphRange: NSMakeRange( i - 1, 1 ) inTextContainer: (self.textContainers)[0] ];
                             
                             if( CGFLOAT_EQUAL( previousGlyphRect.origin.y, rect.origin.y ) )
                             {

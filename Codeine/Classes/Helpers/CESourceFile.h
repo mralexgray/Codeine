@@ -1,20 +1,20 @@
 
 /* $Id$ */
 
-typedef enum {
+typedef NS_OPTIONS(unsigned int, CESourceFileLanguage) {
   CESourceFileLanguageNone = 0x00,
   CESourceFileLanguageC = 0x01,
   CESourceFileLanguageCPP = 0x02,
   CESourceFileLanguageObjC = 0x03,
   CESourceFileLanguageObjCPP = 0x04,
   CESourceFileLanguageHeader = 0x05
-} CESourceFileLanguage;
+};
 
-typedef enum {
+typedef NS_OPTIONS(unsigned int, CESourceFileLineEndings) {
   CESourceFileLineEndingsUnknown = 0x00,
   CESourceFileLineEndingsUnix = 0x01,
   CESourceFileLineEndingsWindows = 0x02
-} CESourceFileLineEndings;
+};
 
 @interface CESourceFile : NSObject {
 @protected
@@ -32,9 +32,9 @@ typedef enum {
 @property (readwrite, strong) NSString* text;
 @property (readonly) CKTranslationUnit* translationUnit;
 
-+ (id)sourceFileWithLanguage:(CESourceFileLanguage)language;
-+ (id)sourceFileWithLanguage:(CESourceFileLanguage)language fromFile:(NSString*)path;
-- (id)initWithLanguage:(CESourceFileLanguage)language;
-- (id)initWithLanguage:(CESourceFileLanguage)language fromFile:(NSString*)path;
++ (instancetype)sourceFileWithLanguage:(CESourceFileLanguage)language;
++ (instancetype)sourceFileWithLanguage:(CESourceFileLanguage)language fromFile:(NSString*)path;
+- (instancetype)initWithLanguage:(CESourceFileLanguage)language;
+- (instancetype)initWithLanguage:(CESourceFileLanguage)language fromFile:(NSString*)path;
 
 @end

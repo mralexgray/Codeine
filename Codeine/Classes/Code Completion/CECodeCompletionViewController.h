@@ -19,7 +19,7 @@
 @property (readonly) BOOL isOpening;
 @property (weak, nonatomic) IBOutlet NSTableView* tableView;
 
-- (id)initWithCompletionResults:(NSArray*)results;
+- (instancetype)initWithCompletionResults:(NSArray*)results;
 - (void)cancelOpening;
 - (void)openInPopoverRelativeToRect:(NSRect)rect ofView:(NSView*)view preferredEdge:(NSRectEdge)edge delay:(BOOL)delay;
 

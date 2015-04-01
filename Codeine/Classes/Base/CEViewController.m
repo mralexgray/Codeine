@@ -10,7 +10,7 @@ static NSString * const __classSuffix               = @"Controller";
 
 @synthesize popover = _popover;
 
-- ( id )init
+- ( instancetype )init
 {
     NSString * className;
     NSString * nibName;

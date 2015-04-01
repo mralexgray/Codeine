@@ -14,22 +14,25 @@
 @synthesize name        = _name;
 @synthesize uuid        = _uuid;
 
-+ ( id )documentWithPath: ( NSString * )path
++ ( instancetype )documentWithPath: ( NSString * )path
 {
-    return [ [ self alloc ] initWithPath: path ];
+    return[self.alloc 
+         initWithPath: path ];
 }
 
-+ ( id )documentWithURL: ( NSURL * )url
++ ( instancetype )documentWithURL: ( NSURL * )url
 {
-    return [ [ self alloc ] initWithURL: url ];
+    return[self.alloc 
+         initWithURL: url ];
 }
 
-+ ( id )documentWithLanguage: ( CESourceFileLanguage )language
++ ( instancetype )documentWithLanguage: ( CESourceFileLanguage )language
 {
-    return [ [ self alloc ] initWithLanguage: language ];
+    return[self.alloc 
+         initWithLanguage: language ];
 }
 
-- ( id )initWithPath: ( NSString * )path
+- ( instancetype )initWithPath: ( NSString * )path
 {
     if( ( self = [ self initWithURL: [ NSURL fileURLWithPath: path ] ] ) )
     {}
@@ -37,7 +40,7 @@
     return self;
 }
 
-- ( id )initWithURL: ( NSURL * )url
+- ( instancetype )initWithURL: ( NSURL * )url
 {
     NSDictionary        * types;
     NSString            * extension;
@@ -46,7 +49,8 @@
     
     if( ( self = [ self init ] ) )
     {
-        _file = [ [ CEFile alloc ] initWithURL: url ];
+        _file =[CEFile.alloc 
+         initWithURL: url ];
     
         if( _file == nil )
         {
@@ -61,14 +65,15 @@
         {
             if( [ extension.lowercaseString isEqualToString: url.path.pathExtension.lowercaseString ] )
             {
-                value    = [ types objectForKey: extension ];
+                value    = types[extension];
                 language = ( CESourceFileLanguage )[ value integerValue ];
                 
                 break;
             }
         }
         
-        _sourceFile = [ [ CESourceFile alloc ] initWithLanguage: language fromFile: _file.path ];
+        _sourceFile =[CESourceFile.alloc 
+         initWithLanguage: language fromFile: _file.path ];
         
         if( _sourceFile == nil )
         {
@@ -83,11 +88,12 @@
     return self;
 }
 
-- ( id )initWithLanguage: ( CESourceFileLanguage )language
+- ( instancetype )initWithLanguage: ( CESourceFileLanguage )language
 {
     if( ( self = [ self init ] ) )
     {
-        _sourceFile = [ [ CESourceFile alloc ] initWithLanguage: language ];
+        _sourceFile =[CESourceFile.alloc 
+         initWithLanguage: language ];
         
         if( _sourceFile == nil )
         {

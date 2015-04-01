@@ -5,6 +5,6 @@
 
 @interface CEDocument (Private)
 
-- (NSString*)nameForNewDocument;
+@property (readonly, copy) NSString *nameForNewDocument;
 
 @end

@@ -107,7 +107,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     return self;
 }
 
-- ( id )init
+- ( instancetype )init
 {
     NSDictionary * defaults;
     
@@ -128,7 +128,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     flags = [ [ self warningFlags ] mutableCopy ];
     
-    [ flags setObject: [ NSNumber numberWithBool: YES ] forKey: name ];
+    flags[name] = @YES;
     
     [ DEFAULTS setObject: [ NSDictionary dictionaryWithDictionary: flags ] forKey: CEPreferencesKeyWarningFlags ];
     [ DEFAULTS synchronize ];
@@ -143,7 +143,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     flags = [ [ self warningFlags ] mutableCopy ];
     
-    [ flags setObject: [ NSNumber numberWithBool: NO ] forKey: name ];
+    flags[name] = @NO;
     
     [ DEFAULTS setObject: [ NSDictionary dictionaryWithDictionary: flags ] forKey: CEPreferencesKeyWarningFlags ];
     [ DEFAULTS synchronize ];
@@ -194,7 +194,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     types = [ [ self fileTypes ] mutableCopy ];
     
-    [ types setObject: [ NSNumber numberWithUnsignedInteger: ( NSUInteger )type ] forKey: extension ];
+    types[extension] = @(( NSUInteger )type);
     
     [ DEFAULTS setObject: [ NSDictionary dictionaryWithDictionary: types ] forKey: CEPreferencesKeyFileTypes ];
     [ DEFAULTS synchronize ];
@@ -209,7 +209,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     types = [ [ self fileTypes ] mutableCopy ];
     
-    if( [ types objectForKey: extension ] != nil )
+    if( types[extension] != nil )
     {
         [ types removeObjectForKey: extension ];
         
@@ -305,11 +305,9 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     if( found == NO )
     {
-        dict = [ NSDictionary dictionaryWithObjectsAndKeys: object.path,                                        @"Path",
-                                                            [ NSNumber numberWithInteger: object.type ],        @"Type",
-                                                            [ NSNumber numberWithInteger: object.language ],    @"Language",
-                                                            nil
-               ];
+        dict = @{@"Path": object.path,
+                                                            @"Type": @(object.type),
+                                                            @"Language": @(object.language)};
         
         [ objects addObject: dict ];
         [ DEFAULTS setObject: [ NSArray arrayWithArray: objects ] forKey: CEPreferencesKeyLinkerObjects ];
@@ -395,11 +393,9 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
             && [ path isEqualToString: object.path ]
         )
         {
-            newObjectDict = [ NSDictionary dictionaryWithObjectsAndKeys:    path,                                       @"Path",
-                                                                            [ NSNumber numberWithInteger: type ],       @"Type",
-                                                                            [ NSNumber numberWithInteger: language ],   @"Language",
-                                                                            nil
-                            ];
+            newObjectDict = @{@"Path": path,
+                                                                            @"Type": @(type),
+                                                                            @"Language": @(language)};
             break;
         }
         
@@ -408,7 +404,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
     
     if( newObjectDict != nil )
     {
-        [ objects replaceObjectAtIndex: i withObject: newObjectDict ];
+        objects[i] = newObjectDict;
         [ DEFAULTS setObject: objects forKey: CEPreferencesKeyLinkerObjects ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLinkerObjects );
@@ -947,7 +943,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithDouble: value ] forKey: CEPreferencesKeyFontSize ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyFontSize ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFontSize );
@@ -1090,7 +1086,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyFirstLaunch ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyFirstLaunch ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFirstLaunch );
@@ -1101,7 +1097,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyTextEncoding ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyTextEncoding ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyTextEncoding );
@@ -1112,7 +1108,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyDefaultLanguage ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyDefaultLanguage ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDefaultLanguage );
@@ -1156,7 +1152,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyLineEndings ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyLineEndings ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyLineEndings );
@@ -1167,7 +1163,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowInvisibles ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyShowInvisibles ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowInvisibles );
@@ -1178,7 +1174,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowSpaces ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyShowSpaces ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowSpaces );
@@ -1189,7 +1185,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyAutoExpandTabs ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyAutoExpandTabs ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyAutoExpandTabs );
@@ -1200,7 +1196,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyAutoIndent ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyAutoIndent ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyAutoIndent );
@@ -1211,7 +1207,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeySoftWrap ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeySoftWrap ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySoftWrap );
@@ -1222,7 +1218,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowLineNumbers ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyShowLineNumbers ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowLineNumbers );
@@ -1233,7 +1229,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowPageGuide ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyShowPageGuide ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowPageGuide );
@@ -1244,7 +1240,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowTabStops ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyShowTabStops ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowTabStops );
@@ -1255,7 +1251,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyHighlightCurrentLine ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyHighlightCurrentLine ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyHighlightCurrentLine );
@@ -1266,7 +1262,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyTreatWarningsAsErrors ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyTreatWarningsAsErrors ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyTreatWarningsAsErrors );
@@ -1277,7 +1273,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyShowHiddenFiles ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyShowHiddenFiles ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyShowHiddenFiles );
@@ -1288,7 +1284,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyObjCLoadAll ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyObjCLoadAll ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyObjCLoadAll );
@@ -1299,7 +1295,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithInteger: value ] forKey: CEPreferencesKeyOptimizationLevel ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyOptimizationLevel ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyOptimizationLevel );
@@ -1310,7 +1306,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyFileBrowserHidden ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyFileBrowserHidden ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFileBrowserHidden );
@@ -1321,7 +1317,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyDebugAreaHidden ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyDebugAreaHidden ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDebugAreaHidden );
@@ -1332,7 +1328,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithDouble: ( double )value ] forKey: CEPreferencesKeyFileBrowserWidth ];
+        [ DEFAULTS setObject: @(( double )value) forKey: CEPreferencesKeyFileBrowserWidth ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFileBrowserWidth );
@@ -1343,7 +1339,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithDouble: ( double )value ] forKey: CEPreferencesKeyDebugAreaHeight ];
+        [ DEFAULTS setObject: @(( double )value) forKey: CEPreferencesKeyDebugAreaHeight ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDebugAreaHeight );
@@ -1354,7 +1350,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyDebugAreaSelectedIndex ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyDebugAreaSelectedIndex ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyDebugAreaSelectedIndex );
@@ -1365,7 +1361,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyTabWidth ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyTabWidth ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyTabWidth );
@@ -1376,7 +1372,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithUnsignedInteger: value ] forKey: CEPreferencesKeyPageGuideColumn ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyPageGuideColumn ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyPageGuideColumn );
@@ -1387,7 +1383,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeySuggestWhileTyping ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeySuggestWhileTyping ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySuggestWhileTyping );
@@ -1398,7 +1394,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeySuggestWithEscape ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeySuggestWithEscape ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySuggestWithEscape );
@@ -1409,7 +1405,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentSoloBrace ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyIndentSoloBrace ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentSoloBrace );
@@ -1420,7 +1416,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentSoloBracket ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyIndentSoloBracket ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentSoloBracket );
@@ -1431,7 +1427,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentSoloParenthesis ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyIndentSoloParenthesis ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentSoloParenthesis );
@@ -1442,7 +1438,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentAfterBrace ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyIndentAfterBrace ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentAfterBrace );
@@ -1453,7 +1449,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentAfterBracket ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyIndentAfterBracket ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentAfterBracket );
@@ -1464,7 +1460,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyIndentAfterParenthesis ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyIndentAfterParenthesis ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyIndentAfterParenthesis );
@@ -1475,7 +1471,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyInsertClosingBrace ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyInsertClosingBrace ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyInsertClosingBrace );
@@ -1486,7 +1482,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyInsertClosingBracket ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyInsertClosingBracket ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyInsertClosingBracket );
@@ -1497,7 +1493,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithBool: value ] forKey: CEPreferencesKeyInsertClosingParenteshis ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyInsertClosingParenteshis ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyInsertClosingParenteshis );
@@ -1508,7 +1504,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithDouble: ( double )value ] forKey: CEPreferencesKeySuggestDelay ];
+        [ DEFAULTS setObject: @(( double )value) forKey: CEPreferencesKeySuggestDelay ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeySuggestDelay );
@@ -1519,7 +1515,7 @@ NSString * const CEPreferencesKeyFullScreenStyle            = @"FullScreenStyle"
 {
     @synchronized( self )
     {
-        [ DEFAULTS setObject: [ NSNumber numberWithInteger: value ] forKey: CEPreferencesKeyFullScreenStyle ];
+        [ DEFAULTS setObject: @(value) forKey: CEPreferencesKeyFullScreenStyle ];
         [ DEFAULTS synchronize ];
         
         __PREFERENCES_CHANGE_NOTIFY( CEPreferencesKeyFullScreenStyle );

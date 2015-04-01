@@ -38,7 +38,7 @@
     
     if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerTableViewColumnFlagIdentifier ]  )
     {
-        return [ NSNumber numberWithInteger: state ];
+        return @(state);
     }
     else if( [ [ tableColumn identifier ] isEqualToString: CEPreferencesCompilerOptionsViewControllerTableViewColumnDescriptionIdentifier ] )
     {

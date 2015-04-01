@@ -24,7 +24,8 @@
 
 
     
-    cell = [ [ CEInfoWindowCell alloc ] init ];
+    cell =[CEInfoWindowCell.alloc 
+         init ];
     
     cell.view = item;
     

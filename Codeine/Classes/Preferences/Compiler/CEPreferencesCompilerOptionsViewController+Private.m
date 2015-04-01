@@ -28,11 +28,12 @@
                 }
             ];
     
-    _flags = [ [ CEMutableOrderedDictionary alloc ] initWithCapacity: keys.count ];
+    _flags =[CEMutableOrderedDictionary.alloc 
+         initWithCapacity: keys.count ];
     
     for( key in keys )
     {
-        [ _flags setObject: [ flags objectForKey: key ] forKey: key ];
+        _flags[key] = flags[key];
     }
 }
 

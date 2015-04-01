@@ -56,7 +56,7 @@
       warningFlags = [[CEPreferences sharedInstance] warningFlagsPresetNormal];
 
       for (warningFlag in warningFlags) {
-        warningFlagValue = (NSNumber*)[warningFlags objectForKey:warningFlag];
+        warningFlagValue = (NSNumber*)warningFlags[warningFlag];
 
         if ([warningFlagValue boolValue] == YES) {
           [[CEPreferences sharedInstance] enableWarningFlag:warningFlag];

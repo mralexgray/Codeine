@@ -73,7 +73,7 @@ NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescri
     
     for( flag in flags )
     {
-        value = ( disableAll == YES ) ? [ NSNumber numberWithBool: NO ] : [ flags objectForKey: flag ];
+        value = ( disableAll == YES ) ? @NO : flags[flag];
         
         if( [ value boolValue ] == YES )
         {

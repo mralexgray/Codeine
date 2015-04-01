@@ -8,7 +8,7 @@
 
 @implementation CEEditorTextView
 
-- ( id )initWithFrame:(NSRect)frameRect
+- ( instancetype )initWithFrame:(NSRect)frameRect
 {
     if( ( self = [ super initWithFrame: frameRect ] ) )
     {
@@ -18,7 +18,7 @@
     return self;
 }
 
-- ( id )initWithCoder:(NSCoder *)coder
+- ( instancetype )initWithCoder:(NSCoder *)coder
 {
     if( ( self = [ super initWithCoder: coder ] ) )
     {

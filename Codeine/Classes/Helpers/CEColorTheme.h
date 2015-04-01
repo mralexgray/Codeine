@@ -38,8 +38,8 @@
 @property (readwrite, copy) NSColor* numberColor;
 
 + (NSArray*)defaultColorThemes;
-+ (id)defaultColorThemeWithName:(NSString*)name;
-+ (id)colorThemeWithName:(NSString*)name;
-- (id)initWithName:(NSString*)name;
++ (CEColorTheme*)defaultColorThemeWithName:(NSString*)name;
++ (instancetype)colorThemeWithName:(NSString*)name;
+- (instancetype)initWithName:(NSString*)name;
 
 @end

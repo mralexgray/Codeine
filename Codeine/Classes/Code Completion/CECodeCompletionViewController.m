@@ -12,7 +12,7 @@
 @synthesize isOpening = _isOpening;
 @synthesize tableView = _tableView;
 
-- ( id )initWithCompletionResults: ( NSArray * )results
+- ( instancetype )initWithCompletionResults: ( NSArray * )results
 {
     if( ( self = [ self init ] ) )
     {

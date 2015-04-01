@@ -21,7 +21,7 @@
     return ( CEApplicationDelegate * )( APPLICATION.delegate );
 }
 
-- ( id )init
+- ( instancetype )init
 {
     if( ( self = [ super init ] ) )
     {
@@ -29,7 +29,8 @@
         [ self installApplicationSupportFiles ];
         [ self firstLaunch ];
         
-        _mainWindowControllers = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+        _mainWindowControllers =[NSMutableArray.alloc 
+         initWithCapacity: 10 ];
     }
     
     return self;

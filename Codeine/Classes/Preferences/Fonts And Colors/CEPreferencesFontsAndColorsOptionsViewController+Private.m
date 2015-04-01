@@ -51,11 +51,13 @@
     
     
     numViews           = [ self numberOfRowsInTableView: _tableView ];
-    _colorChooserViews = [ [NSMutableArray alloc ] initWithCapacity: ( NSUInteger )numViews ];
+    _colorChooserViews =[NSMutableArray.alloc 
+         initWithCapacity: ( NSUInteger )numViews ];
     
     for( i = 0; i < numViews; i++ )
     {
-        view = [ [ CEColorChooserView alloc ] initWithFrame: NSZeroRect ];
+        view =[CEColorChooserView.alloc 
+         initWithFrame: NSZeroRect ];
         
         [ _colorChooserViews addObject: view ];
     }

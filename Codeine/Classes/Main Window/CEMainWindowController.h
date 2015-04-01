@@ -43,12 +43,12 @@ FOUNDATION_EXPORT NSString* const CEMainWindowControllerDocumentsArrayKey;
 @property (weak, nonatomic) IBOutlet NSView* mainView;
 @property (weak, nonatomic) IBOutlet NSView* bottomView;
 @property (weak, nonatomic) IBOutlet NSPopUpButton* encodingPopUp;
-@property (weak, nonreadonly) NSArray* documents;
+@property (weak, nonatomic, readonly) NSArray* documents;
 @property (weak, nonatomic) CEDocument* activeDocument;
 @property (weak, nonatomic) IBOutlet NSSplitView* horizontalSplitView;
 @property (weak, nonatomic) IBOutlet NSSplitView* verticalSplitView;
 @property (weak, nonatomic) IBOutlet NSSegmentedControl* viewsSegmentedControl;
-@property (nonreadonly) BOOL fullScreen;
+@property (nonatomic, readonly) BOOL fullScreen;
 
 - (IBAction)addBookmark:(id)sender;
 - (IBAction)removeBookmark:(id)sender;

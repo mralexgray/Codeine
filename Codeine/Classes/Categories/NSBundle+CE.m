@@ -3,21 +3,21 @@
 
 #import <ClangKit/ClangKit.h>
 
-NSString * const NSBundleInfoKeyCFBundleDevelopmentRegion       = @"CFBundleDevelopmentRegion";
-NSString * const NSBundleInfoKeyCFBundleExecutable              = @"CFBundleExecutable";
-NSString * const NSBundleInfoKeyCFBundleIconFile                = @"CFBundleIconFile";
-NSString * const NSBundleInfoKeyCFBundleIdentifier              = @"CFBundleIdentifier";
-NSString * const NSBundleInfoKeyCFBundleInfoDictionaryVersion   = @"CFBundleInfoDictionaryVersion";
-NSString * const NSBundleInfoKeyCFBundleName                    = @"CFBundleName";
-NSString * const NSBundleInfoKeyCFBundlePackageType             = @"CFBundlePackageType";
-NSString * const NSBundleInfoKeyCFBundleShortVersionString      = @"CFBundleShortVersionString";
-NSString * const NSBundleInfoKeyCFBundleSignature               = @"CFBundleSignature";
-NSString * const NSBundleInfoKeyCFBundleVersion                 = @"CFBundleVersion";
-NSString * const NSBundleInfoKeyLSApplicationCategoryType       = @"LSApplicationCategoryType";
-NSString * const NSBundleInfoKeyLSMinimumSystemVersion          = @"LSMinimumSystemVersion";
-NSString * const NSBundleInfoKeyNSHumanReadableCopyright        = @"NSHumanReadableCopyright";
-NSString * const NSBundleInfoKeyNSMainNibFile                   = @"NSMainNibFile";
-NSString * const NSBundleInfoKeyNSPrincipalClass                = @"NSPrincipalClass";
+NSString * const NSBundleInfoKeyCFBundleDevelopmentRegion       = @"CFBundleDevelopmentRegion",
+         * const NSBundleInfoKeyCFBundleExecutable              = @"CFBundleExecutable",
+         * const NSBundleInfoKeyCFBundleIconFile                = @"CFBundleIconFile",
+         * const NSBundleInfoKeyCFBundleIdentifier              = @"CFBundleIdentifier",
+         * const NSBundleInfoKeyCFBundleInfoDictionaryVersion   = @"CFBundleInfoDictionaryVersion",
+         * const NSBundleInfoKeyCFBundleName                    = @"CFBundleName",
+         * const NSBundleInfoKeyCFBundlePackageType             = @"CFBundlePackageType",
+         * const NSBundleInfoKeyCFBundleShortVersionString      = @"CFBundleShortVersionString",
+         * const NSBundleInfoKeyCFBundleSignature               = @"CFBundleSignature",
+         * const NSBundleInfoKeyCFBundleVersion                 = @"CFBundleVersion",
+         * const NSBundleInfoKeyLSApplicationCategoryType       = @"LSApplicationCategoryType",
+         * const NSBundleInfoKeyLSMinimumSystemVersion          = @"LSMinimumSystemVersion",
+         * const NSBundleInfoKeyNSHumanReadableCopyright        = @"NSHumanReadableCopyright",
+         * const NSBundleInfoKeyNSMainNibFile                   = @"NSMainNibFile",
+         * const NSBundleInfoKeyNSPrincipalClass                = @"NSPrincipalClass";
 
 @implementation NSBundle( CE )
 

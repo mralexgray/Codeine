@@ -5,23 +5,27 @@
 
 @implementation CEMutableOrderedDictionary
 
-- ( id )initWithObjects: ( const id[] )objects forKeys: ( const id< NSCopying >[] )keys count: ( NSUInteger )count
+- ( instancetype )initWithObjects: ( const id[] )objects forKeys: ( const id< NSCopying >[] )keys count: ( NSUInteger )count
 {
     if( ( self = [ super init ] ) )
     {
-        _keys    = [ [ NSMutableArray alloc ] initWithObjects: keys    count: count ];
-        _objects = [ [ NSMutableArray alloc ] initWithObjects: objects count: count ];
+        _keys    =[NSMutableArray.alloc 
+         initWithObjects: keys    count: count ];
+        _objects =[NSMutableArray.alloc 
+         initWithObjects: objects count: count ];
     }
     
     return self;
 }
 
-- ( id )initWithCapacity: ( NSUInteger )capacity
+- ( instancetype )initWithCapacity: ( NSUInteger )capacity
 {
     if( ( self = [ super init ] ) )
     {
-        _keys    = [ [ NSMutableArray alloc ] initWithCapacity: capacity ];
-        _objects = [ [ NSMutableArray alloc ] initWithCapacity: capacity ];
+        _keys    =[NSMutableArray.alloc 
+         initWithCapacity: capacity ];
+        _objects =[NSMutableArray.alloc 
+         initWithCapacity: capacity ];
     }
     
     return self;
@@ -43,7 +47,7 @@
         return nil;
     }
     
-    return [ _objects objectAtIndex: i ];
+    return _objects[i];
 }
 
 - ( NSEnumerator * )keyEnumerator
@@ -83,7 +87,7 @@
     
     for( i = 0; i < _keys.count; i++ )
     {
-        description = [ description stringByAppendingFormat: @"\t%@ = %@;\n", [ _keys objectAtIndex: i ], [ _objects objectAtIndex: i ] ];
+        description = [ description stringByAppendingFormat: @"\t%@ = %@;\n", _keys[i], _objects[i] ];
     }
     
     return [ description stringByAppendingString: @"}" ];
@@ -96,7 +100,7 @@
         return nil;
     }
     
-    return [ _keys objectAtIndex: index ];
+    return _keys[index];
 }
 
 - ( id )objectAtIndex: ( NSUInteger )index
@@ -106,7 +110,7 @@
         return nil;
     }
     
-    return [ _objects objectAtIndex: index ];
+    return _objects[index];
 }
 
 @end

@@ -69,16 +69,16 @@
     
     attributes  = [ NSMutableDictionary dictionaryWithCapacity: 10 ];
     
-    [ attributes setObject: [ NSFont systemFontOfSize: fontSize ]   forKey: NSFontAttributeName ];
-    [ attributes setObject: [ NSColor clearColor ]                  forKey: NSBackgroundColorAttributeName ];
+    attributes[NSFontAttributeName] = [ NSFont systemFontOfSize: fontSize ];
+    attributes[NSBackgroundColorAttributeName] = [ NSColor clearColor ];
     
     if( self.backgroundStyle == NSBackgroundStyleDark )
     {
-        [ attributes setObject: [ NSColor whiteColor ] forKey: NSForegroundColorAttributeName ];
+        attributes[NSForegroundColorAttributeName] = [ NSColor whiteColor ];
     }
     else
     {
-        [ attributes setObject: [ NSColor textColor ] forKey: NSForegroundColorAttributeName ];
+        attributes[NSForegroundColorAttributeName] = [ NSColor textColor ];
     }
     
     [ languageName drawInRect: textRect withAttributes: attributes ];

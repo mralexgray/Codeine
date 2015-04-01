@@ -7,6 +7,6 @@
                     inDomain:(NSSearchPathDomainMask)domain
              byAppendingPath:(NSString*)appendPath
            createIfNecessary:(BOOL)create;
-- (NSString*)applicationSupportDirectory;
+@property (readonly, copy) NSString *applicationSupportDirectory;
 
 @end

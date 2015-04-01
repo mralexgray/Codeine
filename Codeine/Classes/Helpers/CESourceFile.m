@@ -9,17 +9,19 @@
 @synthesize language        = _language;
 @synthesize translationUnit = _translationUnit;
 
-+ ( id )sourceFileWithLanguage: ( CESourceFileLanguage )language
++ ( instancetype )sourceFileWithLanguage: ( CESourceFileLanguage )language
 {
-    return [ [ self alloc ] initWithLanguage: language ];
+    return[self.alloc 
+         initWithLanguage: language ];
 }
 
-+ ( id )sourceFileWithLanguage: ( CESourceFileLanguage )language fromFile: ( NSString * )path
++ ( instancetype )sourceFileWithLanguage: ( CESourceFileLanguage )language fromFile: ( NSString * )path
 {
-    return [ [ self alloc ] initWithLanguage: language fromFile: path ];
+    return[self.alloc 
+         initWithLanguage: language fromFile: path ];
 }
 
-- ( id )initWithLanguage: ( CESourceFileLanguage )language
+- ( instancetype )initWithLanguage: ( CESourceFileLanguage )language
 {
     if( ( self = [ self initWithLanguage: language fromFile: nil ] ) )
     {}
@@ -27,7 +29,7 @@
     return self;
 }
 
-- ( id )initWithLanguage: ( CESourceFileLanguage )language fromFile: ( NSString * )path
+- ( instancetype )initWithLanguage: ( CESourceFileLanguage )language fromFile: ( NSString * )path
 {
     BOOL     isDir;
     NSData * data;
@@ -43,7 +45,8 @@
             
             if( data != nil )
             {
-                self.text = [ [ NSString alloc ] initWithData: data encoding: [ [ CEPreferences sharedInstance ] textEncoding ] ];
+                self.text =[NSString.alloc 
+         initWithData: data encoding: [ [ CEPreferences sharedInstance ] textEncoding ] ];
             }
         }
     }
@@ -119,7 +122,7 @@
             {
                 bundle      = [ NSBundle bundleWithPath: [ BUNDLE pathForResource: @"Clang" ofType: @"bundle" ] ];
                 includes    = [ bundle pathForResource: @"include" ofType: @"" ];
-                args        = [ NSArray arrayWithObjects: @"-I", includes, nil ];
+                args        = @[@"-I", includes];
             }
             @catch ( NSException * e )
             {
@@ -128,7 +131,8 @@
                 args = nil;
             }
             
-            _translationUnit = [ [ CKTranslationUnit alloc ] initWithText: _text language: language args: args ];
+            _translationUnit =[CKTranslationUnit.alloc 
+         initWithText: _text language: language args: args ];
         }
         else
         {

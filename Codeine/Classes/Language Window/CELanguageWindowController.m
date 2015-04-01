@@ -48,7 +48,8 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
     icon    = [ NSImage imageNamed: @"Application" ];
     rect    = NSMakeRect( ( CGFloat )0, ( CGFloat )0, ( CGFloat )512, ( CGFloat )512 );
     cgImage = [ icon CGImageForProposedRect: &rect context: nil hints: nil ];
-    icon   = [ [ NSImage alloc ] initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
+    icon   =[NSImage.alloc 
+         initWithCGImage: cgImage size: NSMakeSize( ( CGFloat )512, ( CGFloat )512 ) ];
     
     [ _iconView setImage: icon ];
     

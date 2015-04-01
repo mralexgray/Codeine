@@ -7,7 +7,7 @@
 
 @implementation CESyntaxHighlighter
 
-- ( id )initWithTextView: ( NSTextView * )textView sourceFile: ( CESourceFile * )sourceFile
+- ( instancetype )initWithTextView: ( NSTextView * )textView sourceFile: ( CESourceFile * )sourceFile
 {
     if( ( self = [ self init ] ) )
     {
@@ -89,7 +89,7 @@
     
     for( token in tokens )
     {
-        previousToken = ( i == 0 ) ? nil : [ tokens objectAtIndex: i - 1 ];
+        previousToken = ( i == 0 ) ? nil : tokens[i - 1];
         cursor        = token.cursor;
         
         i++;

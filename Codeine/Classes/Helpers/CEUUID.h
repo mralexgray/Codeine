@@ -14,6 +14,6 @@
 
 @property (weak,readonly) NSString* string;
 
-+ (id)uuid;
++ (instancetype)uuid;
 
 @end

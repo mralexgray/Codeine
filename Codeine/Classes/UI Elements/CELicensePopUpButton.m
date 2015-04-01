@@ -6,7 +6,7 @@
 
 @implementation CELicensePopUpButton
 
-- ( id )initWithFrame: ( NSRect )frame
+- ( instancetype )initWithFrame: ( NSRect )frame
 {
     if( ( self = [ super initWithFrame: frame ] ) )
     {
@@ -16,7 +16,7 @@
     return self;
 }
 
-- ( id )initWithCoder: ( NSCoder * )coder
+- ( instancetype )initWithCoder: ( NSCoder * )coder
 {
     if( ( self = [ super initWithCoder: coder ] ) )
     {

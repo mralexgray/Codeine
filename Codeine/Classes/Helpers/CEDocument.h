@@ -26,12 +26,12 @@
 @property (weak,readonly) NSImage* icon;
 @property (readonly) CEUUID* uuid;
 
-+ (id)documentWithPath:(NSString*)path;
-+ (id)documentWithURL:(NSURL*)url;
-+ (id)documentWithLanguage:(CESourceFileLanguage)language;
-- (id)initWithPath:(NSString*)path;
-- (id)initWithURL:(NSURL*)url;
-- (id)initWithLanguage:(CESourceFileLanguage)language;
++ (instancetype)documentWithPath:(NSString*)path;
++ (instancetype)documentWithURL:(NSURL*)url;
++ (instancetype)documentWithLanguage:(CESourceFileLanguage)language;
+- (instancetype)initWithPath:(NSString*)path;
+- (instancetype)initWithURL:(NSURL*)url;
+- (instancetype)initWithLanguage:(CESourceFileLanguage)language;
 - (void)save;
 - (BOOL)save:(NSError**)error;
 

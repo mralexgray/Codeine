@@ -14,7 +14,8 @@
     
     if( _trackingAreas == nil )
     {
-        _trackingAreas = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
+        _trackingAreas =[NSMutableArray.alloc 
+         initWithCapacity: 10 ];
     }
     
     for( area in _trackingAreas )
@@ -32,7 +33,8 @@
     
     for( i = 0; i < _icons.count; i++ )
     {
-        area           = [ [ NSTrackingArea alloc ] initWithRect: rect options: options owner: self userInfo: [ NSDictionary dictionaryWithObject: [ NSNumber numberWithUnsignedInteger: i ] forKey: @"Index" ] ];
+        area           =[NSTrackingArea.alloc 
+         initWithRect: rect options: options owner: self userInfo: @{@"Index": @(i)} ];
         rect.origin.y -= rect.size.width - ( CGFloat )5;
         
         [ self addTrackingArea: area ];

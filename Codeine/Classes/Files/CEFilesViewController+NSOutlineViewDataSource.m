@@ -55,7 +55,7 @@
     {
         @try
         {
-            return [ _rootItems objectAtIndex: ( NSUInteger )index ];
+            return _rootItems[( NSUInteger )index];
         }
         @catch( NSException * e )
         {
@@ -74,7 +74,7 @@
     
     @try
     {
-        return [ fileViewItem.children objectAtIndex: ( NSUInteger )index ];
+        return (fileViewItem.children)[( NSUInteger )index];
     }
     @catch( NSException * e )
     {
@@ -175,10 +175,8 @@
         return nil;
     }
     
-    dictionary = [ NSDictionary dictionaryWithObjectsAndKeys: [ NSNumber numberWithInteger: fileViewItem.type ],  @"Type",
-                                                              fileViewItem.name,                                  @"Name",
-                                                              nil
-                 ];
+    dictionary = @{@"Type": @(fileViewItem.type),
+                                                              @"Name": fileViewItem.name};
     
     return dictionary;
 }
@@ -193,8 +191,8 @@
     
     if( [ object isKindOfClass: [ NSDictionary class ] ] )
     {
-        type = ( CEFilesViewItemType )[ ( NSNumber * )[ ( NSDictionary * )object objectForKey: @"Type" ] integerValue ];
-        name = [ ( NSDictionary * )object objectForKey: @"Name" ];
+        type = ( CEFilesViewItemType )[ ( NSNumber * )(( NSDictionary * )object)[@"Type"] integerValue ];
+        name = (( NSDictionary * )object)[@"Name"];
         
         if( type == CEFilesViewItemTypeSection && [ name isEqualToString: CEFilesViewPlacesItemName ] )
         {

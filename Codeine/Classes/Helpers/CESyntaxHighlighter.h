@@ -15,7 +15,7 @@
   RESERVED_IVARS(CESyntaxHighlighter, 5);
 }
 
-- (id)initWithTextView:(NSTextView*)textView sourceFile:(CESourceFile*)sourceFile;
+- (instancetype)initWithTextView:(NSTextView*)textView sourceFile:(CESourceFile*)sourceFile;
 - (void)startHighlighting;
 - (void)stopHighlighting;
 - (void)highlight;

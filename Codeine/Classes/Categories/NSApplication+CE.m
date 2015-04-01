@@ -1,7 +1,8 @@
 
 /* $Id$ */
 
-#import <ClangKit/ClangKit.h>
+#import "NSApplication+CE.h"
+#import "CEQuickLookItem.h"
 
 
 static id < QLPreviewItem > __quickLookPreviewItem = nil;
@@ -18,7 +19,8 @@ static void __exit( void )
 {
     RELEASE_IVAR( __quickLookPreviewItem );
     
-    __quickLookPreviewItem = [ [ CEQuickLookItem alloc ] initWithPath: path ];
+    __quickLookPreviewItem =[CEQuickLookItem.alloc 
+         initWithPath: path ];
     
     if( __quickLookPreviewItem != nil )
     {

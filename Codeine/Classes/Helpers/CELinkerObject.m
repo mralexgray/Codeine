@@ -25,9 +25,9 @@
     
     for( rawObject in rawObjects )
     {
-        path        = [ rawObject objectForKey: @"Path" ];
-        type        = [ rawObject objectForKey: @"Type" ];
-        language    = [ rawObject objectForKey: @"Language" ];
+        path        = rawObject[@"Path"];
+        type        = rawObject[@"Type"];
+        language    = rawObject[@"Language"];
         
         if( path == nil || type == nil || language == nil )
         {
@@ -67,22 +67,23 @@
     return [ NSArray arrayWithArray: objects ];
 }
 
-+ ( id )linkerObjectWithPath: ( NSString * )path type: ( CELinkerObjectType )type
++ ( instancetype )linkerObjectWithPath: ( NSString * )path type: ( CELinkerObjectType )type
 {
     return [ self linkerObjectWithPath: path type: type language: CESourceFileLanguageNone ];
 }
 
-+ ( id )linkerObjectWithPath: ( NSString * )path type: ( CELinkerObjectType )type language: ( CESourceFileLanguage )language
++ ( instancetype )linkerObjectWithPath: ( NSString * )path type: ( CELinkerObjectType )type language: ( CESourceFileLanguage )language
 {
-    return [ [ self alloc ] initWithPath: path type: type language: language ];
+    return[self.alloc 
+         initWithPath: path type: type language: language ];
 }
 
-- ( id )initWithPath: ( NSString * )path type: ( CELinkerObjectType )type
+- ( instancetype )initWithPath: ( NSString * )path type: ( CELinkerObjectType )type
 {
     return [ self initWithPath: path type: type language: CESourceFileLanguageNone ];
 }
 
-- ( id )initWithPath: ( NSString * )path type: ( CELinkerObjectType )type language: ( CESourceFileLanguage )language
+- ( instancetype )initWithPath: ( NSString * )path type: ( CELinkerObjectType )type language: ( CESourceFileLanguage )language
 {
     if( ( self = [ self init ] ) )
     {

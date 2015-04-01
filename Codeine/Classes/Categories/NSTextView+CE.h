@@ -1,13 +1,14 @@
 
 /* $Id$ */
 
+@import AppKit;
+
 @interface NSTextView (CE)
 
-- (NSUInteger)numberOfHardLines;
-- (NSUInteger)numberOfSoftLines;
+@property (readonly) NSUInteger numberOfHardLines, numberOfSoftLines;
+@property (readonly)  NSInteger currentLine, currentColumn;
+
 - (void)enableSoftWrap;
 - (void)disableSoftWrap;
-- (NSInteger)currentLine;
-- (NSInteger)currentColumn;
 
 @end

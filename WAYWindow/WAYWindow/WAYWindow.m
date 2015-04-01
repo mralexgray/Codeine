@@ -29,7 +29,7 @@
 - (instancetype)initWAYSelectorStack;
 - (BOOL)way_containsSelector:(SEL)aSelector;
 - (void)way_pushSelector:(SEL)aSelector;
-- (SEL)way_pop;
+@property (readonly) SEL way_pop;
 @end
 
 @implementation NSPointerArray (WAY_SelectorStack)
@@ -68,8 +68,8 @@
 
 
 @interface WAYWindowDelegateProxy : NSProxy <NSWindowDelegate>
-@property (nonweak) id<NSWindowDelegate> secondaryDelegate;
-@property (nonweak) id<NSWindowDelegate> firstDelegate;
+@property (nonatomic, weak) id<NSWindowDelegate> secondaryDelegate;
+@property (nonatomic, weak) id<NSWindowDelegate> firstDelegate;
 @end
 
 /** Since the window needs to update itself at specific events, e.g., windowDidResize:;, we need to set the window as its own delegate. To allow proper window delegates as usual, we need to make use of a proxy object, which forwards all method invovations first to the WAYWindow instance, and then to the real delegate. */
@@ -79,7 +79,8 @@
 }
 
 - (instancetype)init {
-	_selectorStack = [[NSPointerArray alloc] initWAYSelectorStack];
+	_selectorStack =[NSPointerArray.alloc 
+         initWAYSelectorStack];
 	return self;
 }
 
@@ -157,14 +158,14 @@ static float kWAYWindowDefaultTrafficLightButtonsTopMargin = 0;
 
 #pragma mark - NSWindow Overwritings
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
+- (instancetype)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
 	if ((self = [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag])) {
 		[self _setUp];
 	}
 	return self;
 }
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag screen:(NSScreen *)screen {
+- (instancetype)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag screen:(NSScreen *)screen {
 	if ((self = [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag screen:screen])) {
 		[self _setUp];
 	}
@@ -217,7 +218,8 @@ static float kWAYWindowDefaultTrafficLightButtonsTopMargin = 0;
 		[self removeTitlebarAccessoryViewControllerAtIndex:0];
 	}
 	
-	NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 10, titleBarHeight-[WAYWindow defaultTitleBarHeight])];
+	NSView *view =[NSView.alloc 
+         initWithFrame:NSMakeRect(0, 0, 10, titleBarHeight-[WAYWindow defaultTitleBarHeight])];
 	_dummyTitlebarAccessoryViewController = [NSTitlebarAccessoryViewController new];
 	_dummyTitlebarAccessoryViewController.view = view;
 	_dummyTitlebarAccessoryViewController.fullScreenMinHeight = titleBarHeight;
@@ -297,7 +299,8 @@ static float kWAYWindowDefaultTrafficLightButtonsTopMargin = 0;
 }
 
 - (NSView *) replaceSubview:(NSView *)aView withViewOfClass:(Class)newViewClass {
-	NSView *view = [[newViewClass alloc] initWithFrame:aView.frame];
+	NSView *view =[newViewClass.alloc 
+         initWithFrame:aView.frame];
 	[self replaceSubview:aView withView:view resizing:YES];
 	return view;
 }
@@ -305,7 +308,8 @@ static float kWAYWindowDefaultTrafficLightButtonsTopMargin = 0;
 #pragma mark - Private
 
 - (void) _setUp {
-	_delegateProxy = [[WAYWindowDelegateProxy alloc] init];
+	_delegateProxy =[WAYWindowDelegateProxy.alloc 
+         init];
 	_delegateProxy.firstDelegate = self;
 	super.delegate = _delegateProxy;
 	

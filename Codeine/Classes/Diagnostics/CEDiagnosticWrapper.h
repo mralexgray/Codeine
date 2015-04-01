@@ -13,7 +13,7 @@
 
 @property (readonly) CKDiagnostic* diagnostic;
 
-+ (id)diagnosticWrapperWithDiagnostic:(CKDiagnostic*)diagnostic;
-- (id)initWithDiagnostic:(CKDiagnostic*)diagnostic;
++ (instancetype)diagnosticWrapperWithDiagnostic:(CKDiagnostic*)diagnostic;
+- (instancetype)initWithDiagnostic:(CKDiagnostic*)diagnostic;
 
 @end

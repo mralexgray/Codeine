@@ -9,7 +9,7 @@
 @synthesize messageTextField  = _messageTextField;
 @synthesize iconView          = _iconView;
 
-- ( id )initWithDiagnostic: ( CKDiagnostic * )diagnostic
+- ( instancetype )initWithDiagnostic: ( CKDiagnostic * )diagnostic
 {
     if( ( self = [ self init ] ) )
     {
@@ -85,7 +85,7 @@
         return;
     }
     
-    fixit           = [ _diagnostic.fixIts objectAtIndex: 0 ];
+    fixit           = (_diagnostic.fixIts)[0];
     range           = _diagnostic.range;
     range.location += range.length;
     

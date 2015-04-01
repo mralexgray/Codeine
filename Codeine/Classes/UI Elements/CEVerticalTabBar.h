@@ -3,10 +3,10 @@
 
 #import "CEVerticalTabBarDelegate.h"
 
-typedef enum {
+typedef NS_OPTIONS(unsigned int, CEVerticalTabBarPosition) {
   CEVerticalTabBarPositionLeft = 0x00,
   CEVerticalTabBarPositionRight = 0x01
-} CEVerticalTabBarPosition;
+};
 
 @interface CEVerticalTabBar : NSView {
 @protected

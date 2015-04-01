@@ -30,11 +30,12 @@
                 }
             ];
     
-    _fileTypes = [ [ CEMutableOrderedDictionary alloc ] initWithCapacity: keys.count ];
+    _fileTypes =[CEMutableOrderedDictionary.alloc 
+         initWithCapacity: keys.count ];
     
     for( key in keys )
     {
-        [ _fileTypes setObject: [ types objectForKey: key ] forKey: key ];
+        _fileTypes[key] = types[key];
     }
 }
 

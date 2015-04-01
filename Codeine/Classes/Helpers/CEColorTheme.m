@@ -83,7 +83,7 @@
     return [ NSArray arrayWithArray: themes ];
 }
 
-+ ( id )defaultColorThemeWithName: ( NSString * )name
++ ( CEColorTheme* )defaultColorThemeWithName: ( NSString * )name
 {
     NSArray      * themes;
     CEColorTheme * theme;
@@ -101,12 +101,12 @@
     return nil;
 }
 
-+ ( id )colorThemeWithName: ( NSString * )name
++ ( instancetype )colorThemeWithName: ( NSString * )name
 {
     return [ ( CEColorTheme * )[ self alloc ] initWithName: name ];
 }
 
-- ( id )initWithName: ( NSString * )name
+- ( instancetype )initWithName: ( NSString * )name
 {
     if( ( self = [ self init ] ) )
     {

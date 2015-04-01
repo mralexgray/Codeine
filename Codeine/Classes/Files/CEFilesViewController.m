@@ -39,8 +39,10 @@
 
 - ( void )awakeFromNib
 {
-    _rootItems          = [ [ NSMutableArray alloc ] initWithCapacity: 10 ];
-    _openDocumentsItem  = [ [ CEFilesViewItem alloc ] initWithType: CEFilesViewItemTypeSection name: CEFilesViewOpenDocumentsItemName ];
+    _rootItems          =[NSMutableArray.alloc 
+         initWithCapacity: 10 ];
+    _openDocumentsItem  =[CEFilesViewItem.alloc 
+         initWithType: CEFilesViewItemTypeSection name: CEFilesViewOpenDocumentsItemName ];
     
     [ _rootItems addObject: _openDocumentsItem ];
     [ _rootItems addObject: [ CEFilesViewItem placesItem ] ];
@@ -382,7 +384,8 @@
     }
     
     item        = menuItem.representedObject;
-    controller  = [ [ CEInfoWindowController alloc ] initWithPath: item.file.path ];
+    controller  =[CEInfoWindowController.alloc 
+         initWithPath: item.file.path ];
     
     if( controller != nil )
     {
@@ -457,7 +460,7 @@
     
     if( index < colors.count )
     {
-        [ item.file.url setResourceValue: [ NSNumber numberWithUnsignedInteger: index ] forKey: NSURLLabelNumberKey error: NULL ];
+        [ item.file.url setResourceValue: @(index) forKey: NSURLLabelNumberKey error: NULL ];
         [ _outlineView reloadItem: item reloadChildren: NO ];
     }
 }

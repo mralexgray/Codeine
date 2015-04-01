@@ -28,10 +28,8 @@
     _textView.textColor           = [ [ CEPreferences sharedInstance ] foregroundColor ];
     _textView.insertionPointColor = [ [ CEPreferences sharedInstance ] foregroundColor ];
     
-    selectionAttributes = [ NSDictionary dictionaryWithObjectsAndKeys:  [ [ CEPreferences sharedInstance ] selectionColor ],  NSBackgroundColorAttributeName,
-                                                                        [ [ CEPreferences sharedInstance ] foregroundColor ], NSForegroundColorAttributeName,
-                                                                        nil
-                          ];
+    selectionAttributes = @{NSBackgroundColorAttributeName: [ [ CEPreferences sharedInstance ] selectionColor ],
+                                                                        NSForegroundColorAttributeName: [ [ CEPreferences sharedInstance ] foregroundColor ]};
     
     [ _textView setSelectedTextAttributes: selectionAttributes ];
     
@@ -61,7 +59,7 @@
     
     paragraphStyle = [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ];
     
-    [ paragraphStyle setTabStops: [ NSArray array ] ];
+    [ paragraphStyle setTabStops: @[] ];
     [ paragraphStyle setDefaultTabInterval: ( ( CEEditorLayoutManager * )( _textView.layoutManager ) ).glyphSize.width * ( CGFloat )[ [ CEPreferences sharedInstance ] tabWidth ] ];
     
     [ _textView setDefaultParagraphStyle: paragraphStyle ];
@@ -76,7 +74,7 @@
                                 
                                 newAttributes = [ NSMutableDictionary dictionaryWithDictionary: attributes ];
                                 
-                                [ newAttributes setObject: paragraphStyle forKey: NSParagraphStyleAttributeName ];
+                                newAttributes[NSParagraphStyleAttributeName] = paragraphStyle;
                                 [ _textView.textStorage setAttributes: newAttributes range: range ];
                             }
     ];
@@ -130,7 +128,8 @@
                 
                 if( results.count > 0 || delayed == NO )
                 {
-                    _codeCompletionViewController = [ [ CECodeCompletionViewController alloc ] initWithCompletionResults: results ];
+                    _codeCompletionViewController =[CECodeCompletionViewController.alloc 
+         initWithCompletionResults: results ];
                     
                     rect.size.width = ( CGFloat )1;
                     

@@ -65,6 +65,6 @@
 @property (weak, nonatomic) IBOutlet NSTextField* permissionsOctalTextField;
 @property (weak, nonatomic) IBOutlet NSTextField* permissionsHumanTextField;
 
-- (id)initWithPath:(NSString*)path;
+- (instancetype)initWithPath:(NSString*)path;
 
 @end

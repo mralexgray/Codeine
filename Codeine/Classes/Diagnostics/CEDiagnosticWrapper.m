@@ -7,12 +7,13 @@
 
 @synthesize diagnostic = _diagnostic;
 
-+ ( id )diagnosticWrapperWithDiagnostic: ( CKDiagnostic * )diagnostic
++ ( instancetype )diagnosticWrapperWithDiagnostic: ( CKDiagnostic * )diagnostic
 {
-    return [ [ self alloc ] initWithDiagnostic: diagnostic ];
+    return[self.alloc 
+         initWithDiagnostic: diagnostic ];
 }
 
-- ( id )initWithDiagnostic: ( CKDiagnostic * )diagnostic
+- ( instancetype )initWithDiagnostic: ( CKDiagnostic * )diagnostic
 {
     if( ( self = [ self init ] ) )
     {

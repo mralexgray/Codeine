@@ -28,7 +28,7 @@ static void __exit( void )
         return nil;
     }
     
-    path = [ paths objectAtIndex: 0 ];
+    path = paths[0];
     
     if( appendPath != nil && appendPath.length > 0 )
     {

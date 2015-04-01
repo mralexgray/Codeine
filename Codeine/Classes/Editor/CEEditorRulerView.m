@@ -86,7 +86,8 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     color1   = [ color1 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     color2   = [ color2 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
     color3   = [ color3 colorUsingColorSpaceName: NSDeviceRGBColorSpace ];
-    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color3, ( CGFloat )0, color1, ( CGFloat )0.10, color2, ( CGFloat )1, nil ];
+    gradient =[NSGradient.alloc 
+         initWithColorsAndLocations: color3, ( CGFloat )0, color1, ( CGFloat )0.10, color2, ( CGFloat )1, nil ];
     
     [ gradient drawInRect: rect angle: ( CGFloat )0 ];
     
@@ -131,7 +132,7 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     line            = 0;
     
     selectedRange   = NSMakeRange( NSNotFound, 0 );
-    textContainer   = [ _textView.layoutManager.textContainers objectAtIndex: 0 ];
+    textContainer   = (_textView.layoutManager.textContainers)[0];
     attributes      = [self textAttributes ];
     visibleRect     = [ [ [ self scrollView ] contentView ] bounds ];
     glyphRange      = [ _textView.layoutManager glyphRangeForBoundingRect: visibleRect inTextContainer: textContainer ];
@@ -180,11 +181,11 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
         if( marker != nil )
         {
             [ marker drawRect: NSMakeRect( lineRect.origin.x, lineRect.origin.y, lineRect.size.width + ( CGFloat )5, lineRect.size.height ) ];
-            [ attributes setObject: [ NSColor whiteColor ] forKey: NSForegroundColorAttributeName ];
+            attributes[NSForegroundColorAttributeName] = [ NSColor whiteColor ];
         }
         else
         {
-            [ attributes setObject: [ NSColor grayColor ] forKey: NSForegroundColorAttributeName ];
+            attributes[NSForegroundColorAttributeName] = [ NSColor grayColor ];
         }
         
         for( diagnostic in diagnostics )
@@ -310,7 +311,8 @@ NSString * const CEEditorRulerViewException = @"CEEditorRulerViewException";
     
     if( hasDiagnostic == YES )
     {
-        controller = [ [ CEFixItViewController alloc ] initWithDiagnostic: diagnostic ];
+        controller =[CEFixItViewController.alloc 
+         initWithDiagnostic: diagnostic ];
         
         [ controller openInPopoverRelativeToRect: NSMakeRect( location.x, location.y, self.frame.size.width, ( CGFloat )1 ) ofView: self preferredEdge: NSMaxYEdge ];
 //        [ controller autorelease ];

@@ -76,8 +76,9 @@
     {
         unitDefaultName = @"B";
         unitKey         = [ NSString stringWithFormat: @"%s", __NSSTRING_CE_STRINGIFY( CEStringDataSizeTypeBytes ) ];
-        number          = [ NSNumber numberWithUnsignedLongLong: bytes ];
-        numberFormatter = [ [ NSNumberFormatter alloc ] init ];
+        number          = @(bytes);
+        numberFormatter =[NSNumberFormatter.alloc 
+         init ];
         
         [ numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle ];
         [ numberFormatter setMaximumFractionDigits: 0 ];
@@ -208,8 +209,9 @@
             return nil;
     }
     
-    number          = [ NSNumber numberWithDouble: doubleValue ];
-    numberFormatter = [ [ NSNumberFormatter alloc ] init ];
+    number          = @(doubleValue);
+    numberFormatter =[NSNumberFormatter.alloc 
+         init ];
     
     [ numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle ];
     [ numberFormatter setMaximumFractionDigits: decimals ];

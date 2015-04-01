@@ -3,17 +3,9 @@
 
 #import <Quartz/Quartz.h>
 
-@interface CEQuickLookItem : NSObject<QLPreviewItem> {
-@protected
+@interface CEQuickLookItem : NSObject <QLPreviewItem>
 
-  NSString* _path;
-
-@private
-
-//  RESERVED_IVARS(CEQuickLookItem, 5);
-}
-
-+ (id)quickLookItemWithPath:(NSString*)path;
-- (id)initWithPath:(NSString*)path;
++ (instancetype) quickLookItemWithPath:(NSString*)path;
+- (instancetype)          initWithPath:(NSString*)path;
 
 @end

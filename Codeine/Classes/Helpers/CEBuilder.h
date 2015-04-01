@@ -15,8 +15,8 @@
 
 @property (readonly) CEDocument* document;
 
-+ (id)builderWithDocument:(CEDocument*)document;
-- (id)initWithDocument:(CEDocument*)document;
++ (instancetype)builderWithDocument:(CEDocument*)document;
+- (instancetype)initWithDocument:(CEDocument*)document;
 - (BOOL)build:(NSError**)error;
 - (BOOL)run:(NSError**)error;
 - (BOOL)stop:(NSError**)error;

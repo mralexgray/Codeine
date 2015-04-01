@@ -12,7 +12,7 @@
 @synthesize target                  = _target;
 @synthesize action                  = _action;
 
-- ( id )initWithFrame: ( NSRect )frame
+- ( instancetype )initWithFrame: ( NSRect )frame
 {
     NSTrackingAreaOptions options;
     NSRect                trackingRect;
@@ -24,7 +24,8 @@
                       | NSTrackingMouseEnteredAndExited
                       | NSTrackingActiveInActiveApp
                       | NSTrackingActiveAlways;
-        _trackingArea = [ [ NSTrackingArea alloc ] initWithRect: trackingRect options: options owner: self userInfo: nil ];
+        _trackingArea =[NSTrackingArea.alloc 
+         initWithRect: trackingRect options: options owner: self userInfo: nil ];
         
         [ self addTrackingArea: _trackingArea ];
         
@@ -125,11 +126,13 @@
         color2 = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b - ( CGFloat )0.25 alpha: ( CGFloat )1 ];
     }
     
-    gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
+    gradient =[NSGradient.alloc 
+         initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
     
     [ gradient drawInBezierPath: path1 angle: ( CGFloat )-90 ];
     
-    gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
+    gradient =[NSGradient.alloc 
+         initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
                                       endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
                ];
     
@@ -164,10 +167,10 @@
         [ paragraphStyle setLineBreakMode: NSLineBreakByTruncatingMiddle ];
         [ paragraphStyle setAlignment: NSCenterTextAlignment ];
         
-        [ attributes setObject: [ NSColor whiteColor ] forKey: NSForegroundColorAttributeName ];
-        [ attributes setObject: [ NSColor clearColor ] forKey: NSBackgroundColorAttributeName ];
-        [ attributes setObject: paragraphStyle         forKey: NSParagraphStyleAttributeName ];
-        [ attributes setObject: font                   forKey: NSFontAttributeName ];
+        attributes[NSForegroundColorAttributeName] = [ NSColor whiteColor ];
+        attributes[NSBackgroundColorAttributeName] = [ NSColor clearColor ];
+        attributes[NSParagraphStyleAttributeName] = paragraphStyle;
+        attributes[NSFontAttributeName] = font;
         
         rect.size.height -= ( CGFloat )2.5;
         

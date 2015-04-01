@@ -28,7 +28,8 @@ __RGBPixel;
     {
         if( NSEqualSizes( [ rep size ], s ) )
         {
-            image = [ [ NSImage alloc ] initWithSize: s ];
+            image =[NSImage.alloc 
+         initWithSize: s ];
             
             [ image addRepresentation: rep ];
             
@@ -36,7 +37,8 @@ __RGBPixel;
         }
     }
     
-    image = [ [ NSImage alloc ] initWithSize: s ];
+    image =[NSImage.alloc 
+         initWithSize: s ];
     
     [ image lockFocus ];
     [ [ NSGraphicsContext currentContext ] setImageInterpolation: NSImageInterpolationHigh ];
@@ -116,7 +118,8 @@ __RGBPixel;
         return nil;
     }
     
-    image = [ [ NSImage alloc ] initWithCGImage: cgImage size: self.size ];
+    image =[NSImage.alloc 
+         initWithCGImage: cgImage size: self.size ];
     
     CGImageRelease( cgImage );
     

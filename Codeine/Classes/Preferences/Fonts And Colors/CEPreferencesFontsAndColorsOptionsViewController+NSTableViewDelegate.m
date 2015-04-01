@@ -18,7 +18,7 @@
 
     
     font = [ NSFont fontWithName: [ [ CEPreferences sharedInstance ] fontName ] size: ( CGFloat )11 ];
-    size = [ @"XXX" sizeWithAttributes: [ NSDictionary dictionaryWithObject: font forKey: NSFontAttributeName ] ];
+    size = [ @"XXX" sizeWithAttributes: @{NSFontAttributeName: font} ];
     
     return ( size.height + 10 < ( CGFloat )27 ) ? ( CGFloat )27 : size.height + 10;
 }
@@ -42,7 +42,7 @@
     
     @try
     {
-        view = [ _colorChooserViews objectAtIndex: ( NSUInteger )row ];
+        view = _colorChooserViews[( NSUInteger )row];
         
         switch( row )
         {

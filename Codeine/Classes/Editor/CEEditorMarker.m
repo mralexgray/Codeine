@@ -35,7 +35,8 @@
         color2 = [ NSColor colorWithCalibratedHue: h saturation: ( CGFloat )0 brightness: b - ( CGFloat )0.4 alpha: ( CGFloat )1 ];
     }
     
-    gradient = [ [NSGradient alloc ] initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
+    gradient =[NSGradient.alloc 
+         initWithColorsAndLocations: color1, ( CGFloat )0, color2, ( CGFloat )1, nil ];
     path     = [ NSBezierPath bezierPath ];
     rect     = NSInsetRect( rect, ( CGFloat )1, ( CGFloat )0 );
     
@@ -47,7 +48,8 @@
     rect.size.width  -= ( CGFloat )0.60;
     rect.size.height -= ( CGFloat )0.60;
     
-    gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.50 ]
+    gradient =[NSGradient.alloc 
+         initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.50 ]
                                               endingColor:      [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.75 ]
                ];
     

@@ -72,14 +72,16 @@
     
     if( self.isHighlighted == YES )
     {
-        gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:   color,  ( CGFloat )0.0,
+        gradient =[NSGradient.alloc 
+         initWithColorsAndLocations:   color,  ( CGFloat )0.0,
                                                                         color,  ( CGFloat )1.0,
                                                                         nil
                    ];
     }
     else
     {
-        gradient = [ [ NSGradient alloc ] initWithColorsAndLocations:   [ NSColor whiteColor ], ( CGFloat )0.0,
+        gradient =[NSGradient.alloc 
+         initWithColorsAndLocations:   [ NSColor whiteColor ], ( CGFloat )0.0,
                                                                         color,                  ( CGFloat )1.0,
                                                                         nil
                    ];
@@ -89,7 +91,8 @@
     
     [ gradient drawInBezierPath: path angle: ( CGFloat )90 ];
     
-    gradient = [ [ NSGradient alloc ] initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
+    gradient =[NSGradient.alloc 
+         initWithStartingColor:    [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.25 ]
                                       endingColor:              [ NSColor colorWithCalibratedWhite: ( CGFloat )0 alpha: ( CGFloat )0.5 ]
                ];
     

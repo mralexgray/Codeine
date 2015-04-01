@@ -45,13 +45,14 @@
             
             colorWellFrame.origin.x = ( frame.size.width - colorWellFrame.size.width ) - ( CGFloat )2;
             
-            _colorWell = [ [ NSColorWell alloc ] initWithFrame: colorWellFrame ];
+            _colorWell =[NSColorWell.alloc 
+         initWithFrame: colorWellFrame ];
             
             [ _colorWell setColor:  _color ];
             [ _colorWell setTarget: self ];
             [ _colorWell setAction: @selector( changeColor: ) ];
             
-            size           = [ _title sizeWithAttributes: [ NSDictionary dictionaryWithObject: _font forKey: NSFontAttributeName ] ];
+            size           = [ _title sizeWithAttributes: @{NSFontAttributeName: _font} ];
             textFieldFrame = NSMakeRect
             (
                 ( frame.size.height - size.height ) / ( CGFloat )2,
@@ -60,7 +61,8 @@
                 size.height
             );
             
-            _textField                  = [ [ NSTextField alloc ] initWithFrame: textFieldFrame ];
+            _textField                  =[NSTextField.alloc 
+         initWithFrame: textFieldFrame ];
             _textField.textColor        = _foregroundColor;
             _textField.backgroundColor  = [ NSColor clearColor ];
             _textField.stringValue      = _title;

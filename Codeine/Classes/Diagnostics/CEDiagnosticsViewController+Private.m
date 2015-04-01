@@ -82,8 +82,9 @@
     @try
     {
         cellFrame           = [ _tableView frameOfCellAtColumn: 0 row: _tableView.selectedRow ];
-        diagnostic          = [ _diagnostics objectAtIndex: ( NSUInteger )( _tableView.selectedRow ) ];
-        controller          = [ [ CEFixItViewController alloc ] initWithDiagnostic: diagnostic ];
+        diagnostic          = _diagnostics[( NSUInteger )( _tableView.selectedRow )];
+        controller          =[CEFixItViewController.alloc 
+         initWithDiagnostic: diagnostic ];
         controller.textView = _textView;
         
         [ controller openInPopoverRelativeToRect: cellFrame ofView: _tableView preferredEdge: NSMinYEdge ];

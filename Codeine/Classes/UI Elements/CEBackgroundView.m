@@ -36,7 +36,8 @@
             [ path appendBezierPath: [ NSBezierPath bezierPathWithRect: subrect ] ];
             [ path setWindingRule: NSEvenOddWindingRule ];
             
-            gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: _borderColor, ( CGFloat )0, nil ];
+            gradient =[NSGradient.alloc 
+         initWithColorsAndLocations: _borderColor, ( CGFloat )0, nil ];
             
             [ gradient drawInBezierPath: path angle: ( CGFloat )0 ];
         }
