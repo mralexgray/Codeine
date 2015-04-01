@@ -20,11 +20,11 @@
   RESERVED_IVARS(CEDocument, 5);
 }
 
-@property (atomic, readwrite, strong) CEFile* file;
-@property (atomic, readonly) CESourceFile* sourceFile;
-@property (atomic, readonly) NSString* name;
-@property (weak, atomic, readonly) NSImage* icon;
-@property (atomic, readonly) CEUUID* uuid;
+@property (readwrite, strong) CEFile* file;
+@property (readonly) CESourceFile* sourceFile;
+@property (readonly) NSString* name;
+@property (weak,readonly) NSImage* icon;
+@property (readonly) CEUUID* uuid;
 
 + (id)documentWithPath:(NSString*)path;
 + (id)documentWithURL:(NSURL*)url;

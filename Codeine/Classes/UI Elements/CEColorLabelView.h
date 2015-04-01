@@ -19,7 +19,7 @@
   RESERVED_IVARS(CEColorLabelView, 5);
 }
 
-@property (atomic, readwrite, strong) NSColor* selectedColor;
-@property (atomic, readwrite, unsafe_unretained) id<CEColorLabelViewDelegate> delegate;
+@property (readwrite, strong) NSColor* selectedColor;
+@property (readwrite, unsafe_unretained) id<CEColorLabelViewDelegate> delegate;
 
 @end

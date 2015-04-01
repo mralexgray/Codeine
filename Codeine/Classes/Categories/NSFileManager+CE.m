@@ -1,7 +1,7 @@
 
 /* $Id$ */
 
-#import "NSFileManager+CE.h"
+#import <ClangKit/ClangKit.h>
 
 static NSString * __applicationSupportDirectory = nil;
 

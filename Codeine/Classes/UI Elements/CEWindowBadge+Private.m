@@ -7,9 +7,7 @@
 
 - ( void )applicationStateDidChange: ( NSNotification * )notification
 {
-
-    
-    [ self setNeedsDisplay: YES ];
+  [self setNeedsDisplay: YES ];
 }
 
 @end

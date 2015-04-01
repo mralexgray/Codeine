@@ -14,7 +14,7 @@ FOUNDATION_EXPORT NSString* const CEViewControllerException;
   RESERVED_IVARS(CEViewController, 5);
 }
 
-@property (atomic, readonly) NSPopover* popover;
+@property (readonly) NSPopover* popover;
 
 - (void)openInPopoverRelativeToRect:(NSRect)rect ofView:(NSView*)view preferredEdge:(NSRectEdge)edge;
 - (void)closePopover;

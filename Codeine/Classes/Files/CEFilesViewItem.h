@@ -32,16 +32,16 @@ FOUNDATION_EXPORT NSString* const CEFilesViewBookmarksItemName;
   RESERVED_IVARS(CEFileViewItem, 5);
 }
 
-@property (atomic, readonly) CEFilesViewItemType type;
-@property (atomic, readonly) NSString* name;
-@property (atomic, readonly) NSString* displayName;
-@property (atomic, readonly) NSImage* icon;
-@property (weak, atomic, readonly) NSArray* children;
-@property (atomic, readonly) CEFile* file;
-@property (atomic, readonly) BOOL expandable;
-@property (atomic, readwrite, strong) id representedObject;
-@property (atomic, readonly) BOOL isLeaf;
-@property (weak, atomic, readonly) CEFilesViewItem* parent;
+@property (readonly) CEFilesViewItemType type;
+@property (readonly) NSString* name;
+@property (readonly) NSString* displayName;
+@property (readonly) NSImage* icon;
+@property (weak,readonly) NSArray* children;
+@property (readonly) CEFile* file;
+@property (readonly) BOOL expandable;
+@property (readwrite, strong) id representedObject;
+@property (readonly) BOOL isLeaf;
+@property (weak,readonly) CEFilesViewItem* parent;
 
 + (id)placesItem;
 + (id)bookmarksItems;

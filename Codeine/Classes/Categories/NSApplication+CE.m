@@ -1,8 +1,8 @@
 
 /* $Id$ */
 
-#import "NSApplication+CE.h"
-#import "CEQuickLookItem.h"
+#import <ClangKit/ClangKit.h>
+
 
 static id < QLPreviewItem > __quickLookPreviewItem = nil;
 
@@ -31,7 +31,7 @@ static void __exit( void )
     }
 }
 
-- ( BOOL )acceptsPreviewPanelControl: ( QLPreviewPanel * )panel
+- ( BOOL )acceptsPreviewPanelControl: ( __unused QLPreviewPanel * )panel
 {
 
     
@@ -54,7 +54,7 @@ static void __exit( void )
     RELEASE_IVAR( __quickLookPreviewItem );
 }
 
-- ( NSInteger )numberOfPreviewItemsInPreviewPanel: ( QLPreviewPanel * )panel
+- ( NSInteger )numberOfPreviewItemsInPreviewPanel: (__unused  QLPreviewPanel * )panel
 {
 
     
@@ -66,7 +66,7 @@ static void __exit( void )
     return 0;
 }
 
-- ( id < QLPreviewItem > )previewPanel: ( QLPreviewPanel * )panel previewItemAtIndex: ( NSInteger )index
+- ( id < QLPreviewItem > )previewPanel: ( __unused  QLPreviewPanel * )panel previewItemAtIndex: ( NSInteger )index
 {
 
     

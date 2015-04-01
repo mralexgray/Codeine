@@ -15,9 +15,9 @@
   RESERVED_IVARS(CEEditorLayoutManager, 5);
 }
 
-@property (atomic, readwrite, assign) BOOL showInvisibles;
-@property (atomic, readwrite, assign) BOOL showSpaces;
-@property (atomic, readonly) CGSize glyphSize;
-@property (atomic, readonly) CGFloat firstGlyphLeftMargin;
+@property (readwrite, assign) BOOL showInvisibles;
+@property (readwrite, assign) BOOL showSpaces;
+@property (readonly) CGSize glyphSize;
+@property (readonly) CGFloat firstGlyphLeftMargin;
 
 @end

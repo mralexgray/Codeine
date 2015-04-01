@@ -26,7 +26,7 @@ FOUNDATION_EXPORT NSString* const CEDiagnosticsViewControllerTableColumnIdentifi
 }
 
 @property (weak, nonatomic) IBOutlet NSTableView* tableView;
-@property (atomic, readwrite, strong) CEDocument* document;
-@property (atomic, readwrite, strong) NSTextView* textView;
+@property (readwrite, strong) CEDocument* document;
+@property (readwrite, strong) NSTextView* textView;
 
 @end

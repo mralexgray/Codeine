@@ -22,8 +22,8 @@
 }
 
 @property (weak, nonatomic) IBOutlet CEVerticalTabView* tabView;
-@property (atomic, readwrite, strong) CEDocument* document;
-@property (atomic, readonly) CEConsoleViewController* consoleViewController;
-@property (atomic, readonly) CEDiagnosticsViewController* diagnosticsViewController;
+@property (readwrite, strong) CEDocument* document;
+@property (readonly) CEConsoleViewController* consoleViewController;
+@property (readonly) CEDiagnosticsViewController* diagnosticsViewController;
 
 @end

@@ -12,7 +12,7 @@
   RESERVED_IVARS(CEUUID, 5);
 }
 
-@property (weak, atomic, readonly) NSString* string;
+@property (weak,readonly) NSString* string;
 
 + (id)uuid;
 

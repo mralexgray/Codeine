@@ -21,12 +21,12 @@
   RESERVED_IVARS(CEColorChooserView, 5);
 }
 
-@property (atomic, readwrite, strong) NSColor* backgroundColor;
-@property (atomic, readwrite, strong) NSColor* foregroundColor;
-@property (atomic, readwrite, strong) NSColor* color;
-@property (atomic, readwrite, strong) NSFont* font;
-@property (atomic, readwrite, copy) NSString* title;
-@property (atomic, readwrite, unsafe_unretained) id representedObject;
-@property (atomic, readwrite, unsafe_unretained) id<CEColorChooserViewDelegate> delegate;
+@property (readwrite, strong) NSColor* backgroundColor;
+@property (readwrite, strong) NSColor* foregroundColor;
+@property (readwrite, strong) NSColor* color;
+@property (readwrite, strong) NSFont* font;
+@property (readwrite, copy) NSString* title;
+@property (readwrite, unsafe_unretained) id representedObject;
+@property (readwrite, unsafe_unretained) id<CEColorChooserViewDelegate> delegate;
 
 @end

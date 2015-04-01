@@ -23,8 +23,8 @@ typedef enum {
   RESERVED_IVARS(CEVerticalTabBar, 5);
 }
 
-@property (atomic, readwrite, assign) CEVerticalTabBarPosition position;
-@property (atomic, readwrite, unsafe_unretained) id<CEVerticalTabBarDelegate> delegate;
+@property (readwrite, assign) CEVerticalTabBarPosition position;
+@property (readwrite, unsafe_unretained) id<CEVerticalTabBarDelegate> delegate;
 
 - (void)addItem:(NSImage*)icon;
 - (void)removeItemAtIndex:(NSUInteger)index;

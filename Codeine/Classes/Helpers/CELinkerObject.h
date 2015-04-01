@@ -21,11 +21,11 @@ typedef enum {
   RESERVED_IVARS(CELinkerObject, 5);
 }
 
-@property (atomic, readonly) CELinkerObjectType type;
-@property (atomic, readonly) CESourceFileLanguage language;
-@property (atomic, readonly) NSString* path;
-@property (weak, atomic, readonly) NSString* name;
-@property (weak, atomic, readonly) NSImage* icon;
+@property (readonly) CELinkerObjectType type;
+@property (readonly) CESourceFileLanguage language;
+@property (readonly) NSString* path;
+@property (weak,readonly) NSString* name;
+@property (weak,readonly) NSImage* icon;
 
 + (NSArray*)linkerObjects;
 + (NSArray*)linkerObjectsWithType:(CELinkerObjectType)type;

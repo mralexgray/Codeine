@@ -29,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet NSMenu* bookmarkMenu;
 @property (weak, nonatomic) IBOutlet NSMenu* fsDirectoryMenu;
 @property (weak, nonatomic) IBOutlet NSMenu* fsFileMenu;
-@property (atomic, readwrite, weak) CEMainWindowController* mainWindowController;
+@property (readwrite, weak) CEMainWindowController* mainWindowController;
 
 - (IBAction)addBookmark:(id)sender;
 - (IBAction)removeBookmark:(id)sender;

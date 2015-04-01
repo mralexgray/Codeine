@@ -28,9 +28,9 @@ typedef enum {
   RESERVED_IVARS(CESourceFile, 5);
 }
 
-@property (atomic, readonly) CESourceFileLanguage language;
-@property (atomic, readwrite, strong) NSString* text;
-@property (atomic, readonly) CKTranslationUnit* translationUnit;
+@property (readonly) CESourceFileLanguage language;
+@property (readwrite, strong) NSString* text;
+@property (readonly) CKTranslationUnit* translationUnit;
 
 + (id)sourceFileWithLanguage:(CESourceFileLanguage)language;
 + (id)sourceFileWithLanguage:(CESourceFileLanguage)language fromFile:(NSString*)path;

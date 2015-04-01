@@ -19,9 +19,9 @@
   RESERVED_IVARS(CESideBar, 5);
 }
 
-@property (atomic, readwrite, assign) CGFloat tabBarWidth;
-@property (atomic, readwrite, assign) CEVerticalTabBarPosition tabBarPosition;
-@property (atomic, readwrite, unsafe_unretained) id<CEVerticalTabViewDelegate> delegate;
+@property (readwrite, assign) CGFloat tabBarWidth;
+@property (readwrite, assign) CEVerticalTabBarPosition tabBarPosition;
+@property (readwrite, unsafe_unretained) id<CEVerticalTabViewDelegate> delegate;
 
 - (void)addView:(NSView*)view icon:(NSImage*)icon;
 - (void)removeViewAtIndex:(NSUInteger)index;

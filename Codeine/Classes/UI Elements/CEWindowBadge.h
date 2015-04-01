@@ -17,10 +17,10 @@
   RESERVED_IVARS(CEWindowBadge, 5);
 }
 
-@property (atomic, readwrite, copy) NSString* title;
-@property (atomic, readwrite, strong) NSColor* backgroundColor;
-@property (atomic, readwrite, strong) NSColor* activeBackgroundColor;
-@property (atomic, readwrite, strong) id target;
-@property (atomic, readwrite, assign) SEL action;
+@property (readwrite, copy) NSString* title;
+@property (readwrite, strong) NSColor* backgroundColor;
+@property (readwrite, strong) NSColor* activeBackgroundColor;
+@property (readwrite, strong) id target;
+@property (readwrite, assign) SEL action;
 
 @end

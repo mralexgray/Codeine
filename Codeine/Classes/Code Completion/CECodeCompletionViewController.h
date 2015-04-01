@@ -16,7 +16,7 @@
   RESERVED_IVARS(CECodeCompletionViewController, 5);
 }
 
-@property (atomic, readonly) BOOL isOpening;
+@property (readonly) BOOL isOpening;
 @property (weak, nonatomic) IBOutlet NSTableView* tableView;
 
 - (id)initWithCompletionResults:(NSArray*)results;

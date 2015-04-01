@@ -11,7 +11,7 @@
   RESERVED_IVARS(CEDiagnostic, 5);
 }
 
-@property (atomic, readonly) CKDiagnostic* diagnostic;
+@property (readonly) CKDiagnostic* diagnostic;
 
 + (id)diagnosticWrapperWithDiagnostic:(CKDiagnostic*)diagnostic;
 - (id)initWithDiagnostic:(CKDiagnostic*)diagnostic;

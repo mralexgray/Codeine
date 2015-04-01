@@ -13,7 +13,7 @@
   RESERVED_IVARS(CEBuilder, 5);
 }
 
-@property (atomic, readonly) CEDocument* document;
+@property (readonly) CEDocument* document;
 
 + (id)builderWithDocument:(CEDocument*)document;
 - (id)initWithDocument:(CEDocument*)document;

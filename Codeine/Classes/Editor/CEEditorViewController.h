@@ -26,6 +26,6 @@
 }
 
 @property (unsafe_unretained, nonatomic) IBOutlet NSTextView* textView;
-@property (atomic, readwrite, strong) CEDocument* document;
+@property (readwrite, strong) CEDocument* document;
 
 @end

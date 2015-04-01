@@ -19,8 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet NSTextField* textField;
 @property (weak, nonatomic) IBOutlet NSPopUpButton* popUpButton;
-@property (atomic, readonly) NSString* fileExtension;
-@property (atomic, readonly) CESourceFileLanguage language;
+@property (readonly) NSString* fileExtension;
+@property (readonly) CESourceFileLanguage language;
 
 - (IBAction)ok:(id)sender;
 - (IBAction)cancel:(id)sender;

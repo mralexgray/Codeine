@@ -1,7 +1,7 @@
 
 /* $Id$ */
 
-#import "NSTextView+CE.h"
+#import <ClangKit/ClangKit.h>
 
 @implementation NSTextView( CE )
 
@@ -69,13 +69,13 @@
     found = NO;
     line  = 0;
     
-    if( range.length == 0 )
+    if(!range.length)
     {
         lineRange = [ text lineRangeForRange: range ];
         
         [ text  enumerateSubstringsInRange: NSMakeRange( 0, text.length )
                 options:                    NSStringEnumerationByLines
-                usingBlock:                 ^( NSString * substring, NSRange substringRange, NSRange enclosingRange, BOOL * stop )
+                usingBlock:                 ^( __unused NSString * substring, NSRange substringRange, __unused  NSRange enclosingRange, BOOL * stop )
                 {
 
 
@@ -91,7 +91,7 @@
         ];
     }
     
-    return ( found == YES ) ? line : NSNotFound;
+    return line;// ( found == YES ) ? line : NSNotFound;
 }
 
 - ( NSInteger )currentColumn

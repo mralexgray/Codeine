@@ -1,7 +1,7 @@
 
 /* $Id$ */
 
-#import "NSBundle+CE.h"
+#import <ClangKit/ClangKit.h>
 
 NSString * const NSBundleInfoKeyCFBundleDevelopmentRegion       = @"CFBundleDevelopmentRegion";
 NSString * const NSBundleInfoKeyCFBundleExecutable              = @"CFBundleExecutable";

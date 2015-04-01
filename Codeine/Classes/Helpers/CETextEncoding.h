@@ -12,9 +12,9 @@
   RESERVED_IVARS(CETextEncoding, 5);
 }
 
-@property (atomic, readonly) NSStringEncoding encodingValue;
-@property (atomic, readonly) NSString* name;
-@property (weak, atomic, readonly) NSString* localizedName;
+@property (readonly) NSStringEncoding encodingValue;
+@property (readonly) NSString* name;
+@property (weak,readonly) NSString* localizedName;
 
 + (NSArray*)availableEncodings;
 

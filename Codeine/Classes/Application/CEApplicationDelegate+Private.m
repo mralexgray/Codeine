@@ -6,14 +6,12 @@
 #import "CEColorTheme.h"
 #import "CEMainWindowController.h"
 
-@implementation CEApplicationDelegate( Private )
+@implementation CEApplicationDelegate (Private)
 
-- ( void )installApplicationSupportFiles
-{
-    void ( ^ installDir )( NSString * directory );
-    
-    installDir = ^( NSString * directory )
-    {
+- (void)installApplicationSupportFiles {
+  void (^installDir)(NSString* directory);
+
+  installDir = ^(NSString* directory) {
         NSString * path;
         NSString * bundlePath;
         NSString * dirPath;
@@ -32,86 +30,75 @@
         {
             [ FILE_MANAGER copyItemAtPath: bundlePath toPath: dirPath error: NULL ];
         }
-    };
-    
-    installDir( @"Licenses" );
-    installDir( @"Templates" );
-    installDir( @"Themes" );
+  };
+
+  installDir(@"Licenses");
+  installDir(@"Templates");
+  installDir(@"Themes");
 }
 
-- ( void )firstLaunch
-{
-    if( [ [ CEPreferences sharedInstance ] firstLaunch ] == NO )
-    {
-        return;
-    }
-    
-    [ [ CEPreferences sharedInstance ] setUserName: NSFullUserName() ];
-    [ [ CEPreferences sharedInstance ] setTextEncoding: NSUTF8StringEncoding ];
-    
-    {
-        NSDictionary * warningFlags;
-        NSString     * warningFlag;
-        NSNumber     * warningFlagValue;
-        
-        warningFlags = [ [ CEPreferences sharedInstance ] warningFlags ];
-        
-        if( warningFlags == nil || warningFlags.count == 0 )
-        {
-            warningFlags = [ [ CEPreferences sharedInstance ] warningFlagsPresetNormal ];
-            
-            for( warningFlag in warningFlags )
-            {
-                warningFlagValue = ( NSNumber * )[ warningFlags objectForKey: warningFlag ];
-                
-                if( [ warningFlagValue boolValue ] == YES )
-                {
-                    [ [ CEPreferences sharedInstance ] enableWarningFlag: warningFlag ];
-                }
-                else
-                {
-                    [ [ CEPreferences sharedInstance ] disableWarningFlag: warningFlag ];
-                }
-            }
+- (void)firstLaunch {
+  if ([[CEPreferences sharedInstance] firstLaunch] == NO) {
+    return;
+  }
+
+  [[CEPreferences sharedInstance] setUserName:NSFullUserName()];
+  [[CEPreferences sharedInstance] setTextEncoding:NSUTF8StringEncoding];
+
+  {
+    NSDictionary* warningFlags;
+    NSString* warningFlag;
+    NSNumber* warningFlagValue;
+
+    warningFlags = [[CEPreferences sharedInstance] warningFlags];
+
+    if (warningFlags == nil || warningFlags.count == 0) {
+      warningFlags = [[CEPreferences sharedInstance] warningFlagsPresetNormal];
+
+      for (warningFlag in warningFlags) {
+        warningFlagValue = (NSNumber*)[warningFlags objectForKey:warningFlag];
+
+        if ([warningFlagValue boolValue] == YES) {
+          [[CEPreferences sharedInstance] enableWarningFlag:warningFlag];
+        } else {
+          [[CEPreferences sharedInstance] disableWarningFlag:warningFlag];
         }
+      }
     }
-    
-    {
-        CEColorTheme * theme;
-        
-        theme = [ CEColorTheme defaultColorThemeWithName: @"Codeine - Dark" ];
-        
-        [ [ CEPreferences sharedInstance ] setColorsFromColorTheme: theme ];
-    }
+  }
+
+  {
+    CEColorTheme* theme;
+
+    theme = [CEColorTheme defaultColorThemeWithName:@"Codeine - Dark"];
+
+    [[CEPreferences sharedInstance] setColorsFromColorTheme:theme];
+  }
 }
 
-- ( void )windowDidClose: ( NSNotification * )notification
-{
-    NSWindow           * window;
-    NSWindowController * controller;
-    
-    window      = [ notification object ];
-    controller  = window.windowController;
-    
-    if( [ controller isKindOfClass: [ CEMainWindowController class ] ] == YES )
-    {
-        [ _mainWindowControllers removeObject: controller ];
-//        [ controller autorelease ];
-    }
+- (void)windowDidClose:(NSNotification*)notification {
+  NSWindow* window;
+  NSWindowController* controller;
+
+  window = [notification object];
+  controller = window.windowController;
+
+  if ([controller isKindOfClass:[CEMainWindowController class]] == YES) {
+    [_mainWindowControllers removeObject:controller];
+    //        [ controller autorelease ];
+  }
 }
 
-- ( void )windowDidBecomeKey: ( NSNotification * )notification
-{
-    NSWindow           * window;
-    NSWindowController * controller;
-    
-    window      = [ notification object ];
-    controller  = window.windowController;
-    
-    if( [ controller isKindOfClass: [ CEMainWindowController class ] ] == YES && controller != _activeMainWindowController )
-    {
-        _activeMainWindowController = ( CEMainWindowController * )controller;
-    }
+- (void)windowDidBecomeKey:(NSNotification*)notification {
+  NSWindow* window;
+  NSWindowController* controller;
+
+  window = [notification object];
+  controller = window.windowController;
+
+  if ([controller isKindOfClass:[CEMainWindowController class]] == YES && controller != _activeMainWindowController) {
+    _activeMainWindowController = (CEMainWindowController*)controller;
+  }
 }
 
 @end

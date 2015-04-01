@@ -13,6 +13,6 @@ FOUNDATION_EXPORT NSString* const CEWindowControllerException;
   RESERVED_IVARS(CEWindowController, 5);
 }
 
-@property (atomic, readwrite, assign) BOOL releaseOnWindowClose;
+@property (readwrite, assign) BOOL releaseOnWindowClose;
 
 @end

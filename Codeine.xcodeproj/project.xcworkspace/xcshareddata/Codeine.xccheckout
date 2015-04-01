@@ -16,6 +16,8 @@
 		<string>https://github.com/macmade/ClangKit</string>
 		<key>1392F0C6957F9679482DB0C39D75D1041951C973</key>
 		<string>https://github.com/macmade/ClangKit</string>
+		<key>C1421C99D055D3A535089DA2BBEC5EFC9A0200F0</key>
+		<string>https://github.com/weAreYeah/WAYWindow.git</string>
 		<key>EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402</key>
 		<string>https://github.com/andymatuschak/Sparkle.git</string>
 	</dict>
@@ -29,6 +31,8 @@
 		<string>../..ClangKit</string>
 		<key>1392F0C6957F9679482DB0C39D75D1041951C973</key>
 		<string>../../ClangKit</string>
+		<key>C1421C99D055D3A535089DA2BBEC5EFC9A0200F0</key>
+		<string>../...2015/WAYWindow</string>
 		<key>EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402</key>
 		<string>../..Sparkle</string>
 	</dict>
@@ -71,6 +75,14 @@
 			<string>EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CodeineSparkle</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C1421C99D055D3A535089DA2BBEC5EFC9A0200F0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WAYWindow</string>
 		</dict>
 	</array>
 </dict>

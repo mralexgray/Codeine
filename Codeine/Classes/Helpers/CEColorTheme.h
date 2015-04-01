@@ -23,19 +23,19 @@
   RESERVED_IVARS(CEColorTheme, 5);
 }
 
-@property (atomic, readwrite, copy) NSString* name;
-@property (atomic, readwrite, copy) NSColor* foregroundColor;
-@property (atomic, readwrite, copy) NSColor* backgroundColor;
-@property (atomic, readwrite, copy) NSColor* selectionColor;
-@property (atomic, readwrite, copy) NSColor* currentLineColor;
-@property (atomic, readwrite, copy) NSColor* invisibleColor;
-@property (atomic, readwrite, copy) NSColor* keywordColor;
-@property (atomic, readwrite, copy) NSColor* commentColor;
-@property (atomic, readwrite, copy) NSColor* stringColor;
-@property (atomic, readwrite, copy) NSColor* predefinedColor;
-@property (atomic, readwrite, copy) NSColor* projectColor;
-@property (atomic, readwrite, copy) NSColor* preprocessorColor;
-@property (atomic, readwrite, copy) NSColor* numberColor;
+@property (readwrite, copy) NSString* name;
+@property (readwrite, copy) NSColor* foregroundColor;
+@property (readwrite, copy) NSColor* backgroundColor;
+@property (readwrite, copy) NSColor* selectionColor;
+@property (readwrite, copy) NSColor* currentLineColor;
+@property (readwrite, copy) NSColor* invisibleColor;
+@property (readwrite, copy) NSColor* keywordColor;
+@property (readwrite, copy) NSColor* commentColor;
+@property (readwrite, copy) NSColor* stringColor;
+@property (readwrite, copy) NSColor* predefinedColor;
+@property (readwrite, copy) NSColor* projectColor;
+@property (readwrite, copy) NSColor* preprocessorColor;
+@property (readwrite, copy) NSColor* numberColor;
 
 + (NSArray*)defaultColorThemes;
 + (id)defaultColorThemeWithName:(NSString*)name;

@@ -1,7 +1,7 @@
 
 /* $Id$ */
 
-#import "NSString+CE.h"
+#import <ClangKit/ClangKit.h>
 
 #define __NSSTRING_CE_STRINGIFY( __v__ ) #__v__
 

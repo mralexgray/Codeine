@@ -1,7 +1,7 @@
 
 /* $Id$ */
 
-#import "NSImage+CE.h"
+#import <ClangKit/ClangKit.h>
 
 typedef struct __RGBPixel
 {

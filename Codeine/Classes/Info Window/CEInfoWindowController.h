@@ -39,7 +39,7 @@
   RESERVED_IVARS(CEInfoWindowController, 5);
 }
 
-@property (atomic, readonly) NSString* path;
+@property (readonly) NSString* path;
 @property (weak, nonatomic) IBOutlet NSOutlineView* outlineView;
 @property (weak, nonatomic) IBOutlet NSView* infoView;
 @property (weak, nonatomic) IBOutlet NSView* generalLabelView;

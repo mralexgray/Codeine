@@ -1,7 +1,7 @@
 
 /* $Id$ */
 
-#import "CEQuickLookItem.h"
+#import <ClangKit/ClangKit.h>
 
 @implementation CEQuickLookItem
 
@@ -29,7 +29,7 @@
 - ( void )dealloc
 {
     RELEASE_IVAR( _path );
-    
+    [super dealloc];
 }
 
 - ( NSString * )previewItemTitle

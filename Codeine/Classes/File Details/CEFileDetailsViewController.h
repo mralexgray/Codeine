@@ -25,7 +25,7 @@
   RESERVED_IVARS(CEFileDetailsViewController, 5);
 }
 
-@property (atomic, readwrite, strong) CEFile* file;
+@property (readwrite, strong) CEFile* file;
 @property (weak, nonatomic) IBOutlet NSImageView* iconView;
 @property (weak, nonatomic) IBOutlet NSTextField* nameTextField;
 @property (weak, nonatomic) IBOutlet NSTextField* kindTextField;

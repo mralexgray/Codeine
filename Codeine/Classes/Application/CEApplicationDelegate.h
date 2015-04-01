@@ -22,7 +22,7 @@
   RESERVED_IVARS(CEApplicationDelegate, 5);
 }
 
-@property (weak, atomic, readonly) CEMainWindowController* activeMainWindowController;
+@property (weak,readonly) CEMainWindowController* activeMainWindowController;
 
 + (CEApplicationDelegate*)sharedInstance;
 - (IBAction)showPreferencesWindow:(id)sender;

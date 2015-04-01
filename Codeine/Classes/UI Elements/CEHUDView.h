@@ -16,11 +16,11 @@
   RESERVED_IVARS(CEHUDView, 5);
 }
 
-@property (atomic, readwrite, assign) CGFloat cornerRadius;
-@property (atomic, readwrite, strong) NSColor* backgroundColor1;
-@property (atomic, readwrite, strong) NSColor* backgroundColor2;
-@property (atomic, readwrite, strong) NSColor* textColor;
-@property (atomic, readwrite, strong) NSFont* font;
-@property (atomic, readwrite, copy) NSString* title;
+@property (readwrite, assign) CGFloat cornerRadius;
+@property (readwrite, strong) NSColor* backgroundColor1;
+@property (readwrite, strong) NSColor* backgroundColor2;
+@property (readwrite, strong) NSColor* textColor;
+@property (readwrite, strong) NSFont* font;
+@property (readwrite, copy) NSString* title;
 
 @end

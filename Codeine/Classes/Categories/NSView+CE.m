@@ -1,7 +1,7 @@
 
 /* $Id$ */
 
-#import "NSView+CE.h"
+#import <ClangKit/ClangKit.h>
 
 @implementation NSView( CE )
 

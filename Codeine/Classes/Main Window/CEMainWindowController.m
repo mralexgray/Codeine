@@ -20,6 +20,14 @@
 #import "CEDiagnosticsViewController.h"
 #import "CELanguageWindowController.h"
 
+@interface NSView (AppKitDetails)
+
+- (void)_addKnownSubview: (NSView *)subview;
+- (void)_addKnownSubview:(NSView *)aView positioned:(NSWindowOrderingMode)place relativeTo:(NSView *)otherView;
+@end
+
+
+
 NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
 
 @implementation CEMainWindowController
@@ -126,17 +134,24 @@ NSString * const CEMainWindowControllerDocumentsArrayKey = @"documents";
     _verticalSplitView.delegate   = self;
     
     {
-        NSRect          badgeRect;
-        CEWindowBadge * badge;
-        
-        badgeRect              = NSMakeRect( self.window.frame.size.width - 230, self.window.frame.size.height - 20, 200, 20 );
-        badge                  = [ [ CEWindowBadge alloc ] initWithFrame: badgeRect ];
-        badge.autoresizingMask = NSViewMaxXMargin | NSViewMinYMargin;
-        
-        [ badge setTitle: [ NSString stringWithFormat: @"Beta version - %lu", ( unsigned long )[ [ BUNDLE objectForInfoDictionaryKey: NSBundleInfoKeyCFBundleVersion ] integerValue ] ] ];
-        
-        [ ( ( NSView * )self.window.contentView ).superview addSubview: badge ];
-        
+//        NSRect          badgeRect;
+//        CEWindowBadge * badge;
+//        
+//        badgeRect              = NSMakeRect( self.window.frame.size.width - 230, self.window.frame.size.height - 20, 200, 20 );
+//        badge                  = [ [ CEWindowBadge alloc ] initWithFrame: badgeRect ];
+//        badge.autoresizingMask = NSViewMaxXMargin | NSViewMinYMargin;
+//        
+//        [ badge setTitle: [ NSString stringWithFormat: @"Beta version - %lu", ( unsigned long )[ [ BUNDLE objectForInfoDictionaryKey: NSBundleInfoKeyCFBundleVersion ] integerValue ] ] ];
+
+//        id themeFrameView = [self.window.contentView superview];
+//        [themeFrameView respondsToSelector: @selector(_addKnownSubview:positioned:relativeTo:)]
+//        ?  [themeFrameView _addKnownSubview:container positioned:NSWindowBelow relativeTo:firstSubview]
+//        :  [themeFrameView       addSubview:container positioned:NSWindowBelow relativeTo:firstSubview];
+//
+//
+//
+//        [  addSubview: badge ];
+
     }
     
     _debugViewController.diagnosticsViewController.textView = _editorViewController.textView;

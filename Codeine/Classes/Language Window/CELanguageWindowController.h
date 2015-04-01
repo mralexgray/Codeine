@@ -30,9 +30,9 @@ FOUNDATION_EXPORT NSString* const CELanguageWindowControllerTableColumnIdentifie
   RESERVED_IVARS(CELanguageWindowController, 5);
 }
 
-@property (atomic, readonly) CESourceFileLanguage language;
-@property (atomic, readonly) CESourceFileLineEndings lineEndings;
-@property (atomic, readonly) CETextEncoding* encoding;
+@property (readonly) CESourceFileLanguage language;
+@property (readonly) CESourceFileLineEndings lineEndings;
+@property (readonly) CETextEncoding* encoding;
 @property (weak, nonatomic) IBOutlet NSPopUpButton* encodingPopUp;
 @property (weak, nonatomic) IBOutlet NSMatrix* lineEndingsMatrix;
 @property (weak, nonatomic) IBOutlet CEBackgroundView* contentView;

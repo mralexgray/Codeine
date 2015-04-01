@@ -16,7 +16,7 @@
   RESERVED_IVARS(CEFixItViewController, 5);
 }
 
-@property (atomic, readwrite, strong) NSTextView* textView;
+@property (readwrite, strong) NSTextView* textView;
 @property (weak, nonatomic) IBOutlet NSTextField* messageTextField;
 @property (weak, nonatomic) IBOutlet NSImageView* iconView;
 
