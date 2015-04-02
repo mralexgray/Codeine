@@ -9,13 +9,13 @@
 #import "CEPreferences.h"
 #import "CEFile.h"
 
-NSString * const CEFilesViewOpenDocumentsItemName    = @"OpenDocuments";
-NSString * const CEFilesViewPlacesItemName           = @"Places";
-NSString * const CEFilesViewBookmarksItemName        = @"Bookmarks";
+NSString * const CEFilesViewOpenDocumentsItemName    = @"OpenDocuments",
+         * const CEFilesViewPlacesItemName           = @"Places",
+         * const CEFilesViewBookmarksItemName        = @"Bookmarks";
 
-static CEFilesViewItem * __placesItem        = nil;
-static CEFilesViewItem * __openDocumentsItem = nil;
-static CEFilesViewItem * __bookmarksItem     = nil;
+static CEFilesViewItem * __placesItem        = nil,
+                       * __openDocumentsItem = nil,
+                       * __bookmarksItem     = nil;
 
 static void __exit( void ) __attribute__( ( destructor ) );
 static void __exit( void )

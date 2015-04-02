@@ -5,7 +5,7 @@
 #import "CESourceFile.h"
 
 @class CEFile;
-@class CEUUID;
+
 
 @interface CEDocument : NSObject {
 @protected
@@ -13,7 +13,7 @@
   CEFile* _file;
   CESourceFile* _sourceFile;
   NSString* _name;
-  CEUUID* _uuid;
+  NSUUID* _uuid;
 
 @private
 
@@ -24,7 +24,7 @@
 @property (readonly) CESourceFile* sourceFile;
 @property (readonly) NSString* name;
 @property (weak,readonly) NSImage* icon;
-@property (readonly) CEUUID* uuid;
+@property (readonly) NSUUID* uuid;
 
 + (instancetype)documentWithPath:(NSString*)path;
 + (instancetype)documentWithURL:(NSURL*)url;

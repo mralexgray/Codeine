@@ -2,10 +2,14 @@
 /* $Id$ */
 
 #import "CEDocument.h"
-#import "CEDocument+Private.h"
 #import "CEFile.h"
 #import "CEPreferences.h"
-#import "CEUUID.h"
+
+@interface CEDocument ()
+
+@property (readonly, copy) NSString *nameForNewDocument;
+
+@end
 
 @implementation CEDocument
 
@@ -82,7 +86,7 @@
         }
         
         _name = [ _file.name copy ];
-        _uuid = [ CEUUID new ];
+        _uuid = [ NSUUID new ];
     }
     
     return self;
@@ -102,7 +106,7 @@
         }
         
         _name = [ [ self nameForNewDocument ] copy ];
-        _uuid = [ CEUUID new ];
+        _uuid = [ NSUUID new ];
     }
     
     return self;
@@ -178,6 +182,30 @@
     }
     
     return [ self.file.path isEqualToString: document.file.path ] && self.sourceFile.language == document.sourceFile.language;
+}
+
+
+static NSUInteger       __newDocumentIndex = 0;
+static NSString * const __newDocumentName  = @"Untitled";
+
+// Private
+
+- ( NSString * )nameForNewDocument
+{
+    NSString * name;
+    
+    if( __newDocumentIndex == 0 )
+    {
+        name = __newDocumentName;
+    }
+    else
+    {
+        name = [ NSString stringWithFormat: @"%@-%lu", __newDocumentName, __newDocumentIndex ];
+    }
+    
+    __newDocumentIndex++;
+    
+    return name;
 }
 
 @end

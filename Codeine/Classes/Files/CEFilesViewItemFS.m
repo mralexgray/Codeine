@@ -14,20 +14,16 @@
     range = [_name rangeOfString:@":"];
 
     if (range.location == NSNotFound) {
-      _path = [_name copy];
+      _path = _name.copy;
       _prefix = nil;
     } else {
-      _path = [[_name substringFromIndex:range.location + 1] copy];
-      _prefix = [[_name substringToIndex:range.location] copy];
+      _path = [_name substringFromIndex:range.location + 1].copy;
+      _prefix = [_name substringToIndex:range.location].copy;
     }
 
-    if ([FILE_MANAGER fileExistsAtPath:_path isDirectory:&_isDirectory] == NO) {
+    if (![FILE_MANAGER fileExistsAtPath:_path isDirectory:&_isDirectory]) return nil;
 
-      return nil;
-    }
-
-    _file =[CEFile.alloc 
-         initWithPath:_path];
+    _file =[CEFile.alloc initWithPath:_path];
   }
 
   return self;
@@ -40,17 +36,13 @@
 }
 
 - (id)copyWithZone:(NSZone*)zone {
-  CEFilesViewItemFS* item;
 
-  item = [super copyWithZone:zone];
+  CEFilesViewItemFS*item = [super copyWithZone:zone];
 
-  if (item != nil) {
-
-    item->_path = [_path copy];
-    item->_prefix = [_prefix copy];
-    item->_isDirectory = _isDirectory;
-  }
-
+  if (!item) return item;
+  item->_path = _path.copy;
+  item->_prefix = _prefix.copy;
+  item->_isDirectory = _isDirectory;
   return item;
 }
 
@@ -63,7 +55,7 @@
 }
 
 - (BOOL)expandable {
-  return _isDirectory && self.children.count > 0;
+  return _isDirectory; // && self.children.count > 0;
 }
 
 - (NSArray*)children {
@@ -77,14 +69,14 @@
   BOOL invisible;
   BOOL showHidden;
 
-  if (super.children.count > 0) {
-    return [super children];
-  }
+  if (super.children.count > 0) return [super children];
 
-  showHidden = [[CEPreferences sharedInstance] showHiddenFiles];
+  showHidden = CEPreferences.sharedInstance.showHiddenFiles;
   enumerator = [FILE_MANAGER enumeratorAtPath:_path];
+//  [enumerator skipDescendants];
 
-  while ((file = [enumerator nextObject])) {
+  for (file in enumerator) {
+//  while ((file = [enumerator nextObject])) {
     [enumerator skipDescendants];
 
     path = [_path stringByAppendingPathComponent:file];

@@ -82,7 +82,7 @@
     @try
     {
         cellFrame           = [ _tableView frameOfCellAtColumn: 0 row: _tableView.selectedRow ];
-        diagnostic          = _diagnostics[( NSUInteger )( _tableView.selectedRow )];
+        diagnostic          = _diagnostics[_tableView.selectedRow];
         controller          =[CEFixItViewController.alloc 
          initWithDiagnostic: diagnostic ];
         controller.textView = _textView;

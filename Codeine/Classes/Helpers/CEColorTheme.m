@@ -2,7 +2,6 @@
 /* $Id$ */
 
 #import "CEColorTheme.h"
-#import "CEColorTheme+Private.h"
 
 @implementation CEColorTheme
 
@@ -64,18 +63,18 @@
         name        = [ [ path lastPathComponent ] stringByDeletingPathExtension ];
         theme       = [ self colorThemeWithName: name ];
         
-        [ theme setColorFromDictionary: themeDict name: @"Foreground"   selector: @selector( setForegroundColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Background"   selector: @selector( setBackgroundColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Selection"    selector: @selector( setSelectionColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"CurrentLine"  selector: @selector( setCurrentLineColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Invisible"    selector: @selector( setInvisibleColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Keyword"      selector: @selector( setKeywordColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Comment"      selector: @selector( setCommentColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"String"       selector: @selector( setStringColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Predefined"   selector: @selector( setPredefinedColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Project"      selector: @selector( setProjectColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Preprocessor" selector: @selector( setPreprocessorColor: ) ];
-        [ theme setColorFromDictionary: themeDict name: @"Number"       selector: @selector( setNumberColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Foreground"   selector: @selector( setForegroundColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Background"   selector: @selector( setBackgroundColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Selection"    selector: @selector( setSelectionColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"CurrentLine"  selector: @selector( setCurrentLineColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Invisible"    selector: @selector( setInvisibleColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Keyword"      selector: @selector( setKeywordColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Comment"      selector: @selector( setCommentColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"String"       selector: @selector( setStringColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Predefined"   selector: @selector( setPredefinedColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Project"      selector: @selector( setProjectColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Preprocessor" selector: @selector( setPreprocessorColor: ) ];
+        [ theme _setColorFromDictionary: themeDict name: @"Number"       selector: @selector( setNumberColor: ) ];
         
         [ themes addObject: theme ];
     }
@@ -114,6 +113,22 @@
     }
     
     return self;
+}
+
+
+// Private
+
+- (void)_setColorFromDictionary:(NSDictionary*)dict name:(NSString*)name selector:(SEL)selector {
+  CGFloat r,g,b;
+
+  NSDictionary* colorValues = dict[name];
+  r = (CGFloat)([(NSNumber*)colorValues[@"R"] doubleValue] / (CGFloat)255);
+  g = (CGFloat)([(NSNumber*)colorValues[@"G"] doubleValue] / (CGFloat)255);
+  b = (CGFloat)([(NSNumber*)colorValues[@"B"] doubleValue] / (CGFloat)255);
+
+  NSColor* color = [NSColor colorWithDeviceRed:r green:g blue:b alpha:(CGFloat)1];
+
+  [self performSelector:selector withObject:color];
 }
 
 
