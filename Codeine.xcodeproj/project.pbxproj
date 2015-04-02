@@ -29,7 +29,6 @@
 		0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0515B9A515AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m */; };
 		0517226515B1A5A7004D5AF5 /* CEInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0517226315B1A5A7004D5AF5 /* CEInfoWindow.xib */; };
 		0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226815B1A792004D5AF5 /* CEInfoWindowController.m */; };
-		0517226C15B1ABD3004D5AF5 /* CEWindowController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */; };
 		05189BD315DDBD42001B8044 /* CEDiagnosticsViewController+NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05189BD215DDBD42001B8044 /* CEDiagnosticsViewController+NSTableViewDelegate.m */; };
 		05189BD615DDBD5F001B8044 /* CEDiagnosticsViewController+NSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 05189BD515DDBD5E001B8044 /* CEDiagnosticsViewController+NSTableViewDataSource.m */; };
 		05189BD915DDCC2A001B8044 /* CEDiagnosticsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05189BD715DDCC2A001B8044 /* CEDiagnosticsView.xib */; };
@@ -70,8 +69,6 @@
 		05420E9B15B5E600008B2294 /* CEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420E9A15B5E600008B2294 /* CEDocument.m */; };
 		05420EBC15B5EA2E008B2294 /* CELanguageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05420EBB15B5EA2E008B2294 /* CELanguageWindowController.m */; };
 		05457362166F74AA00B8A79B /* CEInfoWindowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05457361166F74A900B8A79B /* CEInfoWindowCell.m */; };
-		05480FB7159A0B32005CFBC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05480FB5159A0B32005CFBC5 /* InfoPlist.strings */; };
-		05480FB9159A0B32005CFBC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FB8159A0B32005CFBC5 /* main.m */; };
 		05480FD0159A0B98005CFBC5 /* CEApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FCC159A0B98005CFBC5 /* CEApplicationDelegate.m */; };
 		05480FD1159A0B98005CFBC5 /* CEMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05480FCE159A0B98005CFBC5 /* CEMainMenu.xib */; };
 		05480FD9159A0CC1005CFBC5 /* CEMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05480FD8159A0CC1005CFBC5 /* CEMainWindowController.m */; };
@@ -273,8 +270,6 @@
 		0517226415B1A5A7004D5AF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEInfoWindow.xib; sourceTree = "<group>"; };
 		0517226715B1A792004D5AF5 /* CEInfoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEInfoWindowController.h; sourceTree = "<group>"; };
 		0517226815B1A792004D5AF5 /* CEInfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInfoWindowController.m; sourceTree = "<group>"; };
-		0517226A15B1ABD3004D5AF5 /* CEWindowController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEWindowController+Private.h"; sourceTree = "<group>"; };
-		0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEWindowController+Private.m"; sourceTree = "<group>"; };
 		05189BD115DDBD42001B8044 /* CEDiagnosticsViewController+NSTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDiagnosticsViewController+NSTableViewDelegate.h"; sourceTree = "<group>"; };
 		05189BD215DDBD42001B8044 /* CEDiagnosticsViewController+NSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CEDiagnosticsViewController+NSTableViewDelegate.m"; sourceTree = "<group>"; };
 		05189BD415DDBD5E001B8044 /* CEDiagnosticsViewController+NSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CEDiagnosticsViewController+NSTableViewDataSource.h"; sourceTree = "<group>"; };
@@ -343,8 +338,6 @@
 		05457361166F74A900B8A79B /* CEInfoWindowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInfoWindowCell.m; sourceTree = "<group>"; };
 		05480FA8159A0B32005CFBC5 /* Codeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Codeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05480FB4159A0B32005CFBC5 /* Codeine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Codeine-Info.plist"; sourceTree = "<group>"; };
-		05480FB6159A0B32005CFBC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		05480FB8159A0B32005CFBC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05480FBA159A0B32005CFBC5 /* Codeine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Codeine-Prefix.pch"; sourceTree = "<group>"; };
 		05480FCB159A0B98005CFBC5 /* CEApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEApplicationDelegate.h; sourceTree = "<group>"; };
 		05480FCC159A0B98005CFBC5 /* CEApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CEApplicationDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -734,8 +727,6 @@
 				052FD01B159E019C0045C9ED /* Application Support */,
 				0566D9A5159A33C70060FF7D /* Defaults.plist */,
 				05480FB4159A0B32005CFBC5 /* Codeine-Info.plist */,
-				05480FB5159A0B32005CFBC5 /* InfoPlist.strings */,
-				05480FB8159A0B32005CFBC5 /* main.m */,
 				05480FBA159A0B32005CFBC5 /* Codeine-Prefix.pch */,
 				05480FD2159A0BF9005CFBC5 /* CEWarnings.h */,
 				05F5152B159A17EB0049A756 /* CEMacros.h */,
@@ -839,8 +830,6 @@
 		05480FDD159A0CE5005CFBC5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				0517226A15B1ABD3004D5AF5 /* CEWindowController+Private.h */,
-				0517226B15B1ABD3004D5AF5 /* CEWindowController+Private.m */,
 				05480FDE159A0CFB005CFBC5 /* CEWindowController.h */,
 				05480FDF159A0CFB005CFBC5 /* CEWindowController.m */,
 				05DA3450159A2296006B688A /* CEViewController.h */,
@@ -1230,7 +1219,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05480FB7159A0B32005CFBC5 /* InfoPlist.strings in Resources */,
 				05480FD1159A0B98005CFBC5 /* CEMainMenu.xib in Resources */,
 				05480FDC159A0CD5005CFBC5 /* CEMainWindow.xib in Resources */,
 				051F2E13159A13270027DD4F /* CEAboutWindow.xib in Resources */,
@@ -1305,7 +1293,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05480FB9159A0B32005CFBC5 /* main.m in Sources */,
 				05480FD0159A0B98005CFBC5 /* CEApplicationDelegate.m in Sources */,
 				05480FD9159A0CC1005CFBC5 /* CEMainWindowController.m in Sources */,
 				05480FE0159A0CFB005CFBC5 /* CEWindowController.m in Sources */,
@@ -1360,7 +1347,6 @@
 				0515B9A615AF77580019967A /* CEPreferencesLinkerOptionsViewController+NSOpenSavePanelDelegate.m in Sources */,
 				054BEB7315AF815D002D7730 /* CEEditorLayoutManager.m in Sources */,
 				0517226915B1A792004D5AF5 /* CEInfoWindowController.m in Sources */,
-				0517226C15B1ABD3004D5AF5 /* CEWindowController+Private.m in Sources */,
 				052CEA4315B1E21900E0BC0F /* CEInfoWindowController+Private.m in Sources */,
 				052CEA4715B1E22900E0BC0F /* CEInfoWindowController+NSOutlineViewDataSource.m in Sources */,
 				052CEA4A15B1E23700E0BC0F /* CEInfoWindowController+NSOutlineViewDelegate.m in Sources */,
@@ -1532,14 +1518,6 @@
 				052FD008159DF53C0045C9ED /* en */,
 			);
 			name = CELanguageWindow.xib;
-			sourceTree = "<group>";
-		};
-		05480FB5159A0B32005CFBC5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05480FB6159A0B32005CFBC5 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		05480FCE159A0B98005CFBC5 /* CEMainMenu.xib */ = {
