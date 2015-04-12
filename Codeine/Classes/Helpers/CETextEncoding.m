@@ -47,8 +47,7 @@ static struct __textEncoding __encodings[ __NUMBER_OF_TEXT_ENCODINGS ] =
 
 @implementation CETextEncoding
 
-@synthesize encodingValue = _encodingValue;
-@synthesize name          = _name;
+@synthesize encodingValue = _encodingValue, name          = _name;
 
 + ( NSArray * )availableEncodings
 {

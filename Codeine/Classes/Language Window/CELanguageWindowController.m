@@ -15,16 +15,7 @@ NSString * const CELanguageWindowControllerTableColumnIdentifierTitle   = @"Titl
 
 @implementation CELanguageWindowController
 
-@synthesize language                = _language;
-@synthesize lineEndings             = _lineEndings;
-@synthesize encoding                = _encoding;
-@synthesize encodingPopUp           = _encodingPopUp;
-@synthesize lineEndingsMatrix       = _lineEndingsMatrix;
-@synthesize contentView             = _contentView;
-@synthesize iconView                = _iconView;
-@synthesize languagesTableView      = _languagesTableView;
-@synthesize recentFilesTableView    = _recentFilesTableView;
-@synthesize licensePopUp            = _licensePopUp;
+@synthesize language                = _language, lineEndings             = _lineEndings, encoding                = _encoding, encodingPopUp           = _encodingPopUp, lineEndingsMatrix       = _lineEndingsMatrix, contentView             = _contentView, iconView                = _iconView, languagesTableView      = _languagesTableView, recentFilesTableView    = _recentFilesTableView, licensePopUp            = _licensePopUp;
 
 - ( void )dealloc
 {

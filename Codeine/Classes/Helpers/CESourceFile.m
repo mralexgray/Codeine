@@ -6,8 +6,7 @@
 
 @implementation CESourceFile
 
-@synthesize language        = _language;
-@synthesize translationUnit = _translationUnit;
+@synthesize language        = _language, translationUnit = _translationUnit;
 
 + ( instancetype )sourceFileWithLanguage: ( CESourceFileLanguage )language
 {

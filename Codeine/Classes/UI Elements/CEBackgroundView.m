@@ -5,8 +5,7 @@
 
 @implementation CEBackgroundView
 
-@synthesize backgroundColor = _backgroundColor;
-@synthesize borderColor     = _borderColor;
+@synthesize backgroundColor = _backgroundColor, borderColor     = _borderColor;
 
 
 - ( void )drawRect: ( NSRect )rect

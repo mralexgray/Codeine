@@ -7,9 +7,7 @@
 
 @implementation CEPreferencesGeneralOptionsViewController
 
-@synthesize languagePopUp       = _languagePopUp;
-@synthesize encodingPopUp       = _encodingPopUp;
-@synthesize lineEndingsMatrix   = _lineEndingsMatrix;
+@synthesize languagePopUp       = _languagePopUp, encodingPopUp       = _encodingPopUp, lineEndingsMatrix   = _lineEndingsMatrix;
 
 
 - ( void )awakeFromNib

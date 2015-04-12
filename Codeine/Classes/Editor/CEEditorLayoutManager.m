@@ -7,8 +7,7 @@
 
 @implementation CEEditorLayoutManager
 
-@synthesize showInvisibles = _showInvisibles;
-@synthesize showSpaces     = _showSpaces;
+@synthesize showInvisibles = _showInvisibles, showSpaces     = _showSpaces;
 
 - ( instancetype )init
 {

@@ -11,9 +11,7 @@
 
 @implementation CEPreferencesFontsAndColorsOptionsViewController
 
-@synthesize fontTextField               = _fontTextField;
-@synthesize colorThemesPopUp            = _colorThemesPopUp;
-@synthesize tableView                   = _tableView;
+@synthesize fontTextField               = _fontTextField, colorThemesPopUp            = _colorThemesPopUp, tableView                   = _tableView;
 
 - ( void )dealloc
 {

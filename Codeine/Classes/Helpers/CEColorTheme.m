@@ -5,19 +5,7 @@
 
 @implementation CEColorTheme
 
-@synthesize name                = _name;
-@synthesize foregroundColor     = _foregroundColor;
-@synthesize backgroundColor     = _backgroundColor;
-@synthesize selectionColor      = _selectionColor;
-@synthesize currentLineColor    = _currentLineColor;
-@synthesize invisibleColor      = _invisibleColor;
-@synthesize keywordColor        = _keywordColor;
-@synthesize commentColor        = _commentColor;
-@synthesize stringColor         = _stringColor;
-@synthesize predefinedColor     = _predefinedColor;
-@synthesize projectColor        = _projectColor;
-@synthesize preprocessorColor   = _preprocessorColor;
-@synthesize numberColor         = _numberColor;
+@synthesize name                = _name, foregroundColor     = _foregroundColor, backgroundColor     = _backgroundColor, selectionColor      = _selectionColor, currentLineColor    = _currentLineColor, invisibleColor      = _invisibleColor, keywordColor        = _keywordColor, commentColor        = _commentColor, stringColor         = _stringColor, predefinedColor     = _predefinedColor, projectColor        = _projectColor, preprocessorColor   = _preprocessorColor, numberColor         = _numberColor;
 
 + ( NSArray * )defaultColorThemes
 {

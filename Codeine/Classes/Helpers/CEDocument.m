@@ -13,10 +13,7 @@
 
 @implementation CEDocument
 
-@synthesize file        = _file;
-@synthesize sourceFile  = _sourceFile;
-@synthesize name        = _name;
-@synthesize uuid        = _uuid;
+@synthesize file        = _file, sourceFile  = _sourceFile, name        = _name, uuid        = _uuid;
 
 + ( instancetype )documentWithPath: ( NSString * )path
 {

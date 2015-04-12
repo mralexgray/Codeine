@@ -5,9 +5,7 @@
 
 @implementation CEFixItViewController
 
-@synthesize textView          = _textView;
-@synthesize messageTextField  = _messageTextField;
-@synthesize iconView          = _iconView;
+@synthesize textView          = _textView, messageTextField  = _messageTextField, iconView          = _iconView;
 
 - ( instancetype )initWithDiagnostic: ( CKDiagnostic * )diagnostic
 {

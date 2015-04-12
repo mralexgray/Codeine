@@ -16,11 +16,7 @@
 
 @implementation CEFilesViewController
 
-@synthesize outlineView             = _outlineView;
-@synthesize openDocumentMenu        = _openDocumentMenu;
-@synthesize bookmarkMenu            = _bookmarkMenu;
-@synthesize fsDirectoryMenu         = _fsDirectoryMenu;
-@synthesize fsFileMenu              = _fsFileMenu;
+@synthesize outlineView             = _outlineView, openDocumentMenu        = _openDocumentMenu, bookmarkMenu            = _bookmarkMenu, fsDirectoryMenu         = _fsDirectoryMenu, fsFileMenu              = _fsFileMenu;
 
 - ( void )dealloc
 {

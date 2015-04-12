@@ -15,9 +15,7 @@ NSString * const CEPreferencesLinkerOptionsViewControllerTableViewColumnLanguage
 
 @implementation CEPreferencesLinkerOptionsViewController
 
-@synthesize frameworksTableView = _frameworksTableView;
-@synthesize sharedLibsTableView = _sharedLibsTableView;
-@synthesize staticLibsTableView = _staticLibsTableView;
+@synthesize frameworksTableView = _frameworksTableView, sharedLibsTableView = _sharedLibsTableView, staticLibsTableView = _staticLibsTableView;
 
 - ( void )dealloc
 {

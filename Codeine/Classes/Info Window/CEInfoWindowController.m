@@ -9,31 +9,7 @@
 
 @implementation CEInfoWindowController
 
-@synthesize path                            = _path;
-@synthesize outlineView                     = _outlineView;
-@synthesize infoView                        = _infoView;
-@synthesize generalLabelView                = _generalLabelView;
-@synthesize iconLabelView                   = _iconLabelView;
-@synthesize permissionsLabelView            = _permissionsLabelView;
-@synthesize generalView                     = _generalView;
-@synthesize iconView                        = _iconView;
-@synthesize permissionsView                 = _permissionsView;
-@synthesize smallIconView                   = _smallIconView;
-@synthesize largeIconView                   = _largeIconView;
-@synthesize infoNameTextField               = _infoNameTextField;
-@synthesize infoSizeTextField               = _infoSizeTextField;
-@synthesize infoDateTextField               = _infoDateTextField;
-@synthesize generalKindTextField            = _generalKindTextField;
-@synthesize generalSizeTextField            = _generalSizeTextField;
-@synthesize generalPathTextField            = _generalPathTextField;
-@synthesize generalCTimeTextField           = _generalCTimeTextField;
-@synthesize generalMTimeTextField           = _generalMTimeTextField;
-@synthesize permissionsReadableTextField    = _permissionsReadableTextField;
-@synthesize permissionsWriteableTextField   = _permissionsWriteableTextField;
-@synthesize permissionsOwnerTextField       = _permissionsOwnerTextField;
-@synthesize permissionsGroupTextField       = _permissionsGroupTextField;
-@synthesize permissionsOctalTextField       = _permissionsOctalTextField;
-@synthesize permissionsHumanTextField       = _permissionsHumanTextField;
+@synthesize path                            = _path, outlineView                     = _outlineView, infoView                        = _infoView, generalLabelView                = _generalLabelView, iconLabelView                   = _iconLabelView, permissionsLabelView            = _permissionsLabelView, generalView                     = _generalView, iconView                        = _iconView, permissionsView                 = _permissionsView, smallIconView                   = _smallIconView, largeIconView                   = _largeIconView, infoNameTextField               = _infoNameTextField, infoSizeTextField               = _infoSizeTextField, infoDateTextField               = _infoDateTextField, generalKindTextField            = _generalKindTextField, generalSizeTextField            = _generalSizeTextField, generalPathTextField            = _generalPathTextField, generalCTimeTextField           = _generalCTimeTextField, generalMTimeTextField           = _generalMTimeTextField, permissionsReadableTextField    = _permissionsReadableTextField, permissionsWriteableTextField   = _permissionsWriteableTextField, permissionsOwnerTextField       = _permissionsOwnerTextField, permissionsGroupTextField       = _permissionsGroupTextField, permissionsOctalTextField       = _permissionsOctalTextField, permissionsHumanTextField       = _permissionsHumanTextField;
 
 - ( instancetype )initWithPath: ( NSString * )path
 {

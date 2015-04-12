@@ -6,9 +6,7 @@
 
 @implementation CEAboutWindowController
 
-@synthesize versionTextField = _versionTextField;
-@synthesize backgroundView   = _backgroundView;
-@synthesize iconView         = _iconView;
+@synthesize versionTextField = _versionTextField, backgroundView   = _backgroundView, iconView         = _iconView;
 
 
 - ( void )awakeFromNib

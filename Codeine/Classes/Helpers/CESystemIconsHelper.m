@@ -47,8 +47,7 @@ static NSString* const __bundlePath = @"/System/Library/CoreServices/CoreTypes.b
   NSImage* image;
 
   path = [_bundle pathForImageResource:name];
-  image = [NSImage.alloc
-    initWithContentsOfFile:path];
+  image = [NSImage.alloc initWithContentsOfFile:path];
 
   return image;
 }

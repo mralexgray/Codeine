@@ -5,12 +5,7 @@
 
 @implementation CEFile
 
-@synthesize path        = _path;
-@synthesize url         = _url;
-@synthesize isDirectory = _isDirectory;
-@synthesize isPackage   = _isPackage;
-@synthesize readable    = _readable;
-@synthesize writable    = _writable;
+@synthesize path        = _path, url         = _url, isDirectory = _isDirectory, isPackage   = _isPackage, readable    = _readable, writable    = _writable;
 
 + ( instancetype )fileWithPath: ( NSString * )path
 {

@@ -30,14 +30,7 @@ NSString* const CEMainWindowControllerDocumentsArrayKey = @"documents";
 
 @implementation CEMainWindowController
 
-@synthesize leftView = _leftView;
-@synthesize mainView = _mainView;
-@synthesize bottomView = _bottomView;
-@synthesize encodingPopUp = _encodingPopUp;
-@synthesize horizontalSplitView = _horizontalSplitView;
-@synthesize verticalSplitView = _verticalSplitView;
-@synthesize viewsSegmentedControl = _viewsSegmentedControl;
-@synthesize fullScreen = _fullScreen;
+@synthesize leftView = _leftView, mainView = _mainView, bottomView = _bottomView, encodingPopUp = _encodingPopUp, horizontalSplitView = _horizontalSplitView, verticalSplitView = _verticalSplitView, viewsSegmentedControl = _viewsSegmentedControl, fullScreen = _fullScreen;
 
 - (instancetype)init {
   if ((self = [super init])) {
@@ -79,8 +72,7 @@ NSString* const CEMainWindowControllerDocumentsArrayKey = @"documents";
   _debugViewController.view.autoresizingMask = resizingMask;
   _fileViewController.view.autoresizingMask = resizingMask;
 
-  editorHUD = [CEHUDView.alloc
-    initWithFrame:NSMakeRect(100, 100, 200, 50)];
+  editorHUD = [CEHUDView.alloc initWithFrame:NSMakeRect(100, 100, 200, 50)];
   editorHUD.title = L10N("NoEditor");
   editorHUD.autoresizingMask = NSViewMinXMargin | NSViewMaxXMargin | NSViewMinYMargin | NSViewMaxYMargin;
 

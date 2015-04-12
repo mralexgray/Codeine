@@ -24,13 +24,7 @@ static void __exit( void )
 
 @implementation CEFilesViewItem
 
-@synthesize type                = _type;
-@synthesize representedObject   = _representedObject;
-@synthesize name                = _name;
-@synthesize displayName         = _displayName;
-@synthesize icon                = _icon;
-@synthesize parent              = _parent;
-@synthesize file                = _file;
+@synthesize type                = _type, representedObject   = _representedObject, name                = _name, displayName         = _displayName, icon                = _icon, parent              = _parent, file                = _file;
 
 + ( id )placesItem
 {

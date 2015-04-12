@@ -5,10 +5,7 @@
 
 @implementation CEPreferencesFileTypesAddNewViewController
 
-@synthesize textField       = _textField;
-@synthesize popUpButton     = _popUpButton;
-@synthesize fileExtension   = _fileExtension;
-@synthesize language        = _language;
+@synthesize textField       = _textField, popUpButton     = _popUpButton, fileExtension   = _fileExtension, language        = _language;
 
 
 - ( IBAction )ok: ( id )sender

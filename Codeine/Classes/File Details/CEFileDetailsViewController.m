@@ -9,14 +9,7 @@
 
 @implementation CEFileDetailsViewController
 
-@synthesize iconView                    = _iconView;
-@synthesize nameTextField               = _nameTextField;
-@synthesize kindTextField               = _kindTextField;
-@synthesize sizeTextField               = _sizeTextField;
-@synthesize creationDateTextField       = _creationDateTextField;
-@synthesize modificationDateTextField   = _modificationDateTextField;
-@synthesize lastOpenedDateTextField     = _lastOpenedDateTextField;
-@synthesize openButton                  = _openButton;
+@synthesize iconView                    = _iconView, nameTextField               = _nameTextField, kindTextField               = _kindTextField, sizeTextField               = _sizeTextField, creationDateTextField       = _creationDateTextField, modificationDateTextField   = _modificationDateTextField, lastOpenedDateTextField     = _lastOpenedDateTextField, openButton                  = _openButton;
 
 - ( void )dealloc
 {

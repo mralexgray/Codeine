@@ -6,9 +6,7 @@
 
 @implementation CELinkerObject
 
-@synthesize type        = _type;
-@synthesize language    = _language;
-@synthesize path        = _path;
+@synthesize type        = _type, language    = _language, path        = _path;
 
 + ( NSArray * )linkerObjects
 {

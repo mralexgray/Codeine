@@ -13,9 +13,7 @@ NSString * const CEPreferencesCompilerOptionsViewControllerTableViewColumnDescri
 
 @implementation CEPreferencesCompilerOptionsViewController
 
-@synthesize tableView               = _tableView;
-@synthesize warningsPresetPopUp     = _warningsPresetPopUp;
-@synthesize optimizationLevelPopUp  = _optimizationLevelPopUp;
+@synthesize tableView               = _tableView, warningsPresetPopUp     = _warningsPresetPopUp, optimizationLevelPopUp  = _optimizationLevelPopUp;
 
 - ( void )awakeFromNib
 {

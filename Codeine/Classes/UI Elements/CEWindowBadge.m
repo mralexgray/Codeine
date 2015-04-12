@@ -6,11 +6,7 @@
 
 @implementation CEWindowBadge
 
-@synthesize title                   = _title;
-@synthesize backgroundColor         = _backgroundColor;
-@synthesize activeBackgroundColor   = _activeBackgroundColor;
-@synthesize target                  = _target;
-@synthesize action                  = _action;
+@synthesize title                   = _title, backgroundColor         = _backgroundColor, activeBackgroundColor   = _activeBackgroundColor, target                  = _target, action                  = _action;
 
 - ( instancetype )initWithFrame: ( NSRect )frame
 {

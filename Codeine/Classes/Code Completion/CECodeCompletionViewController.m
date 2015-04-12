@@ -9,8 +9,7 @@
 
 @implementation CECodeCompletionViewController
 
-@synthesize isOpening = _isOpening;
-@synthesize tableView = _tableView;
+@synthesize isOpening = _isOpening, tableView = _tableView;
 
 - ( instancetype )initWithCompletionResults: ( NSArray * )results
 {

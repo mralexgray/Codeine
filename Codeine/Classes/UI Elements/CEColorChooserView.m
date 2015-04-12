@@ -7,9 +7,7 @@
 
 @implementation CEColorChooserView
 
-@synthesize backgroundColor     = _backgroundColor;
-@synthesize representedObject   = _representedObject;
-@synthesize delegate            = _delegate;
+@synthesize backgroundColor     = _backgroundColor, representedObject   = _representedObject, delegate            = _delegate;
 
 
 - ( void )drawRect: ( NSRect )rect
