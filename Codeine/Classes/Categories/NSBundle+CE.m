@@ -19,7 +19,7 @@ NSString * const NSBundleInfoKeyCFBundleDevelopmentRegion       = @"CFBundleDeve
          * const NSBundleInfoKeyNSMainNibFile                   = @"NSMainNibFile",
          * const NSBundleInfoKeyNSPrincipalClass                = @"NSPrincipalClass";
 
-@implementation NSBundle( CE )
+@implementation NSBundle(CE)
 
 
 

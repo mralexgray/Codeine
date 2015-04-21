@@ -3,23 +3,17 @@
 
 #import <ClangKit/ClangKit.h>
 
-@implementation NSView( CE )
+@implementation NSView(CE)
 
-- ( void )centerInSuperview
-{
-    NSRect bounds;
-    NSRect frame;
+- (void)centerInSuperview {
+
+    if(!self.superview) return;
     
-    if( self.superview == nil )
-    {
-        return;
-    }
+    NSRect bounds = self.superview.bounds,
+            frame = self.frame;
     
-    bounds = self.superview.bounds;
-    frame  = self.frame;
-    
-    frame.origin.x = ( bounds.size.width  - frame.size.width  ) / ( CGFloat )2;
-    frame.origin.y = ( bounds.size.height - frame.size.height ) / ( CGFloat )2;
+    frame.origin.x = (bounds.size.width  - frame.size.width ) / (CGFloat)2;
+    frame.origin.y = (bounds.size.height - frame.size.height) / (CGFloat)2;
     
     self.frame = frame;
 }

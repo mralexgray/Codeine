@@ -121,7 +121,8 @@
             {
                 bundle      = [ NSBundle bundleWithPath: [ BUNDLE pathForResource: @"Clang" ofType: @"bundle" ] ];
                 includes    = [ bundle pathForResource: @"include" ofType: @"" ];
-                args        = @[@"-I", includes];
+                args        = @[@"-F/Users/localadmin/Library/Frameworks", @"-std=c11"];
+                //@[@"-I", includes];
             }
             @catch ( NSException * e )
             {
